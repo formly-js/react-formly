@@ -8,8 +8,9 @@ var Field = React.createClass({
     this.props.onValueUpdate(this.props.name, value);
   },
   render: function() {
-    var value = this.props.value;
-    return <input type="text" value={value} onChange={this.onChange} />;
+    var value = this.props.name;
+    var model = this.props.model;
+    return <input type="text" value={model[value]} onChange={this.onChange} />;
   }
 });
 

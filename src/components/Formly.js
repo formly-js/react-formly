@@ -19,7 +19,7 @@ var Formly = React.createClass({
     var fieldName = 'myField';
     return (
       <form name="{this.formly.config.name}">
-        <Field name={fieldName} value={this.formly.model[fieldName]} onValueUpdate={this.onValueUpdate} />
+        <Field name={fieldName} model={this.formly.model} onValueUpdate={this.onValueUpdate} />
       </form>
       );
   }
