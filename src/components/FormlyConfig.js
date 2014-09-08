@@ -1,7 +1,6 @@
+'use strict';
 
 var fieldTypeMap = {};
-
-var x = 'hi';
 
 module.exports = {
   fields: {
