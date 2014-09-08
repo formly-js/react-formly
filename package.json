@@ -1,15 +1,16 @@
 {
-  "name": "react-components-library",
+  "name": "react-formly",
   "version": "0.0.0",
-  "description": "A library of react components.",
+  "description": "JSON powered forms for react",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "script/test",
+    "start": "node server.js",
+    "dev": "script/dev"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kentcdodds/react-components-library.git"
+    "url": "https://github.com/kentcdodds/react-formly.git"
   },
   "keywords": [
     "react",
@@ -19,11 +20,10 @@
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kent.doddsfamily.us)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kentcdodds/react-components-library/issues"
+    "url": "https://github.com/kentcdodds/react-formly/issues"
   },
-  "homepage": "https://github.com/kentcdodds/react-components-library",
+  "homepage": "https://github.com/kentcdodds/react-formly",
   "devDependencies": {
-    "assert": "^1.1.1",
     "jsx-loader": "^0.11.0",
     "karma": "^0.12.19",
     "karma-chrome-launcher": "^0.1.4",
@@ -36,9 +36,6 @@
     "webpack-dev-server": "^1.4.7"
   },
   "dependencies": {
-    "es6-promise": "^1.0.0",
-    "lodash": "^2.4.1",
-    "react": "^0.11.1",
-    "react-router": "^0.5.0"
+    "react": "^0.11.1"
   }
 }

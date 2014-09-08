@@ -1,0 +1,4 @@
+#!/bin/sh
+mkdir -p dist
+NODE_ENV=production node_modules/.bin/webpack --devtool inline-source-map
+node_modules/.bin/uglifyjs dist/react-formly.js --compress warnings=false --source-map dist/react-formly.min.js.map -o dist/react-formly.min.js

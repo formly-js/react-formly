@@ -1,11 +1,39 @@
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './index.js',
   output: {
-    filename: 'dist/react-formly.js'
+    path: 'dist',
+    filename: 'react-formly.js',
+    library: 'ReactFormly',
+    libraryTarget: 'umd'
   },
+
+  externals: {
+    react: 'React'
+  },
+
+  debug: false,
+  devtool: false,
+  entry: './index.js',
+
+  stats: {
+    colors: true,
+    reasons: false
+  },
+
+  plugins: [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin()
+  ],
+
+  resolve: {
+    extensions: ['','.js']
+  },
+
   module: {
     loaders: [
-      {test: /\.js$/, loader: 'jsx-loader'}
+      { test: /src\/.*\.js$/, loader: 'jsx-loader' }
     ]
   }
 };
