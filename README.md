@@ -1,10 +1,17 @@
-# React Components Library
+# React Formly
 
-This is the code for the future site to be the one-stop-shop for finding useful react components. Stay tuned :-)
+![build](https://travis-ci.org/kentcdodds/react-formly.svg)
+
+JSON powered forms for react. Currently in development. Feel free to play around with it! The tests are the best
+documentation so far.
 
 # Contributing
 
 Yes, please...
+
+# Credits
+
+Based on the simple api from [angular-formly](https://github.com/nimbly/angular-formly)
  
 # License
  
