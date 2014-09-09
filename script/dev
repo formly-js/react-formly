@@ -1,5 +1,7 @@
 #!/bin/sh
 cd demo && ../node_modules/.bin/webpack --watch --devtool inline-source-map &
 npm start
+test
 kill %1
 kill %2
+kill %3

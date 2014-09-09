@@ -5,7 +5,8 @@ var fieldTypeMap = {};
 module.exports = {
   fields: {
     addType: addFieldType,
-    getTypes: getFieldTypes
+    getTypes: getFieldTypes,
+    clearTypes: clearTypes
   }
 };
 
@@ -23,4 +24,10 @@ function addFieldType(name, field) {
 
 function getFieldTypes() {
   return fieldTypeMap;
+}
+
+function clearTypes() {
+  var oldTypes = fieldTypeMap;
+  fieldTypeMap = {};
+  return oldTypes;
 }
