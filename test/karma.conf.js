@@ -12,6 +12,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'test/phantomjs-hack.js',
       'node_modules/react/dist/react.js',
       'src/**/*.spec.js'
     ],
@@ -38,7 +39,7 @@ module.exports = function(config) {
       require('karma-webpack'),
       'karma-mocha',
       'karma-chai',
-      'karma-chrome-launcher'
+      'karma-phantomjs-launcher'
     ],
 
     // web server port
@@ -60,7 +61,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
