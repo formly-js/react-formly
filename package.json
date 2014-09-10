@@ -2,7 +2,6 @@
   "name": "react-formly",
   "version": "0.0.0",
   "description": "JSON powered forms for react - Currently in alpha state, API subject to change...",
-  "private": true,
   "scripts": {
     "test": "script/test",
     "start": "node server.js",
