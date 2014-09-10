@@ -1,7 +1,7 @@
 {
   "name": "react-formly",
   "version": "0.0.0",
-  "description": "JSON powered forms for react",
+  "description": "JSON powered forms for react - Currently in alpha state, API subject to change...",
   "private": true,
   "scripts": {
     "test": "script/test",
@@ -15,7 +15,11 @@
   "keywords": [
     "react",
     "react components",
-    "library"
+    "library",
+    "forms",
+    "react-component",
+    "reactjs",
+    "html forms"
   ],
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kent.doddsfamily.us)",
   "license": "MIT",

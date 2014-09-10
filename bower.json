@@ -1,0 +1,34 @@
+{
+  "name": "react-formly",
+  "main": "dist/react-formly.min.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kentcdodds/react-formly",
+  "authors": [
+    "Kent C. Dodds <kent@doddsfamily.us> (http://kent.doddsfamily.us)"
+  ],
+  "description": "JSON powered forms for react - Currently in alpha state, API subject to change...",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "react",
+    "react components",
+    "library",
+    "forms",
+    "react-component",
+    "reactjs",
+    "html forms"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "script",
+    "node_modules",
+    "test",
+    "demo"
+  ],
+  "dependencies": {
+    "react": "~0.11.1"
+  }
+}
