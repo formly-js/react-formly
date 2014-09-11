@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "JSON powered forms for react - Currently in alpha state, API subject to change...",
   "scripts": {
-    "test": "script/test",
+    "test": "node_modules/.bin/karma start test/karma.conf.js --browsers Firefox",
     "start": "node server.js",
     "dev": "script/dev"
   },
