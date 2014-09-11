@@ -38,7 +38,6 @@ module.exports = function(config) {
       require('karma-webpack'),
       'karma-mocha',
       'karma-chai',
-      'karma-phantomjs-launcher',
       'karma-chrome-launcher'
     ],
 
@@ -61,7 +60,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS', 'Chrome'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
