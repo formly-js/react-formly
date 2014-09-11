@@ -37,7 +37,8 @@ module.exports = function(config) {
       require('karma-webpack'),
       'karma-mocha',
       'karma-chai',
-      'karma-chrome-launcher'
+      'karma-chrome-launcher',
+      'karma-firefox-launcher'
     ],
 
     // web server port
@@ -59,7 +60,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Firefox', 'Chrome'],
 
 
     // Continuous Integration mode
