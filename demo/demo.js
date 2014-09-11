@@ -10,7 +10,7 @@ FormlyConfig.fields.addType([
   { name: 'number', field: require('./field-types/NumberField') }
 ]);
 
-var App = React.createClass({displayName: 'App',
+var App = React.createClass({
   getInitialState: function() {
     return {
       model: {}
@@ -42,17 +42,17 @@ var App = React.createClass({displayName: 'App',
   },
   render: function() {
     return (
-      React.DOM.div({className: "container"},
-        React.DOM.h1(null, this.props.greeting),
-        React.DOM.h2(null, "Form"),
+      <div className="container">
+        <h1>{this.props.greeting}</h1>
+        <h2>Form</h2>
 
-        Formly({config: this.formly.config, model: this.state.model, onFormlyUpdate: this.onFormlyUpdate}),
-        React.DOM.h2(null, "Model:"),
-        React.DOM.pre(null, JSON.stringify(this.state.model, null, 2))
-      )
-      );
+        <Formly config={this.formly.config} model={this.state.model} onFormlyUpdate={this.onFormlyUpdate} />
+        <h2>Model:</h2>
+        <pre>{JSON.stringify(this.state.model, null, 2)}</pre>
+      </div>
+    );
   }
 });
 
 
-React.renderComponent(App({greeting: "React-Formly"}), document.body);
+React.renderComponent(<App greeting="React-Formly" />, document.body);

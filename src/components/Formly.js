@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
 'use strict';
 
-var React = require('react');
-var fieldTypes = require('./FormlyConfig').fields.getTypes();
+var React = require('react/addons');
+var FormlyConfig = require('./FormlyConfig');
 
 var Formly = React.createClass({displayName: 'Formly',
   onValueUpdate: function(fieldKey, value) {
@@ -22,12 +22,12 @@ var Formly = React.createClass({displayName: 'Formly',
     var fields = this.formly.config.fields.map(function(field) {
       return generateFieldTag(field, model, onValueUpdate);
     });
-    return React.DOM.form({name: "{this.formly.config.name}"}, fields);
+    return <form name={this.formly.config.name}>{fields}</form>;
   }
 });
 
 function generateFieldTag(field, model, onValueUpdate) {
-  var fieldTag = fieldTypes[field.type];
+  var fieldTag = FormlyConfig.fields.getTypes()[field.type];
   if (!fieldTag) {
     throw new Error('Formly: "' + field.type + '" has not been added to FormlyConfig\'s field types.');
   }
@@ -38,7 +38,7 @@ function generateFieldTag(field, model, onValueUpdate) {
     return null;
   }
 
-  return fieldTag({model: model, config: field, onValueUpdate: onValueUpdate, key: field.key});
+  return <fieldTag model={model} config={field} onValueUpdate={onValueUpdate} key={field.key} />;
 }
 
 function isOrInvoke(field, property, model) {

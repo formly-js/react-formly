@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 var FormlyConfig = require('./FormlyConfig');
 
-describe.only('FormlyConfig', function FormlySpec() {
+describe('FormlyConfig', function FormlySpec() {
 
   describe('fields', function() {
 

@@ -1,8 +1,9 @@
 var expect = require('chai').expect;
-var React = require('react');
+var React = require('react/addons');
+var TestUtils = React.addons.TestUtils;
 var Formly = require('./Formly');
 
-describe('Formly', function FormlySpec() {
+xdescribe('Formly', function FormlySpec() {
   it('should be tested', function() {
     expect(false).to.be.true;
   });
