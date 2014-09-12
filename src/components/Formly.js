@@ -4,7 +4,8 @@
 var React = require('react/addons');
 var FormlyConfig = require('./FormlyConfig');
 
-var Formly = React.createClass({displayName: 'Formly',
+
+var Formly = React.createClass({
   onValueUpdate: function(fieldKey, value) {
     this.formly.model[fieldKey] = value;
     this.props.onFormlyUpdate(this.formly.model);
