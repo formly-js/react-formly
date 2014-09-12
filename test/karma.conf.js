@@ -34,7 +34,7 @@ module.exports = function(config) {
     webpack: require('../webpack.config.js'),
 
     plugins: [
-      require('karma-webpack'),
+      'karma-webpack',
       'karma-mocha',
       'karma-chai',
       'karma-chrome-launcher',

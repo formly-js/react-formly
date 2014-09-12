@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-node_modules/.bin/karma start test/karma.conf.js --single-run
+node_modules/.bin/karma start "test/karma.conf.js" --browsers Chrome --single-run
 rm -rf dist
 mkdir dist
 NODE_ENV=production node_modules/.bin/webpack --devtool inline-source-map
