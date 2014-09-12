@@ -33,7 +33,7 @@ gulp.task('buildTest', function() {
 gulp.task('test', function(done) {
   karma.start({
     configFile: __dirname + '/test/karma.conf.js',
-    browsers: iargv.travis ? ['Firefox'] : ['Chrome'],
+    browsers: argv.travis ? ['Firefox'] : ['Chrome'],
     singleRun: !!argv.travis
   }, done);
 });
