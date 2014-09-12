@@ -1,6 +1,6 @@
 # React Formly
 
-![build](https://travis-ci.org/kentcdodds/react-formly.svg)
+[![build](https://travis-ci.org/kentcdodds/react-formly.svg)](https://travis-ci.org/kentcdodds/react-formly)
 
 JSON powered forms for react. Currently in development. Feel free to play around with it! The tests are the best
 documentation so far.
