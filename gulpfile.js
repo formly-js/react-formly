@@ -20,6 +20,7 @@ gulp.task('buildTest', function() {
       output: {
         filename: './index-built.js'
       },
+      watch: true,
       module: {
         loaders: [
           { test: /\.js$/, loader: 'jsx-loader' }
@@ -33,7 +34,7 @@ gulp.task('test', function(done) {
   karma.start({
     configFile: __dirname + '/test/karma.conf.js',
     browsers: ['Chrome'],
-    singleRun: true
+    singleRun: false
   }, done);
 });
 
@@ -49,8 +50,8 @@ gulp.task('build', shell.task([
   'script/build'
 ]));
 
-gulp.task('watch', function() {
-  gulp.watch(['./src/**/*.js', '!./src/**/*.spec.js'], ['build']);
-  gulp.watch('./src/**/*.spec.js', ['buildTest']);
-  gulp.watch('./test/index-built.js', ['test'])
-});
+gulp.task('dev', shell.task([
+  'script/dev'
+]));
+
+gulp.task('watch:test', ['buildTest', 'test']);

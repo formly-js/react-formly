@@ -4,36 +4,11 @@
 var expect = require('chai').expect;
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
-var FieldMixin = require('./FieldMixin');
+var TestField = require('../../test/TestField');
 var FormlyConfig = require('../components/FormlyConfig');
 var Formly = require('../components/Formly');
 
 describe('FieldMixin', function FormlySpec() {
-  var TextField;
-
-  beforeEach(function() {
-
-    TextField = React.createClass({
-      mixins: [FieldMixin],
-      transformUpdate: function(value) {
-        return value.replace(/foo/g, 'bar');
-      },
-      render: function() {
-        var model = this.props.model || {};
-        var key = this.props.key || '';
-        var value = '';
-        if (model && key) {
-          value = model[key];
-        }
-        return (
-          <label ref="label">
-            <input type="text" ref="input" name={key} value={value} onChange={this.onChange} />
-          </label>
-          );
-      }
-    });
-  });
-
   describe('on its own', function() {
     var field;
     var input;
@@ -52,7 +27,7 @@ describe('FieldMixin', function FormlySpec() {
         key: 'myKey'
       };
 
-      field = TestUtils.renderIntoDocument(<TextField onValueUpdate={onValueUpdate} config={config} />);
+      field = TestUtils.renderIntoDocument(<TestField onValueUpdate={onValueUpdate} config={config} />);
       input = field.refs.input.getDOMNode();
     });
 
@@ -71,7 +46,7 @@ describe('FieldMixin', function FormlySpec() {
 
     beforeEach(function() {
       FormlyConfig.fields.clearTypes();
-      FormlyConfig.fields.addType('text', TextField);
+      FormlyConfig.fields.addType('text', TestField);
       var config = {
         name: 'myFormly',
         fields: [
@@ -87,11 +62,7 @@ describe('FieldMixin', function FormlySpec() {
           this.setState({model: model});
         },
         render: function() {
-          return (
-            <div>
-              <Formly config={config} model={this.state.model} onFormlyUpdate={this.onFormlyUpdate} />
-            </div>
-          );
+          return <Formly config={config} model={this.state.model} onFormlyUpdate={this.onFormlyUpdate} />;
         }
       });
 

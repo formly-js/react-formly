@@ -6,6 +6,12 @@ var FormlyConfig = require('./FormlyConfig');
 
 
 var Formly = React.createClass({
+  propTypes: {
+    onFormlyUpdate: React.PropTypes.func.isRequired,
+    config: React.PropTypes.object.isRequired,
+    model: React.PropTypes.object
+  },
+
   onValueUpdate: function(fieldKey, value) {
     this.formly.model[fieldKey] = value;
     this.props.onFormlyUpdate(this.formly.model);
@@ -14,9 +20,10 @@ var Formly = React.createClass({
   componentWillMount: function componentWillMount() {
     this.formly = {
       config: this.props.config,
-      model: this.props.model
+      model: this.props.model || {}
     };
   },
+
   render: function() {
     var model = this.formly.model;
     var onValueUpdate = this.onValueUpdate;
