@@ -3,7 +3,7 @@ var deploy = require('gulp-gh-pages');
 var shell = require('gulp-shell');
 var webpack = require('gulp-webpack');
 var karma = require('karma').server;
-
+var argv = require('yargs').argv;
 
 gulp.task('deploy', function () {
   gulp.src([
@@ -20,7 +20,7 @@ gulp.task('buildTest', function() {
       output: {
         filename: './index-built.js'
       },
-      watch: true,
+      watch: !argv.travis,
       module: {
         loaders: [
           { test: /\.js$/, loader: 'jsx-loader' }
@@ -33,16 +33,8 @@ gulp.task('buildTest', function() {
 gulp.task('test', function(done) {
   karma.start({
     configFile: __dirname + '/test/karma.conf.js',
-    browsers: ['Chrome'],
-    singleRun: false
-  }, done);
-});
-
-gulp.task('travisTest', ['buildTest'], function(done) {
-  karma.start({
-    configFile: __dirname + '/test/karma.conf.js',
-    browsers: ['Firefox'],
-    singleRun: true
+    browsers: iargv.travis ? ['Firefox'] : ['Chrome'],
+    singleRun: !!argv.travis
   }, done);
 });
 
@@ -55,3 +47,5 @@ gulp.task('dev', shell.task([
 ]));
 
 gulp.task('watch:test', ['buildTest', 'test']);
+
+gulp.task('default', ['build']);
