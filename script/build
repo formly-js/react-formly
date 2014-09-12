@@ -4,5 +4,5 @@ NODE_ENV=production node_modules/.bin/webpack --config test/webpack.config.js
 node_modules/.bin/karma start "test/karma.conf.js" --browsers Chrome --single-run
 rm -rf dist
 mkdir dist
-NODE_ENV=production node_modules/.bin/webpack --devtool inline-source-map
+NODE_ENV=production node_modules/.bin/webpack --config webpack.config.js --devtool inline-source-map
 node_modules/.bin/uglifyjs dist/react-formly.js --compress warnings=false --source-map dist/react-formly.min.js.map -o dist/react-formly.min.js
