@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "description": "JSON powered forms for react - Currently in alpha state, API subject to change...",
   "scripts": {
-    "test": "gulp test --travis",
-    "start": "node server.js",
-    "dev": "script/dev"
+    "test": "gulp ci --travis",
+    "dev": "gulp dev"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/kentcdodds/react-formly.git"
   },
+  "main": "index",
   "keywords": [
     "react",
     "react components",
@@ -28,9 +28,10 @@
   "homepage": "https://github.com/kentcdodds/react-formly",
   "devDependencies": {
     "chai": "^1.9.1",
+    "connect": "^3.2.0",
     "gulp": "^3.8.8",
     "gulp-gh-pages": "^0.3.4",
-    "gulp-shell": "^0.2.9",
+    "gulp-task-listing": "^0.3.0",
     "gulp-webpack": "^0.3.0",
     "jsx-loader": "^0.11.0",
     "karma": "^0.12.19",
@@ -39,13 +40,12 @@
     "karma-cli": "0.0.4",
     "karma-firefox-launcher": "^0.1.3",
     "karma-mocha": "^0.1.6",
-    "karma-webpack": "^1.2.1",
+    "livereload": "^0.3.4",
     "mocha": "^1.21.3",
-    "pushstate-server": "^0.2.0",
     "react-addons": "^0.9.0",
-    "uglify-js": "^2.4.15",
+    "rimraf": "^2.2.8",
+    "serve-static": "^1.6.1",
     "webpack": "^1.3.2-beta9",
-    "webpack-dev-server": "^1.4.7",
     "yargs": "^1.3.1"
   },
   "dependencies": {

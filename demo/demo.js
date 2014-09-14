@@ -54,5 +54,4 @@ var App = React.createClass({
   }
 });
 
-
 React.renderComponent(<App greeting="React-Formly" />, document.body);

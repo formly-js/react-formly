@@ -1,7 +1,4 @@
-/** @jsx React.DOM */
 'use strict';
-
-var React = require('react');
 
 var FieldMixin = {
   onChange: function(event) {

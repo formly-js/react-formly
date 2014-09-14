@@ -433,10 +433,7 @@
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx React.DOM */
 	'use strict';
-
-	var React = __webpack_require__(9);
 
 	var FieldMixin = {
 	  onChange: function(event) {
