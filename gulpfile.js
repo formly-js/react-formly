@@ -1,7 +1,10 @@
 var gulp = require('gulp');
 var deploy = require('gulp-gh-pages');
 var gulpWebpack = require('gulp-webpack');
-var taskListing = require('gulp-task-listing');
+
+// hijack task fn and add help
+require('gulp-help')(gulp);
+
 
 var connect = require('connect');
 var serveStatic = require('serve-static');
@@ -13,7 +16,7 @@ var webpack = require('webpack');
 var karma = require('karma').server;
 var argv = require('yargs').argv;
 
-gulp.task('deploy', function () {
+gulp.task('deploy', 'Deploy demo to gh-pages', function () {
   gulp.src([
     './demo/demo-built.js',
     './demo/index.html',
@@ -22,7 +25,7 @@ gulp.task('deploy', function () {
     .pipe(deploy());
 });
 
-gulp.task('build:clean', function(done) {
+gulp.task('build:clean', false, function(done) {
   rimraf('./dist', done);
 });
 
@@ -42,11 +45,11 @@ function buildTest(once) {
     .pipe(gulp.dest('test/'));
 }
 
-gulp.task('test:buildTest', function() {
+gulp.task('test:buildTest', false, function() {
   buildTest(true);
 });
 
-gulp.task('watch:buildTest', function() {
+gulp.task('watch:buildTest', false, function() {
   buildTest(false);
 });
 
@@ -58,11 +61,11 @@ function test(once, done) {
   }, done);
 }
 
-gulp.task('test', ['test:buildTest'], function(done) {
+gulp.task('test', 'Run tests once', ['test:buildTest'], function(done) {
   test(true, done);
 });
 
-gulp.task('watch:test', ['watch:buildTest'], function(done) {
+gulp.task('watch:test', false, ['watch:buildTest'], function(done) {
   test(false, done);
 });
 
@@ -78,23 +81,23 @@ function buildLib(once, uglify) {
     .pipe(gulp.dest('dist/'));
 }
 
-gulp.task('build:lib', function() {
+gulp.task('build:lib', false, function() {
   buildLib(true, false);
 });
 
-gulp.task('watch:build:lib', function() {
+gulp.task('watch:build:lib', false, function() {
   buildLib(false, false);
 });
 
-gulp.task('build:uglify', function() {
+gulp.task('build:uglify', false, function() {
   buildLib(true, true);
 });
 
-gulp.task('watch:build:uglify', function() {
+gulp.task('watch:build:uglify', false, function() {
   buildLib(false, true);
 });
 
-gulp.task('watch:demo', function() {
+gulp.task('watch:demo', false, function() {
   return gulp.src('demo/demo.js')
     .pipe(gulpWebpack({
       output: {
@@ -112,27 +115,36 @@ gulp.task('watch:demo', function() {
     .pipe(gulp.dest('demo/'));
 });
 
-gulp.task('watch:serve:server', function(next) {
+gulp.task('watch:serve:server', false, function(next) {
   var server = connect();
   server.use(serveStatic('demo'));
   server.listen(process.env.PORT || 3000, next);
 });
 
-gulp.task('watch:serve', ['watch:serve:server'], function() {
+gulp.task('watch:serve', false, ['watch:serve:server'], function() {
   var server = livereload.createServer({
     interval: 300
   });
   server.watch(__dirname + '/demo');
 });
 
-gulp.task('watch', ['watch:build:lib', 'watch:build:uglify', 'watch:buildTest', 'watch:test', 'watch:demo', 'watch:serve']);
+gulp.task('watch', 'Use this for development. Will build, test, and serve the demo automgagically', [
+  'watch:build:lib',
+  'watch:build:uglify',
+  'watch:buildTest',
+  'watch:test',
+  'watch:demo',
+  'watch:serve'
+]);
 
-gulp.task('build', ['build:clean', 'build:lib', 'build:uglify']);
+gulp.task('build', 'Build the library', ['build:clean', 'build:lib', 'build:uglify']);
 
-gulp.task('help', taskListing);
-gulp.task('default', ['help']);
+gulp.task('default', false, ['help']);
 
-gulp.task('ci', ['test', 'build']);
+gulp.task('ci', 'Run the tests and build. Use --travis for the travis version of the build.', [
+  'test',
+  'build'
+]);
 
 
 

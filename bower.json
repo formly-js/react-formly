@@ -1,7 +1,7 @@
 {
   "name": "react-formly",
   "main": "dist/react-formly.min.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/kentcdodds/react-formly",
   "authors": [
     "Kent C. Dodds <kent@doddsfamily.us> (http://kent.doddsfamily.us)"

@@ -1,6 +1,6 @@
 {
   "name": "react-formly",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "JSON powered forms for react - Currently in alpha state, API subject to change...",
   "scripts": {
     "test": "gulp ci --travis",
@@ -31,7 +31,7 @@
     "connect": "^3.2.0",
     "gulp": "^3.8.8",
     "gulp-gh-pages": "^0.3.4",
-    "gulp-task-listing": "^0.3.0",
+    "gulp-help": "^1.1.0",
     "gulp-webpack": "^0.3.0",
     "jsx-loader": "^0.11.0",
     "karma": "^0.12.19",
