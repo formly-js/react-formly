@@ -30,7 +30,7 @@ var Formly = React.createClass({
     var fields = this.formly.config.fields.map(function(field) {
       return generateFieldTag(field, model, onValueUpdate);
     });
-    return <form name={this.formly.config.name}>{fields}</form>;
+    return <form className="formly" role="form" name={this.formly.config.name}>{fields}</form>;
   }
 });
 
@@ -42,7 +42,7 @@ function generateFieldTag(field, model, onValueUpdate) {
 
   // hidden
   var hide = isOrInvoke(field, 'hidden', model);
-  if (!hide && hide !== null) {
+  if (hide && hide !== null) {
     return null;
   }
 
