@@ -4,8 +4,10 @@
 var expect = require('chai').expect;
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
-var TestField = require('../../test/TestField');
-var FormlyConfig = require('../components/FormlyConfig');
+var TestFields = require('../../test/TestFields');
+var TextField = TestFields.text;
+var NumberField = TestFields.number;
+var FormlyConfig = require('../modules/FormlyConfig');
 var Formly = require('../components/Formly');
 
 describe('FieldMixin', function FormlySpec() {
@@ -27,7 +29,7 @@ describe('FieldMixin', function FormlySpec() {
         key: 'myKey'
       };
 
-      field = TestUtils.renderIntoDocument(<TestField onValueUpdate={onValueUpdate} config={config} />);
+      field = TestUtils.renderIntoDocument(<TextField onValueUpdate={onValueUpdate} config={config} />);
       input = field.refs.input.getDOMNode();
     });
 
@@ -46,7 +48,7 @@ describe('FieldMixin', function FormlySpec() {
 
     beforeEach(function() {
       FormlyConfig.fields.clearTypes();
-      FormlyConfig.fields.addType('text', TestField);
+      FormlyConfig.fields.addType('text', TextField);
       var config = {
         name: 'myFormly',
         fields: [
@@ -74,6 +76,28 @@ describe('FieldMixin', function FormlySpec() {
       input.value = 'foobar';
       TestUtils.Simulate.change(input);
       expect(input.value).to.equal('barbar');
+    });
+
+  });
+
+  describe('special cases', function() {
+    var field;
+    var input;
+    beforeEach(function() {
+      var config = {
+        key: 'myKey'
+      };
+
+      function noop() {}
+
+      field = TestUtils.renderIntoDocument(<NumberField onValueUpdate={noop} config={config} />);
+      input = field.refs.input.getDOMNode();
+    });
+
+    it('should always set the value to the post-transformUpdate value', function() {
+      input.value = 'hello world';
+      TestUtils.Simulate.change(input);
+      expect(input.value).to.equal('');
     });
   });
 

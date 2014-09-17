@@ -5,15 +5,20 @@ var ReactFormly = require('../index');
 var Formly = ReactFormly.Formly;
 var FormlyConfig = ReactFormly.FormlyConfig;
 
+var BuildBadge = require('./components/build-badge');
+
 FormlyConfig.fields.addType([
-  { name: 'text', field: require('./field-types/TextField') },
-  { name: 'number', field: require('./field-types/NumberField') }
+  { name: 'text', field: require('./components/field-types/TextField') },
+  { name: 'number', field: require('./components/field-types/NumberField') },
+  { name: 'checkbox', field: require('./components/field-types/Checkbox') }
 ]);
 
 var App = React.createClass({
   getInitialState: function() {
     return {
-      model: {}
+      model: {
+        age: 26
+      }
     };
   },
   onFormlyUpdate: function(model) {
@@ -27,15 +32,30 @@ var App = React.createClass({
         {
           key: 'name',
           type: 'text',
-          label: 'Name'
+          label: 'Name',
+          placeholder: 'If you would be so kind...',
+          hidden: function(model) {
+            return !!model.secretName;
+          }
         },
         {
           key: 'age',
           type: 'number',
-          label: 'Age',
-          isHidden: function(model) {
-            return !model.name;
+          label: 'Age'
+        },
+        {
+          key: 'secretName',
+          type: 'text',
+          label: 'Secret name...?',
+          placeholder: 'If you have no name...',
+          hidden: function(model) {
+            return !!model.name;
           }
+        },
+        {
+          key: 'awesome',
+          type: 'checkbox',
+          label: 'Are you awesome?'
         }
       ]
     };
@@ -43,9 +63,13 @@ var App = React.createClass({
   render: function() {
     return (
       <div className="container">
-        <h1>{this.props.greeting}</h1>
-        <h2>Form</h2>
+        <h1>
+          <a href="http://github.com/kentcdodds/react-formly">React-Formly</a>
+          <small>JSON powered forms for <a href="http://facebook.github.io/react/">React</a></small>
+        </h1>
+        <BuildBadge owner="kentcdodds" repo="react-formly" />
 
+        <h2>Form</h2>
         <Formly config={this.formly.config} model={this.state.model} onFormlyUpdate={this.onFormlyUpdate} />
         <h2>Model:</h2>
         <pre>{JSON.stringify(this.state.model, null, 2)}</pre>
@@ -54,4 +78,4 @@ var App = React.createClass({
   }
 });
 
-React.renderComponent(<App greeting="React-Formly" />, document.body);
+React.renderComponent(<App />, document.body);

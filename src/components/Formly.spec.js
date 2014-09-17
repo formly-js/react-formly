@@ -4,9 +4,9 @@
 var expect = require('chai').expect;
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
-var TestField = require('../../test/TestField');
+var TestField = require('../../test/TestFields').text;
 var Formly = require('./Formly');
-var FormlyConfig = require('./FormlyConfig');
+var FormlyConfig = require('./../modules/FormlyConfig');
 
 describe('Formly', function FormlySpec() {
   var renderedFieldComponents;
