@@ -10,7 +10,7 @@ var NumberField = TestFields.number;
 var FormlyConfig = require('../modules/FormlyConfig');
 var Formly = require('../components/Formly');
 
-describe('FieldMixin', function FormlySpec() {
+describe('FieldMixin', function FieldMixinSpec() {
   describe('on its own', function() {
     var field;
     var input;

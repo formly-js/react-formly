@@ -2,7 +2,6 @@
 
 var FieldMixin = {
   onChange: function(event) {
-//    debugger;
     var value = getValue(event.target);
     this.updateValue(value);
   },

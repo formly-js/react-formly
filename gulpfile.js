@@ -20,7 +20,8 @@ gulp.task('deploy', 'Deploy demo to gh-pages', function () {
   gulp.src([
     './demo/demo-built.js',
     './demo/index.html',
-    './demo/styles.css'
+    './demo/styles.css',
+    './demo/non_bower_components/bootstrap.min.css'
   ])
     .pipe(deploy());
 });

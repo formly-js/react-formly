@@ -3,34 +3,35 @@
 
 var React = require('react');
 var FormlyConfig = require('./../modules/FormlyConfig');
+var utils = require('../utils');
 
 
 var Formly = React.createClass({
   propTypes: {
     onFormlyUpdate: React.PropTypes.func.isRequired,
-    config: React.PropTypes.object.isRequired,
+    config: utils.PropTypes.objectWith({
+      name: true,
+      fields: true
+    }),
     model: React.PropTypes.object
   },
 
-  onValueUpdate: function(fieldKey, value) {
-    this.formly.model[fieldKey] = value;
-    this.props.onFormlyUpdate(this.formly.model);
+  getDefaultProps: function() {
+    return { model: {} }
   },
 
-  componentWillMount: function componentWillMount() {
-    this.formly = {
-      config: this.props.config,
-      model: this.props.model || {}
-    };
+  onValueUpdate: function(fieldKey, value) {
+    this.props.model[fieldKey] = value;
+    this.props.onFormlyUpdate(this.props.model);
   },
 
   render: function() {
-    var model = this.formly.model;
+    var model = this.props.model;
     var onValueUpdate = this.onValueUpdate;
-    var fields = this.formly.config.fields.map(function(field) {
+    var fields = this.props.config.fields.map(function(field) {
       return generateFieldTag(field, model, onValueUpdate);
     });
-    return <form className="formly" role="form" name={this.formly.config.name}>{fields}</form>;
+    return <form className="formly" role="form" name={this.props.config.name}>{fields}</form>;
   }
 });
 

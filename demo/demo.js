@@ -25,8 +25,7 @@ var App = React.createClass({
     this.setState({model: model});
   },
   componentWillMount: function() {
-    this.formly = {};
-    this.formly.config = {
+    this.formlyConfig = {
       name: 'myFormly',
       fields: [
         {
@@ -70,7 +69,7 @@ var App = React.createClass({
         <BuildBadge owner="kentcdodds" repo="react-formly" />
 
         <h2>Form</h2>
-        <Formly config={this.formly.config} model={this.state.model} onFormlyUpdate={this.onFormlyUpdate} />
+        <Formly config={this.formlyConfig} model={this.state.model} onFormlyUpdate={this.onFormlyUpdate} />
         <h2>Model:</h2>
         <pre>{JSON.stringify(this.state.model, null, 2)}</pre>
       </div>
