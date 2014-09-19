@@ -10,7 +10,8 @@ var BuildBadge = require('./components/build-badge');
 FormlyConfig.fields.addType([
   { name: 'text', field: require('./components/field-types/TextField') },
   { name: 'number', field: require('./components/field-types/NumberField') },
-  { name: 'checkbox', field: require('./components/field-types/Checkbox') }
+  { name: 'checkbox', field: require('./components/field-types/Checkbox') },
+  { name: 'instructions', field: require('./components/field-types/Instructions') }
 ]);
 
 var App = React.createClass({
@@ -29,23 +30,45 @@ var App = React.createClass({
       name: 'myFormly',
       fields: [
         {
-          key: 'name',
-          type: 'text',
-          label: 'Name',
-          placeholder: 'If you would be so kind...',
+          key: 'buildingWithReact',
+          type: 'checkbox',
+          data: {
+            label: 'Are you building something with React?'
+          }
+        },
+//        {
+//          key: 'otherFrameworkOrLibrary',
+//          type: 'select',
+//          data: {
+//            label: 'What are you building with?'
+//          },
+//          hidden: function(model) {
+//            return !model.buildingWithReact;
+//          }
+//        },
+        {
+          key: 'buildingWithAngular',
+          type: 'instructions',
+          props: {
+
+          },
           hidden: function(model) {
-            return !!model.secretName;
+
           }
         },
         {
           key: 'age',
           type: 'number',
-          label: 'Age'
+          data: {
+            label: 'Age'
+          }
         },
         {
           key: 'secretName',
           type: 'text',
-          label: 'Secret name...?',
+          data: {
+            label: 'Secret name...?'
+          },
           placeholder: 'If you have no name...',
           hidden: function(model) {
             return !!model.name;
@@ -54,7 +77,9 @@ var App = React.createClass({
         {
           key: 'awesome',
           type: 'checkbox',
-          label: 'Are you awesome?'
+          data: {
+            label: 'Are you awesome?'
+          }
         }
       ]
     };

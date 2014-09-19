@@ -10,8 +10,6 @@ var FormlyConfig = require('./../modules/FormlyConfig');
 
 describe('Formly', function FormlySpec() {
   var renderedFieldComponents;
-  var renderedFieldInputs;
-  var nameInput;
   var app;
 
 
@@ -24,7 +22,10 @@ describe('Formly', function FormlySpec() {
         { key: 'name', type: 'text' },
         { key: 'favoriteCandy', type: 'text' },
         { key: 'dogsName', type: 'text' },
-        { key: 'catsName', type: 'text', hidden: true }
+        { key: 'catsName', type: 'text', hidden: true },
+        { key: 'caterpillersName', type: 'text', hidden: function(model) {
+          return model.name === 'George Foreman';
+        } }
       ]
     };
 
@@ -44,21 +45,31 @@ describe('Formly', function FormlySpec() {
 
     app = TestUtils.renderIntoDocument(<App />);
     renderedFieldComponents = TestUtils.scryRenderedComponentsWithType(app, TestField);
-    renderedFieldInputs = TestUtils.scryRenderedDOMComponentsWithTag(app, 'input');
-    nameInput = renderedFieldInputs[0];
   });
 
   it('should render the non-hidden fields given in config', function() {
-    expect(renderedFieldComponents).to.have.length(3);
+    expect(renderedFieldComponents).to.have.length(4);
   });
 
   it('should invoke onFormlyUpdate when a field is changed', function() {
-    nameInput.value = 'Bing Crosby';
+    var renderedFieldInputs = TestUtils.scryRenderedDOMComponentsWithTag(app, 'input');
+    var nameInput = renderedFieldInputs[0];
+    nameInput.getDOMNode().value = 'Bing Crosby';
     TestUtils.Simulate.change(nameInput);
     expect(app.onFormlyUpdateCalled).to.equal(1);
+
   });
 
   it('should have a className of formly', function() {
     expect(app.getDOMNode().className).to.include('formly');
+  });
+
+  it('should hide fields whose hidden functions return true', function() {
+    var renderedFieldInputs = TestUtils.scryRenderedDOMComponentsWithTag(app, 'input');
+    var nameInput = renderedFieldInputs[0];
+    nameInput.getDOMNode().value = 'George Foreman';
+    TestUtils.Simulate.change(nameInput);
+    var newRenderedComponents = TestUtils.scryRenderedDOMComponentsWithTag(app, 'input');
+    expect(newRenderedComponents).to.have.length(3);
   });
 });

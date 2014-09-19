@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var deploy = require('gulp-gh-pages');
 var gulpWebpack = require('gulp-webpack');
+var react = require('gulp-react');
+var jshint = require('gulp-jshint');
 
 // hijack task fn and add help
 require('gulp-help')(gulp);
@@ -10,11 +12,10 @@ var connect = require('connect');
 var serveStatic = require('serve-static');
 var livereload = require('livereload');
 var rimraf = require('rimraf');
-
 var webpack = require('webpack');
-
 var karma = require('karma').server;
 var argv = require('yargs').argv;
+var stylish = require('jshint-stylish');
 
 gulp.task('deploy', 'Deploy demo to gh-pages', function () {
   gulp.src([
@@ -24,6 +25,17 @@ gulp.task('deploy', 'Deploy demo to gh-pages', function () {
     './demo/non_bower_components/bootstrap.min.css'
   ])
     .pipe(deploy());
+});
+
+gulp.task('lint', 'lint project code (post jsx transformation', function() {
+  gulp.src('src/**/*')
+    .pipe(react())
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
+});
+
+gulp.task('watch:lint', false, function() {
+  gulp.watch('./src/**/*', ['lint']);
 });
 
 gulp.task('build:clean', false, function(done) {
@@ -132,6 +144,7 @@ gulp.task('watch:serve', false, ['watch:serve:server'], function() {
 gulp.task('watch', 'Use this for development. Will build, test, and serve the demo automgagically', [
   'watch:build:lib',
   'watch:build:uglify',
+  'watch:lint',
   'watch:buildTest',
   'watch:test',
   'watch:demo',

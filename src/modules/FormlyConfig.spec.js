@@ -1,3 +1,6 @@
+/* jshint -W030 */
+'use strict';
+
 var expect = require('chai').expect;
 var FormlyConfig = require('./FormlyConfig');
 

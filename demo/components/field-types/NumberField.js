@@ -20,7 +20,7 @@ var NumberField = React.createClass({
     return (
       <div>
         <label>
-          {config.label}
+          {config.data.label}
           <input className="form-control" type="text" name={key} value={model[key]} onChange={this.onChange} />
         </label>
       </div>

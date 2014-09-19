@@ -1,23 +1,39 @@
 /** @jsx React.DOM */
 'use strict';
 
-var React = require('react');
+var React = require('react/addons');
 var FormlyConfig = require('./../modules/FormlyConfig');
-var utils = require('../utils');
 
+function typeOrComponent(props, propName, componentName) {
+  var errorPrefix = componentName + ' config.fields field with key ' + props.key;
+  if (props.type && props.component) {
+    return new Error(errorPrefix + ' should only have either a type or a component, not both.');
+  } else if (!props.type && !props.component) {
+    return new Error(errorPrefix + ' should have either a type (string) or a component (React component)');
+  }
+}
 
 var Formly = React.createClass({
   propTypes: {
     onFormlyUpdate: React.PropTypes.func.isRequired,
-    config: utils.PropTypes.objectWith({
-      name: true,
-      fields: true
+    config: React.PropTypes.shape({
+      name: React.PropTypes.string,
+      fields: React.PropTypes.arrayOf(React.PropTypes.shape({
+        key: React.PropTypes.string.isRequired,
+        type: typeOrComponent,
+        component: typeOrComponent,
+        hidden: React.PropTypes.oneOfType([
+          React.PropTypes.bool,
+          React.PropTypes.func
+        ]),
+        data: React.PropTypes.object
+      }))
     }),
     model: React.PropTypes.object
   },
 
   getDefaultProps: function() {
-    return { model: {} }
+    return { model: {} };
   },
 
   onValueUpdate: function(fieldKey, value) {
@@ -41,13 +57,24 @@ function generateFieldTag(field, model, onValueUpdate) {
     throw new Error('Formly: "' + field.type + '" has not been added to FormlyConfig\'s field types.');
   }
 
-  // hidden
-  var hide = isOrInvoke(field, 'hidden', model);
-  if (hide && hide !== null) {
+  if (shouldHide(field, model)) {
     return null;
   }
 
-  return <fieldComponent model={model} config={field} onValueUpdate={onValueUpdate} key={field.key} />;
+  return getComponent(fieldComponent, field, model, onValueUpdate);
+}
+
+function getComponent(fieldComponent, field, model, onValueUpdate) {
+  var component = <fieldComponent model={model} config={field} onValueUpdate={onValueUpdate} key={field.key} />;
+  if (field.props) {
+    component = React.addons.cloneWithProps(component, field.props);
+  }
+  return component;
+}
+
+function shouldHide(field, model) {
+  var hide = isOrInvoke(field, 'hidden', model);
+  return hide && hide !== null;
 }
 
 function isOrInvoke(field, property, model) {
