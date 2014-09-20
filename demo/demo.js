@@ -11,14 +11,15 @@ FormlyConfig.fields.addType([
   { name: 'text', field: require('./components/field-types/TextField') },
   { name: 'number', field: require('./components/field-types/NumberField') },
   { name: 'checkbox', field: require('./components/field-types/Checkbox') },
-  { name: 'instructions', field: require('./components/field-types/Instructions') }
+  { name: 'select', field: require('./components/field-types/Select') },
+  { name: 'simplerender', field: require('./components/field-types/SimpleRender') }
 ]);
 
 var App = React.createClass({
   getInitialState: function() {
     return {
       model: {
-        age: 26
+        buildingWithReact: true
       }
     };
   },
@@ -30,55 +31,49 @@ var App = React.createClass({
       name: 'myFormly',
       fields: [
         {
+          key: 'initialInstructions',
+          type: 'simplerender',
+          props: {
+            contents: (
+              <div>
+                Discover React Formly by going through this form...
+                <br />
+                <small>Guess what... This text is a non-value "field"</small>
+              </div>
+            )
+          }
+        },
+        {
           key: 'buildingWithReact',
           type: 'checkbox',
           data: {
             label: 'Are you building something with React?'
           }
         },
-//        {
-//          key: 'otherFrameworkOrLibrary',
-//          type: 'select',
-//          data: {
-//            label: 'What are you building with?'
-//          },
-//          hidden: function(model) {
-//            return !model.buildingWithReact;
-//          }
-//        },
         {
-          key: 'buildingWithAngular',
-          type: 'instructions',
-          props: {
-
+          key: 'otherFrameworkOrLibrary',
+          type: 'select',
+          data: {
+            label: 'What are you building with?',
+            options: [
+              { name: 'VanillaJS', value: 'vanilla' },
+              { name: 'jQuery', value: 'jquery' },
+              { name: 'Ember', value: 'ember' },
+              { name: 'Angular', value: 'angular' },
+              { name: 'Backbone', value: 'backbone' },
+              { name: 'Other', value: 'other' }
+            ]
           },
           hidden: function(model) {
-
+            return !!model.buildingWithReact;
           }
         },
         {
-          key: 'age',
-          type: 'number',
-          data: {
-            label: 'Age'
-          }
-        },
-        {
-          key: 'secretName',
-          type: 'text',
-          data: {
-            label: 'Secret name...?'
-          },
-          placeholder: 'If you have no name...',
+          key: 'buildingWithAnotherFrameworkOrLibrary',
+          type: 'simplerender',
+          props: getPropsForOtherFramework,
           hidden: function(model) {
-            return !!model.name;
-          }
-        },
-        {
-          key: 'awesome',
-          type: 'checkbox',
-          data: {
-            label: 'Are you awesome?'
+            return !model.buildingWithReact;
           }
         }
       ]
@@ -103,3 +98,62 @@ var App = React.createClass({
 });
 
 React.renderComponent(<App />, document.body);
+
+// UTILS
+
+function getPropsForOtherFramework(model, field) {
+  switch (model.otherFrameworkOrLibrary) {
+    case 'angular':
+      return {
+        contents: (
+          <div>
+            This project was created by a core contributor to
+            the <a href="https://github.com/nimbly/angular-formly">angular-formly</a> project.
+            If you're building things with angular, definitely check that one out.
+          </div>
+        )
+      };
+    case 'ember':
+      return {
+        contents: (
+          <div>
+            I've heard <a href="https://github.com/dockyard/ember-easyForm">ember-easyForm</a>
+            is a good project. You could also look
+            at <a href="https://github.com/indexiatech/ember-forms">ember-forms</a>
+          </div>
+        )
+      };
+    case 'backbone':
+      return {
+        contents: (
+          <div>
+            Give a look at <a href="https://github.com/powmedia/backbone-forms">backbone-forms</a>.
+          </div>
+        )
+      };
+    case 'other':
+      return {
+        contents: (
+          <div>Best of luck to you...</div>
+        )
+      };
+    case 'jquery':
+      return {
+        contents: (
+          <div>
+            Check out <a href="http://www.alpacajs.org/">Alpaca</a>
+          </div>
+        )
+      };
+    case 'vanilla':
+      return {
+        contents: (
+          <div>
+            Not sure whether there's something quite like this for you,
+            but <a href="http://parsleyjs.org/">Parsley</a> looks like a promising
+            dependency free form validation library
+          </div>
+        )
+      };
+  }
+}

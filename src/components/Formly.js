@@ -2,6 +2,7 @@
 'use strict';
 
 var React = require('react/addons');
+var merge = require('react/lib/merge');
 var FormlyConfig = require('./../modules/FormlyConfig');
 
 function typeOrComponent(props, propName, componentName) {
@@ -24,6 +25,10 @@ var Formly = React.createClass({
         component: typeOrComponent,
         hidden: React.PropTypes.oneOfType([
           React.PropTypes.bool,
+          React.PropTypes.func
+        ]),
+        props: React.PropTypes.oneOfType([
+          React.PropTypes.object,
           React.PropTypes.func
         ]),
         data: React.PropTypes.object
@@ -67,7 +72,10 @@ function generateFieldTag(field, model, onValueUpdate) {
 function getComponent(fieldComponent, field, model, onValueUpdate) {
   var component = <fieldComponent model={model} config={field} onValueUpdate={onValueUpdate} key={field.key} />;
   if (field.props) {
-    component = React.addons.cloneWithProps(component, field.props);
+    var props = typeof field.props === 'function' ? field.props(model, field) : field.props;
+    component = React.addons.cloneWithProps(component, merge(props, {
+      key: component.props.key
+    }));
   }
   return component;
 }
