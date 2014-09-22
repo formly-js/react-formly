@@ -73,7 +73,7 @@ var App = React.createClass({
           type: 'simplerender',
           props: getPropsForOtherFramework,
           hidden: function(model) {
-            return !model.buildingWithReact;
+            return !!model.buildingWithReact;
           }
         }
       ]

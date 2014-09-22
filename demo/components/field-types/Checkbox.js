@@ -12,7 +12,7 @@ var Checkbox = React.createClass({
     return (
       <div className="checkbox">
         <label>
-          <input type="checkbox" name={key} value={model[key]} onChange={this.onChange} />
+          <input type="checkbox" name={key} checked={model[key]} onChange={this.onChange} />
           {config.data.label}
         </label>
       </div>
