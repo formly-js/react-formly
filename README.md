@@ -4,7 +4,7 @@
 
 **JSON powered forms for react.**
 
-[Demo](http://kent.doddsfamily.us/react-formly)
+[Demo](http://formly-js.github.io/react-formly)
 
 ## Example Usage
 
