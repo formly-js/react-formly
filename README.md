@@ -1,6 +1,6 @@
 # React Formly
 
-[![build](https://travis-ci.org/kentcdodds/react-formly.svg)](https://travis-ci.org/kentcdodds/react-formly)
+[![build](https://travis-ci.org/formly-js/react-formly.svg)](https://travis-ci.org/formly-js/react-formly)
 
 **JSON powered forms for react.**
 
@@ -84,10 +84,48 @@ An object to configure formly. It is expected to have
 
 ## FormlyConfig
 
+### addType
+
+```javascript
+FormlyConfig.addType('name', require('./FieldType'));
+FormlyConfig.addType({
+  name: 'name',
+  field: require('./FieldType')
+});
+FormlyConfig.addType([
+  {
+    name: 'name',
+    field: require('./FieldType')
+  },
+  {
+    name: 'secondName',
+    field: require('./FieldType2')
+  }
+]);
+```
+
+### getTypes
+
+```javascript
+var FieldType = require('./FieldType');
+FormlyConfig.addType('field1', FieldType);
+FormlyConfig.getTypes().field1 === FieldType; // <-- true
+```
+
+### clearTypes
+
+```javascript
+var FieldType = require('./FieldType');
+FormlyConfig.addType('field1', FieldType);
+var oldTypes = FormlyConfig.clearTypes();
+oldTypes.field1 === FieldType; // <-- true
+FormlyConfig.getTypes().field1 === undefined; // <-- true
+FormlyConfig.getTypes(); // <-- {}
+```
 
 ## FieldMixin
 
-
+Gives you 2 methods `onChange` and `updateValue`. `onChange` invokes `updateValue` with the current value. Handles special cases for `checkbox`, `radio`, and `select`. Defaults to `node.value` (input default). If your component has a `transformUpdate`, then it will be called with the value and the value will be reset to whatever is returned before it calls up to its parent (presumably the Formly component) with the new value.
 
 # Contributing
 
@@ -97,7 +135,7 @@ Just run `npm install` then run `gulp` to see a list of available tasks.
 
 # Credits
 
-Based on the simple api from [angular-formly](https://github.com/nimbly/angular-formly)
+Based on the simple api from [angular-formly](https://github.com/formly-js/angular-formly)
  
 # License
  
