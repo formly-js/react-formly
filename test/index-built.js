@@ -533,21 +533,21 @@
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(14);
+	module.exports = __webpack_require__(12);
 
 
 /***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(12);
+	module.exports = __webpack_require__(13);
 
 
 /***/ },
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(13);
+	module.exports = __webpack_require__(14);
 
 
 /***/ },
@@ -630,6 +630,99 @@
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*!
+	 * chai
+	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	var used = []
+	  , exports = module.exports = {};
+
+	/*!
+	 * Chai version
+	 */
+
+	exports.version = '1.10.0';
+
+	/*!
+	 * Assertion Error
+	 */
+
+	exports.AssertionError = __webpack_require__(53);
+
+	/*!
+	 * Utils for plugins (not exported)
+	 */
+
+	var util = __webpack_require__(22);
+
+	/**
+	 * # .use(function)
+	 *
+	 * Provides a way to extend the internals of Chai
+	 *
+	 * @param {Function}
+	 * @returns {this} for chaining
+	 * @api public
+	 */
+
+	exports.use = function (fn) {
+	  if (!~used.indexOf(fn)) {
+	    fn(this, util);
+	    used.push(fn);
+	  }
+
+	  return this;
+	};
+
+	/*!
+	 * Configuration
+	 */
+
+	var config = __webpack_require__(16);
+	exports.config = config;
+
+	/*!
+	 * Primary `Assertion` prototype
+	 */
+
+	var assertion = __webpack_require__(17);
+	exports.use(assertion);
+
+	/*!
+	 * Core Assertions
+	 */
+
+	var core = __webpack_require__(18);
+	exports.use(core);
+
+	/*!
+	 * Expect interface
+	 */
+
+	var expect = __webpack_require__(19);
+	exports.use(expect);
+
+	/*!
+	 * Should interface
+	 */
+
+	var should = __webpack_require__(20);
+	exports.use(should);
+
+	/*!
+	 * Assert interface
+	 */
+
+	var assert = __webpack_require__(21);
+	exports.use(assert);
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2014 Facebook, Inc.
 	 *
@@ -657,16 +750,16 @@
 
 	"use strict";
 
-	var LinkedStateMixin = __webpack_require__(16);
-	var React = __webpack_require__(13);
+	var LinkedStateMixin = __webpack_require__(23);
+	var React = __webpack_require__(14);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(17);
-	var ReactCSSTransitionGroup = __webpack_require__(18);
-	var ReactTransitionGroup = __webpack_require__(19);
+	  __webpack_require__(24);
+	var ReactCSSTransitionGroup = __webpack_require__(25);
+	var ReactTransitionGroup = __webpack_require__(26);
 
-	var cx = __webpack_require__(20);
-	var cloneWithProps = __webpack_require__(21);
-	var update = __webpack_require__(22);
+	var cx = __webpack_require__(27);
+	var cloneWithProps = __webpack_require__(28);
+	var update = __webpack_require__(29);
 
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -680,17 +773,17 @@
 	};
 
 	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(23);
-	  React.addons.TestUtils = __webpack_require__(24);
+	  React.addons.Perf = __webpack_require__(30);
+	  React.addons.TestUtils = __webpack_require__(31);
 	}
 
 	module.exports = React;
 
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -713,28 +806,40 @@
 
 	"use strict";
 
-	var DOMPropertyOperations = __webpack_require__(25);
-	var EventPluginUtils = __webpack_require__(26);
-	var ReactChildren = __webpack_require__(27);
-	var ReactComponent = __webpack_require__(28);
-	var ReactCompositeComponent = __webpack_require__(29);
-	var ReactContext = __webpack_require__(30);
-	var ReactCurrentOwner = __webpack_require__(31);
-	var ReactDescriptor = __webpack_require__(32);
-	var ReactDOM = __webpack_require__(33);
-	var ReactDOMComponent = __webpack_require__(34);
-	var ReactDefaultInjection = __webpack_require__(35);
-	var ReactInstanceHandles = __webpack_require__(36);
-	var ReactMount = __webpack_require__(37);
-	var ReactMultiChild = __webpack_require__(38);
-	var ReactPerf = __webpack_require__(39);
-	var ReactPropTypes = __webpack_require__(40);
-	var ReactServerRendering = __webpack_require__(41);
-	var ReactTextComponent = __webpack_require__(42);
+	var DOMPropertyOperations = __webpack_require__(32);
+	var EventPluginUtils = __webpack_require__(33);
+	var ReactChildren = __webpack_require__(34);
+	var ReactComponent = __webpack_require__(35);
+	var ReactCompositeComponent = __webpack_require__(36);
+	var ReactContext = __webpack_require__(37);
+	var ReactCurrentOwner = __webpack_require__(38);
+	var ReactDescriptor = __webpack_require__(39);
+	var ReactDOM = __webpack_require__(40);
+	var ReactDOMComponent = __webpack_require__(41);
+	var ReactDefaultInjection = __webpack_require__(42);
+	var ReactInstanceHandles = __webpack_require__(43);
+	var ReactMount = __webpack_require__(44);
+	var ReactMultiChild = __webpack_require__(45);
+	var ReactPerf = __webpack_require__(46);
+	var ReactPropTypes = __webpack_require__(47);
+	var ReactServerRendering = __webpack_require__(48);
+	var ReactTextComponent = __webpack_require__(49);
 
-	var onlyChild = __webpack_require__(43);
+	var onlyChild = __webpack_require__(50);
+	var warning = __webpack_require__(51);
 
 	ReactDefaultInjection.inject();
+
+	// Specifying arguments isn't necessary since we just use apply anyway, but it
+	// makes it clear for those actually consuming this API.
+	function createDescriptor(type, props, children) {
+	  var args = Array.prototype.slice.call(arguments, 1);
+	  return type.apply(null, args);
+	}
+
+	if ("production" !== process.env.NODE_ENV) {
+	  var _warnedForDeprecation = false;
+	}
 
 	var React = {
 	  Children: {
@@ -749,10 +854,18 @@
 	    EventPluginUtils.useTouchEvents = shouldUseTouch;
 	  },
 	  createClass: ReactCompositeComponent.createClass,
-	  createDescriptor: function(type, props, children) {
-	    var args = Array.prototype.slice.call(arguments, 1);
-	    return type.apply(null, args);
+	  createDescriptor: function() {
+	    if ("production" !== process.env.NODE_ENV) {
+	      ("production" !== process.env.NODE_ENV ? warning(
+	        _warnedForDeprecation,
+	        'React.createDescriptor is deprecated and will be removed in the ' +
+	        'next version of React. Use React.createElement instead.'
+	      ) : null);
+	      _warnedForDeprecation = true;
+	    }
+	    return createDescriptor.apply(this, arguments);
 	  },
+	  createElement: createDescriptor,
 	  constructAndRenderComponent: ReactMount.constructAndRenderComponent,
 	  constructAndRenderComponentByID: ReactMount.constructAndRenderComponentByID,
 	  renderComponent: ReactPerf.measure(
@@ -780,7 +893,7 @@
 	};
 
 	if ("production" !== process.env.NODE_ENV) {
-	  var ExecutionEnvironment = __webpack_require__(44);
+	  var ExecutionEnvironment = __webpack_require__(52);
 	  if (ExecutionEnvironment.canUseDOM &&
 	      window.top === window.self &&
 	      navigator.userAgent.indexOf('Chrome') > -1) {
@@ -821,104 +934,11 @@
 
 	// Version exists only in the open-source version of React, not in Facebook's
 	// internal version.
-	React.version = '0.11.1';
+	React.version = '0.11.2';
 
 	module.exports = React;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * chai
-	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	var used = []
-	  , exports = module.exports = {};
-
-	/*!
-	 * Chai version
-	 */
-
-	exports.version = '1.9.1';
-
-	/*!
-	 * Assertion Error
-	 */
-
-	exports.AssertionError = __webpack_require__(54);
-
-	/*!
-	 * Utils for plugins (not exported)
-	 */
-
-	var util = __webpack_require__(48);
-
-	/**
-	 * # .use(function)
-	 *
-	 * Provides a way to extend the internals of Chai
-	 *
-	 * @param {Function}
-	 * @returns {this} for chaining
-	 * @api public
-	 */
-
-	exports.use = function (fn) {
-	  if (!~used.indexOf(fn)) {
-	    fn(this, util);
-	    used.push(fn);
-	  }
-
-	  return this;
-	};
-
-	/*!
-	 * Configuration
-	 */
-
-	var config = __webpack_require__(46);
-	exports.config = config;
-
-	/*!
-	 * Primary `Assertion` prototype
-	 */
-
-	var assertion = __webpack_require__(47);
-	exports.use(assertion);
-
-	/*!
-	 * Core Assertions
-	 */
-
-	var core = __webpack_require__(49);
-	exports.use(core);
-
-	/*!
-	 * Expect interface
-	 */
-
-	var expect = __webpack_require__(50);
-	exports.use(expect);
-
-	/*!
-	 * Should interface
-	 */
-
-	var should = __webpack_require__(51);
-	exports.use(should);
-
-	/*!
-	 * Assert interface
-	 */
-
-	var assert = __webpack_require__(52);
-	exports.use(assert);
-
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
 /* 15 */
@@ -945,7 +965,7 @@
 
 	"use strict";
 
-	var mergeHelpers = __webpack_require__(45);
+	var mergeHelpers = __webpack_require__(54);
 
 	var checkMergeObjectArg = mergeHelpers.checkMergeObjectArg;
 	var checkMergeIntoObjectArg = mergeHelpers.checkMergeIntoObjectArg;
@@ -976,6 +996,2852 @@
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = {
+
+	  /**
+	   * ### config.includeStack
+	   *
+	   * User configurable property, influences whether stack trace
+	   * is included in Assertion error message. Default of false
+	   * suppresses stack trace in the error message.
+	   *
+	   *     chai.config.includeStack = true;  // enable stack on error
+	   *
+	   * @param {Boolean}
+	   * @api public
+	   */
+
+	   includeStack: false,
+
+	  /**
+	   * ### config.showDiff
+	   *
+	   * User configurable property, influences whether or not
+	   * the `showDiff` flag should be included in the thrown
+	   * AssertionErrors. `false` will always be `false`; `true`
+	   * will be true when the assertion has requested a diff
+	   * be shown.
+	   *
+	   * @param {Boolean}
+	   * @api public
+	   */
+
+	  showDiff: true,
+
+	  /**
+	   * ### config.truncateThreshold
+	   *
+	   * User configurable property, sets length threshold for actual and
+	   * expected values in assertion errors. If this threshold is exceeded,
+	   * the value is truncated.
+	   *
+	   * Set it to zero if you want to disable truncating altogether.
+	   *
+	   *     chai.config.truncateThreshold = 0;  // disable truncating
+	   *
+	   * @param {Number}
+	   * @api public
+	   */
+
+	  truncateThreshold: 40
+
+	};
+
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * chai
+	 * http://chaijs.com
+	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	var config = __webpack_require__(16);
+	var NOOP = function() { };
+
+	module.exports = function (_chai, util) {
+	  /*!
+	   * Module dependencies.
+	   */
+
+	  var AssertionError = _chai.AssertionError
+	    , flag = util.flag;
+
+	  /*!
+	   * Module export.
+	   */
+
+	  _chai.Assertion = Assertion;
+
+	  /*!
+	   * Assertion Constructor
+	   *
+	   * Creates object for chaining.
+	   *
+	   * @api private
+	   */
+
+	  function Assertion (obj, msg, stack) {
+	    flag(this, 'ssfi', stack || arguments.callee);
+	    flag(this, 'object', obj);
+	    flag(this, 'message', msg);
+	  }
+
+	  Object.defineProperty(Assertion, 'includeStack', {
+	    get: function() {
+	      console.warn('Assertion.includeStack is deprecated, use chai.config.includeStack instead.');
+	      return config.includeStack;
+	    },
+	    set: function(value) {
+	      console.warn('Assertion.includeStack is deprecated, use chai.config.includeStack instead.');
+	      config.includeStack = value;
+	    }
+	  });
+
+	  Object.defineProperty(Assertion, 'showDiff', {
+	    get: function() {
+	      console.warn('Assertion.showDiff is deprecated, use chai.config.showDiff instead.');
+	      return config.showDiff;
+	    },
+	    set: function(value) {
+	      console.warn('Assertion.showDiff is deprecated, use chai.config.showDiff instead.');
+	      config.showDiff = value;
+	    }
+	  });
+
+	  Assertion.addProperty = function (name, fn) {
+	    util.addProperty(this.prototype, name, fn);
+	  };
+
+	  Assertion.addMethod = function (name, fn) {
+	    util.addMethod(this.prototype, name, fn);
+	  };
+
+	  Assertion.addChainableMethod = function (name, fn, chainingBehavior) {
+	    util.addChainableMethod(this.prototype, name, fn, chainingBehavior);
+	  };
+
+	  Assertion.addChainableNoop = function(name, fn) {
+	    util.addChainableMethod(this.prototype, name, NOOP, fn);
+	  };
+
+	  Assertion.overwriteProperty = function (name, fn) {
+	    util.overwriteProperty(this.prototype, name, fn);
+	  };
+
+	  Assertion.overwriteMethod = function (name, fn) {
+	    util.overwriteMethod(this.prototype, name, fn);
+	  };
+
+	  Assertion.overwriteChainableMethod = function (name, fn, chainingBehavior) {
+	    util.overwriteChainableMethod(this.prototype, name, fn, chainingBehavior);
+	  };
+
+	  /*!
+	   * ### .assert(expression, message, negateMessage, expected, actual)
+	   *
+	   * Executes an expression and check expectations. Throws AssertionError for reporting if test doesn't pass.
+	   *
+	   * @name assert
+	   * @param {Philosophical} expression to be tested
+	   * @param {String or Function} message or function that returns message to display if fails
+	   * @param {String or Function} negatedMessage or function that returns negatedMessage to display if negated expression fails
+	   * @param {Mixed} expected value (remember to check for negation)
+	   * @param {Mixed} actual (optional) will default to `this.obj`
+	   * @api private
+	   */
+
+	  Assertion.prototype.assert = function (expr, msg, negateMsg, expected, _actual, showDiff) {
+	    var ok = util.test(this, arguments);
+	    if (true !== showDiff) showDiff = false;
+	    if (true !== config.showDiff) showDiff = false;
+
+	    if (!ok) {
+	      var msg = util.getMessage(this, arguments)
+	        , actual = util.getActual(this, arguments);
+	      throw new AssertionError(msg, {
+	          actual: actual
+	        , expected: expected
+	        , showDiff: showDiff
+	      }, (config.includeStack) ? this.assert : flag(this, 'ssfi'));
+	    }
+	  };
+
+	  /*!
+	   * ### ._obj
+	   *
+	   * Quick reference to stored `actual` value for plugin developers.
+	   *
+	   * @api private
+	   */
+
+	  Object.defineProperty(Assertion.prototype, '_obj',
+	    { get: function () {
+	        return flag(this, 'object');
+	      }
+	    , set: function (val) {
+	        flag(this, 'object', val);
+	      }
+	  });
+	};
+
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * chai
+	 * http://chaijs.com
+	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	module.exports = function (chai, _) {
+	  var Assertion = chai.Assertion
+	    , toString = Object.prototype.toString
+	    , flag = _.flag;
+
+	  /**
+	   * ### Language Chains
+	   *
+	   * The following are provided as chainable getters to
+	   * improve the readability of your assertions. They
+	   * do not provide testing capabilities unless they
+	   * have been overwritten by a plugin.
+	   *
+	   * **Chains**
+	   *
+	   * - to
+	   * - be
+	   * - been
+	   * - is
+	   * - that
+	   * - and
+	   * - has
+	   * - have
+	   * - with
+	   * - at
+	   * - of
+	   * - same
+	   *
+	   * @name language chains
+	   * @api public
+	   */
+
+	  [ 'to', 'be', 'been'
+	  , 'is', 'and', 'has', 'have'
+	  , 'with', 'that', 'at'
+	  , 'of', 'same' ].forEach(function (chain) {
+	    Assertion.addProperty(chain, function () {
+	      return this;
+	    });
+	  });
+
+	  /**
+	   * ### .not
+	   *
+	   * Negates any of assertions following in the chain.
+	   *
+	   *     expect(foo).to.not.equal('bar');
+	   *     expect(goodFn).to.not.throw(Error);
+	   *     expect({ foo: 'baz' }).to.have.property('foo')
+	   *       .and.not.equal('bar');
+	   *
+	   * @name not
+	   * @api public
+	   */
+
+	  Assertion.addProperty('not', function () {
+	    flag(this, 'negate', true);
+	  });
+
+	  /**
+	   * ### .deep
+	   *
+	   * Sets the `deep` flag, later used by the `equal` and
+	   * `property` assertions.
+	   *
+	   *     expect(foo).to.deep.equal({ bar: 'baz' });
+	   *     expect({ foo: { bar: { baz: 'quux' } } })
+	   *       .to.have.deep.property('foo.bar.baz', 'quux');
+	   *
+	   * @name deep
+	   * @api public
+	   */
+
+	  Assertion.addProperty('deep', function () {
+	    flag(this, 'deep', true);
+	  });
+
+	  /**
+	   * ### .a(type)
+	   *
+	   * The `a` and `an` assertions are aliases that can be
+	   * used either as language chains or to assert a value's
+	   * type.
+	   *
+	   *     // typeof
+	   *     expect('test').to.be.a('string');
+	   *     expect({ foo: 'bar' }).to.be.an('object');
+	   *     expect(null).to.be.a('null');
+	   *     expect(undefined).to.be.an('undefined');
+	   *
+	   *     // language chain
+	   *     expect(foo).to.be.an.instanceof(Foo);
+	   *
+	   * @name a
+	   * @alias an
+	   * @param {String} type
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function an (type, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    type = type.toLowerCase();
+	    var obj = flag(this, 'object')
+	      , article = ~[ 'a', 'e', 'i', 'o', 'u' ].indexOf(type.charAt(0)) ? 'an ' : 'a ';
+
+	    this.assert(
+	        type === _.type(obj)
+	      , 'expected #{this} to be ' + article + type
+	      , 'expected #{this} not to be ' + article + type
+	    );
+	  }
+
+	  Assertion.addChainableMethod('an', an);
+	  Assertion.addChainableMethod('a', an);
+
+	  /**
+	   * ### .include(value)
+	   *
+	   * The `include` and `contain` assertions can be used as either property
+	   * based language chains or as methods to assert the inclusion of an object
+	   * in an array or a substring in a string. When used as language chains,
+	   * they toggle the `contain` flag for the `keys` assertion.
+	   *
+	   *     expect([1,2,3]).to.include(2);
+	   *     expect('foobar').to.contain('foo');
+	   *     expect({ foo: 'bar', hello: 'universe' }).to.include.keys('foo');
+	   *
+	   * @name include
+	   * @alias contain
+	   * @param {Object|String|Number} obj
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function includeChainingBehavior () {
+	    flag(this, 'contains', true);
+	  }
+
+	  function include (val, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    var expected = false;
+	    if (_.type(obj) === 'array' && _.type(val) === 'object') {
+	      for (var i in obj) {
+	        if (_.eql(obj[i], val)) {
+	          expected = true;
+	          break;
+	        }
+	      }
+	    } else if (_.type(val) === 'object') {
+	      if (!flag(this, 'negate')) {
+	        for (var k in val) new Assertion(obj).property(k, val[k]);
+	        return;
+	      }
+	      var subset = {}
+	      for (var k in val) subset[k] = obj[k]
+	      expected = _.eql(subset, val);
+	    } else {
+	      expected = obj && ~obj.indexOf(val)
+	    }
+	    this.assert(
+	        expected
+	      , 'expected #{this} to include ' + _.inspect(val)
+	      , 'expected #{this} to not include ' + _.inspect(val));
+	  }
+
+	  Assertion.addChainableMethod('include', include, includeChainingBehavior);
+	  Assertion.addChainableMethod('contain', include, includeChainingBehavior);
+
+	  /**
+	   * ### .ok
+	   *
+	   * Asserts that the target is truthy.
+	   *
+	   *     expect('everthing').to.be.ok;
+	   *     expect(1).to.be.ok;
+	   *     expect(false).to.not.be.ok;
+	   *     expect(undefined).to.not.be.ok;
+	   *     expect(null).to.not.be.ok;
+	   *
+	   * Can also be used as a function, which prevents some linter errors.
+	   *
+	   *     expect('everthing').to.be.ok();
+	   *     
+	   * @name ok
+	   * @api public
+	   */
+
+	  Assertion.addChainableNoop('ok', function () {
+	    this.assert(
+	        flag(this, 'object')
+	      , 'expected #{this} to be truthy'
+	      , 'expected #{this} to be falsy');
+	  });
+
+	  /**
+	   * ### .true
+	   *
+	   * Asserts that the target is `true`.
+	   *
+	   *     expect(true).to.be.true;
+	   *     expect(1).to.not.be.true;
+	   *
+	   * Can also be used as a function, which prevents some linter errors.
+	   *
+	   *     expect(true).to.be.true();
+	   *
+	   * @name true
+	   * @api public
+	   */
+
+	  Assertion.addChainableNoop('true', function () {
+	    this.assert(
+	        true === flag(this, 'object')
+	      , 'expected #{this} to be true'
+	      , 'expected #{this} to be false'
+	      , this.negate ? false : true
+	    );
+	  });
+
+	  /**
+	   * ### .false
+	   *
+	   * Asserts that the target is `false`.
+	   *
+	   *     expect(false).to.be.false;
+	   *     expect(0).to.not.be.false;
+	   *
+	   * Can also be used as a function, which prevents some linter errors.
+	   *
+	   *     expect(false).to.be.false();
+	   *
+	   * @name false
+	   * @api public
+	   */
+
+	  Assertion.addChainableNoop('false', function () {
+	    this.assert(
+	        false === flag(this, 'object')
+	      , 'expected #{this} to be false'
+	      , 'expected #{this} to be true'
+	      , this.negate ? true : false
+	    );
+	  });
+
+	  /**
+	   * ### .null
+	   *
+	   * Asserts that the target is `null`.
+	   *
+	   *     expect(null).to.be.null;
+	   *     expect(undefined).not.to.be.null;
+	   *
+	   * Can also be used as a function, which prevents some linter errors.
+	   *
+	   *     expect(null).to.be.null();
+	   *
+	   * @name null
+	   * @api public
+	   */
+
+	  Assertion.addChainableNoop('null', function () {
+	    this.assert(
+	        null === flag(this, 'object')
+	      , 'expected #{this} to be null'
+	      , 'expected #{this} not to be null'
+	    );
+	  });
+
+	  /**
+	   * ### .undefined
+	   *
+	   * Asserts that the target is `undefined`.
+	   *
+	   *     expect(undefined).to.be.undefined;
+	   *     expect(null).to.not.be.undefined;
+	   *
+	   * Can also be used as a function, which prevents some linter errors.
+	   *
+	   *     expect(undefined).to.be.undefined();
+	   *
+	   * @name undefined
+	   * @api public
+	   */
+
+	  Assertion.addChainableNoop('undefined', function () {
+	    this.assert(
+	        undefined === flag(this, 'object')
+	      , 'expected #{this} to be undefined'
+	      , 'expected #{this} not to be undefined'
+	    );
+	  });
+
+	  /**
+	   * ### .exist
+	   *
+	   * Asserts that the target is neither `null` nor `undefined`.
+	   *
+	   *     var foo = 'hi'
+	   *       , bar = null
+	   *       , baz;
+	   *
+	   *     expect(foo).to.exist;
+	   *     expect(bar).to.not.exist;
+	   *     expect(baz).to.not.exist;
+	   *
+	   * Can also be used as a function, which prevents some linter errors.
+	   *
+	   *     expect(foo).to.exist();
+	   *
+	   * @name exist
+	   * @api public
+	   */
+
+	  Assertion.addChainableNoop('exist', function () {
+	    this.assert(
+	        null != flag(this, 'object')
+	      , 'expected #{this} to exist'
+	      , 'expected #{this} to not exist'
+	    );
+	  });
+
+
+	  /**
+	   * ### .empty
+	   *
+	   * Asserts that the target's length is `0`. For arrays, it checks
+	   * the `length` property. For objects, it gets the count of
+	   * enumerable keys.
+	   *
+	   *     expect([]).to.be.empty;
+	   *     expect('').to.be.empty;
+	   *     expect({}).to.be.empty;
+	   *
+	   * Can also be used as a function, which prevents some linter errors.
+	   *
+	   *     expect([]).to.be.empty();
+	   *
+	   * @name empty
+	   * @api public
+	   */
+
+	  Assertion.addChainableNoop('empty', function () {
+	    var obj = flag(this, 'object')
+	      , expected = obj;
+
+	    if (Array.isArray(obj) || 'string' === typeof object) {
+	      expected = obj.length;
+	    } else if (typeof obj === 'object') {
+	      expected = Object.keys(obj).length;
+	    }
+
+	    this.assert(
+	        !expected
+	      , 'expected #{this} to be empty'
+	      , 'expected #{this} not to be empty'
+	    );
+	  });
+
+	  /**
+	   * ### .arguments
+	   *
+	   * Asserts that the target is an arguments object.
+	   *
+	   *     function test () {
+	   *       expect(arguments).to.be.arguments;
+	   *     }
+	   *
+	   * Can also be used as a function, which prevents some linter errors.
+	   *
+	   *     function test () {
+	   *       expect(arguments).to.be.arguments();
+	   *     }
+	   *
+	   * @name arguments
+	   * @alias Arguments
+	   * @api public
+	   */
+
+	  function checkArguments () {
+	    var obj = flag(this, 'object')
+	      , type = Object.prototype.toString.call(obj);
+	    this.assert(
+	        '[object Arguments]' === type
+	      , 'expected #{this} to be arguments but got ' + type
+	      , 'expected #{this} to not be arguments'
+	    );
+	  }
+
+	  Assertion.addChainableNoop('arguments', checkArguments);
+	  Assertion.addChainableNoop('Arguments', checkArguments);
+
+	  /**
+	   * ### .equal(value)
+	   *
+	   * Asserts that the target is strictly equal (`===`) to `value`.
+	   * Alternately, if the `deep` flag is set, asserts that
+	   * the target is deeply equal to `value`.
+	   *
+	   *     expect('hello').to.equal('hello');
+	   *     expect(42).to.equal(42);
+	   *     expect(1).to.not.equal(true);
+	   *     expect({ foo: 'bar' }).to.not.equal({ foo: 'bar' });
+	   *     expect({ foo: 'bar' }).to.deep.equal({ foo: 'bar' });
+	   *
+	   * @name equal
+	   * @alias equals
+	   * @alias eq
+	   * @alias deep.equal
+	   * @param {Mixed} value
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function assertEqual (val, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    if (flag(this, 'deep')) {
+	      return this.eql(val);
+	    } else {
+	      this.assert(
+	          val === obj
+	        , 'expected #{this} to equal #{exp}'
+	        , 'expected #{this} to not equal #{exp}'
+	        , val
+	        , this._obj
+	        , true
+	      );
+	    }
+	  }
+
+	  Assertion.addMethod('equal', assertEqual);
+	  Assertion.addMethod('equals', assertEqual);
+	  Assertion.addMethod('eq', assertEqual);
+
+	  /**
+	   * ### .eql(value)
+	   *
+	   * Asserts that the target is deeply equal to `value`.
+	   *
+	   *     expect({ foo: 'bar' }).to.eql({ foo: 'bar' });
+	   *     expect([ 1, 2, 3 ]).to.eql([ 1, 2, 3 ]);
+	   *
+	   * @name eql
+	   * @alias eqls
+	   * @param {Mixed} value
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function assertEql(obj, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    this.assert(
+	        _.eql(obj, flag(this, 'object'))
+	      , 'expected #{this} to deeply equal #{exp}'
+	      , 'expected #{this} to not deeply equal #{exp}'
+	      , obj
+	      , this._obj
+	      , true
+	    );
+	  }
+
+	  Assertion.addMethod('eql', assertEql);
+	  Assertion.addMethod('eqls', assertEql);
+
+	  /**
+	   * ### .above(value)
+	   *
+	   * Asserts that the target is greater than `value`.
+	   *
+	   *     expect(10).to.be.above(5);
+	   *
+	   * Can also be used in conjunction with `length` to
+	   * assert a minimum length. The benefit being a
+	   * more informative error message than if the length
+	   * was supplied directly.
+	   *
+	   *     expect('foo').to.have.length.above(2);
+	   *     expect([ 1, 2, 3 ]).to.have.length.above(2);
+	   *
+	   * @name above
+	   * @alias gt
+	   * @alias greaterThan
+	   * @param {Number} value
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function assertAbove (n, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    if (flag(this, 'doLength')) {
+	      new Assertion(obj, msg).to.have.property('length');
+	      var len = obj.length;
+	      this.assert(
+	          len > n
+	        , 'expected #{this} to have a length above #{exp} but got #{act}'
+	        , 'expected #{this} to not have a length above #{exp}'
+	        , n
+	        , len
+	      );
+	    } else {
+	      this.assert(
+	          obj > n
+	        , 'expected #{this} to be above ' + n
+	        , 'expected #{this} to be at most ' + n
+	      );
+	    }
+	  }
+
+	  Assertion.addMethod('above', assertAbove);
+	  Assertion.addMethod('gt', assertAbove);
+	  Assertion.addMethod('greaterThan', assertAbove);
+
+	  /**
+	   * ### .least(value)
+	   *
+	   * Asserts that the target is greater than or equal to `value`.
+	   *
+	   *     expect(10).to.be.at.least(10);
+	   *
+	   * Can also be used in conjunction with `length` to
+	   * assert a minimum length. The benefit being a
+	   * more informative error message than if the length
+	   * was supplied directly.
+	   *
+	   *     expect('foo').to.have.length.of.at.least(2);
+	   *     expect([ 1, 2, 3 ]).to.have.length.of.at.least(3);
+	   *
+	   * @name least
+	   * @alias gte
+	   * @param {Number} value
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function assertLeast (n, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    if (flag(this, 'doLength')) {
+	      new Assertion(obj, msg).to.have.property('length');
+	      var len = obj.length;
+	      this.assert(
+	          len >= n
+	        , 'expected #{this} to have a length at least #{exp} but got #{act}'
+	        , 'expected #{this} to have a length below #{exp}'
+	        , n
+	        , len
+	      );
+	    } else {
+	      this.assert(
+	          obj >= n
+	        , 'expected #{this} to be at least ' + n
+	        , 'expected #{this} to be below ' + n
+	      );
+	    }
+	  }
+
+	  Assertion.addMethod('least', assertLeast);
+	  Assertion.addMethod('gte', assertLeast);
+
+	  /**
+	   * ### .below(value)
+	   *
+	   * Asserts that the target is less than `value`.
+	   *
+	   *     expect(5).to.be.below(10);
+	   *
+	   * Can also be used in conjunction with `length` to
+	   * assert a maximum length. The benefit being a
+	   * more informative error message than if the length
+	   * was supplied directly.
+	   *
+	   *     expect('foo').to.have.length.below(4);
+	   *     expect([ 1, 2, 3 ]).to.have.length.below(4);
+	   *
+	   * @name below
+	   * @alias lt
+	   * @alias lessThan
+	   * @param {Number} value
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function assertBelow (n, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    if (flag(this, 'doLength')) {
+	      new Assertion(obj, msg).to.have.property('length');
+	      var len = obj.length;
+	      this.assert(
+	          len < n
+	        , 'expected #{this} to have a length below #{exp} but got #{act}'
+	        , 'expected #{this} to not have a length below #{exp}'
+	        , n
+	        , len
+	      );
+	    } else {
+	      this.assert(
+	          obj < n
+	        , 'expected #{this} to be below ' + n
+	        , 'expected #{this} to be at least ' + n
+	      );
+	    }
+	  }
+
+	  Assertion.addMethod('below', assertBelow);
+	  Assertion.addMethod('lt', assertBelow);
+	  Assertion.addMethod('lessThan', assertBelow);
+
+	  /**
+	   * ### .most(value)
+	   *
+	   * Asserts that the target is less than or equal to `value`.
+	   *
+	   *     expect(5).to.be.at.most(5);
+	   *
+	   * Can also be used in conjunction with `length` to
+	   * assert a maximum length. The benefit being a
+	   * more informative error message than if the length
+	   * was supplied directly.
+	   *
+	   *     expect('foo').to.have.length.of.at.most(4);
+	   *     expect([ 1, 2, 3 ]).to.have.length.of.at.most(3);
+	   *
+	   * @name most
+	   * @alias lte
+	   * @param {Number} value
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function assertMost (n, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    if (flag(this, 'doLength')) {
+	      new Assertion(obj, msg).to.have.property('length');
+	      var len = obj.length;
+	      this.assert(
+	          len <= n
+	        , 'expected #{this} to have a length at most #{exp} but got #{act}'
+	        , 'expected #{this} to have a length above #{exp}'
+	        , n
+	        , len
+	      );
+	    } else {
+	      this.assert(
+	          obj <= n
+	        , 'expected #{this} to be at most ' + n
+	        , 'expected #{this} to be above ' + n
+	      );
+	    }
+	  }
+
+	  Assertion.addMethod('most', assertMost);
+	  Assertion.addMethod('lte', assertMost);
+
+	  /**
+	   * ### .within(start, finish)
+	   *
+	   * Asserts that the target is within a range.
+	   *
+	   *     expect(7).to.be.within(5,10);
+	   *
+	   * Can also be used in conjunction with `length` to
+	   * assert a length range. The benefit being a
+	   * more informative error message than if the length
+	   * was supplied directly.
+	   *
+	   *     expect('foo').to.have.length.within(2,4);
+	   *     expect([ 1, 2, 3 ]).to.have.length.within(2,4);
+	   *
+	   * @name within
+	   * @param {Number} start lowerbound inclusive
+	   * @param {Number} finish upperbound inclusive
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  Assertion.addMethod('within', function (start, finish, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object')
+	      , range = start + '..' + finish;
+	    if (flag(this, 'doLength')) {
+	      new Assertion(obj, msg).to.have.property('length');
+	      var len = obj.length;
+	      this.assert(
+	          len >= start && len <= finish
+	        , 'expected #{this} to have a length within ' + range
+	        , 'expected #{this} to not have a length within ' + range
+	      );
+	    } else {
+	      this.assert(
+	          obj >= start && obj <= finish
+	        , 'expected #{this} to be within ' + range
+	        , 'expected #{this} to not be within ' + range
+	      );
+	    }
+	  });
+
+	  /**
+	   * ### .instanceof(constructor)
+	   *
+	   * Asserts that the target is an instance of `constructor`.
+	   *
+	   *     var Tea = function (name) { this.name = name; }
+	   *       , Chai = new Tea('chai');
+	   *
+	   *     expect(Chai).to.be.an.instanceof(Tea);
+	   *     expect([ 1, 2, 3 ]).to.be.instanceof(Array);
+	   *
+	   * @name instanceof
+	   * @param {Constructor} constructor
+	   * @param {String} message _optional_
+	   * @alias instanceOf
+	   * @api public
+	   */
+
+	  function assertInstanceOf (constructor, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var name = _.getName(constructor);
+	    this.assert(
+	        flag(this, 'object') instanceof constructor
+	      , 'expected #{this} to be an instance of ' + name
+	      , 'expected #{this} to not be an instance of ' + name
+	    );
+	  };
+
+	  Assertion.addMethod('instanceof', assertInstanceOf);
+	  Assertion.addMethod('instanceOf', assertInstanceOf);
+
+	  /**
+	   * ### .property(name, [value])
+	   *
+	   * Asserts that the target has a property `name`, optionally asserting that
+	   * the value of that property is strictly equal to  `value`.
+	   * If the `deep` flag is set, you can use dot- and bracket-notation for deep
+	   * references into objects and arrays.
+	   *
+	   *     // simple referencing
+	   *     var obj = { foo: 'bar' };
+	   *     expect(obj).to.have.property('foo');
+	   *     expect(obj).to.have.property('foo', 'bar');
+	   *
+	   *     // deep referencing
+	   *     var deepObj = {
+	   *         green: { tea: 'matcha' }
+	   *       , teas: [ 'chai', 'matcha', { tea: 'konacha' } ]
+	   *     };
+
+	   *     expect(deepObj).to.have.deep.property('green.tea', 'matcha');
+	   *     expect(deepObj).to.have.deep.property('teas[1]', 'matcha');
+	   *     expect(deepObj).to.have.deep.property('teas[2].tea', 'konacha');
+	   *
+	   * You can also use an array as the starting point of a `deep.property`
+	   * assertion, or traverse nested arrays.
+	   *
+	   *     var arr = [
+	   *         [ 'chai', 'matcha', 'konacha' ]
+	   *       , [ { tea: 'chai' }
+	   *         , { tea: 'matcha' }
+	   *         , { tea: 'konacha' } ]
+	   *     ];
+	   *
+	   *     expect(arr).to.have.deep.property('[0][1]', 'matcha');
+	   *     expect(arr).to.have.deep.property('[1][2].tea', 'konacha');
+	   *
+	   * Furthermore, `property` changes the subject of the assertion
+	   * to be the value of that property from the original object. This
+	   * permits for further chainable assertions on that property.
+	   *
+	   *     expect(obj).to.have.property('foo')
+	   *       .that.is.a('string');
+	   *     expect(deepObj).to.have.property('green')
+	   *       .that.is.an('object')
+	   *       .that.deep.equals({ tea: 'matcha' });
+	   *     expect(deepObj).to.have.property('teas')
+	   *       .that.is.an('array')
+	   *       .with.deep.property('[2]')
+	   *         .that.deep.equals({ tea: 'konacha' });
+	   *
+	   * @name property
+	   * @alias deep.property
+	   * @param {String} name
+	   * @param {Mixed} value (optional)
+	   * @param {String} message _optional_
+	   * @returns value of property for chaining
+	   * @api public
+	   */
+
+	  Assertion.addMethod('property', function (name, val, msg) {
+	    if (msg) flag(this, 'message', msg);
+
+	    var descriptor = flag(this, 'deep') ? 'deep property ' : 'property '
+	      , negate = flag(this, 'negate')
+	      , obj = flag(this, 'object')
+	      , value = flag(this, 'deep')
+	        ? _.getPathValue(name, obj)
+	        : obj[name];
+
+	    if (negate && undefined !== val) {
+	      if (undefined === value) {
+	        msg = (msg != null) ? msg + ': ' : '';
+	        throw new Error(msg + _.inspect(obj) + ' has no ' + descriptor + _.inspect(name));
+	      }
+	    } else {
+	      this.assert(
+	          undefined !== value
+	        , 'expected #{this} to have a ' + descriptor + _.inspect(name)
+	        , 'expected #{this} to not have ' + descriptor + _.inspect(name));
+	    }
+
+	    if (undefined !== val) {
+	      this.assert(
+	          val === value
+	        , 'expected #{this} to have a ' + descriptor + _.inspect(name) + ' of #{exp}, but got #{act}'
+	        , 'expected #{this} to not have a ' + descriptor + _.inspect(name) + ' of #{act}'
+	        , val
+	        , value
+	      );
+	    }
+
+	    flag(this, 'object', value);
+	  });
+
+
+	  /**
+	   * ### .ownProperty(name)
+	   *
+	   * Asserts that the target has an own property `name`.
+	   *
+	   *     expect('test').to.have.ownProperty('length');
+	   *
+	   * @name ownProperty
+	   * @alias haveOwnProperty
+	   * @param {String} name
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function assertOwnProperty (name, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    this.assert(
+	        obj.hasOwnProperty(name)
+	      , 'expected #{this} to have own property ' + _.inspect(name)
+	      , 'expected #{this} to not have own property ' + _.inspect(name)
+	    );
+	  }
+
+	  Assertion.addMethod('ownProperty', assertOwnProperty);
+	  Assertion.addMethod('haveOwnProperty', assertOwnProperty);
+
+	  /**
+	   * ### .length(value)
+	   *
+	   * Asserts that the target's `length` property has
+	   * the expected value.
+	   *
+	   *     expect([ 1, 2, 3]).to.have.length(3);
+	   *     expect('foobar').to.have.length(6);
+	   *
+	   * Can also be used as a chain precursor to a value
+	   * comparison for the length property.
+	   *
+	   *     expect('foo').to.have.length.above(2);
+	   *     expect([ 1, 2, 3 ]).to.have.length.above(2);
+	   *     expect('foo').to.have.length.below(4);
+	   *     expect([ 1, 2, 3 ]).to.have.length.below(4);
+	   *     expect('foo').to.have.length.within(2,4);
+	   *     expect([ 1, 2, 3 ]).to.have.length.within(2,4);
+	   *
+	   * @name length
+	   * @alias lengthOf
+	   * @param {Number} length
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  function assertLengthChain () {
+	    flag(this, 'doLength', true);
+	  }
+
+	  function assertLength (n, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    new Assertion(obj, msg).to.have.property('length');
+	    var len = obj.length;
+
+	    this.assert(
+	        len == n
+	      , 'expected #{this} to have a length of #{exp} but got #{act}'
+	      , 'expected #{this} to not have a length of #{act}'
+	      , n
+	      , len
+	    );
+	  }
+
+	  Assertion.addChainableMethod('length', assertLength, assertLengthChain);
+	  Assertion.addMethod('lengthOf', assertLength);
+
+	  /**
+	   * ### .match(regexp)
+	   *
+	   * Asserts that the target matches a regular expression.
+	   *
+	   *     expect('foobar').to.match(/^foo/);
+	   *
+	   * @name match
+	   * @param {RegExp} RegularExpression
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  Assertion.addMethod('match', function (re, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    this.assert(
+	        re.exec(obj)
+	      , 'expected #{this} to match ' + re
+	      , 'expected #{this} not to match ' + re
+	    );
+	  });
+
+	  /**
+	   * ### .string(string)
+	   *
+	   * Asserts that the string target contains another string.
+	   *
+	   *     expect('foobar').to.have.string('bar');
+	   *
+	   * @name string
+	   * @param {String} string
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  Assertion.addMethod('string', function (str, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    new Assertion(obj, msg).is.a('string');
+
+	    this.assert(
+	        ~obj.indexOf(str)
+	      , 'expected #{this} to contain ' + _.inspect(str)
+	      , 'expected #{this} to not contain ' + _.inspect(str)
+	    );
+	  });
+
+
+	  /**
+	   * ### .keys(key1, [key2], [...])
+	   *
+	   * Asserts that the target has exactly the given keys, or
+	   * asserts the inclusion of some keys when using the
+	   * `include` or `contain` modifiers.
+	   *
+	   *     expect({ foo: 1, bar: 2 }).to.have.keys(['foo', 'bar']);
+	   *     expect({ foo: 1, bar: 2, baz: 3 }).to.contain.keys('foo', 'bar');
+	   *
+	   * @name keys
+	   * @alias key
+	   * @param {String...|Array} keys
+	   * @api public
+	   */
+
+	  function assertKeys (keys) {
+	    var obj = flag(this, 'object')
+	      , str
+	      , ok = true;
+
+	    keys = keys instanceof Array
+	      ? keys
+	      : Array.prototype.slice.call(arguments);
+
+	    if (!keys.length) throw new Error('keys required');
+
+	    var actual = Object.keys(obj)
+	      , expected = keys
+	      , len = keys.length;
+
+	    // Inclusion
+	    ok = keys.every(function(key){
+	      return ~actual.indexOf(key);
+	    });
+
+	    // Strict
+	    if (!flag(this, 'negate') && !flag(this, 'contains')) {
+	      ok = ok && keys.length == actual.length;
+	    }
+
+	    // Key string
+	    if (len > 1) {
+	      keys = keys.map(function(key){
+	        return _.inspect(key);
+	      });
+	      var last = keys.pop();
+	      str = keys.join(', ') + ', and ' + last;
+	    } else {
+	      str = _.inspect(keys[0]);
+	    }
+
+	    // Form
+	    str = (len > 1 ? 'keys ' : 'key ') + str;
+
+	    // Have / include
+	    str = (flag(this, 'contains') ? 'contain ' : 'have ') + str;
+
+	    // Assertion
+	    this.assert(
+	        ok
+	      , 'expected #{this} to ' + str
+	      , 'expected #{this} to not ' + str
+	      , expected.sort()
+	      , actual.sort()
+	      , true
+	    );
+	  }
+
+	  Assertion.addMethod('keys', assertKeys);
+	  Assertion.addMethod('key', assertKeys);
+
+	  /**
+	   * ### .throw(constructor)
+	   *
+	   * Asserts that the function target will throw a specific error, or specific type of error
+	   * (as determined using `instanceof`), optionally with a RegExp or string inclusion test
+	   * for the error's message.
+	   *
+	   *     var err = new ReferenceError('This is a bad function.');
+	   *     var fn = function () { throw err; }
+	   *     expect(fn).to.throw(ReferenceError);
+	   *     expect(fn).to.throw(Error);
+	   *     expect(fn).to.throw(/bad function/);
+	   *     expect(fn).to.not.throw('good function');
+	   *     expect(fn).to.throw(ReferenceError, /bad function/);
+	   *     expect(fn).to.throw(err);
+	   *     expect(fn).to.not.throw(new RangeError('Out of range.'));
+	   *
+	   * Please note that when a throw expectation is negated, it will check each
+	   * parameter independently, starting with error constructor type. The appropriate way
+	   * to check for the existence of a type of error but for a message that does not match
+	   * is to use `and`.
+	   *
+	   *     expect(fn).to.throw(ReferenceError)
+	   *        .and.not.throw(/good function/);
+	   *
+	   * @name throw
+	   * @alias throws
+	   * @alias Throw
+	   * @param {ErrorConstructor} constructor
+	   * @param {String|RegExp} expected error message
+	   * @param {String} message _optional_
+	   * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
+	   * @returns error for chaining (null if no error)
+	   * @api public
+	   */
+
+	  function assertThrows (constructor, errMsg, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    new Assertion(obj, msg).is.a('function');
+
+	    var thrown = false
+	      , desiredError = null
+	      , name = null
+	      , thrownError = null;
+
+	    if (arguments.length === 0) {
+	      errMsg = null;
+	      constructor = null;
+	    } else if (constructor && (constructor instanceof RegExp || 'string' === typeof constructor)) {
+	      errMsg = constructor;
+	      constructor = null;
+	    } else if (constructor && constructor instanceof Error) {
+	      desiredError = constructor;
+	      constructor = null;
+	      errMsg = null;
+	    } else if (typeof constructor === 'function') {
+	      name = constructor.prototype.name || constructor.name;
+	      if (name === 'Error' && constructor !== Error) {
+	        name = (new constructor()).name;
+	      }
+	    } else {
+	      constructor = null;
+	    }
+
+	    try {
+	      obj();
+	    } catch (err) {
+	      // first, check desired error
+	      if (desiredError) {
+	        this.assert(
+	            err === desiredError
+	          , 'expected #{this} to throw #{exp} but #{act} was thrown'
+	          , 'expected #{this} to not throw #{exp}'
+	          , (desiredError instanceof Error ? desiredError.toString() : desiredError)
+	          , (err instanceof Error ? err.toString() : err)
+	        );
+
+	        flag(this, 'object', err);
+	        return this;
+	      }
+
+	      // next, check constructor
+	      if (constructor) {
+	        this.assert(
+	            err instanceof constructor
+	          , 'expected #{this} to throw #{exp} but #{act} was thrown'
+	          , 'expected #{this} to not throw #{exp} but #{act} was thrown'
+	          , name
+	          , (err instanceof Error ? err.toString() : err)
+	        );
+
+	        if (!errMsg) {
+	          flag(this, 'object', err);
+	          return this;
+	        }
+	      }
+
+	      // next, check message
+	      var message = 'object' === _.type(err) && "message" in err
+	        ? err.message
+	        : '' + err;
+
+	      if ((message != null) && errMsg && errMsg instanceof RegExp) {
+	        this.assert(
+	            errMsg.exec(message)
+	          , 'expected #{this} to throw error matching #{exp} but got #{act}'
+	          , 'expected #{this} to throw error not matching #{exp}'
+	          , errMsg
+	          , message
+	        );
+
+	        flag(this, 'object', err);
+	        return this;
+	      } else if ((message != null) && errMsg && 'string' === typeof errMsg) {
+	        this.assert(
+	            ~message.indexOf(errMsg)
+	          , 'expected #{this} to throw error including #{exp} but got #{act}'
+	          , 'expected #{this} to throw error not including #{act}'
+	          , errMsg
+	          , message
+	        );
+
+	        flag(this, 'object', err);
+	        return this;
+	      } else {
+	        thrown = true;
+	        thrownError = err;
+	      }
+	    }
+
+	    var actuallyGot = ''
+	      , expectedThrown = name !== null
+	        ? name
+	        : desiredError
+	          ? '#{exp}' //_.inspect(desiredError)
+	          : 'an error';
+
+	    if (thrown) {
+	      actuallyGot = ' but #{act} was thrown'
+	    }
+
+	    this.assert(
+	        thrown === true
+	      , 'expected #{this} to throw ' + expectedThrown + actuallyGot
+	      , 'expected #{this} to not throw ' + expectedThrown + actuallyGot
+	      , (desiredError instanceof Error ? desiredError.toString() : desiredError)
+	      , (thrownError instanceof Error ? thrownError.toString() : thrownError)
+	    );
+
+	    flag(this, 'object', thrownError);
+	  };
+
+	  Assertion.addMethod('throw', assertThrows);
+	  Assertion.addMethod('throws', assertThrows);
+	  Assertion.addMethod('Throw', assertThrows);
+
+	  /**
+	   * ### .respondTo(method)
+	   *
+	   * Asserts that the object or class target will respond to a method.
+	   *
+	   *     Klass.prototype.bar = function(){};
+	   *     expect(Klass).to.respondTo('bar');
+	   *     expect(obj).to.respondTo('bar');
+	   *
+	   * To check if a constructor will respond to a static function,
+	   * set the `itself` flag.
+	   *
+	   *     Klass.baz = function(){};
+	   *     expect(Klass).itself.to.respondTo('baz');
+	   *
+	   * @name respondTo
+	   * @param {String} method
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  Assertion.addMethod('respondTo', function (method, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object')
+	      , itself = flag(this, 'itself')
+	      , context = ('function' === _.type(obj) && !itself)
+	        ? obj.prototype[method]
+	        : obj[method];
+
+	    this.assert(
+	        'function' === typeof context
+	      , 'expected #{this} to respond to ' + _.inspect(method)
+	      , 'expected #{this} to not respond to ' + _.inspect(method)
+	    );
+	  });
+
+	  /**
+	   * ### .itself
+	   *
+	   * Sets the `itself` flag, later used by the `respondTo` assertion.
+	   *
+	   *     function Foo() {}
+	   *     Foo.bar = function() {}
+	   *     Foo.prototype.baz = function() {}
+	   *
+	   *     expect(Foo).itself.to.respondTo('bar');
+	   *     expect(Foo).itself.not.to.respondTo('baz');
+	   *
+	   * @name itself
+	   * @api public
+	   */
+
+	  Assertion.addProperty('itself', function () {
+	    flag(this, 'itself', true);
+	  });
+
+	  /**
+	   * ### .satisfy(method)
+	   *
+	   * Asserts that the target passes a given truth test.
+	   *
+	   *     expect(1).to.satisfy(function(num) { return num > 0; });
+	   *
+	   * @name satisfy
+	   * @param {Function} matcher
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  Assertion.addMethod('satisfy', function (matcher, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+	    var result = matcher(obj);
+	    this.assert(
+	        result
+	      , 'expected #{this} to satisfy ' + _.objDisplay(matcher)
+	      , 'expected #{this} to not satisfy' + _.objDisplay(matcher)
+	      , this.negate ? false : true
+	      , result
+	    );
+	  });
+
+	  /**
+	   * ### .closeTo(expected, delta)
+	   *
+	   * Asserts that the target is equal `expected`, to within a +/- `delta` range.
+	   *
+	   *     expect(1.5).to.be.closeTo(1, 0.5);
+	   *
+	   * @name closeTo
+	   * @param {Number} expected
+	   * @param {Number} delta
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  Assertion.addMethod('closeTo', function (expected, delta, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+
+	    new Assertion(obj, msg).is.a('number');
+	    if (_.type(expected) !== 'number' || _.type(delta) !== 'number') {
+	      throw new Error('the arguments to closeTo must be numbers');
+	    }
+
+	    this.assert(
+	        Math.abs(obj - expected) <= delta
+	      , 'expected #{this} to be close to ' + expected + ' +/- ' + delta
+	      , 'expected #{this} not to be close to ' + expected + ' +/- ' + delta
+	    );
+	  });
+
+	  function isSubsetOf(subset, superset, cmp) {
+	    return subset.every(function(elem) {
+	      if (!cmp) return superset.indexOf(elem) !== -1;
+
+	      return superset.some(function(elem2) {
+	        return cmp(elem, elem2);
+	      });
+	    })
+	  }
+
+	  /**
+	   * ### .members(set)
+	   *
+	   * Asserts that the target is a superset of `set`,
+	   * or that the target and `set` have the same strictly-equal (===) members.
+	   * Alternately, if the `deep` flag is set, set members are compared for deep
+	   * equality.
+	   *
+	   *     expect([1, 2, 3]).to.include.members([3, 2]);
+	   *     expect([1, 2, 3]).to.not.include.members([3, 2, 8]);
+	   *
+	   *     expect([4, 2]).to.have.members([2, 4]);
+	   *     expect([5, 2]).to.not.have.members([5, 2, 1]);
+	   *
+	   *     expect([{ id: 1 }]).to.deep.include.members([{ id: 1 }]);
+	   *
+	   * @name members
+	   * @param {Array} set
+	   * @param {String} message _optional_
+	   * @api public
+	   */
+
+	  Assertion.addMethod('members', function (subset, msg) {
+	    if (msg) flag(this, 'message', msg);
+	    var obj = flag(this, 'object');
+
+	    new Assertion(obj).to.be.an('array');
+	    new Assertion(subset).to.be.an('array');
+
+	    var cmp = flag(this, 'deep') ? _.eql : undefined;
+
+	    if (flag(this, 'contains')) {
+	      return this.assert(
+	          isSubsetOf(subset, obj, cmp)
+	        , 'expected #{this} to be a superset of #{act}'
+	        , 'expected #{this} to not be a superset of #{act}'
+	        , obj
+	        , subset
+	      );
+	    }
+
+	    this.assert(
+	        isSubsetOf(obj, subset, cmp) && isSubsetOf(subset, obj, cmp)
+	        , 'expected #{this} to have the same members as #{act}'
+	        , 'expected #{this} to not have the same members as #{act}'
+	        , obj
+	        , subset
+	    );
+	  });
+	};
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * chai
+	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	module.exports = function (chai, util) {
+	  chai.expect = function (val, message) {
+	    return new chai.Assertion(val, message);
+	  };
+	};
+
+
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * chai
+	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	module.exports = function (chai, util) {
+	  var Assertion = chai.Assertion;
+
+	  function loadShould () {
+	    // explicitly define this method as function as to have it's name to include as `ssfi`
+	    function shouldGetter() {
+	      if (this instanceof String || this instanceof Number) {
+	        return new Assertion(this.constructor(this), null, shouldGetter);
+	      } else if (this instanceof Boolean) {
+	        return new Assertion(this == true, null, shouldGetter);
+	      }
+	      return new Assertion(this, null, shouldGetter);
+	    }
+	    function shouldSetter(value) {
+	      // See https://github.com/chaijs/chai/issues/86: this makes
+	      // `whatever.should = someValue` actually set `someValue`, which is
+	      // especially useful for `global.should = require('chai').should()`.
+	      //
+	      // Note that we have to use [[DefineProperty]] instead of [[Put]]
+	      // since otherwise we would trigger this very setter!
+	      Object.defineProperty(this, 'should', {
+	        value: value,
+	        enumerable: true,
+	        configurable: true,
+	        writable: true
+	      });
+	    }
+	    // modify Object.prototype to have `should`
+	    Object.defineProperty(Object.prototype, 'should', {
+	      set: shouldSetter
+	      , get: shouldGetter
+	      , configurable: true
+	    });
+
+	    var should = {};
+
+	    should.equal = function (val1, val2, msg) {
+	      new Assertion(val1, msg).to.equal(val2);
+	    };
+
+	    should.Throw = function (fn, errt, errs, msg) {
+	      new Assertion(fn, msg).to.Throw(errt, errs);
+	    };
+
+	    should.exist = function (val, msg) {
+	      new Assertion(val, msg).to.exist;
+	    }
+
+	    // negation
+	    should.not = {}
+
+	    should.not.equal = function (val1, val2, msg) {
+	      new Assertion(val1, msg).to.not.equal(val2);
+	    };
+
+	    should.not.Throw = function (fn, errt, errs, msg) {
+	      new Assertion(fn, msg).to.not.Throw(errt, errs);
+	    };
+
+	    should.not.exist = function (val, msg) {
+	      new Assertion(val, msg).to.not.exist;
+	    }
+
+	    should['throw'] = should['Throw'];
+	    should.not['throw'] = should.not['Throw'];
+
+	    return should;
+	  };
+
+	  chai.should = loadShould;
+	  chai.Should = loadShould;
+	};
+
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * chai
+	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+
+	module.exports = function (chai, util) {
+
+	  /*!
+	   * Chai dependencies.
+	   */
+
+	  var Assertion = chai.Assertion
+	    , flag = util.flag;
+
+	  /*!
+	   * Module export.
+	   */
+
+	  /**
+	   * ### assert(expression, message)
+	   *
+	   * Write your own test expressions.
+	   *
+	   *     assert('foo' !== 'bar', 'foo is not bar');
+	   *     assert(Array.isArray([]), 'empty arrays are arrays');
+	   *
+	   * @param {Mixed} expression to test for truthiness
+	   * @param {String} message to display on error
+	   * @name assert
+	   * @api public
+	   */
+
+	  var assert = chai.assert = function (express, errmsg) {
+	    var test = new Assertion(null, null, chai.assert);
+	    test.assert(
+	        express
+	      , errmsg
+	      , '[ negation message unavailable ]'
+	    );
+	  };
+
+	  /**
+	   * ### .fail(actual, expected, [message], [operator])
+	   *
+	   * Throw a failure. Node.js `assert` module-compatible.
+	   *
+	   * @name fail
+	   * @param {Mixed} actual
+	   * @param {Mixed} expected
+	   * @param {String} message
+	   * @param {String} operator
+	   * @api public
+	   */
+
+	  assert.fail = function (actual, expected, message, operator) {
+	    message = message || 'assert.fail()';
+	    throw new chai.AssertionError(message, {
+	        actual: actual
+	      , expected: expected
+	      , operator: operator
+	    }, assert.fail);
+	  };
+
+	  /**
+	   * ### .ok(object, [message])
+	   *
+	   * Asserts that `object` is truthy.
+	   *
+	   *     assert.ok('everything', 'everything is ok');
+	   *     assert.ok(false, 'this will fail');
+	   *
+	   * @name ok
+	   * @param {Mixed} object to test
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.ok = function (val, msg) {
+	    new Assertion(val, msg).is.ok;
+	  };
+
+	  /**
+	   * ### .notOk(object, [message])
+	   *
+	   * Asserts that `object` is falsy.
+	   *
+	   *     assert.notOk('everything', 'this will fail');
+	   *     assert.notOk(false, 'this will pass');
+	   *
+	   * @name notOk
+	   * @param {Mixed} object to test
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notOk = function (val, msg) {
+	    new Assertion(val, msg).is.not.ok;
+	  };
+
+	  /**
+	   * ### .equal(actual, expected, [message])
+	   *
+	   * Asserts non-strict equality (`==`) of `actual` and `expected`.
+	   *
+	   *     assert.equal(3, '3', '== coerces values to strings');
+	   *
+	   * @name equal
+	   * @param {Mixed} actual
+	   * @param {Mixed} expected
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.equal = function (act, exp, msg) {
+	    var test = new Assertion(act, msg, assert.equal);
+
+	    test.assert(
+	        exp == flag(test, 'object')
+	      , 'expected #{this} to equal #{exp}'
+	      , 'expected #{this} to not equal #{act}'
+	      , exp
+	      , act
+	    );
+	  };
+
+	  /**
+	   * ### .notEqual(actual, expected, [message])
+	   *
+	   * Asserts non-strict inequality (`!=`) of `actual` and `expected`.
+	   *
+	   *     assert.notEqual(3, 4, 'these numbers are not equal');
+	   *
+	   * @name notEqual
+	   * @param {Mixed} actual
+	   * @param {Mixed} expected
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notEqual = function (act, exp, msg) {
+	    var test = new Assertion(act, msg, assert.notEqual);
+
+	    test.assert(
+	        exp != flag(test, 'object')
+	      , 'expected #{this} to not equal #{exp}'
+	      , 'expected #{this} to equal #{act}'
+	      , exp
+	      , act
+	    );
+	  };
+
+	  /**
+	   * ### .strictEqual(actual, expected, [message])
+	   *
+	   * Asserts strict equality (`===`) of `actual` and `expected`.
+	   *
+	   *     assert.strictEqual(true, true, 'these booleans are strictly equal');
+	   *
+	   * @name strictEqual
+	   * @param {Mixed} actual
+	   * @param {Mixed} expected
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.strictEqual = function (act, exp, msg) {
+	    new Assertion(act, msg).to.equal(exp);
+	  };
+
+	  /**
+	   * ### .notStrictEqual(actual, expected, [message])
+	   *
+	   * Asserts strict inequality (`!==`) of `actual` and `expected`.
+	   *
+	   *     assert.notStrictEqual(3, '3', 'no coercion for strict equality');
+	   *
+	   * @name notStrictEqual
+	   * @param {Mixed} actual
+	   * @param {Mixed} expected
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notStrictEqual = function (act, exp, msg) {
+	    new Assertion(act, msg).to.not.equal(exp);
+	  };
+
+	  /**
+	   * ### .deepEqual(actual, expected, [message])
+	   *
+	   * Asserts that `actual` is deeply equal to `expected`.
+	   *
+	   *     assert.deepEqual({ tea: 'green' }, { tea: 'green' });
+	   *
+	   * @name deepEqual
+	   * @param {Mixed} actual
+	   * @param {Mixed} expected
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.deepEqual = function (act, exp, msg) {
+	    new Assertion(act, msg).to.eql(exp);
+	  };
+
+	  /**
+	   * ### .notDeepEqual(actual, expected, [message])
+	   *
+	   * Assert that `actual` is not deeply equal to `expected`.
+	   *
+	   *     assert.notDeepEqual({ tea: 'green' }, { tea: 'jasmine' });
+	   *
+	   * @name notDeepEqual
+	   * @param {Mixed} actual
+	   * @param {Mixed} expected
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notDeepEqual = function (act, exp, msg) {
+	    new Assertion(act, msg).to.not.eql(exp);
+	  };
+
+	  /**
+	   * ### .isTrue(value, [message])
+	   *
+	   * Asserts that `value` is true.
+	   *
+	   *     var teaServed = true;
+	   *     assert.isTrue(teaServed, 'the tea has been served');
+	   *
+	   * @name isTrue
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isTrue = function (val, msg) {
+	    new Assertion(val, msg).is['true'];
+	  };
+
+	  /**
+	   * ### .isFalse(value, [message])
+	   *
+	   * Asserts that `value` is false.
+	   *
+	   *     var teaServed = false;
+	   *     assert.isFalse(teaServed, 'no tea yet? hmm...');
+	   *
+	   * @name isFalse
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isFalse = function (val, msg) {
+	    new Assertion(val, msg).is['false'];
+	  };
+
+	  /**
+	   * ### .isNull(value, [message])
+	   *
+	   * Asserts that `value` is null.
+	   *
+	   *     assert.isNull(err, 'there was no error');
+	   *
+	   * @name isNull
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isNull = function (val, msg) {
+	    new Assertion(val, msg).to.equal(null);
+	  };
+
+	  /**
+	   * ### .isNotNull(value, [message])
+	   *
+	   * Asserts that `value` is not null.
+	   *
+	   *     var tea = 'tasty chai';
+	   *     assert.isNotNull(tea, 'great, time for tea!');
+	   *
+	   * @name isNotNull
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isNotNull = function (val, msg) {
+	    new Assertion(val, msg).to.not.equal(null);
+	  };
+
+	  /**
+	   * ### .isUndefined(value, [message])
+	   *
+	   * Asserts that `value` is `undefined`.
+	   *
+	   *     var tea;
+	   *     assert.isUndefined(tea, 'no tea defined');
+	   *
+	   * @name isUndefined
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isUndefined = function (val, msg) {
+	    new Assertion(val, msg).to.equal(undefined);
+	  };
+
+	  /**
+	   * ### .isDefined(value, [message])
+	   *
+	   * Asserts that `value` is not `undefined`.
+	   *
+	   *     var tea = 'cup of chai';
+	   *     assert.isDefined(tea, 'tea has been defined');
+	   *
+	   * @name isDefined
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isDefined = function (val, msg) {
+	    new Assertion(val, msg).to.not.equal(undefined);
+	  };
+
+	  /**
+	   * ### .isFunction(value, [message])
+	   *
+	   * Asserts that `value` is a function.
+	   *
+	   *     function serveTea() { return 'cup of tea'; };
+	   *     assert.isFunction(serveTea, 'great, we can have tea now');
+	   *
+	   * @name isFunction
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isFunction = function (val, msg) {
+	    new Assertion(val, msg).to.be.a('function');
+	  };
+
+	  /**
+	   * ### .isNotFunction(value, [message])
+	   *
+	   * Asserts that `value` is _not_ a function.
+	   *
+	   *     var serveTea = [ 'heat', 'pour', 'sip' ];
+	   *     assert.isNotFunction(serveTea, 'great, we have listed the steps');
+	   *
+	   * @name isNotFunction
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isNotFunction = function (val, msg) {
+	    new Assertion(val, msg).to.not.be.a('function');
+	  };
+
+	  /**
+	   * ### .isObject(value, [message])
+	   *
+	   * Asserts that `value` is an object (as revealed by
+	   * `Object.prototype.toString`).
+	   *
+	   *     var selection = { name: 'Chai', serve: 'with spices' };
+	   *     assert.isObject(selection, 'tea selection is an object');
+	   *
+	   * @name isObject
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isObject = function (val, msg) {
+	    new Assertion(val, msg).to.be.a('object');
+	  };
+
+	  /**
+	   * ### .isNotObject(value, [message])
+	   *
+	   * Asserts that `value` is _not_ an object.
+	   *
+	   *     var selection = 'chai'
+	   *     assert.isNotObject(selection, 'tea selection is not an object');
+	   *     assert.isNotObject(null, 'null is not an object');
+	   *
+	   * @name isNotObject
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isNotObject = function (val, msg) {
+	    new Assertion(val, msg).to.not.be.a('object');
+	  };
+
+	  /**
+	   * ### .isArray(value, [message])
+	   *
+	   * Asserts that `value` is an array.
+	   *
+	   *     var menu = [ 'green', 'chai', 'oolong' ];
+	   *     assert.isArray(menu, 'what kind of tea do we want?');
+	   *
+	   * @name isArray
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isArray = function (val, msg) {
+	    new Assertion(val, msg).to.be.an('array');
+	  };
+
+	  /**
+	   * ### .isNotArray(value, [message])
+	   *
+	   * Asserts that `value` is _not_ an array.
+	   *
+	   *     var menu = 'green|chai|oolong';
+	   *     assert.isNotArray(menu, 'what kind of tea do we want?');
+	   *
+	   * @name isNotArray
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isNotArray = function (val, msg) {
+	    new Assertion(val, msg).to.not.be.an('array');
+	  };
+
+	  /**
+	   * ### .isString(value, [message])
+	   *
+	   * Asserts that `value` is a string.
+	   *
+	   *     var teaOrder = 'chai';
+	   *     assert.isString(teaOrder, 'order placed');
+	   *
+	   * @name isString
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isString = function (val, msg) {
+	    new Assertion(val, msg).to.be.a('string');
+	  };
+
+	  /**
+	   * ### .isNotString(value, [message])
+	   *
+	   * Asserts that `value` is _not_ a string.
+	   *
+	   *     var teaOrder = 4;
+	   *     assert.isNotString(teaOrder, 'order placed');
+	   *
+	   * @name isNotString
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isNotString = function (val, msg) {
+	    new Assertion(val, msg).to.not.be.a('string');
+	  };
+
+	  /**
+	   * ### .isNumber(value, [message])
+	   *
+	   * Asserts that `value` is a number.
+	   *
+	   *     var cups = 2;
+	   *     assert.isNumber(cups, 'how many cups');
+	   *
+	   * @name isNumber
+	   * @param {Number} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isNumber = function (val, msg) {
+	    new Assertion(val, msg).to.be.a('number');
+	  };
+
+	  /**
+	   * ### .isNotNumber(value, [message])
+	   *
+	   * Asserts that `value` is _not_ a number.
+	   *
+	   *     var cups = '2 cups please';
+	   *     assert.isNotNumber(cups, 'how many cups');
+	   *
+	   * @name isNotNumber
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isNotNumber = function (val, msg) {
+	    new Assertion(val, msg).to.not.be.a('number');
+	  };
+
+	  /**
+	   * ### .isBoolean(value, [message])
+	   *
+	   * Asserts that `value` is a boolean.
+	   *
+	   *     var teaReady = true
+	   *       , teaServed = false;
+	   *
+	   *     assert.isBoolean(teaReady, 'is the tea ready');
+	   *     assert.isBoolean(teaServed, 'has tea been served');
+	   *
+	   * @name isBoolean
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isBoolean = function (val, msg) {
+	    new Assertion(val, msg).to.be.a('boolean');
+	  };
+
+	  /**
+	   * ### .isNotBoolean(value, [message])
+	   *
+	   * Asserts that `value` is _not_ a boolean.
+	   *
+	   *     var teaReady = 'yep'
+	   *       , teaServed = 'nope';
+	   *
+	   *     assert.isNotBoolean(teaReady, 'is the tea ready');
+	   *     assert.isNotBoolean(teaServed, 'has tea been served');
+	   *
+	   * @name isNotBoolean
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.isNotBoolean = function (val, msg) {
+	    new Assertion(val, msg).to.not.be.a('boolean');
+	  };
+
+	  /**
+	   * ### .typeOf(value, name, [message])
+	   *
+	   * Asserts that `value`'s type is `name`, as determined by
+	   * `Object.prototype.toString`.
+	   *
+	   *     assert.typeOf({ tea: 'chai' }, 'object', 'we have an object');
+	   *     assert.typeOf(['chai', 'jasmine'], 'array', 'we have an array');
+	   *     assert.typeOf('tea', 'string', 'we have a string');
+	   *     assert.typeOf(/tea/, 'regexp', 'we have a regular expression');
+	   *     assert.typeOf(null, 'null', 'we have a null');
+	   *     assert.typeOf(undefined, 'undefined', 'we have an undefined');
+	   *
+	   * @name typeOf
+	   * @param {Mixed} value
+	   * @param {String} name
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.typeOf = function (val, type, msg) {
+	    new Assertion(val, msg).to.be.a(type);
+	  };
+
+	  /**
+	   * ### .notTypeOf(value, name, [message])
+	   *
+	   * Asserts that `value`'s type is _not_ `name`, as determined by
+	   * `Object.prototype.toString`.
+	   *
+	   *     assert.notTypeOf('tea', 'number', 'strings are not numbers');
+	   *
+	   * @name notTypeOf
+	   * @param {Mixed} value
+	   * @param {String} typeof name
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notTypeOf = function (val, type, msg) {
+	    new Assertion(val, msg).to.not.be.a(type);
+	  };
+
+	  /**
+	   * ### .instanceOf(object, constructor, [message])
+	   *
+	   * Asserts that `value` is an instance of `constructor`.
+	   *
+	   *     var Tea = function (name) { this.name = name; }
+	   *       , chai = new Tea('chai');
+	   *
+	   *     assert.instanceOf(chai, Tea, 'chai is an instance of tea');
+	   *
+	   * @name instanceOf
+	   * @param {Object} object
+	   * @param {Constructor} constructor
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.instanceOf = function (val, type, msg) {
+	    new Assertion(val, msg).to.be.instanceOf(type);
+	  };
+
+	  /**
+	   * ### .notInstanceOf(object, constructor, [message])
+	   *
+	   * Asserts `value` is not an instance of `constructor`.
+	   *
+	   *     var Tea = function (name) { this.name = name; }
+	   *       , chai = new String('chai');
+	   *
+	   *     assert.notInstanceOf(chai, Tea, 'chai is not an instance of tea');
+	   *
+	   * @name notInstanceOf
+	   * @param {Object} object
+	   * @param {Constructor} constructor
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notInstanceOf = function (val, type, msg) {
+	    new Assertion(val, msg).to.not.be.instanceOf(type);
+	  };
+
+	  /**
+	   * ### .include(haystack, needle, [message])
+	   *
+	   * Asserts that `haystack` includes `needle`. Works
+	   * for strings and arrays.
+	   *
+	   *     assert.include('foobar', 'bar', 'foobar contains string "bar"');
+	   *     assert.include([ 1, 2, 3 ], 3, 'array contains value');
+	   *
+	   * @name include
+	   * @param {Array|String} haystack
+	   * @param {Mixed} needle
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.include = function (exp, inc, msg) {
+	    new Assertion(exp, msg, assert.include).include(inc);
+	  };
+
+	  /**
+	   * ### .notInclude(haystack, needle, [message])
+	   *
+	   * Asserts that `haystack` does not include `needle`. Works
+	   * for strings and arrays.
+	   *i
+	   *     assert.notInclude('foobar', 'baz', 'string not include substring');
+	   *     assert.notInclude([ 1, 2, 3 ], 4, 'array not include contain value');
+	   *
+	   * @name notInclude
+	   * @param {Array|String} haystack
+	   * @param {Mixed} needle
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notInclude = function (exp, inc, msg) {
+	    new Assertion(exp, msg, assert.notInclude).not.include(inc);
+	  };
+
+	  /**
+	   * ### .match(value, regexp, [message])
+	   *
+	   * Asserts that `value` matches the regular expression `regexp`.
+	   *
+	   *     assert.match('foobar', /^foo/, 'regexp matches');
+	   *
+	   * @name match
+	   * @param {Mixed} value
+	   * @param {RegExp} regexp
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.match = function (exp, re, msg) {
+	    new Assertion(exp, msg).to.match(re);
+	  };
+
+	  /**
+	   * ### .notMatch(value, regexp, [message])
+	   *
+	   * Asserts that `value` does not match the regular expression `regexp`.
+	   *
+	   *     assert.notMatch('foobar', /^foo/, 'regexp does not match');
+	   *
+	   * @name notMatch
+	   * @param {Mixed} value
+	   * @param {RegExp} regexp
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notMatch = function (exp, re, msg) {
+	    new Assertion(exp, msg).to.not.match(re);
+	  };
+
+	  /**
+	   * ### .property(object, property, [message])
+	   *
+	   * Asserts that `object` has a property named by `property`.
+	   *
+	   *     assert.property({ tea: { green: 'matcha' }}, 'tea');
+	   *
+	   * @name property
+	   * @param {Object} object
+	   * @param {String} property
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.property = function (obj, prop, msg) {
+	    new Assertion(obj, msg).to.have.property(prop);
+	  };
+
+	  /**
+	   * ### .notProperty(object, property, [message])
+	   *
+	   * Asserts that `object` does _not_ have a property named by `property`.
+	   *
+	   *     assert.notProperty({ tea: { green: 'matcha' }}, 'coffee');
+	   *
+	   * @name notProperty
+	   * @param {Object} object
+	   * @param {String} property
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notProperty = function (obj, prop, msg) {
+	    new Assertion(obj, msg).to.not.have.property(prop);
+	  };
+
+	  /**
+	   * ### .deepProperty(object, property, [message])
+	   *
+	   * Asserts that `object` has a property named by `property`, which can be a
+	   * string using dot- and bracket-notation for deep reference.
+	   *
+	   *     assert.deepProperty({ tea: { green: 'matcha' }}, 'tea.green');
+	   *
+	   * @name deepProperty
+	   * @param {Object} object
+	   * @param {String} property
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.deepProperty = function (obj, prop, msg) {
+	    new Assertion(obj, msg).to.have.deep.property(prop);
+	  };
+
+	  /**
+	   * ### .notDeepProperty(object, property, [message])
+	   *
+	   * Asserts that `object` does _not_ have a property named by `property`, which
+	   * can be a string using dot- and bracket-notation for deep reference.
+	   *
+	   *     assert.notDeepProperty({ tea: { green: 'matcha' }}, 'tea.oolong');
+	   *
+	   * @name notDeepProperty
+	   * @param {Object} object
+	   * @param {String} property
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.notDeepProperty = function (obj, prop, msg) {
+	    new Assertion(obj, msg).to.not.have.deep.property(prop);
+	  };
+
+	  /**
+	   * ### .propertyVal(object, property, value, [message])
+	   *
+	   * Asserts that `object` has a property named by `property` with value given
+	   * by `value`.
+	   *
+	   *     assert.propertyVal({ tea: 'is good' }, 'tea', 'is good');
+	   *
+	   * @name propertyVal
+	   * @param {Object} object
+	   * @param {String} property
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.propertyVal = function (obj, prop, val, msg) {
+	    new Assertion(obj, msg).to.have.property(prop, val);
+	  };
+
+	  /**
+	   * ### .propertyNotVal(object, property, value, [message])
+	   *
+	   * Asserts that `object` has a property named by `property`, but with a value
+	   * different from that given by `value`.
+	   *
+	   *     assert.propertyNotVal({ tea: 'is good' }, 'tea', 'is bad');
+	   *
+	   * @name propertyNotVal
+	   * @param {Object} object
+	   * @param {String} property
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.propertyNotVal = function (obj, prop, val, msg) {
+	    new Assertion(obj, msg).to.not.have.property(prop, val);
+	  };
+
+	  /**
+	   * ### .deepPropertyVal(object, property, value, [message])
+	   *
+	   * Asserts that `object` has a property named by `property` with value given
+	   * by `value`. `property` can use dot- and bracket-notation for deep
+	   * reference.
+	   *
+	   *     assert.deepPropertyVal({ tea: { green: 'matcha' }}, 'tea.green', 'matcha');
+	   *
+	   * @name deepPropertyVal
+	   * @param {Object} object
+	   * @param {String} property
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.deepPropertyVal = function (obj, prop, val, msg) {
+	    new Assertion(obj, msg).to.have.deep.property(prop, val);
+	  };
+
+	  /**
+	   * ### .deepPropertyNotVal(object, property, value, [message])
+	   *
+	   * Asserts that `object` has a property named by `property`, but with a value
+	   * different from that given by `value`. `property` can use dot- and
+	   * bracket-notation for deep reference.
+	   *
+	   *     assert.deepPropertyNotVal({ tea: { green: 'matcha' }}, 'tea.green', 'konacha');
+	   *
+	   * @name deepPropertyNotVal
+	   * @param {Object} object
+	   * @param {String} property
+	   * @param {Mixed} value
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.deepPropertyNotVal = function (obj, prop, val, msg) {
+	    new Assertion(obj, msg).to.not.have.deep.property(prop, val);
+	  };
+
+	  /**
+	   * ### .lengthOf(object, length, [message])
+	   *
+	   * Asserts that `object` has a `length` property with the expected value.
+	   *
+	   *     assert.lengthOf([1,2,3], 3, 'array has length of 3');
+	   *     assert.lengthOf('foobar', 5, 'string has length of 6');
+	   *
+	   * @name lengthOf
+	   * @param {Mixed} object
+	   * @param {Number} length
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.lengthOf = function (exp, len, msg) {
+	    new Assertion(exp, msg).to.have.length(len);
+	  };
+
+	  /**
+	   * ### .throws(function, [constructor/string/regexp], [string/regexp], [message])
+	   *
+	   * Asserts that `function` will throw an error that is an instance of
+	   * `constructor`, or alternately that it will throw an error with message
+	   * matching `regexp`.
+	   *
+	   *     assert.throw(fn, 'function throws a reference error');
+	   *     assert.throw(fn, /function throws a reference error/);
+	   *     assert.throw(fn, ReferenceError);
+	   *     assert.throw(fn, ReferenceError, 'function throws a reference error');
+	   *     assert.throw(fn, ReferenceError, /function throws a reference error/);
+	   *
+	   * @name throws
+	   * @alias throw
+	   * @alias Throw
+	   * @param {Function} function
+	   * @param {ErrorConstructor} constructor
+	   * @param {RegExp} regexp
+	   * @param {String} message
+	   * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
+	   * @api public
+	   */
+
+	  assert.Throw = function (fn, errt, errs, msg) {
+	    if ('string' === typeof errt || errt instanceof RegExp) {
+	      errs = errt;
+	      errt = null;
+	    }
+
+	    var assertErr = new Assertion(fn, msg).to.Throw(errt, errs);
+	    return flag(assertErr, 'object');
+	  };
+
+	  /**
+	   * ### .doesNotThrow(function, [constructor/regexp], [message])
+	   *
+	   * Asserts that `function` will _not_ throw an error that is an instance of
+	   * `constructor`, or alternately that it will not throw an error with message
+	   * matching `regexp`.
+	   *
+	   *     assert.doesNotThrow(fn, Error, 'function does not throw');
+	   *
+	   * @name doesNotThrow
+	   * @param {Function} function
+	   * @param {ErrorConstructor} constructor
+	   * @param {RegExp} regexp
+	   * @param {String} message
+	   * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
+	   * @api public
+	   */
+
+	  assert.doesNotThrow = function (fn, type, msg) {
+	    if ('string' === typeof type) {
+	      msg = type;
+	      type = null;
+	    }
+
+	    new Assertion(fn, msg).to.not.Throw(type);
+	  };
+
+	  /**
+	   * ### .operator(val1, operator, val2, [message])
+	   *
+	   * Compares two values using `operator`.
+	   *
+	   *     assert.operator(1, '<', 2, 'everything is ok');
+	   *     assert.operator(1, '>', 2, 'this will fail');
+	   *
+	   * @name operator
+	   * @param {Mixed} val1
+	   * @param {String} operator
+	   * @param {Mixed} val2
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.operator = function (val, operator, val2, msg) {
+	    if (!~['==', '===', '>', '>=', '<', '<=', '!=', '!=='].indexOf(operator)) {
+	      throw new Error('Invalid operator "' + operator + '"');
+	    }
+	    var test = new Assertion(eval(val + operator + val2), msg);
+	    test.assert(
+	        true === flag(test, 'object')
+	      , 'expected ' + util.inspect(val) + ' to be ' + operator + ' ' + util.inspect(val2)
+	      , 'expected ' + util.inspect(val) + ' to not be ' + operator + ' ' + util.inspect(val2) );
+	  };
+
+	  /**
+	   * ### .closeTo(actual, expected, delta, [message])
+	   *
+	   * Asserts that the target is equal `expected`, to within a +/- `delta` range.
+	   *
+	   *     assert.closeTo(1.5, 1, 0.5, 'numbers are close');
+	   *
+	   * @name closeTo
+	   * @param {Number} actual
+	   * @param {Number} expected
+	   * @param {Number} delta
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.closeTo = function (act, exp, delta, msg) {
+	    new Assertion(act, msg).to.be.closeTo(exp, delta);
+	  };
+
+	  /**
+	   * ### .sameMembers(set1, set2, [message])
+	   *
+	   * Asserts that `set1` and `set2` have the same members.
+	   * Order is not taken into account.
+	   *
+	   *     assert.sameMembers([ 1, 2, 3 ], [ 2, 1, 3 ], 'same members');
+	   *
+	   * @name sameMembers
+	   * @param {Array} set1
+	   * @param {Array} set2
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.sameMembers = function (set1, set2, msg) {
+	    new Assertion(set1, msg).to.have.same.members(set2);
+	  }
+
+	  /**
+	   * ### .includeMembers(superset, subset, [message])
+	   *
+	   * Asserts that `subset` is included in `superset`.
+	   * Order is not taken into account.
+	   *
+	   *     assert.includeMembers([ 1, 2, 3 ], [ 2, 1 ], 'include members');
+	   *
+	   * @name includeMembers
+	   * @param {Array} superset
+	   * @param {Array} subset
+	   * @param {String} message
+	   * @api public
+	   */
+
+	  assert.includeMembers = function (superset, subset, msg) {
+	    new Assertion(superset, msg).to.include.members(subset);
+	  }
+
+	  /*!
+	   * Undocumented / untested
+	   */
+
+	  assert.ifError = function (val, msg) {
+	    new Assertion(val, msg).to.not.be.ok;
+	  };
+
+	  /*!
+	   * Aliases.
+	   */
+
+	  (function alias(name, as){
+	    assert[as] = assert[name];
+	    return alias;
+	  })
+	  ('Throw', 'throw')
+	  ('Throw', 'throws');
+	};
+
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * chai
+	 * Copyright(c) 2011 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/*!
+	 * Main exports
+	 */
+
+	var exports = module.exports = {};
+
+	/*!
+	 * test utility
+	 */
+
+	exports.test = __webpack_require__(75);
+
+	/*!
+	 * type utility
+	 */
+
+	exports.type = __webpack_require__(76);
+
+	/*!
+	 * message utility
+	 */
+
+	exports.getMessage = __webpack_require__(77);
+
+	/*!
+	 * actual utility
+	 */
+
+	exports.getActual = __webpack_require__(78);
+
+	/*!
+	 * Inspect util
+	 */
+
+	exports.inspect = __webpack_require__(79);
+
+	/*!
+	 * Object Display util
+	 */
+
+	exports.objDisplay = __webpack_require__(80);
+
+	/*!
+	 * Flag utility
+	 */
+
+	exports.flag = __webpack_require__(81);
+
+	/*!
+	 * Flag transferring utility
+	 */
+
+	exports.transferFlags = __webpack_require__(82);
+
+	/*!
+	 * Deep equal utility
+	 */
+
+	exports.eql = __webpack_require__(140);
+
+	/*!
+	 * Deep path value
+	 */
+
+	exports.getPathValue = __webpack_require__(83);
+
+	/*!
+	 * Function name
+	 */
+
+	exports.getName = __webpack_require__(84);
+
+	/*!
+	 * add Property
+	 */
+
+	exports.addProperty = __webpack_require__(85);
+
+	/*!
+	 * add Method
+	 */
+
+	exports.addMethod = __webpack_require__(86);
+
+	/*!
+	 * overwrite Property
+	 */
+
+	exports.overwriteProperty = __webpack_require__(87);
+
+	/*!
+	 * overwrite Method
+	 */
+
+	exports.overwriteMethod = __webpack_require__(88);
+
+	/*!
+	 * Add a chainable method
+	 */
+
+	exports.addChainableMethod = __webpack_require__(89);
+
+	/*!
+	 * Overwrite chainable method
+	 */
+
+	exports.overwriteChainableMethod = __webpack_require__(90);
+
+
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/**
 	 * Copyright 2013-2014 Facebook, Inc.
 	 *
@@ -997,8 +3863,8 @@
 
 	"use strict";
 
-	var ReactLink = __webpack_require__(55);
-	var ReactStateSetters = __webpack_require__(56);
+	var ReactLink = __webpack_require__(56);
+	var ReactStateSetters = __webpack_require__(57);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -1025,7 +3891,7 @@
 
 
 /***/ },
-/* 17 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1085,7 +3951,7 @@
 
 
 /***/ },
-/* 18 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1109,10 +3975,10 @@
 
 	"use strict";
 
-	var React = __webpack_require__(13);
+	var React = __webpack_require__(14);
 
-	var ReactTransitionGroup = __webpack_require__(19);
-	var ReactCSSTransitionGroupChild = __webpack_require__(57);
+	var ReactTransitionGroup = __webpack_require__(26);
+	var ReactCSSTransitionGroupChild = __webpack_require__(59);
 
 	var ReactCSSTransitionGroup = React.createClass({
 	  displayName: 'ReactCSSTransitionGroup',
@@ -1158,7 +4024,7 @@
 
 
 /***/ },
-/* 19 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1181,11 +4047,11 @@
 
 	"use strict";
 
-	var React = __webpack_require__(13);
-	var ReactTransitionChildMapping = __webpack_require__(64);
+	var React = __webpack_require__(14);
+	var ReactTransitionChildMapping = __webpack_require__(60);
 
-	var cloneWithProps = __webpack_require__(21);
-	var emptyFunction = __webpack_require__(65);
+	var cloneWithProps = __webpack_require__(28);
+	var emptyFunction = __webpack_require__(61);
 	var merge = __webpack_require__(11);
 
 	var ReactTransitionGroup = React.createClass({
@@ -1354,7 +4220,7 @@
 
 
 /***/ },
-/* 20 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1404,7 +4270,7 @@
 
 
 /***/ },
-/* 21 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1428,10 +4294,10 @@
 
 	"use strict";
 
-	var ReactPropTransferer = __webpack_require__(59);
+	var ReactPropTransferer = __webpack_require__(62);
 
-	var keyOf = __webpack_require__(60);
-	var warning = __webpack_require__(61);
+	var keyOf = __webpack_require__(63);
+	var warning = __webpack_require__(51);
 
 	var CHILDREN_PROP = keyOf({children: null});
 
@@ -1469,10 +4335,10 @@
 
 	module.exports = cloneWithProps;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 22 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1495,9 +4361,9 @@
 
 	"use strict";
 
-	var copyProperties = __webpack_require__(62);
-	var keyOf = __webpack_require__(60);
-	var invariant = __webpack_require__(63);
+	var copyProperties = __webpack_require__(64);
+	var keyOf = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	function shallowCopy(x) {
 	  if (Array.isArray(x)) {
@@ -1647,10 +4513,10 @@
 
 	module.exports = update;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 23 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1676,8 +4542,8 @@
 
 	var DOMProperty = __webpack_require__(66);
 	var ReactDefaultPerfAnalysis = __webpack_require__(67);
-	var ReactMount = __webpack_require__(37);
-	var ReactPerf = __webpack_require__(39);
+	var ReactMount = __webpack_require__(44);
+	var ReactPerf = __webpack_require__(46);
 
 	var performanceNow = __webpack_require__(68);
 
@@ -1917,7 +4783,7 @@
 
 
 /***/ },
-/* 24 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1943,17 +4809,17 @@
 	var EventConstants = __webpack_require__(69);
 	var EventPluginHub = __webpack_require__(70);
 	var EventPropagators = __webpack_require__(71);
-	var React = __webpack_require__(13);
-	var ReactDescriptor = __webpack_require__(32);
-	var ReactDOM = __webpack_require__(33);
+	var React = __webpack_require__(14);
+	var ReactDescriptor = __webpack_require__(39);
+	var ReactDOM = __webpack_require__(40);
 	var ReactBrowserEventEmitter = __webpack_require__(72);
-	var ReactMount = __webpack_require__(37);
-	var ReactTextComponent = __webpack_require__(42);
+	var ReactMount = __webpack_require__(44);
+	var ReactTextComponent = __webpack_require__(49);
 	var ReactUpdates = __webpack_require__(73);
 	var SyntheticEvent = __webpack_require__(74);
 
 	var mergeInto = __webpack_require__(15);
-	var copyProperties = __webpack_require__(62);
+	var copyProperties = __webpack_require__(64);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -2335,7 +5201,7 @@
 
 
 /***/ },
-/* 25 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2361,9 +5227,9 @@
 
 	var DOMProperty = __webpack_require__(66);
 
-	var escapeTextForBrowser = __webpack_require__(75);
-	var memoizeStringOnly = __webpack_require__(76);
-	var warning = __webpack_require__(61);
+	var escapeTextForBrowser = __webpack_require__(91);
+	var memoizeStringOnly = __webpack_require__(92);
+	var warning = __webpack_require__(51);
 
 	function shouldIgnoreValue(name, value) {
 	  return value == null ||
@@ -2532,10 +5398,10 @@
 
 	module.exports = DOMPropertyOperations;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 26 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2560,7 +5426,7 @@
 
 	var EventConstants = __webpack_require__(69);
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * Injected dependencies:
@@ -2763,10 +5629,10 @@
 
 	module.exports = EventPluginUtils;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 27 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2789,10 +5655,10 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(89);
+	var PooledClass = __webpack_require__(93);
 
-	var traverseAllChildren = __webpack_require__(90);
-	var warning = __webpack_require__(61);
+	var traverseAllChildren = __webpack_require__(94);
+	var warning = __webpack_require__(51);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
 	var threeArgumentPooler = PooledClass.threeArgumentPooler;
@@ -2923,10 +5789,10 @@
 
 	module.exports = ReactChildren;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 28 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2949,12 +5815,12 @@
 
 	"use strict";
 
-	var ReactDescriptor = __webpack_require__(32);
-	var ReactOwner = __webpack_require__(80);
+	var ReactDescriptor = __webpack_require__(39);
+	var ReactOwner = __webpack_require__(95);
 	var ReactUpdates = __webpack_require__(73);
 
-	var invariant = __webpack_require__(63);
-	var keyMirror = __webpack_require__(84);
+	var invariant = __webpack_require__(65);
+	var keyMirror = __webpack_require__(96);
 	var merge = __webpack_require__(11);
 
 	/**
@@ -3376,10 +6242,10 @@
 
 	module.exports = ReactComponent;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 29 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -3402,29 +6268,29 @@
 
 	"use strict";
 
-	var ReactComponent = __webpack_require__(28);
-	var ReactContext = __webpack_require__(30);
-	var ReactCurrentOwner = __webpack_require__(31);
-	var ReactDescriptor = __webpack_require__(32);
-	var ReactDescriptorValidator = __webpack_require__(77);
-	var ReactEmptyComponent = __webpack_require__(78);
-	var ReactErrorUtils = __webpack_require__(79);
-	var ReactOwner = __webpack_require__(80);
-	var ReactPerf = __webpack_require__(39);
-	var ReactPropTransferer = __webpack_require__(59);
-	var ReactPropTypeLocations = __webpack_require__(81);
-	var ReactPropTypeLocationNames = __webpack_require__(82);
+	var ReactComponent = __webpack_require__(35);
+	var ReactContext = __webpack_require__(37);
+	var ReactCurrentOwner = __webpack_require__(38);
+	var ReactDescriptor = __webpack_require__(39);
+	var ReactDescriptorValidator = __webpack_require__(97);
+	var ReactEmptyComponent = __webpack_require__(98);
+	var ReactErrorUtils = __webpack_require__(99);
+	var ReactOwner = __webpack_require__(95);
+	var ReactPerf = __webpack_require__(46);
+	var ReactPropTransferer = __webpack_require__(62);
+	var ReactPropTypeLocations = __webpack_require__(100);
+	var ReactPropTypeLocationNames = __webpack_require__(101);
 	var ReactUpdates = __webpack_require__(73);
 
-	var instantiateReactComponent = __webpack_require__(83);
-	var invariant = __webpack_require__(63);
-	var keyMirror = __webpack_require__(84);
+	var instantiateReactComponent = __webpack_require__(102);
+	var invariant = __webpack_require__(65);
+	var keyMirror = __webpack_require__(96);
 	var merge = __webpack_require__(11);
-	var mixInto = __webpack_require__(85);
-	var monitorCodeUse = __webpack_require__(86);
-	var mapObject = __webpack_require__(87);
-	var shouldUpdateReactComponent = __webpack_require__(88);
-	var warning = __webpack_require__(61);
+	var mixInto = __webpack_require__(103);
+	var monitorCodeUse = __webpack_require__(104);
+	var mapObject = __webpack_require__(105);
+	var shouldUpdateReactComponent = __webpack_require__(106);
+	var warning = __webpack_require__(51);
 
 	/**
 	 * Policies that describe methods in `ReactCompositeComponentInterface`.
@@ -4808,10 +7674,10 @@
 
 	module.exports = ReactCompositeComponent;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 30 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4884,7 +7750,7 @@
 
 
 /***/ },
-/* 31 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4929,7 +7795,7 @@
 
 
 /***/ },
-/* 32 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -4952,11 +7818,11 @@
 
 	"use strict";
 
-	var ReactContext = __webpack_require__(30);
-	var ReactCurrentOwner = __webpack_require__(31);
+	var ReactContext = __webpack_require__(37);
+	var ReactCurrentOwner = __webpack_require__(38);
 
 	var merge = __webpack_require__(11);
-	var warning = __webpack_require__(61);
+	var warning = __webpack_require__(51);
 
 	/**
 	 * Warn for mutations.
@@ -5184,10 +8050,10 @@
 
 	module.exports = ReactDescriptor;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 33 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5211,12 +8077,12 @@
 
 	"use strict";
 
-	var ReactDescriptor = __webpack_require__(32);
-	var ReactDescriptorValidator = __webpack_require__(77);
-	var ReactDOMComponent = __webpack_require__(34);
+	var ReactDescriptor = __webpack_require__(39);
+	var ReactDescriptorValidator = __webpack_require__(97);
+	var ReactDOMComponent = __webpack_require__(41);
 
 	var mergeInto = __webpack_require__(15);
-	var mapObject = __webpack_require__(87);
+	var mapObject = __webpack_require__(105);
 
 	/**
 	 * Creates a new React class that is idempotent and capable of containing other
@@ -5287,6 +8153,7 @@
 	  del: false,
 	  details: false,
 	  dfn: false,
+	  dialog: false,
 	  div: false,
 	  dl: false,
 	  dt: false,
@@ -5334,6 +8201,7 @@
 	  output: false,
 	  p: false,
 	  param: true,
+	  picture: false,
 	  pre: false,
 	  progress: false,
 	  q: false,
@@ -5400,10 +8268,10 @@
 
 	module.exports = ReactDOM;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 34 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5427,21 +8295,21 @@
 
 	"use strict";
 
-	var CSSPropertyOperations = __webpack_require__(91);
+	var CSSPropertyOperations = __webpack_require__(107);
 	var DOMProperty = __webpack_require__(66);
-	var DOMPropertyOperations = __webpack_require__(25);
-	var ReactBrowserComponentMixin = __webpack_require__(92);
-	var ReactComponent = __webpack_require__(28);
+	var DOMPropertyOperations = __webpack_require__(32);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
+	var ReactComponent = __webpack_require__(35);
 	var ReactBrowserEventEmitter = __webpack_require__(72);
-	var ReactMount = __webpack_require__(37);
-	var ReactMultiChild = __webpack_require__(38);
-	var ReactPerf = __webpack_require__(39);
+	var ReactMount = __webpack_require__(44);
+	var ReactMultiChild = __webpack_require__(45);
+	var ReactPerf = __webpack_require__(46);
 
-	var escapeTextForBrowser = __webpack_require__(75);
-	var invariant = __webpack_require__(63);
-	var keyOf = __webpack_require__(60);
+	var escapeTextForBrowser = __webpack_require__(91);
+	var invariant = __webpack_require__(65);
+	var keyOf = __webpack_require__(63);
 	var merge = __webpack_require__(11);
-	var mixInto = __webpack_require__(85);
+	var mixInto = __webpack_require__(103);
 
 	var deleteListener = ReactBrowserEventEmitter.deleteListener;
 	var listenTo = ReactBrowserEventEmitter.listenTo;
@@ -5825,10 +8693,10 @@
 
 	module.exports = ReactDOMComponent;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 35 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5851,37 +8719,37 @@
 
 	"use strict";
 
-	var BeforeInputEventPlugin = __webpack_require__(93);
-	var ChangeEventPlugin = __webpack_require__(94);
-	var ClientReactRootIndex = __webpack_require__(95);
-	var CompositionEventPlugin = __webpack_require__(96);
-	var DefaultEventPluginOrder = __webpack_require__(97);
-	var EnterLeaveEventPlugin = __webpack_require__(98);
-	var ExecutionEnvironment = __webpack_require__(44);
-	var HTMLDOMPropertyConfig = __webpack_require__(99);
-	var MobileSafariClickEventPlugin = __webpack_require__(100);
-	var ReactBrowserComponentMixin = __webpack_require__(92);
+	var BeforeInputEventPlugin = __webpack_require__(109);
+	var ChangeEventPlugin = __webpack_require__(110);
+	var ClientReactRootIndex = __webpack_require__(111);
+	var CompositionEventPlugin = __webpack_require__(112);
+	var DefaultEventPluginOrder = __webpack_require__(113);
+	var EnterLeaveEventPlugin = __webpack_require__(114);
+	var ExecutionEnvironment = __webpack_require__(52);
+	var HTMLDOMPropertyConfig = __webpack_require__(115);
+	var MobileSafariClickEventPlugin = __webpack_require__(116);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
 	var ReactComponentBrowserEnvironment =
-	  __webpack_require__(101);
-	var ReactDefaultBatchingStrategy = __webpack_require__(102);
-	var ReactDOM = __webpack_require__(33);
-	var ReactDOMButton = __webpack_require__(103);
-	var ReactDOMForm = __webpack_require__(104);
-	var ReactDOMImg = __webpack_require__(105);
-	var ReactDOMInput = __webpack_require__(106);
-	var ReactDOMOption = __webpack_require__(107);
-	var ReactDOMSelect = __webpack_require__(108);
-	var ReactDOMTextarea = __webpack_require__(109);
-	var ReactEventListener = __webpack_require__(110);
-	var ReactInjection = __webpack_require__(111);
-	var ReactInstanceHandles = __webpack_require__(36);
-	var ReactMount = __webpack_require__(37);
-	var SelectEventPlugin = __webpack_require__(112);
-	var ServerReactRootIndex = __webpack_require__(113);
-	var SimpleEventPlugin = __webpack_require__(114);
-	var SVGDOMPropertyConfig = __webpack_require__(115);
+	  __webpack_require__(117);
+	var ReactDefaultBatchingStrategy = __webpack_require__(118);
+	var ReactDOM = __webpack_require__(40);
+	var ReactDOMButton = __webpack_require__(119);
+	var ReactDOMForm = __webpack_require__(120);
+	var ReactDOMImg = __webpack_require__(121);
+	var ReactDOMInput = __webpack_require__(122);
+	var ReactDOMOption = __webpack_require__(123);
+	var ReactDOMSelect = __webpack_require__(124);
+	var ReactDOMTextarea = __webpack_require__(125);
+	var ReactEventListener = __webpack_require__(126);
+	var ReactInjection = __webpack_require__(127);
+	var ReactInstanceHandles = __webpack_require__(43);
+	var ReactMount = __webpack_require__(44);
+	var SelectEventPlugin = __webpack_require__(128);
+	var ServerReactRootIndex = __webpack_require__(129);
+	var SimpleEventPlugin = __webpack_require__(130);
+	var SVGDOMPropertyConfig = __webpack_require__(131);
 
-	var createFullPageComponent = __webpack_require__(116);
+	var createFullPageComponent = __webpack_require__(132);
 
 	function inject() {
 	  ReactInjection.EventEmitter.injectReactEventListener(
@@ -5950,7 +8818,7 @@
 	  if ("production" !== process.env.NODE_ENV) {
 	    var url = (ExecutionEnvironment.canUseDOM && window.location.href) || '';
 	    if ((/[?&]react_perf\b/).test(url)) {
-	      var ReactDefaultPerf = __webpack_require__(23);
+	      var ReactDefaultPerf = __webpack_require__(30);
 	      ReactDefaultPerf.start();
 	    }
 	  }
@@ -5960,10 +8828,10 @@
 	  inject: inject
 	};
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 36 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5987,9 +8855,9 @@
 
 	"use strict";
 
-	var ReactRootIndex = __webpack_require__(117);
+	var ReactRootIndex = __webpack_require__(133);
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	var SEPARATOR = '.';
 	var SEPARATOR_LENGTH = SEPARATOR.length;
@@ -6305,10 +9173,10 @@
 
 	module.exports = ReactInstanceHandles;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 37 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6333,17 +9201,17 @@
 
 	var DOMProperty = __webpack_require__(66);
 	var ReactBrowserEventEmitter = __webpack_require__(72);
-	var ReactCurrentOwner = __webpack_require__(31);
-	var ReactDescriptor = __webpack_require__(32);
-	var ReactInstanceHandles = __webpack_require__(36);
-	var ReactPerf = __webpack_require__(39);
+	var ReactCurrentOwner = __webpack_require__(38);
+	var ReactDescriptor = __webpack_require__(39);
+	var ReactInstanceHandles = __webpack_require__(43);
+	var ReactPerf = __webpack_require__(46);
 
-	var containsNode = __webpack_require__(118);
-	var getReactRootElementInContainer = __webpack_require__(119);
-	var instantiateReactComponent = __webpack_require__(83);
-	var invariant = __webpack_require__(63);
-	var shouldUpdateReactComponent = __webpack_require__(88);
-	var warning = __webpack_require__(61);
+	var containsNode = __webpack_require__(134);
+	var getReactRootElementInContainer = __webpack_require__(135);
+	var instantiateReactComponent = __webpack_require__(102);
+	var invariant = __webpack_require__(65);
+	var shouldUpdateReactComponent = __webpack_require__(106);
+	var warning = __webpack_require__(51);
 
 	var SEPARATOR = ReactInstanceHandles.SEPARATOR;
 
@@ -6993,10 +9861,10 @@
 
 	module.exports = ReactMount;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 38 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7020,12 +9888,12 @@
 
 	"use strict";
 
-	var ReactComponent = __webpack_require__(28);
-	var ReactMultiChildUpdateTypes = __webpack_require__(120);
+	var ReactComponent = __webpack_require__(35);
+	var ReactMultiChildUpdateTypes = __webpack_require__(136);
 
-	var flattenChildren = __webpack_require__(121);
-	var instantiateReactComponent = __webpack_require__(83);
-	var shouldUpdateReactComponent = __webpack_require__(88);
+	var flattenChildren = __webpack_require__(137);
+	var instantiateReactComponent = __webpack_require__(102);
+	var shouldUpdateReactComponent = __webpack_require__(106);
 
 	/**
 	 * Updating children of a component may trigger recursive updates. The depth is
@@ -7432,7 +10300,7 @@
 
 
 /***/ },
-/* 39 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -7521,10 +10389,10 @@
 
 	module.exports = ReactPerf;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 40 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7547,10 +10415,10 @@
 
 	"use strict";
 
-	var ReactDescriptor = __webpack_require__(32);
-	var ReactPropTypeLocationNames = __webpack_require__(82);
+	var ReactDescriptor = __webpack_require__(39);
+	var ReactPropTypeLocationNames = __webpack_require__(101);
 
-	var emptyFunction = __webpack_require__(65);
+	var emptyFunction = __webpack_require__(61);
 
 	/**
 	 * Collection of methods that allow declaration and validation of props that are
@@ -7873,7 +10741,7 @@
 
 
 /***/ },
-/* 41 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -7896,14 +10764,14 @@
 	 */
 	"use strict";
 
-	var ReactDescriptor = __webpack_require__(32);
-	var ReactInstanceHandles = __webpack_require__(36);
-	var ReactMarkupChecksum = __webpack_require__(122);
+	var ReactDescriptor = __webpack_require__(39);
+	var ReactInstanceHandles = __webpack_require__(43);
+	var ReactMarkupChecksum = __webpack_require__(138);
 	var ReactServerRenderingTransaction =
-	  __webpack_require__(123);
+	  __webpack_require__(139);
 
-	var instantiateReactComponent = __webpack_require__(83);
-	var invariant = __webpack_require__(63);
+	var instantiateReactComponent = __webpack_require__(102);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * @param {ReactComponent} component
@@ -7966,10 +10834,10 @@
 	  renderComponentToStaticMarkup: renderComponentToStaticMarkup
 	};
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 42 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7993,13 +10861,13 @@
 
 	"use strict";
 
-	var DOMPropertyOperations = __webpack_require__(25);
-	var ReactBrowserComponentMixin = __webpack_require__(92);
-	var ReactComponent = __webpack_require__(28);
-	var ReactDescriptor = __webpack_require__(32);
+	var DOMPropertyOperations = __webpack_require__(32);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
+	var ReactComponent = __webpack_require__(35);
+	var ReactDescriptor = __webpack_require__(39);
 
-	var escapeTextForBrowser = __webpack_require__(75);
-	var mixInto = __webpack_require__(85);
+	var escapeTextForBrowser = __webpack_require__(91);
+	var mixInto = __webpack_require__(103);
 
 	/**
 	 * Text nodes violate a couple assumptions that React makes about components:
@@ -8082,7 +10950,7 @@
 
 
 /***/ },
-/* 43 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -8104,9 +10972,9 @@
 	 */
 	"use strict";
 
-	var ReactDescriptor = __webpack_require__(32);
+	var ReactDescriptor = __webpack_require__(39);
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * Returns the first child in a collection of children and verifies that there
@@ -8129,10 +10997,65 @@
 
 	module.exports = onlyChild;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 44 */
+/* 51 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule warning
+	 */
+
+	"use strict";
+
+	var emptyFunction = __webpack_require__(61);
+
+	/**
+	 * Similar to invariant but only logs a warning if the condition is not met.
+	 * This can be used to log issues in development environments in critical
+	 * paths. Removing the logging code for production environments will keep the
+	 * same logic and follow the same code paths.
+	 */
+
+	var warning = emptyFunction;
+
+	if ("production" !== process.env.NODE_ENV) {
+	  warning = function(condition, format ) {var args=Array.prototype.slice.call(arguments,2);
+	    if (format === undefined) {
+	      throw new Error(
+	        '`warning(condition, format, ...args)` requires a warning ' +
+	        'message argument'
+	      );
+	    }
+
+	    if (!condition) {
+	      var argIndex = 0;
+	      console.warn('Warning: ' + format.replace(/%s/g, function()  {return args[argIndex++];}));
+	    }
+	  };
+	}
+
+	module.exports = warning;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
+
+/***/ },
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -8188,7 +11111,123 @@
 
 
 /***/ },
-/* 45 */
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * assertion-error
+	 * Copyright(c) 2013 Jake Luer <jake@qualiancy.com>
+	 * MIT Licensed
+	 */
+
+	/*!
+	 * Return a function that will copy properties from
+	 * one object to another excluding any originally
+	 * listed. Returned function will create a new `{}`.
+	 *
+	 * @param {String} excluded properties ...
+	 * @return {Function}
+	 */
+
+	function exclude () {
+	  var excludes = [].slice.call(arguments);
+
+	  function excludeProps (res, obj) {
+	    Object.keys(obj).forEach(function (key) {
+	      if (!~excludes.indexOf(key)) res[key] = obj[key];
+	    });
+	  }
+
+	  return function extendExclude () {
+	    var args = [].slice.call(arguments)
+	      , i = 0
+	      , res = {};
+
+	    for (; i < args.length; i++) {
+	      excludeProps(res, args[i]);
+	    }
+
+	    return res;
+	  };
+	};
+
+	/*!
+	 * Primary Exports
+	 */
+
+	module.exports = AssertionError;
+
+	/**
+	 * ### AssertionError
+	 *
+	 * An extension of the JavaScript `Error` constructor for
+	 * assertion and validation scenarios.
+	 *
+	 * @param {String} message
+	 * @param {Object} properties to include (optional)
+	 * @param {callee} start stack function (optional)
+	 */
+
+	function AssertionError (message, _props, ssf) {
+	  var extend = exclude('name', 'message', 'stack', 'constructor', 'toJSON')
+	    , props = extend(_props || {});
+
+	  // default values
+	  this.message = message || 'Unspecified AssertionError';
+	  this.showDiff = false;
+
+	  // copy from properties
+	  for (var key in props) {
+	    this[key] = props[key];
+	  }
+
+	  // capture stack trace
+	  ssf = ssf || arguments.callee;
+	  if (ssf && Error.captureStackTrace) {
+	    Error.captureStackTrace(this, ssf);
+	  }
+	}
+
+	/*!
+	 * Inherit from Error.prototype
+	 */
+
+	AssertionError.prototype = Object.create(Error.prototype);
+
+	/*!
+	 * Statically set name
+	 */
+
+	AssertionError.prototype.name = 'AssertionError';
+
+	/*!
+	 * Ensure correct constructor
+	 */
+
+	AssertionError.prototype.constructor = AssertionError;
+
+	/**
+	 * Allow errors to be converted to JSON for static transfer.
+	 *
+	 * @param {Boolean} include stack (default: `true`)
+	 * @return {Object} object that can be `JSON.stringify`
+	 */
+
+	AssertionError.prototype.toJSON = function (stack) {
+	  var extend = exclude('constructor', 'toJSON', 'stack')
+	    , props = extend({ name: this.name }, this);
+
+	  // include stack if exists and not turned off
+	  if (false !== stack && this.stack) {
+	    props.stack = this.stack;
+	  }
+
+	  return props;
+	};
+
+
+/***/ },
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -8213,8 +11252,8 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(63);
-	var keyMirror = __webpack_require__(84);
+	var invariant = __webpack_require__(65);
+	var keyMirror = __webpack_require__(96);
 
 	/**
 	 * Maximum number of levels to traverse. Will catch circular structures.
@@ -8339,2806 +11378,10 @@
 
 	module.exports = mergeHelpers;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 46 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = {
-
-	  /**
-	   * ### config.includeStack
-	   *
-	   * User configurable property, influences whether stack trace
-	   * is included in Assertion error message. Default of false
-	   * suppresses stack trace in the error message.
-	   *
-	   *     chai.config.includeStack = true;  // enable stack on error
-	   *
-	   * @param {Boolean}
-	   * @api public
-	   */
-
-	   includeStack: false,
-
-	  /**
-	   * ### config.showDiff
-	   *
-	   * User configurable property, influences whether or not
-	   * the `showDiff` flag should be included in the thrown
-	   * AssertionErrors. `false` will always be `false`; `true`
-	   * will be true when the assertion has requested a diff
-	   * be shown.
-	   *
-	   * @param {Boolean}
-	   * @api public
-	   */
-
-	  showDiff: true,
-
-	  /**
-	   * ### config.truncateThreshold
-	   *
-	   * User configurable property, sets length threshold for actual and
-	   * expected values in assertion errors. If this threshold is exceeded,
-	   * the value is truncated.
-	   *
-	   * Set it to zero if you want to disable truncating altogether.
-	   *
-	   *     chai.config.truncateThreshold = 0;  // disable truncating
-	   *
-	   * @param {Number}
-	   * @api public
-	   */
-
-	  truncateThreshold: 40
-
-	};
-
-
-/***/ },
-/* 47 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * chai
-	 * http://chaijs.com
-	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	var config = __webpack_require__(46);
-
-	module.exports = function (_chai, util) {
-	  /*!
-	   * Module dependencies.
-	   */
-
-	  var AssertionError = _chai.AssertionError
-	    , flag = util.flag;
-
-	  /*!
-	   * Module export.
-	   */
-
-	  _chai.Assertion = Assertion;
-
-	  /*!
-	   * Assertion Constructor
-	   *
-	   * Creates object for chaining.
-	   *
-	   * @api private
-	   */
-
-	  function Assertion (obj, msg, stack) {
-	    flag(this, 'ssfi', stack || arguments.callee);
-	    flag(this, 'object', obj);
-	    flag(this, 'message', msg);
-	  }
-
-	  Object.defineProperty(Assertion, 'includeStack', {
-	    get: function() {
-	      console.warn('Assertion.includeStack is deprecated, use chai.config.includeStack instead.');
-	      return config.includeStack;
-	    },
-	    set: function(value) {
-	      console.warn('Assertion.includeStack is deprecated, use chai.config.includeStack instead.');
-	      config.includeStack = value;
-	    }
-	  });
-
-	  Object.defineProperty(Assertion, 'showDiff', {
-	    get: function() {
-	      console.warn('Assertion.showDiff is deprecated, use chai.config.showDiff instead.');
-	      return config.showDiff;
-	    },
-	    set: function(value) {
-	      console.warn('Assertion.showDiff is deprecated, use chai.config.showDiff instead.');
-	      config.showDiff = value;
-	    }
-	  });
-
-	  Assertion.addProperty = function (name, fn) {
-	    util.addProperty(this.prototype, name, fn);
-	  };
-
-	  Assertion.addMethod = function (name, fn) {
-	    util.addMethod(this.prototype, name, fn);
-	  };
-
-	  Assertion.addChainableMethod = function (name, fn, chainingBehavior) {
-	    util.addChainableMethod(this.prototype, name, fn, chainingBehavior);
-	  };
-
-	  Assertion.overwriteProperty = function (name, fn) {
-	    util.overwriteProperty(this.prototype, name, fn);
-	  };
-
-	  Assertion.overwriteMethod = function (name, fn) {
-	    util.overwriteMethod(this.prototype, name, fn);
-	  };
-
-	  Assertion.overwriteChainableMethod = function (name, fn, chainingBehavior) {
-	    util.overwriteChainableMethod(this.prototype, name, fn, chainingBehavior);
-	  };
-
-	  /*!
-	   * ### .assert(expression, message, negateMessage, expected, actual)
-	   *
-	   * Executes an expression and check expectations. Throws AssertionError for reporting if test doesn't pass.
-	   *
-	   * @name assert
-	   * @param {Philosophical} expression to be tested
-	   * @param {String} message to display if fails
-	   * @param {String} negatedMessage to display if negated expression fails
-	   * @param {Mixed} expected value (remember to check for negation)
-	   * @param {Mixed} actual (optional) will default to `this.obj`
-	   * @api private
-	   */
-
-	  Assertion.prototype.assert = function (expr, msg, negateMsg, expected, _actual, showDiff) {
-	    var ok = util.test(this, arguments);
-	    if (true !== showDiff) showDiff = false;
-	    if (true !== config.showDiff) showDiff = false;
-
-	    if (!ok) {
-	      var msg = util.getMessage(this, arguments)
-	        , actual = util.getActual(this, arguments);
-	      throw new AssertionError(msg, {
-	          actual: actual
-	        , expected: expected
-	        , showDiff: showDiff
-	      }, (config.includeStack) ? this.assert : flag(this, 'ssfi'));
-	    }
-	  };
-
-	  /*!
-	   * ### ._obj
-	   *
-	   * Quick reference to stored `actual` value for plugin developers.
-	   *
-	   * @api private
-	   */
-
-	  Object.defineProperty(Assertion.prototype, '_obj',
-	    { get: function () {
-	        return flag(this, 'object');
-	      }
-	    , set: function (val) {
-	        flag(this, 'object', val);
-	      }
-	  });
-	};
-
-
-/***/ },
-/* 48 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * chai
-	 * Copyright(c) 2011 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/*!
-	 * Main exports
-	 */
-
-	var exports = module.exports = {};
-
-	/*!
-	 * test utility
-	 */
-
-	exports.test = __webpack_require__(124);
-
-	/*!
-	 * type utility
-	 */
-
-	exports.type = __webpack_require__(125);
-
-	/*!
-	 * message utility
-	 */
-
-	exports.getMessage = __webpack_require__(126);
-
-	/*!
-	 * actual utility
-	 */
-
-	exports.getActual = __webpack_require__(127);
-
-	/*!
-	 * Inspect util
-	 */
-
-	exports.inspect = __webpack_require__(128);
-
-	/*!
-	 * Object Display util
-	 */
-
-	exports.objDisplay = __webpack_require__(129);
-
-	/*!
-	 * Flag utility
-	 */
-
-	exports.flag = __webpack_require__(130);
-
-	/*!
-	 * Flag transferring utility
-	 */
-
-	exports.transferFlags = __webpack_require__(131);
-
-	/*!
-	 * Deep equal utility
-	 */
-
-	exports.eql = __webpack_require__(182);
-
-	/*!
-	 * Deep path value
-	 */
-
-	exports.getPathValue = __webpack_require__(132);
-
-	/*!
-	 * Function name
-	 */
-
-	exports.getName = __webpack_require__(133);
-
-	/*!
-	 * add Property
-	 */
-
-	exports.addProperty = __webpack_require__(134);
-
-	/*!
-	 * add Method
-	 */
-
-	exports.addMethod = __webpack_require__(135);
-
-	/*!
-	 * overwrite Property
-	 */
-
-	exports.overwriteProperty = __webpack_require__(136);
-
-	/*!
-	 * overwrite Method
-	 */
-
-	exports.overwriteMethod = __webpack_require__(137);
-
-	/*!
-	 * Add a chainable method
-	 */
-
-	exports.addChainableMethod = __webpack_require__(138);
-
-	/*!
-	 * Overwrite chainable method
-	 */
-
-	exports.overwriteChainableMethod = __webpack_require__(139);
-
-
-
-/***/ },
-/* 49 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * chai
-	 * http://chaijs.com
-	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	module.exports = function (chai, _) {
-	  var Assertion = chai.Assertion
-	    , toString = Object.prototype.toString
-	    , flag = _.flag;
-
-	  /**
-	   * ### Language Chains
-	   *
-	   * The following are provided as chainable getters to
-	   * improve the readability of your assertions. They
-	   * do not provide testing capabilities unless they
-	   * have been overwritten by a plugin.
-	   *
-	   * **Chains**
-	   *
-	   * - to
-	   * - be
-	   * - been
-	   * - is
-	   * - that
-	   * - and
-	   * - has
-	   * - have
-	   * - with
-	   * - at
-	   * - of
-	   * - same
-	   *
-	   * @name language chains
-	   * @api public
-	   */
-
-	  [ 'to', 'be', 'been'
-	  , 'is', 'and', 'has', 'have'
-	  , 'with', 'that', 'at'
-	  , 'of', 'same' ].forEach(function (chain) {
-	    Assertion.addProperty(chain, function () {
-	      return this;
-	    });
-	  });
-
-	  /**
-	   * ### .not
-	   *
-	   * Negates any of assertions following in the chain.
-	   *
-	   *     expect(foo).to.not.equal('bar');
-	   *     expect(goodFn).to.not.throw(Error);
-	   *     expect({ foo: 'baz' }).to.have.property('foo')
-	   *       .and.not.equal('bar');
-	   *
-	   * @name not
-	   * @api public
-	   */
-
-	  Assertion.addProperty('not', function () {
-	    flag(this, 'negate', true);
-	  });
-
-	  /**
-	   * ### .deep
-	   *
-	   * Sets the `deep` flag, later used by the `equal` and
-	   * `property` assertions.
-	   *
-	   *     expect(foo).to.deep.equal({ bar: 'baz' });
-	   *     expect({ foo: { bar: { baz: 'quux' } } })
-	   *       .to.have.deep.property('foo.bar.baz', 'quux');
-	   *
-	   * @name deep
-	   * @api public
-	   */
-
-	  Assertion.addProperty('deep', function () {
-	    flag(this, 'deep', true);
-	  });
-
-	  /**
-	   * ### .a(type)
-	   *
-	   * The `a` and `an` assertions are aliases that can be
-	   * used either as language chains or to assert a value's
-	   * type.
-	   *
-	   *     // typeof
-	   *     expect('test').to.be.a('string');
-	   *     expect({ foo: 'bar' }).to.be.an('object');
-	   *     expect(null).to.be.a('null');
-	   *     expect(undefined).to.be.an('undefined');
-	   *
-	   *     // language chain
-	   *     expect(foo).to.be.an.instanceof(Foo);
-	   *
-	   * @name a
-	   * @alias an
-	   * @param {String} type
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function an (type, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    type = type.toLowerCase();
-	    var obj = flag(this, 'object')
-	      , article = ~[ 'a', 'e', 'i', 'o', 'u' ].indexOf(type.charAt(0)) ? 'an ' : 'a ';
-
-	    this.assert(
-	        type === _.type(obj)
-	      , 'expected #{this} to be ' + article + type
-	      , 'expected #{this} not to be ' + article + type
-	    );
-	  }
-
-	  Assertion.addChainableMethod('an', an);
-	  Assertion.addChainableMethod('a', an);
-
-	  /**
-	   * ### .include(value)
-	   *
-	   * The `include` and `contain` assertions can be used as either property
-	   * based language chains or as methods to assert the inclusion of an object
-	   * in an array or a substring in a string. When used as language chains,
-	   * they toggle the `contain` flag for the `keys` assertion.
-	   *
-	   *     expect([1,2,3]).to.include(2);
-	   *     expect('foobar').to.contain('foo');
-	   *     expect({ foo: 'bar', hello: 'universe' }).to.include.keys('foo');
-	   *
-	   * @name include
-	   * @alias contain
-	   * @param {Object|String|Number} obj
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function includeChainingBehavior () {
-	    flag(this, 'contains', true);
-	  }
-
-	  function include (val, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    var expected = false;
-	    if (_.type(obj) === 'array' && _.type(val) === 'object') {
-	      for (var i in obj) {
-	        if (_.eql(obj[i], val)) {
-	          expected = true;
-	          break;
-	        }
-	      }
-	    } else if (_.type(val) === 'object') {
-	      if (!flag(this, 'negate')) {
-	        for (var k in val) new Assertion(obj).property(k, val[k]);
-	        return;
-	      }
-	      var subset = {}
-	      for (var k in val) subset[k] = obj[k]
-	      expected = _.eql(subset, val);
-	    } else {
-	      expected = obj && ~obj.indexOf(val)
-	    }
-	    this.assert(
-	        expected
-	      , 'expected #{this} to include ' + _.inspect(val)
-	      , 'expected #{this} to not include ' + _.inspect(val));
-	  }
-
-	  Assertion.addChainableMethod('include', include, includeChainingBehavior);
-	  Assertion.addChainableMethod('contain', include, includeChainingBehavior);
-
-	  /**
-	   * ### .ok
-	   *
-	   * Asserts that the target is truthy.
-	   *
-	   *     expect('everthing').to.be.ok;
-	   *     expect(1).to.be.ok;
-	   *     expect(false).to.not.be.ok;
-	   *     expect(undefined).to.not.be.ok;
-	   *     expect(null).to.not.be.ok;
-	   *
-	   * @name ok
-	   * @api public
-	   */
-
-	  Assertion.addProperty('ok', function () {
-	    this.assert(
-	        flag(this, 'object')
-	      , 'expected #{this} to be truthy'
-	      , 'expected #{this} to be falsy');
-	  });
-
-	  /**
-	   * ### .true
-	   *
-	   * Asserts that the target is `true`.
-	   *
-	   *     expect(true).to.be.true;
-	   *     expect(1).to.not.be.true;
-	   *
-	   * @name true
-	   * @api public
-	   */
-
-	  Assertion.addProperty('true', function () {
-	    this.assert(
-	        true === flag(this, 'object')
-	      , 'expected #{this} to be true'
-	      , 'expected #{this} to be false'
-	      , this.negate ? false : true
-	    );
-	  });
-
-	  /**
-	   * ### .false
-	   *
-	   * Asserts that the target is `false`.
-	   *
-	   *     expect(false).to.be.false;
-	   *     expect(0).to.not.be.false;
-	   *
-	   * @name false
-	   * @api public
-	   */
-
-	  Assertion.addProperty('false', function () {
-	    this.assert(
-	        false === flag(this, 'object')
-	      , 'expected #{this} to be false'
-	      , 'expected #{this} to be true'
-	      , this.negate ? true : false
-	    );
-	  });
-
-	  /**
-	   * ### .null
-	   *
-	   * Asserts that the target is `null`.
-	   *
-	   *     expect(null).to.be.null;
-	   *     expect(undefined).not.to.be.null;
-	   *
-	   * @name null
-	   * @api public
-	   */
-
-	  Assertion.addProperty('null', function () {
-	    this.assert(
-	        null === flag(this, 'object')
-	      , 'expected #{this} to be null'
-	      , 'expected #{this} not to be null'
-	    );
-	  });
-
-	  /**
-	   * ### .undefined
-	   *
-	   * Asserts that the target is `undefined`.
-	   *
-	   *     expect(undefined).to.be.undefined;
-	   *     expect(null).to.not.be.undefined;
-	   *
-	   * @name undefined
-	   * @api public
-	   */
-
-	  Assertion.addProperty('undefined', function () {
-	    this.assert(
-	        undefined === flag(this, 'object')
-	      , 'expected #{this} to be undefined'
-	      , 'expected #{this} not to be undefined'
-	    );
-	  });
-
-	  /**
-	   * ### .exist
-	   *
-	   * Asserts that the target is neither `null` nor `undefined`.
-	   *
-	   *     var foo = 'hi'
-	   *       , bar = null
-	   *       , baz;
-	   *
-	   *     expect(foo).to.exist;
-	   *     expect(bar).to.not.exist;
-	   *     expect(baz).to.not.exist;
-	   *
-	   * @name exist
-	   * @api public
-	   */
-
-	  Assertion.addProperty('exist', function () {
-	    this.assert(
-	        null != flag(this, 'object')
-	      , 'expected #{this} to exist'
-	      , 'expected #{this} to not exist'
-	    );
-	  });
-
-
-	  /**
-	   * ### .empty
-	   *
-	   * Asserts that the target's length is `0`. For arrays, it checks
-	   * the `length` property. For objects, it gets the count of
-	   * enumerable keys.
-	   *
-	   *     expect([]).to.be.empty;
-	   *     expect('').to.be.empty;
-	   *     expect({}).to.be.empty;
-	   *
-	   * @name empty
-	   * @api public
-	   */
-
-	  Assertion.addProperty('empty', function () {
-	    var obj = flag(this, 'object')
-	      , expected = obj;
-
-	    if (Array.isArray(obj) || 'string' === typeof object) {
-	      expected = obj.length;
-	    } else if (typeof obj === 'object') {
-	      expected = Object.keys(obj).length;
-	    }
-
-	    this.assert(
-	        !expected
-	      , 'expected #{this} to be empty'
-	      , 'expected #{this} not to be empty'
-	    );
-	  });
-
-	  /**
-	   * ### .arguments
-	   *
-	   * Asserts that the target is an arguments object.
-	   *
-	   *     function test () {
-	   *       expect(arguments).to.be.arguments;
-	   *     }
-	   *
-	   * @name arguments
-	   * @alias Arguments
-	   * @api public
-	   */
-
-	  function checkArguments () {
-	    var obj = flag(this, 'object')
-	      , type = Object.prototype.toString.call(obj);
-	    this.assert(
-	        '[object Arguments]' === type
-	      , 'expected #{this} to be arguments but got ' + type
-	      , 'expected #{this} to not be arguments'
-	    );
-	  }
-
-	  Assertion.addProperty('arguments', checkArguments);
-	  Assertion.addProperty('Arguments', checkArguments);
-
-	  /**
-	   * ### .equal(value)
-	   *
-	   * Asserts that the target is strictly equal (`===`) to `value`.
-	   * Alternately, if the `deep` flag is set, asserts that
-	   * the target is deeply equal to `value`.
-	   *
-	   *     expect('hello').to.equal('hello');
-	   *     expect(42).to.equal(42);
-	   *     expect(1).to.not.equal(true);
-	   *     expect({ foo: 'bar' }).to.not.equal({ foo: 'bar' });
-	   *     expect({ foo: 'bar' }).to.deep.equal({ foo: 'bar' });
-	   *
-	   * @name equal
-	   * @alias equals
-	   * @alias eq
-	   * @alias deep.equal
-	   * @param {Mixed} value
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function assertEqual (val, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    if (flag(this, 'deep')) {
-	      return this.eql(val);
-	    } else {
-	      this.assert(
-	          val === obj
-	        , 'expected #{this} to equal #{exp}'
-	        , 'expected #{this} to not equal #{exp}'
-	        , val
-	        , this._obj
-	        , true
-	      );
-	    }
-	  }
-
-	  Assertion.addMethod('equal', assertEqual);
-	  Assertion.addMethod('equals', assertEqual);
-	  Assertion.addMethod('eq', assertEqual);
-
-	  /**
-	   * ### .eql(value)
-	   *
-	   * Asserts that the target is deeply equal to `value`.
-	   *
-	   *     expect({ foo: 'bar' }).to.eql({ foo: 'bar' });
-	   *     expect([ 1, 2, 3 ]).to.eql([ 1, 2, 3 ]);
-	   *
-	   * @name eql
-	   * @alias eqls
-	   * @param {Mixed} value
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function assertEql(obj, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    this.assert(
-	        _.eql(obj, flag(this, 'object'))
-	      , 'expected #{this} to deeply equal #{exp}'
-	      , 'expected #{this} to not deeply equal #{exp}'
-	      , obj
-	      , this._obj
-	      , true
-	    );
-	  }
-
-	  Assertion.addMethod('eql', assertEql);
-	  Assertion.addMethod('eqls', assertEql);
-
-	  /**
-	   * ### .above(value)
-	   *
-	   * Asserts that the target is greater than `value`.
-	   *
-	   *     expect(10).to.be.above(5);
-	   *
-	   * Can also be used in conjunction with `length` to
-	   * assert a minimum length. The benefit being a
-	   * more informative error message than if the length
-	   * was supplied directly.
-	   *
-	   *     expect('foo').to.have.length.above(2);
-	   *     expect([ 1, 2, 3 ]).to.have.length.above(2);
-	   *
-	   * @name above
-	   * @alias gt
-	   * @alias greaterThan
-	   * @param {Number} value
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function assertAbove (n, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    if (flag(this, 'doLength')) {
-	      new Assertion(obj, msg).to.have.property('length');
-	      var len = obj.length;
-	      this.assert(
-	          len > n
-	        , 'expected #{this} to have a length above #{exp} but got #{act}'
-	        , 'expected #{this} to not have a length above #{exp}'
-	        , n
-	        , len
-	      );
-	    } else {
-	      this.assert(
-	          obj > n
-	        , 'expected #{this} to be above ' + n
-	        , 'expected #{this} to be at most ' + n
-	      );
-	    }
-	  }
-
-	  Assertion.addMethod('above', assertAbove);
-	  Assertion.addMethod('gt', assertAbove);
-	  Assertion.addMethod('greaterThan', assertAbove);
-
-	  /**
-	   * ### .least(value)
-	   *
-	   * Asserts that the target is greater than or equal to `value`.
-	   *
-	   *     expect(10).to.be.at.least(10);
-	   *
-	   * Can also be used in conjunction with `length` to
-	   * assert a minimum length. The benefit being a
-	   * more informative error message than if the length
-	   * was supplied directly.
-	   *
-	   *     expect('foo').to.have.length.of.at.least(2);
-	   *     expect([ 1, 2, 3 ]).to.have.length.of.at.least(3);
-	   *
-	   * @name least
-	   * @alias gte
-	   * @param {Number} value
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function assertLeast (n, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    if (flag(this, 'doLength')) {
-	      new Assertion(obj, msg).to.have.property('length');
-	      var len = obj.length;
-	      this.assert(
-	          len >= n
-	        , 'expected #{this} to have a length at least #{exp} but got #{act}'
-	        , 'expected #{this} to have a length below #{exp}'
-	        , n
-	        , len
-	      );
-	    } else {
-	      this.assert(
-	          obj >= n
-	        , 'expected #{this} to be at least ' + n
-	        , 'expected #{this} to be below ' + n
-	      );
-	    }
-	  }
-
-	  Assertion.addMethod('least', assertLeast);
-	  Assertion.addMethod('gte', assertLeast);
-
-	  /**
-	   * ### .below(value)
-	   *
-	   * Asserts that the target is less than `value`.
-	   *
-	   *     expect(5).to.be.below(10);
-	   *
-	   * Can also be used in conjunction with `length` to
-	   * assert a maximum length. The benefit being a
-	   * more informative error message than if the length
-	   * was supplied directly.
-	   *
-	   *     expect('foo').to.have.length.below(4);
-	   *     expect([ 1, 2, 3 ]).to.have.length.below(4);
-	   *
-	   * @name below
-	   * @alias lt
-	   * @alias lessThan
-	   * @param {Number} value
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function assertBelow (n, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    if (flag(this, 'doLength')) {
-	      new Assertion(obj, msg).to.have.property('length');
-	      var len = obj.length;
-	      this.assert(
-	          len < n
-	        , 'expected #{this} to have a length below #{exp} but got #{act}'
-	        , 'expected #{this} to not have a length below #{exp}'
-	        , n
-	        , len
-	      );
-	    } else {
-	      this.assert(
-	          obj < n
-	        , 'expected #{this} to be below ' + n
-	        , 'expected #{this} to be at least ' + n
-	      );
-	    }
-	  }
-
-	  Assertion.addMethod('below', assertBelow);
-	  Assertion.addMethod('lt', assertBelow);
-	  Assertion.addMethod('lessThan', assertBelow);
-
-	  /**
-	   * ### .most(value)
-	   *
-	   * Asserts that the target is less than or equal to `value`.
-	   *
-	   *     expect(5).to.be.at.most(5);
-	   *
-	   * Can also be used in conjunction with `length` to
-	   * assert a maximum length. The benefit being a
-	   * more informative error message than if the length
-	   * was supplied directly.
-	   *
-	   *     expect('foo').to.have.length.of.at.most(4);
-	   *     expect([ 1, 2, 3 ]).to.have.length.of.at.most(3);
-	   *
-	   * @name most
-	   * @alias lte
-	   * @param {Number} value
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function assertMost (n, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    if (flag(this, 'doLength')) {
-	      new Assertion(obj, msg).to.have.property('length');
-	      var len = obj.length;
-	      this.assert(
-	          len <= n
-	        , 'expected #{this} to have a length at most #{exp} but got #{act}'
-	        , 'expected #{this} to have a length above #{exp}'
-	        , n
-	        , len
-	      );
-	    } else {
-	      this.assert(
-	          obj <= n
-	        , 'expected #{this} to be at most ' + n
-	        , 'expected #{this} to be above ' + n
-	      );
-	    }
-	  }
-
-	  Assertion.addMethod('most', assertMost);
-	  Assertion.addMethod('lte', assertMost);
-
-	  /**
-	   * ### .within(start, finish)
-	   *
-	   * Asserts that the target is within a range.
-	   *
-	   *     expect(7).to.be.within(5,10);
-	   *
-	   * Can also be used in conjunction with `length` to
-	   * assert a length range. The benefit being a
-	   * more informative error message than if the length
-	   * was supplied directly.
-	   *
-	   *     expect('foo').to.have.length.within(2,4);
-	   *     expect([ 1, 2, 3 ]).to.have.length.within(2,4);
-	   *
-	   * @name within
-	   * @param {Number} start lowerbound inclusive
-	   * @param {Number} finish upperbound inclusive
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  Assertion.addMethod('within', function (start, finish, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object')
-	      , range = start + '..' + finish;
-	    if (flag(this, 'doLength')) {
-	      new Assertion(obj, msg).to.have.property('length');
-	      var len = obj.length;
-	      this.assert(
-	          len >= start && len <= finish
-	        , 'expected #{this} to have a length within ' + range
-	        , 'expected #{this} to not have a length within ' + range
-	      );
-	    } else {
-	      this.assert(
-	          obj >= start && obj <= finish
-	        , 'expected #{this} to be within ' + range
-	        , 'expected #{this} to not be within ' + range
-	      );
-	    }
-	  });
-
-	  /**
-	   * ### .instanceof(constructor)
-	   *
-	   * Asserts that the target is an instance of `constructor`.
-	   *
-	   *     var Tea = function (name) { this.name = name; }
-	   *       , Chai = new Tea('chai');
-	   *
-	   *     expect(Chai).to.be.an.instanceof(Tea);
-	   *     expect([ 1, 2, 3 ]).to.be.instanceof(Array);
-	   *
-	   * @name instanceof
-	   * @param {Constructor} constructor
-	   * @param {String} message _optional_
-	   * @alias instanceOf
-	   * @api public
-	   */
-
-	  function assertInstanceOf (constructor, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var name = _.getName(constructor);
-	    this.assert(
-	        flag(this, 'object') instanceof constructor
-	      , 'expected #{this} to be an instance of ' + name
-	      , 'expected #{this} to not be an instance of ' + name
-	    );
-	  };
-
-	  Assertion.addMethod('instanceof', assertInstanceOf);
-	  Assertion.addMethod('instanceOf', assertInstanceOf);
-
-	  /**
-	   * ### .property(name, [value])
-	   *
-	   * Asserts that the target has a property `name`, optionally asserting that
-	   * the value of that property is strictly equal to  `value`.
-	   * If the `deep` flag is set, you can use dot- and bracket-notation for deep
-	   * references into objects and arrays.
-	   *
-	   *     // simple referencing
-	   *     var obj = { foo: 'bar' };
-	   *     expect(obj).to.have.property('foo');
-	   *     expect(obj).to.have.property('foo', 'bar');
-	   *
-	   *     // deep referencing
-	   *     var deepObj = {
-	   *         green: { tea: 'matcha' }
-	   *       , teas: [ 'chai', 'matcha', { tea: 'konacha' } ]
-	   *     };
-
-	   *     expect(deepObj).to.have.deep.property('green.tea', 'matcha');
-	   *     expect(deepObj).to.have.deep.property('teas[1]', 'matcha');
-	   *     expect(deepObj).to.have.deep.property('teas[2].tea', 'konacha');
-	   *
-	   * You can also use an array as the starting point of a `deep.property`
-	   * assertion, or traverse nested arrays.
-	   *
-	   *     var arr = [
-	   *         [ 'chai', 'matcha', 'konacha' ]
-	   *       , [ { tea: 'chai' }
-	   *         , { tea: 'matcha' }
-	   *         , { tea: 'konacha' } ]
-	   *     ];
-	   *
-	   *     expect(arr).to.have.deep.property('[0][1]', 'matcha');
-	   *     expect(arr).to.have.deep.property('[1][2].tea', 'konacha');
-	   *
-	   * Furthermore, `property` changes the subject of the assertion
-	   * to be the value of that property from the original object. This
-	   * permits for further chainable assertions on that property.
-	   *
-	   *     expect(obj).to.have.property('foo')
-	   *       .that.is.a('string');
-	   *     expect(deepObj).to.have.property('green')
-	   *       .that.is.an('object')
-	   *       .that.deep.equals({ tea: 'matcha' });
-	   *     expect(deepObj).to.have.property('teas')
-	   *       .that.is.an('array')
-	   *       .with.deep.property('[2]')
-	   *         .that.deep.equals({ tea: 'konacha' });
-	   *
-	   * @name property
-	   * @alias deep.property
-	   * @param {String} name
-	   * @param {Mixed} value (optional)
-	   * @param {String} message _optional_
-	   * @returns value of property for chaining
-	   * @api public
-	   */
-
-	  Assertion.addMethod('property', function (name, val, msg) {
-	    if (msg) flag(this, 'message', msg);
-
-	    var descriptor = flag(this, 'deep') ? 'deep property ' : 'property '
-	      , negate = flag(this, 'negate')
-	      , obj = flag(this, 'object')
-	      , value = flag(this, 'deep')
-	        ? _.getPathValue(name, obj)
-	        : obj[name];
-
-	    if (negate && undefined !== val) {
-	      if (undefined === value) {
-	        msg = (msg != null) ? msg + ': ' : '';
-	        throw new Error(msg + _.inspect(obj) + ' has no ' + descriptor + _.inspect(name));
-	      }
-	    } else {
-	      this.assert(
-	          undefined !== value
-	        , 'expected #{this} to have a ' + descriptor + _.inspect(name)
-	        , 'expected #{this} to not have ' + descriptor + _.inspect(name));
-	    }
-
-	    if (undefined !== val) {
-	      this.assert(
-	          val === value
-	        , 'expected #{this} to have a ' + descriptor + _.inspect(name) + ' of #{exp}, but got #{act}'
-	        , 'expected #{this} to not have a ' + descriptor + _.inspect(name) + ' of #{act}'
-	        , val
-	        , value
-	      );
-	    }
-
-	    flag(this, 'object', value);
-	  });
-
-
-	  /**
-	   * ### .ownProperty(name)
-	   *
-	   * Asserts that the target has an own property `name`.
-	   *
-	   *     expect('test').to.have.ownProperty('length');
-	   *
-	   * @name ownProperty
-	   * @alias haveOwnProperty
-	   * @param {String} name
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function assertOwnProperty (name, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    this.assert(
-	        obj.hasOwnProperty(name)
-	      , 'expected #{this} to have own property ' + _.inspect(name)
-	      , 'expected #{this} to not have own property ' + _.inspect(name)
-	    );
-	  }
-
-	  Assertion.addMethod('ownProperty', assertOwnProperty);
-	  Assertion.addMethod('haveOwnProperty', assertOwnProperty);
-
-	  /**
-	   * ### .length(value)
-	   *
-	   * Asserts that the target's `length` property has
-	   * the expected value.
-	   *
-	   *     expect([ 1, 2, 3]).to.have.length(3);
-	   *     expect('foobar').to.have.length(6);
-	   *
-	   * Can also be used as a chain precursor to a value
-	   * comparison for the length property.
-	   *
-	   *     expect('foo').to.have.length.above(2);
-	   *     expect([ 1, 2, 3 ]).to.have.length.above(2);
-	   *     expect('foo').to.have.length.below(4);
-	   *     expect([ 1, 2, 3 ]).to.have.length.below(4);
-	   *     expect('foo').to.have.length.within(2,4);
-	   *     expect([ 1, 2, 3 ]).to.have.length.within(2,4);
-	   *
-	   * @name length
-	   * @alias lengthOf
-	   * @param {Number} length
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  function assertLengthChain () {
-	    flag(this, 'doLength', true);
-	  }
-
-	  function assertLength (n, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    new Assertion(obj, msg).to.have.property('length');
-	    var len = obj.length;
-
-	    this.assert(
-	        len == n
-	      , 'expected #{this} to have a length of #{exp} but got #{act}'
-	      , 'expected #{this} to not have a length of #{act}'
-	      , n
-	      , len
-	    );
-	  }
-
-	  Assertion.addChainableMethod('length', assertLength, assertLengthChain);
-	  Assertion.addMethod('lengthOf', assertLength, assertLengthChain);
-
-	  /**
-	   * ### .match(regexp)
-	   *
-	   * Asserts that the target matches a regular expression.
-	   *
-	   *     expect('foobar').to.match(/^foo/);
-	   *
-	   * @name match
-	   * @param {RegExp} RegularExpression
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  Assertion.addMethod('match', function (re, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    this.assert(
-	        re.exec(obj)
-	      , 'expected #{this} to match ' + re
-	      , 'expected #{this} not to match ' + re
-	    );
-	  });
-
-	  /**
-	   * ### .string(string)
-	   *
-	   * Asserts that the string target contains another string.
-	   *
-	   *     expect('foobar').to.have.string('bar');
-	   *
-	   * @name string
-	   * @param {String} string
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  Assertion.addMethod('string', function (str, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    new Assertion(obj, msg).is.a('string');
-
-	    this.assert(
-	        ~obj.indexOf(str)
-	      , 'expected #{this} to contain ' + _.inspect(str)
-	      , 'expected #{this} to not contain ' + _.inspect(str)
-	    );
-	  });
-
-
-	  /**
-	   * ### .keys(key1, [key2], [...])
-	   *
-	   * Asserts that the target has exactly the given keys, or
-	   * asserts the inclusion of some keys when using the
-	   * `include` or `contain` modifiers.
-	   *
-	   *     expect({ foo: 1, bar: 2 }).to.have.keys(['foo', 'bar']);
-	   *     expect({ foo: 1, bar: 2, baz: 3 }).to.contain.keys('foo', 'bar');
-	   *
-	   * @name keys
-	   * @alias key
-	   * @param {String...|Array} keys
-	   * @api public
-	   */
-
-	  function assertKeys (keys) {
-	    var obj = flag(this, 'object')
-	      , str
-	      , ok = true;
-
-	    keys = keys instanceof Array
-	      ? keys
-	      : Array.prototype.slice.call(arguments);
-
-	    if (!keys.length) throw new Error('keys required');
-
-	    var actual = Object.keys(obj)
-	      , len = keys.length;
-
-	    // Inclusion
-	    ok = keys.every(function(key){
-	      return ~actual.indexOf(key);
-	    });
-
-	    // Strict
-	    if (!flag(this, 'negate') && !flag(this, 'contains')) {
-	      ok = ok && keys.length == actual.length;
-	    }
-
-	    // Key string
-	    if (len > 1) {
-	      keys = keys.map(function(key){
-	        return _.inspect(key);
-	      });
-	      var last = keys.pop();
-	      str = keys.join(', ') + ', and ' + last;
-	    } else {
-	      str = _.inspect(keys[0]);
-	    }
-
-	    // Form
-	    str = (len > 1 ? 'keys ' : 'key ') + str;
-
-	    // Have / include
-	    str = (flag(this, 'contains') ? 'contain ' : 'have ') + str;
-
-	    // Assertion
-	    this.assert(
-	        ok
-	      , 'expected #{this} to ' + str
-	      , 'expected #{this} to not ' + str
-	    );
-	  }
-
-	  Assertion.addMethod('keys', assertKeys);
-	  Assertion.addMethod('key', assertKeys);
-
-	  /**
-	   * ### .throw(constructor)
-	   *
-	   * Asserts that the function target will throw a specific error, or specific type of error
-	   * (as determined using `instanceof`), optionally with a RegExp or string inclusion test
-	   * for the error's message.
-	   *
-	   *     var err = new ReferenceError('This is a bad function.');
-	   *     var fn = function () { throw err; }
-	   *     expect(fn).to.throw(ReferenceError);
-	   *     expect(fn).to.throw(Error);
-	   *     expect(fn).to.throw(/bad function/);
-	   *     expect(fn).to.not.throw('good function');
-	   *     expect(fn).to.throw(ReferenceError, /bad function/);
-	   *     expect(fn).to.throw(err);
-	   *     expect(fn).to.not.throw(new RangeError('Out of range.'));
-	   *
-	   * Please note that when a throw expectation is negated, it will check each
-	   * parameter independently, starting with error constructor type. The appropriate way
-	   * to check for the existence of a type of error but for a message that does not match
-	   * is to use `and`.
-	   *
-	   *     expect(fn).to.throw(ReferenceError)
-	   *        .and.not.throw(/good function/);
-	   *
-	   * @name throw
-	   * @alias throws
-	   * @alias Throw
-	   * @param {ErrorConstructor} constructor
-	   * @param {String|RegExp} expected error message
-	   * @param {String} message _optional_
-	   * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
-	   * @returns error for chaining (null if no error)
-	   * @api public
-	   */
-
-	  function assertThrows (constructor, errMsg, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    new Assertion(obj, msg).is.a('function');
-
-	    var thrown = false
-	      , desiredError = null
-	      , name = null
-	      , thrownError = null;
-
-	    if (arguments.length === 0) {
-	      errMsg = null;
-	      constructor = null;
-	    } else if (constructor && (constructor instanceof RegExp || 'string' === typeof constructor)) {
-	      errMsg = constructor;
-	      constructor = null;
-	    } else if (constructor && constructor instanceof Error) {
-	      desiredError = constructor;
-	      constructor = null;
-	      errMsg = null;
-	    } else if (typeof constructor === 'function') {
-	      name = constructor.prototype.name || constructor.name;
-	      if (name === 'Error' && constructor !== Error) {
-	        name = (new constructor()).name;
-	      }
-	    } else {
-	      constructor = null;
-	    }
-
-	    try {
-	      obj();
-	    } catch (err) {
-	      // first, check desired error
-	      if (desiredError) {
-	        this.assert(
-	            err === desiredError
-	          , 'expected #{this} to throw #{exp} but #{act} was thrown'
-	          , 'expected #{this} to not throw #{exp}'
-	          , (desiredError instanceof Error ? desiredError.toString() : desiredError)
-	          , (err instanceof Error ? err.toString() : err)
-	        );
-
-	        flag(this, 'object', err);
-	        return this;
-	      }
-
-	      // next, check constructor
-	      if (constructor) {
-	        this.assert(
-	            err instanceof constructor
-	          , 'expected #{this} to throw #{exp} but #{act} was thrown'
-	          , 'expected #{this} to not throw #{exp} but #{act} was thrown'
-	          , name
-	          , (err instanceof Error ? err.toString() : err)
-	        );
-
-	        if (!errMsg) {
-	          flag(this, 'object', err);
-	          return this;
-	        }
-	      }
-
-	      // next, check message
-	      var message = 'object' === _.type(err) && "message" in err
-	        ? err.message
-	        : '' + err;
-
-	      if ((message != null) && errMsg && errMsg instanceof RegExp) {
-	        this.assert(
-	            errMsg.exec(message)
-	          , 'expected #{this} to throw error matching #{exp} but got #{act}'
-	          , 'expected #{this} to throw error not matching #{exp}'
-	          , errMsg
-	          , message
-	        );
-
-	        flag(this, 'object', err);
-	        return this;
-	      } else if ((message != null) && errMsg && 'string' === typeof errMsg) {
-	        this.assert(
-	            ~message.indexOf(errMsg)
-	          , 'expected #{this} to throw error including #{exp} but got #{act}'
-	          , 'expected #{this} to throw error not including #{act}'
-	          , errMsg
-	          , message
-	        );
-
-	        flag(this, 'object', err);
-	        return this;
-	      } else {
-	        thrown = true;
-	        thrownError = err;
-	      }
-	    }
-
-	    var actuallyGot = ''
-	      , expectedThrown = name !== null
-	        ? name
-	        : desiredError
-	          ? '#{exp}' //_.inspect(desiredError)
-	          : 'an error';
-
-	    if (thrown) {
-	      actuallyGot = ' but #{act} was thrown'
-	    }
-
-	    this.assert(
-	        thrown === true
-	      , 'expected #{this} to throw ' + expectedThrown + actuallyGot
-	      , 'expected #{this} to not throw ' + expectedThrown + actuallyGot
-	      , (desiredError instanceof Error ? desiredError.toString() : desiredError)
-	      , (thrownError instanceof Error ? thrownError.toString() : thrownError)
-	    );
-
-	    flag(this, 'object', thrownError);
-	  };
-
-	  Assertion.addMethod('throw', assertThrows);
-	  Assertion.addMethod('throws', assertThrows);
-	  Assertion.addMethod('Throw', assertThrows);
-
-	  /**
-	   * ### .respondTo(method)
-	   *
-	   * Asserts that the object or class target will respond to a method.
-	   *
-	   *     Klass.prototype.bar = function(){};
-	   *     expect(Klass).to.respondTo('bar');
-	   *     expect(obj).to.respondTo('bar');
-	   *
-	   * To check if a constructor will respond to a static function,
-	   * set the `itself` flag.
-	   *
-	   *     Klass.baz = function(){};
-	   *     expect(Klass).itself.to.respondTo('baz');
-	   *
-	   * @name respondTo
-	   * @param {String} method
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  Assertion.addMethod('respondTo', function (method, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object')
-	      , itself = flag(this, 'itself')
-	      , context = ('function' === _.type(obj) && !itself)
-	        ? obj.prototype[method]
-	        : obj[method];
-
-	    this.assert(
-	        'function' === typeof context
-	      , 'expected #{this} to respond to ' + _.inspect(method)
-	      , 'expected #{this} to not respond to ' + _.inspect(method)
-	    );
-	  });
-
-	  /**
-	   * ### .itself
-	   *
-	   * Sets the `itself` flag, later used by the `respondTo` assertion.
-	   *
-	   *     function Foo() {}
-	   *     Foo.bar = function() {}
-	   *     Foo.prototype.baz = function() {}
-	   *
-	   *     expect(Foo).itself.to.respondTo('bar');
-	   *     expect(Foo).itself.not.to.respondTo('baz');
-	   *
-	   * @name itself
-	   * @api public
-	   */
-
-	  Assertion.addProperty('itself', function () {
-	    flag(this, 'itself', true);
-	  });
-
-	  /**
-	   * ### .satisfy(method)
-	   *
-	   * Asserts that the target passes a given truth test.
-	   *
-	   *     expect(1).to.satisfy(function(num) { return num > 0; });
-	   *
-	   * @name satisfy
-	   * @param {Function} matcher
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  Assertion.addMethod('satisfy', function (matcher, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    this.assert(
-	        matcher(obj)
-	      , 'expected #{this} to satisfy ' + _.objDisplay(matcher)
-	      , 'expected #{this} to not satisfy' + _.objDisplay(matcher)
-	      , this.negate ? false : true
-	      , matcher(obj)
-	    );
-	  });
-
-	  /**
-	   * ### .closeTo(expected, delta)
-	   *
-	   * Asserts that the target is equal `expected`, to within a +/- `delta` range.
-	   *
-	   *     expect(1.5).to.be.closeTo(1, 0.5);
-	   *
-	   * @name closeTo
-	   * @param {Number} expected
-	   * @param {Number} delta
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  Assertion.addMethod('closeTo', function (expected, delta, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-	    this.assert(
-	        Math.abs(obj - expected) <= delta
-	      , 'expected #{this} to be close to ' + expected + ' +/- ' + delta
-	      , 'expected #{this} not to be close to ' + expected + ' +/- ' + delta
-	    );
-	  });
-
-	  function isSubsetOf(subset, superset, cmp) {
-	    return subset.every(function(elem) {
-	      if (!cmp) return superset.indexOf(elem) !== -1;
-
-	      return superset.some(function(elem2) {
-	        return cmp(elem, elem2);
-	      });
-	    })
-	  }
-
-	  /**
-	   * ### .members(set)
-	   *
-	   * Asserts that the target is a superset of `set`,
-	   * or that the target and `set` have the same strictly-equal (===) members.
-	   * Alternately, if the `deep` flag is set, set members are compared for deep
-	   * equality.
-	   *
-	   *     expect([1, 2, 3]).to.include.members([3, 2]);
-	   *     expect([1, 2, 3]).to.not.include.members([3, 2, 8]);
-	   *
-	   *     expect([4, 2]).to.have.members([2, 4]);
-	   *     expect([5, 2]).to.not.have.members([5, 2, 1]);
-	   *
-	   *     expect([{ id: 1 }]).to.deep.include.members([{ id: 1 }]);
-	   *
-	   * @name members
-	   * @param {Array} set
-	   * @param {String} message _optional_
-	   * @api public
-	   */
-
-	  Assertion.addMethod('members', function (subset, msg) {
-	    if (msg) flag(this, 'message', msg);
-	    var obj = flag(this, 'object');
-
-	    new Assertion(obj).to.be.an('array');
-	    new Assertion(subset).to.be.an('array');
-
-	    var cmp = flag(this, 'deep') ? _.eql : undefined;
-
-	    if (flag(this, 'contains')) {
-	      return this.assert(
-	          isSubsetOf(subset, obj, cmp)
-	        , 'expected #{this} to be a superset of #{act}'
-	        , 'expected #{this} to not be a superset of #{act}'
-	        , obj
-	        , subset
-	      );
-	    }
-
-	    this.assert(
-	        isSubsetOf(obj, subset, cmp) && isSubsetOf(subset, obj, cmp)
-	        , 'expected #{this} to have the same members as #{act}'
-	        , 'expected #{this} to not have the same members as #{act}'
-	        , obj
-	        , subset
-	    );
-	  });
-	};
-
-
-/***/ },
-/* 50 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * chai
-	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	module.exports = function (chai, util) {
-	  chai.expect = function (val, message) {
-	    return new chai.Assertion(val, message);
-	  };
-	};
-
-
-
-/***/ },
-/* 51 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * chai
-	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	module.exports = function (chai, util) {
-	  var Assertion = chai.Assertion;
-
-	  function loadShould () {
-	    // explicitly define this method as function as to have it's name to include as `ssfi`
-	    function shouldGetter() {
-	      if (this instanceof String || this instanceof Number) {
-	        return new Assertion(this.constructor(this), null, shouldGetter);
-	      } else if (this instanceof Boolean) {
-	        return new Assertion(this == true, null, shouldGetter);
-	      }
-	      return new Assertion(this, null, shouldGetter);
-	    }
-	    function shouldSetter(value) {
-	      // See https://github.com/chaijs/chai/issues/86: this makes
-	      // `whatever.should = someValue` actually set `someValue`, which is
-	      // especially useful for `global.should = require('chai').should()`.
-	      //
-	      // Note that we have to use [[DefineProperty]] instead of [[Put]]
-	      // since otherwise we would trigger this very setter!
-	      Object.defineProperty(this, 'should', {
-	        value: value,
-	        enumerable: true,
-	        configurable: true,
-	        writable: true
-	      });
-	    }
-	    // modify Object.prototype to have `should`
-	    Object.defineProperty(Object.prototype, 'should', {
-	      set: shouldSetter
-	      , get: shouldGetter
-	      , configurable: true
-	    });
-
-	    var should = {};
-
-	    should.equal = function (val1, val2, msg) {
-	      new Assertion(val1, msg).to.equal(val2);
-	    };
-
-	    should.Throw = function (fn, errt, errs, msg) {
-	      new Assertion(fn, msg).to.Throw(errt, errs);
-	    };
-
-	    should.exist = function (val, msg) {
-	      new Assertion(val, msg).to.exist;
-	    }
-
-	    // negation
-	    should.not = {}
-
-	    should.not.equal = function (val1, val2, msg) {
-	      new Assertion(val1, msg).to.not.equal(val2);
-	    };
-
-	    should.not.Throw = function (fn, errt, errs, msg) {
-	      new Assertion(fn, msg).to.not.Throw(errt, errs);
-	    };
-
-	    should.not.exist = function (val, msg) {
-	      new Assertion(val, msg).to.not.exist;
-	    }
-
-	    should['throw'] = should['Throw'];
-	    should.not['throw'] = should.not['Throw'];
-
-	    return should;
-	  };
-
-	  chai.should = loadShould;
-	  chai.Should = loadShould;
-	};
-
-
-/***/ },
-/* 52 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * chai
-	 * Copyright(c) 2011-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-
-	module.exports = function (chai, util) {
-
-	  /*!
-	   * Chai dependencies.
-	   */
-
-	  var Assertion = chai.Assertion
-	    , flag = util.flag;
-
-	  /*!
-	   * Module export.
-	   */
-
-	  /**
-	   * ### assert(expression, message)
-	   *
-	   * Write your own test expressions.
-	   *
-	   *     assert('foo' !== 'bar', 'foo is not bar');
-	   *     assert(Array.isArray([]), 'empty arrays are arrays');
-	   *
-	   * @param {Mixed} expression to test for truthiness
-	   * @param {String} message to display on error
-	   * @name assert
-	   * @api public
-	   */
-
-	  var assert = chai.assert = function (express, errmsg) {
-	    var test = new Assertion(null, null, chai.assert);
-	    test.assert(
-	        express
-	      , errmsg
-	      , '[ negation message unavailable ]'
-	    );
-	  };
-
-	  /**
-	   * ### .fail(actual, expected, [message], [operator])
-	   *
-	   * Throw a failure. Node.js `assert` module-compatible.
-	   *
-	   * @name fail
-	   * @param {Mixed} actual
-	   * @param {Mixed} expected
-	   * @param {String} message
-	   * @param {String} operator
-	   * @api public
-	   */
-
-	  assert.fail = function (actual, expected, message, operator) {
-	    message = message || 'assert.fail()';
-	    throw new chai.AssertionError(message, {
-	        actual: actual
-	      , expected: expected
-	      , operator: operator
-	    }, assert.fail);
-	  };
-
-	  /**
-	   * ### .ok(object, [message])
-	   *
-	   * Asserts that `object` is truthy.
-	   *
-	   *     assert.ok('everything', 'everything is ok');
-	   *     assert.ok(false, 'this will fail');
-	   *
-	   * @name ok
-	   * @param {Mixed} object to test
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.ok = function (val, msg) {
-	    new Assertion(val, msg).is.ok;
-	  };
-
-	  /**
-	   * ### .notOk(object, [message])
-	   *
-	   * Asserts that `object` is falsy.
-	   *
-	   *     assert.notOk('everything', 'this will fail');
-	   *     assert.notOk(false, 'this will pass');
-	   *
-	   * @name notOk
-	   * @param {Mixed} object to test
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notOk = function (val, msg) {
-	    new Assertion(val, msg).is.not.ok;
-	  };
-
-	  /**
-	   * ### .equal(actual, expected, [message])
-	   *
-	   * Asserts non-strict equality (`==`) of `actual` and `expected`.
-	   *
-	   *     assert.equal(3, '3', '== coerces values to strings');
-	   *
-	   * @name equal
-	   * @param {Mixed} actual
-	   * @param {Mixed} expected
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.equal = function (act, exp, msg) {
-	    var test = new Assertion(act, msg, assert.equal);
-
-	    test.assert(
-	        exp == flag(test, 'object')
-	      , 'expected #{this} to equal #{exp}'
-	      , 'expected #{this} to not equal #{act}'
-	      , exp
-	      , act
-	    );
-	  };
-
-	  /**
-	   * ### .notEqual(actual, expected, [message])
-	   *
-	   * Asserts non-strict inequality (`!=`) of `actual` and `expected`.
-	   *
-	   *     assert.notEqual(3, 4, 'these numbers are not equal');
-	   *
-	   * @name notEqual
-	   * @param {Mixed} actual
-	   * @param {Mixed} expected
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notEqual = function (act, exp, msg) {
-	    var test = new Assertion(act, msg, assert.notEqual);
-
-	    test.assert(
-	        exp != flag(test, 'object')
-	      , 'expected #{this} to not equal #{exp}'
-	      , 'expected #{this} to equal #{act}'
-	      , exp
-	      , act
-	    );
-	  };
-
-	  /**
-	   * ### .strictEqual(actual, expected, [message])
-	   *
-	   * Asserts strict equality (`===`) of `actual` and `expected`.
-	   *
-	   *     assert.strictEqual(true, true, 'these booleans are strictly equal');
-	   *
-	   * @name strictEqual
-	   * @param {Mixed} actual
-	   * @param {Mixed} expected
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.strictEqual = function (act, exp, msg) {
-	    new Assertion(act, msg).to.equal(exp);
-	  };
-
-	  /**
-	   * ### .notStrictEqual(actual, expected, [message])
-	   *
-	   * Asserts strict inequality (`!==`) of `actual` and `expected`.
-	   *
-	   *     assert.notStrictEqual(3, '3', 'no coercion for strict equality');
-	   *
-	   * @name notStrictEqual
-	   * @param {Mixed} actual
-	   * @param {Mixed} expected
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notStrictEqual = function (act, exp, msg) {
-	    new Assertion(act, msg).to.not.equal(exp);
-	  };
-
-	  /**
-	   * ### .deepEqual(actual, expected, [message])
-	   *
-	   * Asserts that `actual` is deeply equal to `expected`.
-	   *
-	   *     assert.deepEqual({ tea: 'green' }, { tea: 'green' });
-	   *
-	   * @name deepEqual
-	   * @param {Mixed} actual
-	   * @param {Mixed} expected
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.deepEqual = function (act, exp, msg) {
-	    new Assertion(act, msg).to.eql(exp);
-	  };
-
-	  /**
-	   * ### .notDeepEqual(actual, expected, [message])
-	   *
-	   * Assert that `actual` is not deeply equal to `expected`.
-	   *
-	   *     assert.notDeepEqual({ tea: 'green' }, { tea: 'jasmine' });
-	   *
-	   * @name notDeepEqual
-	   * @param {Mixed} actual
-	   * @param {Mixed} expected
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notDeepEqual = function (act, exp, msg) {
-	    new Assertion(act, msg).to.not.eql(exp);
-	  };
-
-	  /**
-	   * ### .isTrue(value, [message])
-	   *
-	   * Asserts that `value` is true.
-	   *
-	   *     var teaServed = true;
-	   *     assert.isTrue(teaServed, 'the tea has been served');
-	   *
-	   * @name isTrue
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isTrue = function (val, msg) {
-	    new Assertion(val, msg).is['true'];
-	  };
-
-	  /**
-	   * ### .isFalse(value, [message])
-	   *
-	   * Asserts that `value` is false.
-	   *
-	   *     var teaServed = false;
-	   *     assert.isFalse(teaServed, 'no tea yet? hmm...');
-	   *
-	   * @name isFalse
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isFalse = function (val, msg) {
-	    new Assertion(val, msg).is['false'];
-	  };
-
-	  /**
-	   * ### .isNull(value, [message])
-	   *
-	   * Asserts that `value` is null.
-	   *
-	   *     assert.isNull(err, 'there was no error');
-	   *
-	   * @name isNull
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isNull = function (val, msg) {
-	    new Assertion(val, msg).to.equal(null);
-	  };
-
-	  /**
-	   * ### .isNotNull(value, [message])
-	   *
-	   * Asserts that `value` is not null.
-	   *
-	   *     var tea = 'tasty chai';
-	   *     assert.isNotNull(tea, 'great, time for tea!');
-	   *
-	   * @name isNotNull
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isNotNull = function (val, msg) {
-	    new Assertion(val, msg).to.not.equal(null);
-	  };
-
-	  /**
-	   * ### .isUndefined(value, [message])
-	   *
-	   * Asserts that `value` is `undefined`.
-	   *
-	   *     var tea;
-	   *     assert.isUndefined(tea, 'no tea defined');
-	   *
-	   * @name isUndefined
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isUndefined = function (val, msg) {
-	    new Assertion(val, msg).to.equal(undefined);
-	  };
-
-	  /**
-	   * ### .isDefined(value, [message])
-	   *
-	   * Asserts that `value` is not `undefined`.
-	   *
-	   *     var tea = 'cup of chai';
-	   *     assert.isDefined(tea, 'tea has been defined');
-	   *
-	   * @name isDefined
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isDefined = function (val, msg) {
-	    new Assertion(val, msg).to.not.equal(undefined);
-	  };
-
-	  /**
-	   * ### .isFunction(value, [message])
-	   *
-	   * Asserts that `value` is a function.
-	   *
-	   *     function serveTea() { return 'cup of tea'; };
-	   *     assert.isFunction(serveTea, 'great, we can have tea now');
-	   *
-	   * @name isFunction
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isFunction = function (val, msg) {
-	    new Assertion(val, msg).to.be.a('function');
-	  };
-
-	  /**
-	   * ### .isNotFunction(value, [message])
-	   *
-	   * Asserts that `value` is _not_ a function.
-	   *
-	   *     var serveTea = [ 'heat', 'pour', 'sip' ];
-	   *     assert.isNotFunction(serveTea, 'great, we have listed the steps');
-	   *
-	   * @name isNotFunction
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isNotFunction = function (val, msg) {
-	    new Assertion(val, msg).to.not.be.a('function');
-	  };
-
-	  /**
-	   * ### .isObject(value, [message])
-	   *
-	   * Asserts that `value` is an object (as revealed by
-	   * `Object.prototype.toString`).
-	   *
-	   *     var selection = { name: 'Chai', serve: 'with spices' };
-	   *     assert.isObject(selection, 'tea selection is an object');
-	   *
-	   * @name isObject
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isObject = function (val, msg) {
-	    new Assertion(val, msg).to.be.a('object');
-	  };
-
-	  /**
-	   * ### .isNotObject(value, [message])
-	   *
-	   * Asserts that `value` is _not_ an object.
-	   *
-	   *     var selection = 'chai'
-	   *     assert.isNotObject(selection, 'tea selection is not an object');
-	   *     assert.isNotObject(null, 'null is not an object');
-	   *
-	   * @name isNotObject
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isNotObject = function (val, msg) {
-	    new Assertion(val, msg).to.not.be.a('object');
-	  };
-
-	  /**
-	   * ### .isArray(value, [message])
-	   *
-	   * Asserts that `value` is an array.
-	   *
-	   *     var menu = [ 'green', 'chai', 'oolong' ];
-	   *     assert.isArray(menu, 'what kind of tea do we want?');
-	   *
-	   * @name isArray
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isArray = function (val, msg) {
-	    new Assertion(val, msg).to.be.an('array');
-	  };
-
-	  /**
-	   * ### .isNotArray(value, [message])
-	   *
-	   * Asserts that `value` is _not_ an array.
-	   *
-	   *     var menu = 'green|chai|oolong';
-	   *     assert.isNotArray(menu, 'what kind of tea do we want?');
-	   *
-	   * @name isNotArray
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isNotArray = function (val, msg) {
-	    new Assertion(val, msg).to.not.be.an('array');
-	  };
-
-	  /**
-	   * ### .isString(value, [message])
-	   *
-	   * Asserts that `value` is a string.
-	   *
-	   *     var teaOrder = 'chai';
-	   *     assert.isString(teaOrder, 'order placed');
-	   *
-	   * @name isString
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isString = function (val, msg) {
-	    new Assertion(val, msg).to.be.a('string');
-	  };
-
-	  /**
-	   * ### .isNotString(value, [message])
-	   *
-	   * Asserts that `value` is _not_ a string.
-	   *
-	   *     var teaOrder = 4;
-	   *     assert.isNotString(teaOrder, 'order placed');
-	   *
-	   * @name isNotString
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isNotString = function (val, msg) {
-	    new Assertion(val, msg).to.not.be.a('string');
-	  };
-
-	  /**
-	   * ### .isNumber(value, [message])
-	   *
-	   * Asserts that `value` is a number.
-	   *
-	   *     var cups = 2;
-	   *     assert.isNumber(cups, 'how many cups');
-	   *
-	   * @name isNumber
-	   * @param {Number} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isNumber = function (val, msg) {
-	    new Assertion(val, msg).to.be.a('number');
-	  };
-
-	  /**
-	   * ### .isNotNumber(value, [message])
-	   *
-	   * Asserts that `value` is _not_ a number.
-	   *
-	   *     var cups = '2 cups please';
-	   *     assert.isNotNumber(cups, 'how many cups');
-	   *
-	   * @name isNotNumber
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isNotNumber = function (val, msg) {
-	    new Assertion(val, msg).to.not.be.a('number');
-	  };
-
-	  /**
-	   * ### .isBoolean(value, [message])
-	   *
-	   * Asserts that `value` is a boolean.
-	   *
-	   *     var teaReady = true
-	   *       , teaServed = false;
-	   *
-	   *     assert.isBoolean(teaReady, 'is the tea ready');
-	   *     assert.isBoolean(teaServed, 'has tea been served');
-	   *
-	   * @name isBoolean
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isBoolean = function (val, msg) {
-	    new Assertion(val, msg).to.be.a('boolean');
-	  };
-
-	  /**
-	   * ### .isNotBoolean(value, [message])
-	   *
-	   * Asserts that `value` is _not_ a boolean.
-	   *
-	   *     var teaReady = 'yep'
-	   *       , teaServed = 'nope';
-	   *
-	   *     assert.isNotBoolean(teaReady, 'is the tea ready');
-	   *     assert.isNotBoolean(teaServed, 'has tea been served');
-	   *
-	   * @name isNotBoolean
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.isNotBoolean = function (val, msg) {
-	    new Assertion(val, msg).to.not.be.a('boolean');
-	  };
-
-	  /**
-	   * ### .typeOf(value, name, [message])
-	   *
-	   * Asserts that `value`'s type is `name`, as determined by
-	   * `Object.prototype.toString`.
-	   *
-	   *     assert.typeOf({ tea: 'chai' }, 'object', 'we have an object');
-	   *     assert.typeOf(['chai', 'jasmine'], 'array', 'we have an array');
-	   *     assert.typeOf('tea', 'string', 'we have a string');
-	   *     assert.typeOf(/tea/, 'regexp', 'we have a regular expression');
-	   *     assert.typeOf(null, 'null', 'we have a null');
-	   *     assert.typeOf(undefined, 'undefined', 'we have an undefined');
-	   *
-	   * @name typeOf
-	   * @param {Mixed} value
-	   * @param {String} name
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.typeOf = function (val, type, msg) {
-	    new Assertion(val, msg).to.be.a(type);
-	  };
-
-	  /**
-	   * ### .notTypeOf(value, name, [message])
-	   *
-	   * Asserts that `value`'s type is _not_ `name`, as determined by
-	   * `Object.prototype.toString`.
-	   *
-	   *     assert.notTypeOf('tea', 'number', 'strings are not numbers');
-	   *
-	   * @name notTypeOf
-	   * @param {Mixed} value
-	   * @param {String} typeof name
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notTypeOf = function (val, type, msg) {
-	    new Assertion(val, msg).to.not.be.a(type);
-	  };
-
-	  /**
-	   * ### .instanceOf(object, constructor, [message])
-	   *
-	   * Asserts that `value` is an instance of `constructor`.
-	   *
-	   *     var Tea = function (name) { this.name = name; }
-	   *       , chai = new Tea('chai');
-	   *
-	   *     assert.instanceOf(chai, Tea, 'chai is an instance of tea');
-	   *
-	   * @name instanceOf
-	   * @param {Object} object
-	   * @param {Constructor} constructor
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.instanceOf = function (val, type, msg) {
-	    new Assertion(val, msg).to.be.instanceOf(type);
-	  };
-
-	  /**
-	   * ### .notInstanceOf(object, constructor, [message])
-	   *
-	   * Asserts `value` is not an instance of `constructor`.
-	   *
-	   *     var Tea = function (name) { this.name = name; }
-	   *       , chai = new String('chai');
-	   *
-	   *     assert.notInstanceOf(chai, Tea, 'chai is not an instance of tea');
-	   *
-	   * @name notInstanceOf
-	   * @param {Object} object
-	   * @param {Constructor} constructor
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notInstanceOf = function (val, type, msg) {
-	    new Assertion(val, msg).to.not.be.instanceOf(type);
-	  };
-
-	  /**
-	   * ### .include(haystack, needle, [message])
-	   *
-	   * Asserts that `haystack` includes `needle`. Works
-	   * for strings and arrays.
-	   *
-	   *     assert.include('foobar', 'bar', 'foobar contains string "bar"');
-	   *     assert.include([ 1, 2, 3 ], 3, 'array contains value');
-	   *
-	   * @name include
-	   * @param {Array|String} haystack
-	   * @param {Mixed} needle
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.include = function (exp, inc, msg) {
-	    new Assertion(exp, msg, assert.include).include(inc);
-	  };
-
-	  /**
-	   * ### .notInclude(haystack, needle, [message])
-	   *
-	   * Asserts that `haystack` does not include `needle`. Works
-	   * for strings and arrays.
-	   *i
-	   *     assert.notInclude('foobar', 'baz', 'string not include substring');
-	   *     assert.notInclude([ 1, 2, 3 ], 4, 'array not include contain value');
-	   *
-	   * @name notInclude
-	   * @param {Array|String} haystack
-	   * @param {Mixed} needle
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notInclude = function (exp, inc, msg) {
-	    new Assertion(exp, msg, assert.notInclude).not.include(inc);
-	  };
-
-	  /**
-	   * ### .match(value, regexp, [message])
-	   *
-	   * Asserts that `value` matches the regular expression `regexp`.
-	   *
-	   *     assert.match('foobar', /^foo/, 'regexp matches');
-	   *
-	   * @name match
-	   * @param {Mixed} value
-	   * @param {RegExp} regexp
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.match = function (exp, re, msg) {
-	    new Assertion(exp, msg).to.match(re);
-	  };
-
-	  /**
-	   * ### .notMatch(value, regexp, [message])
-	   *
-	   * Asserts that `value` does not match the regular expression `regexp`.
-	   *
-	   *     assert.notMatch('foobar', /^foo/, 'regexp does not match');
-	   *
-	   * @name notMatch
-	   * @param {Mixed} value
-	   * @param {RegExp} regexp
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notMatch = function (exp, re, msg) {
-	    new Assertion(exp, msg).to.not.match(re);
-	  };
-
-	  /**
-	   * ### .property(object, property, [message])
-	   *
-	   * Asserts that `object` has a property named by `property`.
-	   *
-	   *     assert.property({ tea: { green: 'matcha' }}, 'tea');
-	   *
-	   * @name property
-	   * @param {Object} object
-	   * @param {String} property
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.property = function (obj, prop, msg) {
-	    new Assertion(obj, msg).to.have.property(prop);
-	  };
-
-	  /**
-	   * ### .notProperty(object, property, [message])
-	   *
-	   * Asserts that `object` does _not_ have a property named by `property`.
-	   *
-	   *     assert.notProperty({ tea: { green: 'matcha' }}, 'coffee');
-	   *
-	   * @name notProperty
-	   * @param {Object} object
-	   * @param {String} property
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notProperty = function (obj, prop, msg) {
-	    new Assertion(obj, msg).to.not.have.property(prop);
-	  };
-
-	  /**
-	   * ### .deepProperty(object, property, [message])
-	   *
-	   * Asserts that `object` has a property named by `property`, which can be a
-	   * string using dot- and bracket-notation for deep reference.
-	   *
-	   *     assert.deepProperty({ tea: { green: 'matcha' }}, 'tea.green');
-	   *
-	   * @name deepProperty
-	   * @param {Object} object
-	   * @param {String} property
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.deepProperty = function (obj, prop, msg) {
-	    new Assertion(obj, msg).to.have.deep.property(prop);
-	  };
-
-	  /**
-	   * ### .notDeepProperty(object, property, [message])
-	   *
-	   * Asserts that `object` does _not_ have a property named by `property`, which
-	   * can be a string using dot- and bracket-notation for deep reference.
-	   *
-	   *     assert.notDeepProperty({ tea: { green: 'matcha' }}, 'tea.oolong');
-	   *
-	   * @name notDeepProperty
-	   * @param {Object} object
-	   * @param {String} property
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.notDeepProperty = function (obj, prop, msg) {
-	    new Assertion(obj, msg).to.not.have.deep.property(prop);
-	  };
-
-	  /**
-	   * ### .propertyVal(object, property, value, [message])
-	   *
-	   * Asserts that `object` has a property named by `property` with value given
-	   * by `value`.
-	   *
-	   *     assert.propertyVal({ tea: 'is good' }, 'tea', 'is good');
-	   *
-	   * @name propertyVal
-	   * @param {Object} object
-	   * @param {String} property
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.propertyVal = function (obj, prop, val, msg) {
-	    new Assertion(obj, msg).to.have.property(prop, val);
-	  };
-
-	  /**
-	   * ### .propertyNotVal(object, property, value, [message])
-	   *
-	   * Asserts that `object` has a property named by `property`, but with a value
-	   * different from that given by `value`.
-	   *
-	   *     assert.propertyNotVal({ tea: 'is good' }, 'tea', 'is bad');
-	   *
-	   * @name propertyNotVal
-	   * @param {Object} object
-	   * @param {String} property
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.propertyNotVal = function (obj, prop, val, msg) {
-	    new Assertion(obj, msg).to.not.have.property(prop, val);
-	  };
-
-	  /**
-	   * ### .deepPropertyVal(object, property, value, [message])
-	   *
-	   * Asserts that `object` has a property named by `property` with value given
-	   * by `value`. `property` can use dot- and bracket-notation for deep
-	   * reference.
-	   *
-	   *     assert.deepPropertyVal({ tea: { green: 'matcha' }}, 'tea.green', 'matcha');
-	   *
-	   * @name deepPropertyVal
-	   * @param {Object} object
-	   * @param {String} property
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.deepPropertyVal = function (obj, prop, val, msg) {
-	    new Assertion(obj, msg).to.have.deep.property(prop, val);
-	  };
-
-	  /**
-	   * ### .deepPropertyNotVal(object, property, value, [message])
-	   *
-	   * Asserts that `object` has a property named by `property`, but with a value
-	   * different from that given by `value`. `property` can use dot- and
-	   * bracket-notation for deep reference.
-	   *
-	   *     assert.deepPropertyNotVal({ tea: { green: 'matcha' }}, 'tea.green', 'konacha');
-	   *
-	   * @name deepPropertyNotVal
-	   * @param {Object} object
-	   * @param {String} property
-	   * @param {Mixed} value
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.deepPropertyNotVal = function (obj, prop, val, msg) {
-	    new Assertion(obj, msg).to.not.have.deep.property(prop, val);
-	  };
-
-	  /**
-	   * ### .lengthOf(object, length, [message])
-	   *
-	   * Asserts that `object` has a `length` property with the expected value.
-	   *
-	   *     assert.lengthOf([1,2,3], 3, 'array has length of 3');
-	   *     assert.lengthOf('foobar', 5, 'string has length of 6');
-	   *
-	   * @name lengthOf
-	   * @param {Mixed} object
-	   * @param {Number} length
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.lengthOf = function (exp, len, msg) {
-	    new Assertion(exp, msg).to.have.length(len);
-	  };
-
-	  /**
-	   * ### .throws(function, [constructor/string/regexp], [string/regexp], [message])
-	   *
-	   * Asserts that `function` will throw an error that is an instance of
-	   * `constructor`, or alternately that it will throw an error with message
-	   * matching `regexp`.
-	   *
-	   *     assert.throw(fn, 'function throws a reference error');
-	   *     assert.throw(fn, /function throws a reference error/);
-	   *     assert.throw(fn, ReferenceError);
-	   *     assert.throw(fn, ReferenceError, 'function throws a reference error');
-	   *     assert.throw(fn, ReferenceError, /function throws a reference error/);
-	   *
-	   * @name throws
-	   * @alias throw
-	   * @alias Throw
-	   * @param {Function} function
-	   * @param {ErrorConstructor} constructor
-	   * @param {RegExp} regexp
-	   * @param {String} message
-	   * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
-	   * @api public
-	   */
-
-	  assert.Throw = function (fn, errt, errs, msg) {
-	    if ('string' === typeof errt || errt instanceof RegExp) {
-	      errs = errt;
-	      errt = null;
-	    }
-
-	    var assertErr = new Assertion(fn, msg).to.Throw(errt, errs);
-	    return flag(assertErr, 'object');
-	  };
-
-	  /**
-	   * ### .doesNotThrow(function, [constructor/regexp], [message])
-	   *
-	   * Asserts that `function` will _not_ throw an error that is an instance of
-	   * `constructor`, or alternately that it will not throw an error with message
-	   * matching `regexp`.
-	   *
-	   *     assert.doesNotThrow(fn, Error, 'function does not throw');
-	   *
-	   * @name doesNotThrow
-	   * @param {Function} function
-	   * @param {ErrorConstructor} constructor
-	   * @param {RegExp} regexp
-	   * @param {String} message
-	   * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
-	   * @api public
-	   */
-
-	  assert.doesNotThrow = function (fn, type, msg) {
-	    if ('string' === typeof type) {
-	      msg = type;
-	      type = null;
-	    }
-
-	    new Assertion(fn, msg).to.not.Throw(type);
-	  };
-
-	  /**
-	   * ### .operator(val1, operator, val2, [message])
-	   *
-	   * Compares two values using `operator`.
-	   *
-	   *     assert.operator(1, '<', 2, 'everything is ok');
-	   *     assert.operator(1, '>', 2, 'this will fail');
-	   *
-	   * @name operator
-	   * @param {Mixed} val1
-	   * @param {String} operator
-	   * @param {Mixed} val2
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.operator = function (val, operator, val2, msg) {
-	    if (!~['==', '===', '>', '>=', '<', '<=', '!=', '!=='].indexOf(operator)) {
-	      throw new Error('Invalid operator "' + operator + '"');
-	    }
-	    var test = new Assertion(eval(val + operator + val2), msg);
-	    test.assert(
-	        true === flag(test, 'object')
-	      , 'expected ' + util.inspect(val) + ' to be ' + operator + ' ' + util.inspect(val2)
-	      , 'expected ' + util.inspect(val) + ' to not be ' + operator + ' ' + util.inspect(val2) );
-	  };
-
-	  /**
-	   * ### .closeTo(actual, expected, delta, [message])
-	   *
-	   * Asserts that the target is equal `expected`, to within a +/- `delta` range.
-	   *
-	   *     assert.closeTo(1.5, 1, 0.5, 'numbers are close');
-	   *
-	   * @name closeTo
-	   * @param {Number} actual
-	   * @param {Number} expected
-	   * @param {Number} delta
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.closeTo = function (act, exp, delta, msg) {
-	    new Assertion(act, msg).to.be.closeTo(exp, delta);
-	  };
-
-	  /**
-	   * ### .sameMembers(set1, set2, [message])
-	   *
-	   * Asserts that `set1` and `set2` have the same members.
-	   * Order is not taken into account.
-	   *
-	   *     assert.sameMembers([ 1, 2, 3 ], [ 2, 1, 3 ], 'same members');
-	   *
-	   * @name sameMembers
-	   * @param {Array} superset
-	   * @param {Array} subset
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.sameMembers = function (set1, set2, msg) {
-	    new Assertion(set1, msg).to.have.same.members(set2);
-	  }
-
-	  /**
-	   * ### .includeMembers(superset, subset, [message])
-	   *
-	   * Asserts that `subset` is included in `superset`.
-	   * Order is not taken into account.
-	   *
-	   *     assert.includeMembers([ 1, 2, 3 ], [ 2, 1 ], 'include members');
-	   *
-	   * @name includeMembers
-	   * @param {Array} superset
-	   * @param {Array} subset
-	   * @param {String} message
-	   * @api public
-	   */
-
-	  assert.includeMembers = function (superset, subset, msg) {
-	    new Assertion(superset, msg).to.include.members(subset);
-	  }
-
-	  /*!
-	   * Undocumented / untested
-	   */
-
-	  assert.ifError = function (val, msg) {
-	    new Assertion(val, msg).to.not.be.ok;
-	  };
-
-	  /*!
-	   * Aliases.
-	   */
-
-	  (function alias(name, as){
-	    assert[as] = assert[name];
-	    return alias;
-	  })
-	  ('Throw', 'throw')
-	  ('Throw', 'throws');
-	};
-
-
-/***/ },
-/* 53 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// shim for using process in browser
@@ -11148,6 +11391,8 @@
 	process.nextTick = (function () {
 	    var canSetImmediate = typeof window !== 'undefined'
 	    && window.setImmediate;
+	    var canMutationObserver = typeof window !== 'undefined'
+	    && window.MutationObserver;
 	    var canPost = typeof window !== 'undefined'
 	    && window.postMessage && window.addEventListener
 	    ;
@@ -11156,8 +11401,29 @@
 	        return function (f) { return window.setImmediate(f) };
 	    }
 
+	    var queue = [];
+
+	    if (canMutationObserver) {
+	        var hiddenDiv = document.createElement("div");
+	        var observer = new MutationObserver(function () {
+	            var queueList = queue.slice();
+	            queue.length = 0;
+	            queueList.forEach(function (fn) {
+	                fn();
+	            });
+	        });
+
+	        observer.observe(hiddenDiv, { attributes: true });
+
+	        return function nextTick(fn) {
+	            if (!queue.length) {
+	                hiddenDiv.setAttribute('yes', 'no');
+	            }
+	            queue.push(fn);
+	        };
+	    }
+
 	    if (canPost) {
-	        var queue = [];
 	        window.addEventListener('message', function (ev) {
 	            var source = ev.source;
 	            if ((source === window || source === null) && ev.data === 'process-tick') {
@@ -11197,7 +11463,7 @@
 
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
-	}
+	};
 
 	// TODO(shtylman)
 	process.cwd = function () { return '/' };
@@ -11207,123 +11473,7 @@
 
 
 /***/ },
-/* 54 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * assertion-error
-	 * Copyright(c) 2013 Jake Luer <jake@qualiancy.com>
-	 * MIT Licensed
-	 */
-
-	/*!
-	 * Return a function that will copy properties from
-	 * one object to another excluding any originally
-	 * listed. Returned function will create a new `{}`.
-	 *
-	 * @param {String} excluded properties ...
-	 * @return {Function}
-	 */
-
-	function exclude () {
-	  var excludes = [].slice.call(arguments);
-
-	  function excludeProps (res, obj) {
-	    Object.keys(obj).forEach(function (key) {
-	      if (!~excludes.indexOf(key)) res[key] = obj[key];
-	    });
-	  }
-
-	  return function extendExclude () {
-	    var args = [].slice.call(arguments)
-	      , i = 0
-	      , res = {};
-
-	    for (; i < args.length; i++) {
-	      excludeProps(res, args[i]);
-	    }
-
-	    return res;
-	  };
-	};
-
-	/*!
-	 * Primary Exports
-	 */
-
-	module.exports = AssertionError;
-
-	/**
-	 * ### AssertionError
-	 *
-	 * An extension of the JavaScript `Error` constructor for
-	 * assertion and validation scenarios.
-	 *
-	 * @param {String} message
-	 * @param {Object} properties to include (optional)
-	 * @param {callee} start stack function (optional)
-	 */
-
-	function AssertionError (message, _props, ssf) {
-	  var extend = exclude('name', 'message', 'stack', 'constructor', 'toJSON')
-	    , props = extend(_props || {});
-
-	  // default values
-	  this.message = message || 'Unspecified AssertionError';
-	  this.showDiff = false;
-
-	  // copy from properties
-	  for (var key in props) {
-	    this[key] = props[key];
-	  }
-
-	  // capture stack trace
-	  ssf = ssf || arguments.callee;
-	  if (ssf && Error.captureStackTrace) {
-	    Error.captureStackTrace(this, ssf);
-	  }
-	}
-
-	/*!
-	 * Inherit from Error.prototype
-	 */
-
-	AssertionError.prototype = Object.create(Error.prototype);
-
-	/*!
-	 * Statically set name
-	 */
-
-	AssertionError.prototype.name = 'AssertionError';
-
-	/*!
-	 * Ensure correct constructor
-	 */
-
-	AssertionError.prototype.constructor = AssertionError;
-
-	/**
-	 * Allow errors to be converted to JSON for static transfer.
-	 *
-	 * @param {Boolean} include stack (default: `true`)
-	 * @return {Object} object that can be `JSON.stringify`
-	 */
-
-	AssertionError.prototype.toJSON = function (stack) {
-	  var extend = exclude('constructor', 'toJSON', 'stack')
-	    , props = extend({ name: this.name }, this);
-
-	  // include stack if exists and not turned off
-	  if (false !== stack && this.stack) {
-	    props.stack = this.stack;
-	  }
-
-	  return props;
-	};
-
-
-/***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11370,7 +11520,7 @@
 	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
 	 */
 
-	var React = __webpack_require__(13);
+	var React = __webpack_require__(14);
 
 	/**
 	 * @param {*} value current value of the link
@@ -11407,7 +11557,7 @@
 
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11524,7 +11674,62 @@
 
 
 /***/ },
-/* 57 */
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule shallowEqual
+	 */
+
+	"use strict";
+
+	/**
+	 * Performs equality by iterating through keys on an object and returning
+	 * false when any key has values which are not strictly equal between
+	 * objA and objB. Returns true when the values of all keys are strictly equal.
+	 *
+	 * @return {boolean}
+	 */
+	function shallowEqual(objA, objB) {
+	  if (objA === objB) {
+	    return true;
+	  }
+	  var key;
+	  // Test for A's keys different from B.
+	  for (key in objA) {
+	    if (objA.hasOwnProperty(key) &&
+	        (!objB.hasOwnProperty(key) || objA[key] !== objB[key])) {
+	      return false;
+	    }
+	  }
+	  // Test for B'a keys missing from A.
+	  for (key in objB) {
+	    if (objB.hasOwnProperty(key) && !objA.hasOwnProperty(key)) {
+	      return false;
+	    }
+	  }
+	  return true;
+	}
+
+	module.exports = shallowEqual;
+
+
+/***/ },
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -11548,12 +11753,12 @@
 
 	"use strict";
 
-	var React = __webpack_require__(13);
+	var React = __webpack_require__(14);
 
-	var CSSCore = __webpack_require__(140);
-	var ReactTransitionEvents = __webpack_require__(141);
+	var CSSCore = __webpack_require__(141);
+	var ReactTransitionEvents = __webpack_require__(142);
 
-	var onlyChild = __webpack_require__(43);
+	var onlyChild = __webpack_require__(50);
 
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -11663,10 +11868,10 @@
 
 	module.exports = ReactCSSTransitionGroupChild;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 58 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11684,44 +11889,150 @@
 	 * See the License for the specific language governing permissions and
 	 * limitations under the License.
 	 *
-	 * @providesModule shallowEqual
+	 * @typechecks static-only
+	 * @providesModule ReactTransitionChildMapping
 	 */
 
 	"use strict";
 
-	/**
-	 * Performs equality by iterating through keys on an object and returning
-	 * false when any key has values which are not strictly equal between
-	 * objA and objB. Returns true when the values of all keys are strictly equal.
-	 *
-	 * @return {boolean}
-	 */
-	function shallowEqual(objA, objB) {
-	  if (objA === objB) {
-	    return true;
-	  }
-	  var key;
-	  // Test for A's keys different from B.
-	  for (key in objA) {
-	    if (objA.hasOwnProperty(key) &&
-	        (!objB.hasOwnProperty(key) || objA[key] !== objB[key])) {
-	      return false;
-	    }
-	  }
-	  // Test for B'a keys missing from A.
-	  for (key in objB) {
-	    if (objB.hasOwnProperty(key) && !objA.hasOwnProperty(key)) {
-	      return false;
-	    }
-	  }
-	  return true;
-	}
+	var ReactChildren = __webpack_require__(34);
 
-	module.exports = shallowEqual;
+	var ReactTransitionChildMapping = {
+	  /**
+	   * Given `this.props.children`, return an object mapping key to child. Just
+	   * simple syntactic sugar around ReactChildren.map().
+	   *
+	   * @param {*} children `this.props.children`
+	   * @return {object} Mapping of key to child
+	   */
+	  getChildMapping: function(children) {
+	    return ReactChildren.map(children, function(child) {
+	      return child;
+	    });
+	  },
+
+	  /**
+	   * When you're adding or removing children some may be added or removed in the
+	   * same render pass. We want ot show *both* since we want to simultaneously
+	   * animate elements in and out. This function takes a previous set of keys
+	   * and a new set of keys and merges them with its best guess of the correct
+	   * ordering. In the future we may expose some of the utilities in
+	   * ReactMultiChild to make this easy, but for now React itself does not
+	   * directly have this concept of the union of prevChildren and nextChildren
+	   * so we implement it here.
+	   *
+	   * @param {object} prev prev children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @param {object} next next children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @return {object} a key set that contains all keys in `prev` and all keys
+	   * in `next` in a reasonable order.
+	   */
+	  mergeChildMappings: function(prev, next) {
+	    prev = prev || {};
+	    next = next || {};
+
+	    function getValueForKey(key) {
+	      if (next.hasOwnProperty(key)) {
+	        return next[key];
+	      } else {
+	        return prev[key];
+	      }
+	    }
+
+	    // For each key of `next`, the list of keys to insert before that key in
+	    // the combined list
+	    var nextKeysPending = {};
+
+	    var pendingKeys = [];
+	    for (var prevKey in prev) {
+	      if (next.hasOwnProperty(prevKey)) {
+	        if (pendingKeys.length) {
+	          nextKeysPending[prevKey] = pendingKeys;
+	          pendingKeys = [];
+	        }
+	      } else {
+	        pendingKeys.push(prevKey);
+	      }
+	    }
+
+	    var i;
+	    var childMapping = {};
+	    for (var nextKey in next) {
+	      if (nextKeysPending.hasOwnProperty(nextKey)) {
+	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
+	          var pendingNextKey = nextKeysPending[nextKey][i];
+	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
+	            pendingNextKey
+	          );
+	        }
+	      }
+	      childMapping[nextKey] = getValueForKey(nextKey);
+	    }
+
+	    // Finally, add the keys which didn't appear before any key in `next`
+	    for (i = 0; i < pendingKeys.length; i++) {
+	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
+	    }
+
+	    return childMapping;
+	  }
+	};
+
+	module.exports = ReactTransitionChildMapping;
 
 
 /***/ },
-/* 59 */
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule emptyFunction
+	 */
+
+	var copyProperties = __webpack_require__(64);
+
+	function makeEmptyFunction(arg) {
+	  return function() {
+	    return arg;
+	  };
+	}
+
+	/**
+	 * This function accepts and discards inputs; it has no side effects. This is
+	 * primarily useful idiomatically for overridable function endpoints which
+	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+	 */
+	function emptyFunction() {}
+
+	copyProperties(emptyFunction, {
+	  thatReturns: makeEmptyFunction,
+	  thatReturnsFalse: makeEmptyFunction(false),
+	  thatReturnsTrue: makeEmptyFunction(true),
+	  thatReturnsNull: makeEmptyFunction(null),
+	  thatReturnsThis: function() { return this; },
+	  thatReturnsArgument: function(arg) { return arg; }
+	});
+
+	module.exports = emptyFunction;
+
+
+/***/ },
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -11744,9 +12055,9 @@
 
 	"use strict";
 
-	var emptyFunction = __webpack_require__(65);
-	var invariant = __webpack_require__(63);
-	var joinClasses = __webpack_require__(142);
+	var emptyFunction = __webpack_require__(61);
+	var invariant = __webpack_require__(65);
+	var joinClasses = __webpack_require__(143);
 	var merge = __webpack_require__(11);
 
 	/**
@@ -11887,10 +12198,10 @@
 
 	module.exports = ReactPropTransferer;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 60 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11937,62 +12248,7 @@
 
 
 /***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule warning
-	 */
-
-	"use strict";
-
-	var emptyFunction = __webpack_require__(65);
-
-	/**
-	 * Similar to invariant but only logs a warning if the condition is not met.
-	 * This can be used to log issues in development environments in critical
-	 * paths. Removing the logging code for production environments will keep the
-	 * same logic and follow the same code paths.
-	 */
-
-	var warning = emptyFunction;
-
-	if ("production" !== process.env.NODE_ENV) {
-	  warning = function(condition, format ) {var args=Array.prototype.slice.call(arguments,2);
-	    if (format === undefined) {
-	      throw new Error(
-	        '`warning(condition, format, ...args)` requires a warning ' +
-	        'message argument'
-	      );
-	    }
-
-	    if (!condition) {
-	      var argIndex = 0;
-	      console.warn('Warning: ' + format.replace(/%s/g, function()  {return args[argIndex++];}));
-	    }
-	  };
-	}
-
-	module.exports = warning;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 62 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -12050,10 +12306,10 @@
 
 	module.exports = copyProperties;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 63 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -12117,168 +12373,7 @@
 
 	module.exports = invariant;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 64 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @typechecks static-only
-	 * @providesModule ReactTransitionChildMapping
-	 */
-
-	"use strict";
-
-	var ReactChildren = __webpack_require__(27);
-
-	var ReactTransitionChildMapping = {
-	  /**
-	   * Given `this.props.children`, return an object mapping key to child. Just
-	   * simple syntactic sugar around ReactChildren.map().
-	   *
-	   * @param {*} children `this.props.children`
-	   * @return {object} Mapping of key to child
-	   */
-	  getChildMapping: function(children) {
-	    return ReactChildren.map(children, function(child) {
-	      return child;
-	    });
-	  },
-
-	  /**
-	   * When you're adding or removing children some may be added or removed in the
-	   * same render pass. We want ot show *both* since we want to simultaneously
-	   * animate elements in and out. This function takes a previous set of keys
-	   * and a new set of keys and merges them with its best guess of the correct
-	   * ordering. In the future we may expose some of the utilities in
-	   * ReactMultiChild to make this easy, but for now React itself does not
-	   * directly have this concept of the union of prevChildren and nextChildren
-	   * so we implement it here.
-	   *
-	   * @param {object} prev prev children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @param {object} next next children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @return {object} a key set that contains all keys in `prev` and all keys
-	   * in `next` in a reasonable order.
-	   */
-	  mergeChildMappings: function(prev, next) {
-	    prev = prev || {};
-	    next = next || {};
-
-	    function getValueForKey(key) {
-	      if (next.hasOwnProperty(key)) {
-	        return next[key];
-	      } else {
-	        return prev[key];
-	      }
-	    }
-
-	    // For each key of `next`, the list of keys to insert before that key in
-	    // the combined list
-	    var nextKeysPending = {};
-
-	    var pendingKeys = [];
-	    for (var prevKey in prev) {
-	      if (next.hasOwnProperty(prevKey)) {
-	        if (pendingKeys.length) {
-	          nextKeysPending[prevKey] = pendingKeys;
-	          pendingKeys = [];
-	        }
-	      } else {
-	        pendingKeys.push(prevKey);
-	      }
-	    }
-
-	    var i;
-	    var childMapping = {};
-	    for (var nextKey in next) {
-	      if (nextKeysPending.hasOwnProperty(nextKey)) {
-	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
-	          var pendingNextKey = nextKeysPending[nextKey][i];
-	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
-	            pendingNextKey
-	          );
-	        }
-	      }
-	      childMapping[nextKey] = getValueForKey(nextKey);
-	    }
-
-	    // Finally, add the keys which didn't appear before any key in `next`
-	    for (i = 0; i < pendingKeys.length; i++) {
-	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
-	    }
-
-	    return childMapping;
-	  }
-	};
-
-	module.exports = ReactTransitionChildMapping;
-
-
-/***/ },
-/* 65 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule emptyFunction
-	 */
-
-	var copyProperties = __webpack_require__(62);
-
-	function makeEmptyFunction(arg) {
-	  return function() {
-	    return arg;
-	  };
-	}
-
-	/**
-	 * This function accepts and discards inputs; it has no side effects. This is
-	 * primarily useful idiomatically for overridable function endpoints which
-	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
-	 */
-	function emptyFunction() {}
-
-	copyProperties(emptyFunction, {
-	  thatReturns: makeEmptyFunction,
-	  thatReturnsFalse: makeEmptyFunction(false),
-	  thatReturnsTrue: makeEmptyFunction(true),
-	  thatReturnsNull: makeEmptyFunction(null),
-	  thatReturnsThis: function() { return this; },
-	  thatReturnsArgument: function(arg) { return arg; }
-	});
-
-	module.exports = emptyFunction;
-
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
 /* 66 */
@@ -12307,7 +12402,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	var DOMPropertyInjection = {
 	  /**
@@ -12583,7 +12678,7 @@
 
 	module.exports = DOMProperty;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
 /* 67 */
@@ -12817,7 +12912,7 @@
 	 * @typechecks
 	 */
 
-	var performance = __webpack_require__(143);
+	var performance = __webpack_require__(144);
 
 	/**
 	 * Detect if we can use `window.performance.now()` and gracefully fallback to
@@ -12857,7 +12952,7 @@
 
 	"use strict";
 
-	var keyMirror = __webpack_require__(84);
+	var keyMirror = __webpack_require__(96);
 
 	var PropagationPhases = keyMirror({bubbled: null, captured: null});
 
@@ -12940,14 +13035,14 @@
 
 	"use strict";
 
-	var EventPluginRegistry = __webpack_require__(144);
-	var EventPluginUtils = __webpack_require__(26);
+	var EventPluginRegistry = __webpack_require__(145);
+	var EventPluginUtils = __webpack_require__(33);
 
-	var accumulate = __webpack_require__(145);
-	var forEachAccumulated = __webpack_require__(146);
-	var invariant = __webpack_require__(63);
-	var isEventSupported = __webpack_require__(147);
-	var monitorCodeUse = __webpack_require__(86);
+	var accumulate = __webpack_require__(146);
+	var forEachAccumulated = __webpack_require__(147);
+	var invariant = __webpack_require__(65);
+	var isEventSupported = __webpack_require__(148);
+	var monitorCodeUse = __webpack_require__(104);
 
 	/**
 	 * Internal store for event listeners
@@ -13211,7 +13306,7 @@
 
 	module.exports = EventPluginHub;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
 /* 71 */
@@ -13240,8 +13335,8 @@
 	var EventConstants = __webpack_require__(69);
 	var EventPluginHub = __webpack_require__(70);
 
-	var accumulate = __webpack_require__(145);
-	var forEachAccumulated = __webpack_require__(146);
+	var accumulate = __webpack_require__(146);
+	var forEachAccumulated = __webpack_require__(147);
 
 	var PropagationPhases = EventConstants.PropagationPhases;
 	var getListener = EventPluginHub.getListener;
@@ -13361,7 +13456,7 @@
 
 	module.exports = EventPropagators;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
 /* 72 */
@@ -13390,11 +13485,11 @@
 
 	var EventConstants = __webpack_require__(69);
 	var EventPluginHub = __webpack_require__(70);
-	var EventPluginRegistry = __webpack_require__(144);
-	var ReactEventEmitterMixin = __webpack_require__(148);
-	var ViewportMetrics = __webpack_require__(149);
+	var EventPluginRegistry = __webpack_require__(145);
+	var ReactEventEmitterMixin = __webpack_require__(149);
+	var ViewportMetrics = __webpack_require__(150);
 
-	var isEventSupported = __webpack_require__(147);
+	var isEventSupported = __webpack_require__(148);
 	var merge = __webpack_require__(11);
 
 	/**
@@ -13754,14 +13849,14 @@
 	"use strict";
 
 	var CallbackQueue = __webpack_require__(151);
-	var PooledClass = __webpack_require__(89);
-	var ReactCurrentOwner = __webpack_require__(31);
-	var ReactPerf = __webpack_require__(39);
+	var PooledClass = __webpack_require__(93);
+	var ReactCurrentOwner = __webpack_require__(38);
+	var ReactPerf = __webpack_require__(46);
 	var Transaction = __webpack_require__(152);
 
-	var invariant = __webpack_require__(63);
-	var mixInto = __webpack_require__(85);
-	var warning = __webpack_require__(61);
+	var invariant = __webpack_require__(65);
+	var mixInto = __webpack_require__(103);
+	var warning = __webpack_require__(51);
 
 	var dirtyComponents = [];
 
@@ -13999,7 +14094,7 @@
 
 	module.exports = ReactUpdates;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
 /* 74 */
@@ -14026,10 +14121,10 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(89);
+	var PooledClass = __webpack_require__(93);
 
-	var emptyFunction = __webpack_require__(65);
-	var getEventTarget = __webpack_require__(150);
+	var emptyFunction = __webpack_require__(61);
+	var getEventTarget = __webpack_require__(153);
 	var merge = __webpack_require__(11);
 	var mergeInto = __webpack_require__(15);
 
@@ -14175,6 +14270,1173 @@
 /* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*!
+	 * Chai - test utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/*!
+	 * Module dependancies
+	 */
+
+	var flag = __webpack_require__(81);
+
+	/**
+	 * # test(object, expression)
+	 *
+	 * Test and object for expression.
+	 *
+	 * @param {Object} object (constructed Assertion)
+	 * @param {Arguments} chai.Assertion.prototype.assert arguments
+	 */
+
+	module.exports = function (obj, args) {
+	  var negate = flag(obj, 'negate')
+	    , expr = args[0];
+	  return negate ? !expr : expr;
+	};
+
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - type utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/*!
+	 * Detectable javascript natives
+	 */
+
+	var natives = {
+	    '[object Arguments]': 'arguments'
+	  , '[object Array]': 'array'
+	  , '[object Date]': 'date'
+	  , '[object Function]': 'function'
+	  , '[object Number]': 'number'
+	  , '[object RegExp]': 'regexp'
+	  , '[object String]': 'string'
+	};
+
+	/**
+	 * ### type(object)
+	 *
+	 * Better implementation of `typeof` detection that can
+	 * be used cross-browser. Handles the inconsistencies of
+	 * Array, `null`, and `undefined` detection.
+	 *
+	 *     utils.type({}) // 'object'
+	 *     utils.type(null) // `null'
+	 *     utils.type(undefined) // `undefined`
+	 *     utils.type([]) // `array`
+	 *
+	 * @param {Mixed} object to detect type of
+	 * @name type
+	 * @api private
+	 */
+
+	module.exports = function (obj) {
+	  var str = Object.prototype.toString.call(obj);
+	  if (natives[str]) return natives[str];
+	  if (obj === null) return 'null';
+	  if (obj === undefined) return 'undefined';
+	  if (obj === Object(obj)) return 'object';
+	  return typeof obj;
+	};
+
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - message composition utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/*!
+	 * Module dependancies
+	 */
+
+	var flag = __webpack_require__(81)
+	  , getActual = __webpack_require__(78)
+	  , inspect = __webpack_require__(79)
+	  , objDisplay = __webpack_require__(80);
+
+	/**
+	 * ### .getMessage(object, message, negateMessage)
+	 *
+	 * Construct the error message based on flags
+	 * and template tags. Template tags will return
+	 * a stringified inspection of the object referenced.
+	 *
+	 * Message template tags:
+	 * - `#{this}` current asserted object
+	 * - `#{act}` actual value
+	 * - `#{exp}` expected value
+	 *
+	 * @param {Object} object (constructed Assertion)
+	 * @param {Arguments} chai.Assertion.prototype.assert arguments
+	 * @name getMessage
+	 * @api public
+	 */
+
+	module.exports = function (obj, args) {
+	  var negate = flag(obj, 'negate')
+	    , val = flag(obj, 'object')
+	    , expected = args[3]
+	    , actual = getActual(obj, args)
+	    , msg = negate ? args[2] : args[1]
+	    , flagMsg = flag(obj, 'message');
+
+	  if(typeof msg === "function") msg = msg();
+	  msg = msg || '';
+	  msg = msg
+	    .replace(/#{this}/g, objDisplay(val))
+	    .replace(/#{act}/g, objDisplay(actual))
+	    .replace(/#{exp}/g, objDisplay(expected));
+
+	  return flagMsg ? flagMsg + ': ' + msg : msg;
+	};
+
+
+/***/ },
+/* 78 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - getActual utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * # getActual(object, [actual])
+	 *
+	 * Returns the `actual` value for an Assertion
+	 *
+	 * @param {Object} object (constructed Assertion)
+	 * @param {Arguments} chai.Assertion.prototype.assert arguments
+	 */
+
+	module.exports = function (obj, args) {
+	  return args.length > 4 ? args[4] : obj._obj;
+	};
+
+
+/***/ },
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// This is (almost) directly from Node.js utils
+	// https://github.com/joyent/node/blob/f8c335d0caf47f16d31413f89aa28eda3878e3aa/lib/util.js
+
+	var getName = __webpack_require__(84);
+	var getProperties = __webpack_require__(154);
+	var getEnumerableProperties = __webpack_require__(155);
+
+	module.exports = inspect;
+
+	/**
+	 * Echos the value of a value. Trys to print the value out
+	 * in the best way possible given the different types.
+	 *
+	 * @param {Object} obj The object to print out.
+	 * @param {Boolean} showHidden Flag that shows hidden (not enumerable)
+	 *    properties of objects.
+	 * @param {Number} depth Depth in which to descend in object. Default is 2.
+	 * @param {Boolean} colors Flag to turn on ANSI escape codes to color the
+	 *    output. Default is false (no coloring).
+	 */
+	function inspect(obj, showHidden, depth, colors) {
+	  var ctx = {
+	    showHidden: showHidden,
+	    seen: [],
+	    stylize: function (str) { return str; }
+	  };
+	  return formatValue(ctx, obj, (typeof depth === 'undefined' ? 2 : depth));
+	}
+
+	// Returns true if object is a DOM element.
+	var isDOMElement = function (object) {
+	  if (typeof HTMLElement === 'object') {
+	    return object instanceof HTMLElement;
+	  } else {
+	    return object &&
+	      typeof object === 'object' &&
+	      object.nodeType === 1 &&
+	      typeof object.nodeName === 'string';
+	  }
+	};
+
+	function formatValue(ctx, value, recurseTimes) {
+	  // Provide a hook for user-specified inspect functions.
+	  // Check that value is an object with an inspect function on it
+	  if (value && typeof value.inspect === 'function' &&
+	      // Filter out the util module, it's inspect function is special
+	      value.inspect !== exports.inspect &&
+	      // Also filter out any prototype objects using the circular check.
+	      !(value.constructor && value.constructor.prototype === value)) {
+	    var ret = value.inspect(recurseTimes);
+	    if (typeof ret !== 'string') {
+	      ret = formatValue(ctx, ret, recurseTimes);
+	    }
+	    return ret;
+	  }
+
+	  // Primitive types cannot have properties
+	  var primitive = formatPrimitive(ctx, value);
+	  if (primitive) {
+	    return primitive;
+	  }
+
+	  // If this is a DOM element, try to get the outer HTML.
+	  if (isDOMElement(value)) {
+	    if ('outerHTML' in value) {
+	      return value.outerHTML;
+	      // This value does not have an outerHTML attribute,
+	      //   it could still be an XML element
+	    } else {
+	      // Attempt to serialize it
+	      try {
+	        if (document.xmlVersion) {
+	          var xmlSerializer = new XMLSerializer();
+	          return xmlSerializer.serializeToString(value);
+	        } else {
+	          // Firefox 11- do not support outerHTML
+	          //   It does, however, support innerHTML
+	          //   Use the following to render the element
+	          var ns = "http://www.w3.org/1999/xhtml";
+	          var container = document.createElementNS(ns, '_');
+
+	          container.appendChild(value.cloneNode(false));
+	          html = container.innerHTML
+	            .replace('><', '>' + value.innerHTML + '<');
+	          container.innerHTML = '';
+	          return html;
+	        }
+	      } catch (err) {
+	        // This could be a non-native DOM implementation,
+	        //   continue with the normal flow:
+	        //   printing the element as if it is an object.
+	      }
+	    }
+	  }
+
+	  // Look up the keys of the object.
+	  var visibleKeys = getEnumerableProperties(value);
+	  var keys = ctx.showHidden ? getProperties(value) : visibleKeys;
+
+	  // Some type of object without properties can be shortcutted.
+	  // In IE, errors have a single `stack` property, or if they are vanilla `Error`,
+	  // a `stack` plus `description` property; ignore those for consistency.
+	  if (keys.length === 0 || (isError(value) && (
+	      (keys.length === 1 && keys[0] === 'stack') ||
+	      (keys.length === 2 && keys[0] === 'description' && keys[1] === 'stack')
+	     ))) {
+	    if (typeof value === 'function') {
+	      var name = getName(value);
+	      var nameSuffix = name ? ': ' + name : '';
+	      return ctx.stylize('[Function' + nameSuffix + ']', 'special');
+	    }
+	    if (isRegExp(value)) {
+	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+	    }
+	    if (isDate(value)) {
+	      return ctx.stylize(Date.prototype.toUTCString.call(value), 'date');
+	    }
+	    if (isError(value)) {
+	      return formatError(value);
+	    }
+	  }
+
+	  var base = '', array = false, braces = ['{', '}'];
+
+	  // Make Array say that they are Array
+	  if (isArray(value)) {
+	    array = true;
+	    braces = ['[', ']'];
+	  }
+
+	  // Make functions say that they are functions
+	  if (typeof value === 'function') {
+	    var name = getName(value);
+	    var nameSuffix = name ? ': ' + name : '';
+	    base = ' [Function' + nameSuffix + ']';
+	  }
+
+	  // Make RegExps say that they are RegExps
+	  if (isRegExp(value)) {
+	    base = ' ' + RegExp.prototype.toString.call(value);
+	  }
+
+	  // Make dates with properties first say the date
+	  if (isDate(value)) {
+	    base = ' ' + Date.prototype.toUTCString.call(value);
+	  }
+
+	  // Make error with message first say the error
+	  if (isError(value)) {
+	    return formatError(value);
+	  }
+
+	  if (keys.length === 0 && (!array || value.length == 0)) {
+	    return braces[0] + base + braces[1];
+	  }
+
+	  if (recurseTimes < 0) {
+	    if (isRegExp(value)) {
+	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+	    } else {
+	      return ctx.stylize('[Object]', 'special');
+	    }
+	  }
+
+	  ctx.seen.push(value);
+
+	  var output;
+	  if (array) {
+	    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
+	  } else {
+	    output = keys.map(function(key) {
+	      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
+	    });
+	  }
+
+	  ctx.seen.pop();
+
+	  return reduceToSingleString(output, base, braces);
+	}
+
+
+	function formatPrimitive(ctx, value) {
+	  switch (typeof value) {
+	    case 'undefined':
+	      return ctx.stylize('undefined', 'undefined');
+
+	    case 'string':
+	      var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
+	                                               .replace(/'/g, "\\'")
+	                                               .replace(/\\"/g, '"') + '\'';
+	      return ctx.stylize(simple, 'string');
+
+	    case 'number':
+	      if (value === 0 && (1/value) === -Infinity) {
+	        return ctx.stylize('-0', 'number');
+	      }
+	      return ctx.stylize('' + value, 'number');
+
+	    case 'boolean':
+	      return ctx.stylize('' + value, 'boolean');
+	  }
+	  // For some reason typeof null is "object", so special case here.
+	  if (value === null) {
+	    return ctx.stylize('null', 'null');
+	  }
+	}
+
+
+	function formatError(value) {
+	  return '[' + Error.prototype.toString.call(value) + ']';
+	}
+
+
+	function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
+	  var output = [];
+	  for (var i = 0, l = value.length; i < l; ++i) {
+	    if (Object.prototype.hasOwnProperty.call(value, String(i))) {
+	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+	          String(i), true));
+	    } else {
+	      output.push('');
+	    }
+	  }
+	  keys.forEach(function(key) {
+	    if (!key.match(/^\d+$/)) {
+	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+	          key, true));
+	    }
+	  });
+	  return output;
+	}
+
+
+	function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
+	  var name, str;
+	  if (value.__lookupGetter__) {
+	    if (value.__lookupGetter__(key)) {
+	      if (value.__lookupSetter__(key)) {
+	        str = ctx.stylize('[Getter/Setter]', 'special');
+	      } else {
+	        str = ctx.stylize('[Getter]', 'special');
+	      }
+	    } else {
+	      if (value.__lookupSetter__(key)) {
+	        str = ctx.stylize('[Setter]', 'special');
+	      }
+	    }
+	  }
+	  if (visibleKeys.indexOf(key) < 0) {
+	    name = '[' + key + ']';
+	  }
+	  if (!str) {
+	    if (ctx.seen.indexOf(value[key]) < 0) {
+	      if (recurseTimes === null) {
+	        str = formatValue(ctx, value[key], null);
+	      } else {
+	        str = formatValue(ctx, value[key], recurseTimes - 1);
+	      }
+	      if (str.indexOf('\n') > -1) {
+	        if (array) {
+	          str = str.split('\n').map(function(line) {
+	            return '  ' + line;
+	          }).join('\n').substr(2);
+	        } else {
+	          str = '\n' + str.split('\n').map(function(line) {
+	            return '   ' + line;
+	          }).join('\n');
+	        }
+	      }
+	    } else {
+	      str = ctx.stylize('[Circular]', 'special');
+	    }
+	  }
+	  if (typeof name === 'undefined') {
+	    if (array && key.match(/^\d+$/)) {
+	      return str;
+	    }
+	    name = JSON.stringify('' + key);
+	    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
+	      name = name.substr(1, name.length - 2);
+	      name = ctx.stylize(name, 'name');
+	    } else {
+	      name = name.replace(/'/g, "\\'")
+	                 .replace(/\\"/g, '"')
+	                 .replace(/(^"|"$)/g, "'");
+	      name = ctx.stylize(name, 'string');
+	    }
+	  }
+
+	  return name + ': ' + str;
+	}
+
+
+	function reduceToSingleString(output, base, braces) {
+	  var numLinesEst = 0;
+	  var length = output.reduce(function(prev, cur) {
+	    numLinesEst++;
+	    if (cur.indexOf('\n') >= 0) numLinesEst++;
+	    return prev + cur.length + 1;
+	  }, 0);
+
+	  if (length > 60) {
+	    return braces[0] +
+	           (base === '' ? '' : base + '\n ') +
+	           ' ' +
+	           output.join(',\n  ') +
+	           ' ' +
+	           braces[1];
+	  }
+
+	  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
+	}
+
+	function isArray(ar) {
+	  return Array.isArray(ar) ||
+	         (typeof ar === 'object' && objectToString(ar) === '[object Array]');
+	}
+
+	function isRegExp(re) {
+	  return typeof re === 'object' && objectToString(re) === '[object RegExp]';
+	}
+
+	function isDate(d) {
+	  return typeof d === 'object' && objectToString(d) === '[object Date]';
+	}
+
+	function isError(e) {
+	  return typeof e === 'object' && objectToString(e) === '[object Error]';
+	}
+
+	function objectToString(o) {
+	  return Object.prototype.toString.call(o);
+	}
+
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - flag utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/*!
+	 * Module dependancies
+	 */
+
+	var inspect = __webpack_require__(79);
+	var config = __webpack_require__(16);
+
+	/**
+	 * ### .objDisplay (object)
+	 *
+	 * Determines if an object or an array matches
+	 * criteria to be inspected in-line for error
+	 * messages or should be truncated.
+	 *
+	 * @param {Mixed} javascript object to inspect
+	 * @name objDisplay
+	 * @api public
+	 */
+
+	module.exports = function (obj) {
+	  var str = inspect(obj)
+	    , type = Object.prototype.toString.call(obj);
+
+	  if (config.truncateThreshold && str.length >= config.truncateThreshold) {
+	    if (type === '[object Function]') {
+	      return !obj.name || obj.name === ''
+	        ? '[Function]'
+	        : '[Function: ' + obj.name + ']';
+	    } else if (type === '[object Array]') {
+	      return '[ Array(' + obj.length + ') ]';
+	    } else if (type === '[object Object]') {
+	      var keys = Object.keys(obj)
+	        , kstr = keys.length > 2
+	          ? keys.splice(0, 2).join(', ') + ', ...'
+	          : keys.join(', ');
+	      return '{ Object (' + kstr + ') }';
+	    } else {
+	      return str;
+	    }
+	  } else {
+	    return str;
+	  }
+	};
+
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - flag utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * ### flag(object ,key, [value])
+	 *
+	 * Get or set a flag value on an object. If a
+	 * value is provided it will be set, else it will
+	 * return the currently set value or `undefined` if
+	 * the value is not set.
+	 *
+	 *     utils.flag(this, 'foo', 'bar'); // setter
+	 *     utils.flag(this, 'foo'); // getter, returns `bar`
+	 *
+	 * @param {Object} object (constructed Assertion
+	 * @param {String} key
+	 * @param {Mixed} value (optional)
+	 * @name flag
+	 * @api private
+	 */
+
+	module.exports = function (obj, key, value) {
+	  var flags = obj.__flags || (obj.__flags = Object.create(null));
+	  if (arguments.length === 3) {
+	    flags[key] = value;
+	  } else {
+	    return flags[key];
+	  }
+	};
+
+
+/***/ },
+/* 82 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - transferFlags utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * ### transferFlags(assertion, object, includeAll = true)
+	 *
+	 * Transfer all the flags for `assertion` to `object`. If
+	 * `includeAll` is set to `false`, then the base Chai
+	 * assertion flags (namely `object`, `ssfi`, and `message`)
+	 * will not be transferred.
+	 *
+	 *
+	 *     var newAssertion = new Assertion();
+	 *     utils.transferFlags(assertion, newAssertion);
+	 *
+	 *     var anotherAsseriton = new Assertion(myObj);
+	 *     utils.transferFlags(assertion, anotherAssertion, false);
+	 *
+	 * @param {Assertion} assertion the assertion to transfer the flags from
+	 * @param {Object} object the object to transfer the flags too; usually a new assertion
+	 * @param {Boolean} includeAll
+	 * @name getAllFlags
+	 * @api private
+	 */
+
+	module.exports = function (assertion, object, includeAll) {
+	  var flags = assertion.__flags || (assertion.__flags = Object.create(null));
+
+	  if (!object.__flags) {
+	    object.__flags = Object.create(null);
+	  }
+
+	  includeAll = arguments.length === 3 ? includeAll : true;
+
+	  for (var flag in flags) {
+	    if (includeAll ||
+	        (flag !== 'object' && flag !== 'ssfi' && flag != 'message')) {
+	      object.__flags[flag] = flags[flag];
+	    }
+	  }
+	};
+
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - getPathValue utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * @see https://github.com/logicalparadox/filtr
+	 * MIT Licensed
+	 */
+
+	/**
+	 * ### .getPathValue(path, object)
+	 *
+	 * This allows the retrieval of values in an
+	 * object given a string path.
+	 *
+	 *     var obj = {
+	 *         prop1: {
+	 *             arr: ['a', 'b', 'c']
+	 *           , str: 'Hello'
+	 *         }
+	 *       , prop2: {
+	 *             arr: [ { nested: 'Universe' } ]
+	 *           , str: 'Hello again!'
+	 *         }
+	 *     }
+	 *
+	 * The following would be the results.
+	 *
+	 *     getPathValue('prop1.str', obj); // Hello
+	 *     getPathValue('prop1.att[2]', obj); // b
+	 *     getPathValue('prop2.arr[0].nested', obj); // Universe
+	 *
+	 * @param {String} path
+	 * @param {Object} object
+	 * @returns {Object} value or `undefined`
+	 * @name getPathValue
+	 * @api public
+	 */
+
+	var getPathValue = module.exports = function (path, obj) {
+	  var parsed = parsePath(path);
+	  return _getPathValue(parsed, obj);
+	};
+
+	/*!
+	 * ## parsePath(path)
+	 *
+	 * Helper function used to parse string object
+	 * paths. Use in conjunction with `_getPathValue`.
+	 *
+	 *      var parsed = parsePath('myobject.property.subprop');
+	 *
+	 * ### Paths:
+	 *
+	 * * Can be as near infinitely deep and nested
+	 * * Arrays are also valid using the formal `myobject.document[3].property`.
+	 *
+	 * @param {String} path
+	 * @returns {Object} parsed
+	 * @api private
+	 */
+
+	function parsePath (path) {
+	  var str = path.replace(/\[/g, '.[')
+	    , parts = str.match(/(\\\.|[^.]+?)+/g);
+	  return parts.map(function (value) {
+	    var re = /\[(\d+)\]$/
+	      , mArr = re.exec(value)
+	    if (mArr) return { i: parseFloat(mArr[1]) };
+	    else return { p: value };
+	  });
+	};
+
+	/*!
+	 * ## _getPathValue(parsed, obj)
+	 *
+	 * Helper companion function for `.parsePath` that returns
+	 * the value located at the parsed address.
+	 *
+	 *      var value = getPathValue(parsed, obj);
+	 *
+	 * @param {Object} parsed definition from `parsePath`.
+	 * @param {Object} object to search against
+	 * @returns {Object|Undefined} value
+	 * @api private
+	 */
+
+	function _getPathValue (parsed, obj) {
+	  var tmp = obj
+	    , res;
+	  for (var i = 0, l = parsed.length; i < l; i++) {
+	    var part = parsed[i];
+	    if (tmp) {
+	      if ('undefined' !== typeof part.p)
+	        tmp = tmp[part.p];
+	      else if ('undefined' !== typeof part.i)
+	        tmp = tmp[part.i];
+	      if (i == (l - 1)) res = tmp;
+	    } else {
+	      res = undefined;
+	    }
+	  }
+	  return res;
+	};
+
+
+/***/ },
+/* 84 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - getName utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * # getName(func)
+	 *
+	 * Gets the name of a function, in a cross-browser way.
+	 *
+	 * @param {Function} a function (usually a constructor)
+	 */
+
+	module.exports = function (func) {
+	  if (func.name) return func.name;
+
+	  var match = /^\s?function ([^(]*)\(/.exec(func);
+	  return match && match[1] ? match[1] : "";
+	};
+
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - addProperty utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * ### addProperty (ctx, name, getter)
+	 *
+	 * Adds a property to the prototype of an object.
+	 *
+	 *     utils.addProperty(chai.Assertion.prototype, 'foo', function () {
+	 *       var obj = utils.flag(this, 'object');
+	 *       new chai.Assertion(obj).to.be.instanceof(Foo);
+	 *     });
+	 *
+	 * Can also be accessed directly from `chai.Assertion`.
+	 *
+	 *     chai.Assertion.addProperty('foo', fn);
+	 *
+	 * Then can be used as any other assertion.
+	 *
+	 *     expect(myFoo).to.be.foo;
+	 *
+	 * @param {Object} ctx object to which the property is added
+	 * @param {String} name of property to add
+	 * @param {Function} getter function to be used for name
+	 * @name addProperty
+	 * @api public
+	 */
+
+	module.exports = function (ctx, name, getter) {
+	  Object.defineProperty(ctx, name,
+	    { get: function () {
+	        var result = getter.call(this);
+	        return result === undefined ? this : result;
+	      }
+	    , configurable: true
+	  });
+	};
+
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - addMethod utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	var config = __webpack_require__(16);
+
+	/**
+	 * ### .addMethod (ctx, name, method)
+	 *
+	 * Adds a method to the prototype of an object.
+	 *
+	 *     utils.addMethod(chai.Assertion.prototype, 'foo', function (str) {
+	 *       var obj = utils.flag(this, 'object');
+	 *       new chai.Assertion(obj).to.be.equal(str);
+	 *     });
+	 *
+	 * Can also be accessed directly from `chai.Assertion`.
+	 *
+	 *     chai.Assertion.addMethod('foo', fn);
+	 *
+	 * Then can be used as any other assertion.
+	 *
+	 *     expect(fooStr).to.be.foo('bar');
+	 *
+	 * @param {Object} ctx object to which the method is added
+	 * @param {String} name of method to add
+	 * @param {Function} method function to be used for name
+	 * @name addMethod
+	 * @api public
+	 */
+	var flag = __webpack_require__(81);
+
+	module.exports = function (ctx, name, method) {
+	  ctx[name] = function () {
+	    var old_ssfi = flag(this, 'ssfi');
+	    if (old_ssfi && config.includeStack === false)
+	      flag(this, 'ssfi', ctx[name]);
+	    var result = method.apply(this, arguments);
+	    return result === undefined ? this : result;
+	  };
+	};
+
+
+/***/ },
+/* 87 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - overwriteProperty utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * ### overwriteProperty (ctx, name, fn)
+	 *
+	 * Overwites an already existing property getter and provides
+	 * access to previous value. Must return function to use as getter.
+	 *
+	 *     utils.overwriteProperty(chai.Assertion.prototype, 'ok', function (_super) {
+	 *       return function () {
+	 *         var obj = utils.flag(this, 'object');
+	 *         if (obj instanceof Foo) {
+	 *           new chai.Assertion(obj.name).to.equal('bar');
+	 *         } else {
+	 *           _super.call(this);
+	 *         }
+	 *       }
+	 *     });
+	 *
+	 *
+	 * Can also be accessed directly from `chai.Assertion`.
+	 *
+	 *     chai.Assertion.overwriteProperty('foo', fn);
+	 *
+	 * Then can be used as any other assertion.
+	 *
+	 *     expect(myFoo).to.be.ok;
+	 *
+	 * @param {Object} ctx object whose property is to be overwritten
+	 * @param {String} name of property to overwrite
+	 * @param {Function} getter function that returns a getter function to be used for name
+	 * @name overwriteProperty
+	 * @api public
+	 */
+
+	module.exports = function (ctx, name, getter) {
+	  var _get = Object.getOwnPropertyDescriptor(ctx, name)
+	    , _super = function () {};
+
+	  if (_get && 'function' === typeof _get.get)
+	    _super = _get.get
+
+	  Object.defineProperty(ctx, name,
+	    { get: function () {
+	        var result = getter(_super).call(this);
+	        return result === undefined ? this : result;
+	      }
+	    , configurable: true
+	  });
+	};
+
+
+/***/ },
+/* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - overwriteMethod utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * ### overwriteMethod (ctx, name, fn)
+	 *
+	 * Overwites an already existing method and provides
+	 * access to previous function. Must return function
+	 * to be used for name.
+	 *
+	 *     utils.overwriteMethod(chai.Assertion.prototype, 'equal', function (_super) {
+	 *       return function (str) {
+	 *         var obj = utils.flag(this, 'object');
+	 *         if (obj instanceof Foo) {
+	 *           new chai.Assertion(obj.value).to.equal(str);
+	 *         } else {
+	 *           _super.apply(this, arguments);
+	 *         }
+	 *       }
+	 *     });
+	 *
+	 * Can also be accessed directly from `chai.Assertion`.
+	 *
+	 *     chai.Assertion.overwriteMethod('foo', fn);
+	 *
+	 * Then can be used as any other assertion.
+	 *
+	 *     expect(myFoo).to.equal('bar');
+	 *
+	 * @param {Object} ctx object whose method is to be overwritten
+	 * @param {String} name of method to overwrite
+	 * @param {Function} method function that returns a function to be used for name
+	 * @name overwriteMethod
+	 * @api public
+	 */
+
+	module.exports = function (ctx, name, method) {
+	  var _method = ctx[name]
+	    , _super = function () { return this; };
+
+	  if (_method && 'function' === typeof _method)
+	    _super = _method;
+
+	  ctx[name] = function () {
+	    var result = method(_super).apply(this, arguments);
+	    return result === undefined ? this : result;
+	  }
+	};
+
+
+/***/ },
+/* 89 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - addChainingMethod utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/*!
+	 * Module dependencies
+	 */
+
+	var transferFlags = __webpack_require__(82);
+	var flag = __webpack_require__(81);
+	var config = __webpack_require__(16);
+
+	/*!
+	 * Module variables
+	 */
+
+	// Check whether `__proto__` is supported
+	var hasProtoSupport = '__proto__' in Object;
+
+	// Without `__proto__` support, this module will need to add properties to a function.
+	// However, some Function.prototype methods cannot be overwritten,
+	// and there seems no easy cross-platform way to detect them (@see chaijs/chai/issues/69).
+	var excludeNames = /^(?:length|name|arguments|caller)$/;
+
+	// Cache `Function` properties
+	var call  = Function.prototype.call,
+	    apply = Function.prototype.apply;
+
+	/**
+	 * ### addChainableMethod (ctx, name, method, chainingBehavior)
+	 *
+	 * Adds a method to an object, such that the method can also be chained.
+	 *
+	 *     utils.addChainableMethod(chai.Assertion.prototype, 'foo', function (str) {
+	 *       var obj = utils.flag(this, 'object');
+	 *       new chai.Assertion(obj).to.be.equal(str);
+	 *     });
+	 *
+	 * Can also be accessed directly from `chai.Assertion`.
+	 *
+	 *     chai.Assertion.addChainableMethod('foo', fn, chainingBehavior);
+	 *
+	 * The result can then be used as both a method assertion, executing both `method` and
+	 * `chainingBehavior`, or as a language chain, which only executes `chainingBehavior`.
+	 *
+	 *     expect(fooStr).to.be.foo('bar');
+	 *     expect(fooStr).to.be.foo.equal('foo');
+	 *
+	 * @param {Object} ctx object to which the method is added
+	 * @param {String} name of method to add
+	 * @param {Function} method function to be used for `name`, when called
+	 * @param {Function} chainingBehavior function to be called every time the property is accessed
+	 * @name addChainableMethod
+	 * @api public
+	 */
+
+	module.exports = function (ctx, name, method, chainingBehavior) {
+	  if (typeof chainingBehavior !== 'function') {
+	    chainingBehavior = function () { };
+	  }
+
+	  var chainableBehavior = {
+	      method: method
+	    , chainingBehavior: chainingBehavior
+	  };
+
+	  // save the methods so we can overwrite them later, if we need to.
+	  if (!ctx.__methods) {
+	    ctx.__methods = {};
+	  }
+	  ctx.__methods[name] = chainableBehavior;
+
+	  Object.defineProperty(ctx, name,
+	    { get: function () {
+	        chainableBehavior.chainingBehavior.call(this);
+
+	        var assert = function assert() {
+	          var old_ssfi = flag(this, 'ssfi');
+	          if (old_ssfi && config.includeStack === false)
+	            flag(this, 'ssfi', assert);
+	          var result = chainableBehavior.method.apply(this, arguments);
+	          return result === undefined ? this : result;
+	        };
+
+	        // Use `__proto__` if available
+	        if (hasProtoSupport) {
+	          // Inherit all properties from the object by replacing the `Function` prototype
+	          var prototype = assert.__proto__ = Object.create(this);
+	          // Restore the `call` and `apply` methods from `Function`
+	          prototype.call = call;
+	          prototype.apply = apply;
+	        }
+	        // Otherwise, redefine all properties (slow!)
+	        else {
+	          var asserterNames = Object.getOwnPropertyNames(ctx);
+	          asserterNames.forEach(function (asserterName) {
+	            if (!excludeNames.test(asserterName)) {
+	              var pd = Object.getOwnPropertyDescriptor(ctx, asserterName);
+	              Object.defineProperty(assert, asserterName, pd);
+	            }
+	          });
+	        }
+
+	        transferFlags(this, assert);
+	        return assert;
+	      }
+	    , configurable: true
+	  });
+	};
+
+
+/***/ },
+/* 90 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - overwriteChainableMethod utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * ### overwriteChainableMethod (ctx, name, fn)
+	 *
+	 * Overwites an already existing chainable method
+	 * and provides access to the previous function or
+	 * property.  Must return functions to be used for
+	 * name.
+	 *
+	 *     utils.overwriteChainableMethod(chai.Assertion.prototype, 'length',
+	 *       function (_super) {
+	 *       }
+	 *     , function (_super) {
+	 *       }
+	 *     );
+	 *
+	 * Can also be accessed directly from `chai.Assertion`.
+	 *
+	 *     chai.Assertion.overwriteChainableMethod('foo', fn, fn);
+	 *
+	 * Then can be used as any other assertion.
+	 *
+	 *     expect(myFoo).to.have.length(3);
+	 *     expect(myFoo).to.have.length.above(3);
+	 *
+	 * @param {Object} ctx object whose method / property is to be overwritten
+	 * @param {String} name of method / property to overwrite
+	 * @param {Function} method function that returns a function to be used for name
+	 * @param {Function} chainingBehavior function that returns a function to be used for property
+	 * @name overwriteChainableMethod
+	 * @api public
+	 */
+
+	module.exports = function (ctx, name, method, chainingBehavior) {
+	  var chainableBehavior = ctx.__methods[name];
+
+	  var _chainingBehavior = chainableBehavior.chainingBehavior;
+	  chainableBehavior.chainingBehavior = function () {
+	    var result = chainingBehavior(_chainingBehavior).call(this);
+	    return result === undefined ? this : result;
+	  };
+
+	  var _method = chainableBehavior.method;
+	  chainableBehavior.method = function () {
+	    var result = method(_method).apply(this, arguments);
+	    return result === undefined ? this : result;
+	  };
+	};
+
+
+/***/ },
+/* 91 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/**
 	 * Copyright 2013-2014 Facebook, Inc.
 	 *
@@ -14224,7 +15486,7 @@
 
 
 /***/ },
-/* 76 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14269,7 +15531,564 @@
 
 
 /***/ },
-/* 77 */
+/* 93 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule PooledClass
+	 */
+
+	"use strict";
+
+	var invariant = __webpack_require__(65);
+
+	/**
+	 * Static poolers. Several custom versions for each potential number of
+	 * arguments. A completely generic pooler is easy to implement, but would
+	 * require accessing the `arguments` object. In each of these, `this` refers to
+	 * the Class itself, not an instance. If any others are needed, simply add them
+	 * here, or in their own files.
+	 */
+	var oneArgumentPooler = function(copyFieldsFrom) {
+	  var Klass = this;
+	  if (Klass.instancePool.length) {
+	    var instance = Klass.instancePool.pop();
+	    Klass.call(instance, copyFieldsFrom);
+	    return instance;
+	  } else {
+	    return new Klass(copyFieldsFrom);
+	  }
+	};
+
+	var twoArgumentPooler = function(a1, a2) {
+	  var Klass = this;
+	  if (Klass.instancePool.length) {
+	    var instance = Klass.instancePool.pop();
+	    Klass.call(instance, a1, a2);
+	    return instance;
+	  } else {
+	    return new Klass(a1, a2);
+	  }
+	};
+
+	var threeArgumentPooler = function(a1, a2, a3) {
+	  var Klass = this;
+	  if (Klass.instancePool.length) {
+	    var instance = Klass.instancePool.pop();
+	    Klass.call(instance, a1, a2, a3);
+	    return instance;
+	  } else {
+	    return new Klass(a1, a2, a3);
+	  }
+	};
+
+	var fiveArgumentPooler = function(a1, a2, a3, a4, a5) {
+	  var Klass = this;
+	  if (Klass.instancePool.length) {
+	    var instance = Klass.instancePool.pop();
+	    Klass.call(instance, a1, a2, a3, a4, a5);
+	    return instance;
+	  } else {
+	    return new Klass(a1, a2, a3, a4, a5);
+	  }
+	};
+
+	var standardReleaser = function(instance) {
+	  var Klass = this;
+	  ("production" !== process.env.NODE_ENV ? invariant(
+	    instance instanceof Klass,
+	    'Trying to release an instance into a pool of a different type.'
+	  ) : invariant(instance instanceof Klass));
+	  if (instance.destructor) {
+	    instance.destructor();
+	  }
+	  if (Klass.instancePool.length < Klass.poolSize) {
+	    Klass.instancePool.push(instance);
+	  }
+	};
+
+	var DEFAULT_POOL_SIZE = 10;
+	var DEFAULT_POOLER = oneArgumentPooler;
+
+	/**
+	 * Augments `CopyConstructor` to be a poolable class, augmenting only the class
+	 * itself (statically) not adding any prototypical fields. Any CopyConstructor
+	 * you give this may have a `poolSize` property, and will look for a
+	 * prototypical `destructor` on instances (optional).
+	 *
+	 * @param {Function} CopyConstructor Constructor that can be used to reset.
+	 * @param {Function} pooler Customizable pooler.
+	 */
+	var addPoolingTo = function(CopyConstructor, pooler) {
+	  var NewKlass = CopyConstructor;
+	  NewKlass.instancePool = [];
+	  NewKlass.getPooled = pooler || DEFAULT_POOLER;
+	  if (!NewKlass.poolSize) {
+	    NewKlass.poolSize = DEFAULT_POOL_SIZE;
+	  }
+	  NewKlass.release = standardReleaser;
+	  return NewKlass;
+	};
+
+	var PooledClass = {
+	  addPoolingTo: addPoolingTo,
+	  oneArgumentPooler: oneArgumentPooler,
+	  twoArgumentPooler: twoArgumentPooler,
+	  threeArgumentPooler: threeArgumentPooler,
+	  fiveArgumentPooler: fiveArgumentPooler
+	};
+
+	module.exports = PooledClass;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
+
+/***/ },
+/* 94 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule traverseAllChildren
+	 */
+
+	"use strict";
+
+	var ReactInstanceHandles = __webpack_require__(43);
+	var ReactTextComponent = __webpack_require__(49);
+
+	var invariant = __webpack_require__(65);
+
+	var SEPARATOR = ReactInstanceHandles.SEPARATOR;
+	var SUBSEPARATOR = ':';
+
+	/**
+	 * TODO: Test that:
+	 * 1. `mapChildren` transforms strings and numbers into `ReactTextComponent`.
+	 * 2. it('should fail when supplied duplicate key', function() {
+	 * 3. That a single child and an array with one item have the same key pattern.
+	 * });
+	 */
+
+	var userProvidedKeyEscaperLookup = {
+	  '=': '=0',
+	  '.': '=1',
+	  ':': '=2'
+	};
+
+	var userProvidedKeyEscapeRegex = /[=.:]/g;
+
+	function userProvidedKeyEscaper(match) {
+	  return userProvidedKeyEscaperLookup[match];
+	}
+
+	/**
+	 * Generate a key string that identifies a component within a set.
+	 *
+	 * @param {*} component A component that could contain a manual key.
+	 * @param {number} index Index that is used if a manual key is not provided.
+	 * @return {string}
+	 */
+	function getComponentKey(component, index) {
+	  if (component && component.props && component.props.key != null) {
+	    // Explicit key
+	    return wrapUserProvidedKey(component.props.key);
+	  }
+	  // Implicit key determined by the index in the set
+	  return index.toString(36);
+	}
+
+	/**
+	 * Escape a component key so that it is safe to use in a reactid.
+	 *
+	 * @param {*} key Component key to be escaped.
+	 * @return {string} An escaped string.
+	 */
+	function escapeUserProvidedKey(text) {
+	  return ('' + text).replace(
+	    userProvidedKeyEscapeRegex,
+	    userProvidedKeyEscaper
+	  );
+	}
+
+	/**
+	 * Wrap a `key` value explicitly provided by the user to distinguish it from
+	 * implicitly-generated keys generated by a component's index in its parent.
+	 *
+	 * @param {string} key Value of a user-provided `key` attribute
+	 * @return {string}
+	 */
+	function wrapUserProvidedKey(key) {
+	  return '$' + escapeUserProvidedKey(key);
+	}
+
+	/**
+	 * @param {?*} children Children tree container.
+	 * @param {!string} nameSoFar Name of the key path so far.
+	 * @param {!number} indexSoFar Number of children encountered until this point.
+	 * @param {!function} callback Callback to invoke with each child found.
+	 * @param {?*} traverseContext Used to pass information throughout the traversal
+	 * process.
+	 * @return {!number} The number of children in this subtree.
+	 */
+	var traverseAllChildrenImpl =
+	  function(children, nameSoFar, indexSoFar, callback, traverseContext) {
+	    var subtreeCount = 0;  // Count of children found in the current subtree.
+	    if (Array.isArray(children)) {
+	      for (var i = 0; i < children.length; i++) {
+	        var child = children[i];
+	        var nextName = (
+	          nameSoFar +
+	          (nameSoFar ? SUBSEPARATOR : SEPARATOR) +
+	          getComponentKey(child, i)
+	        );
+	        var nextIndex = indexSoFar + subtreeCount;
+	        subtreeCount += traverseAllChildrenImpl(
+	          child,
+	          nextName,
+	          nextIndex,
+	          callback,
+	          traverseContext
+	        );
+	      }
+	    } else {
+	      var type = typeof children;
+	      var isOnlyChild = nameSoFar === '';
+	      // If it's the only child, treat the name as if it was wrapped in an array
+	      // so that it's consistent if the number of children grows
+	      var storageName =
+	        isOnlyChild ? SEPARATOR + getComponentKey(children, 0) : nameSoFar;
+	      if (children == null || type === 'boolean') {
+	        // All of the above are perceived as null.
+	        callback(traverseContext, null, storageName, indexSoFar);
+	        subtreeCount = 1;
+	      } else if (children.type && children.type.prototype &&
+	                 children.type.prototype.mountComponentIntoNode) {
+	        callback(traverseContext, children, storageName, indexSoFar);
+	        subtreeCount = 1;
+	      } else {
+	        if (type === 'object') {
+	          ("production" !== process.env.NODE_ENV ? invariant(
+	            !children || children.nodeType !== 1,
+	            'traverseAllChildren(...): Encountered an invalid child; DOM ' +
+	            'elements are not valid children of React components.'
+	          ) : invariant(!children || children.nodeType !== 1));
+	          for (var key in children) {
+	            if (children.hasOwnProperty(key)) {
+	              subtreeCount += traverseAllChildrenImpl(
+	                children[key],
+	                (
+	                  nameSoFar + (nameSoFar ? SUBSEPARATOR : SEPARATOR) +
+	                  wrapUserProvidedKey(key) + SUBSEPARATOR +
+	                  getComponentKey(children[key], 0)
+	                ),
+	                indexSoFar + subtreeCount,
+	                callback,
+	                traverseContext
+	              );
+	            }
+	          }
+	        } else if (type === 'string') {
+	          var normalizedText = ReactTextComponent(children);
+	          callback(traverseContext, normalizedText, storageName, indexSoFar);
+	          subtreeCount += 1;
+	        } else if (type === 'number') {
+	          var normalizedNumber = ReactTextComponent('' + children);
+	          callback(traverseContext, normalizedNumber, storageName, indexSoFar);
+	          subtreeCount += 1;
+	        }
+	      }
+	    }
+	    return subtreeCount;
+	  };
+
+	/**
+	 * Traverses children that are typically specified as `props.children`, but
+	 * might also be specified through attributes:
+	 *
+	 * - `traverseAllChildren(this.props.children, ...)`
+	 * - `traverseAllChildren(this.props.leftPanelChildren, ...)`
+	 *
+	 * The `traverseContext` is an optional argument that is passed through the
+	 * entire traversal. It can be used to store accumulations or anything else that
+	 * the callback might find relevant.
+	 *
+	 * @param {?*} children Children tree object.
+	 * @param {!function} callback To invoke upon traversing each child.
+	 * @param {?*} traverseContext Context for traversal.
+	 * @return {!number} The number of children in this subtree.
+	 */
+	function traverseAllChildren(children, callback, traverseContext) {
+	  if (children == null) {
+	    return 0;
+	  }
+
+	  return traverseAllChildrenImpl(children, '', 0, callback, traverseContext);
+	}
+
+	module.exports = traverseAllChildren;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule ReactOwner
+	 */
+
+	"use strict";
+
+	var emptyObject = __webpack_require__(156);
+	var invariant = __webpack_require__(65);
+
+	/**
+	 * ReactOwners are capable of storing references to owned components.
+	 *
+	 * All components are capable of //being// referenced by owner components, but
+	 * only ReactOwner components are capable of //referencing// owned components.
+	 * The named reference is known as a "ref".
+	 *
+	 * Refs are available when mounted and updated during reconciliation.
+	 *
+	 *   var MyComponent = React.createClass({
+	 *     render: function() {
+	 *       return (
+	 *         <div onClick={this.handleClick}>
+	 *           <CustomComponent ref="custom" />
+	 *         </div>
+	 *       );
+	 *     },
+	 *     handleClick: function() {
+	 *       this.refs.custom.handleClick();
+	 *     },
+	 *     componentDidMount: function() {
+	 *       this.refs.custom.initialize();
+	 *     }
+	 *   });
+	 *
+	 * Refs should rarely be used. When refs are used, they should only be done to
+	 * control data that is not handled by React's data flow.
+	 *
+	 * @class ReactOwner
+	 */
+	var ReactOwner = {
+
+	  /**
+	   * @param {?object} object
+	   * @return {boolean} True if `object` is a valid owner.
+	   * @final
+	   */
+	  isValidOwner: function(object) {
+	    return !!(
+	      object &&
+	      typeof object.attachRef === 'function' &&
+	      typeof object.detachRef === 'function'
+	    );
+	  },
+
+	  /**
+	   * Adds a component by ref to an owner component.
+	   *
+	   * @param {ReactComponent} component Component to reference.
+	   * @param {string} ref Name by which to refer to the component.
+	   * @param {ReactOwner} owner Component on which to record the ref.
+	   * @final
+	   * @internal
+	   */
+	  addComponentAsRefTo: function(component, ref, owner) {
+	    ("production" !== process.env.NODE_ENV ? invariant(
+	      ReactOwner.isValidOwner(owner),
+	      'addComponentAsRefTo(...): Only a ReactOwner can have refs. This ' +
+	      'usually means that you\'re trying to add a ref to a component that ' +
+	      'doesn\'t have an owner (that is, was not created inside of another ' +
+	      'component\'s `render` method). Try rendering this component inside of ' +
+	      'a new top-level component which will hold the ref.'
+	    ) : invariant(ReactOwner.isValidOwner(owner)));
+	    owner.attachRef(ref, component);
+	  },
+
+	  /**
+	   * Removes a component by ref from an owner component.
+	   *
+	   * @param {ReactComponent} component Component to dereference.
+	   * @param {string} ref Name of the ref to remove.
+	   * @param {ReactOwner} owner Component on which the ref is recorded.
+	   * @final
+	   * @internal
+	   */
+	  removeComponentAsRefFrom: function(component, ref, owner) {
+	    ("production" !== process.env.NODE_ENV ? invariant(
+	      ReactOwner.isValidOwner(owner),
+	      'removeComponentAsRefFrom(...): Only a ReactOwner can have refs. This ' +
+	      'usually means that you\'re trying to remove a ref to a component that ' +
+	      'doesn\'t have an owner (that is, was not created inside of another ' +
+	      'component\'s `render` method). Try rendering this component inside of ' +
+	      'a new top-level component which will hold the ref.'
+	    ) : invariant(ReactOwner.isValidOwner(owner)));
+	    // Check that `component` is still the current ref because we do not want to
+	    // detach the ref if another component stole it.
+	    if (owner.refs[ref] === component) {
+	      owner.detachRef(ref);
+	    }
+	  },
+
+	  /**
+	   * A ReactComponent must mix this in to have refs.
+	   *
+	   * @lends {ReactOwner.prototype}
+	   */
+	  Mixin: {
+
+	    construct: function() {
+	      this.refs = emptyObject;
+	    },
+
+	    /**
+	     * Lazily allocates the refs object and stores `component` as `ref`.
+	     *
+	     * @param {string} ref Reference name.
+	     * @param {component} component Component to store as `ref`.
+	     * @final
+	     * @private
+	     */
+	    attachRef: function(ref, component) {
+	      ("production" !== process.env.NODE_ENV ? invariant(
+	        component.isOwnedBy(this),
+	        'attachRef(%s, ...): Only a component\'s owner can store a ref to it.',
+	        ref
+	      ) : invariant(component.isOwnedBy(this)));
+	      var refs = this.refs === emptyObject ? (this.refs = {}) : this.refs;
+	      refs[ref] = component;
+	    },
+
+	    /**
+	     * Detaches a reference name.
+	     *
+	     * @param {string} ref Name to dereference.
+	     * @final
+	     * @private
+	     */
+	    detachRef: function(ref) {
+	      delete this.refs[ref];
+	    }
+
+	  }
+
+	};
+
+	module.exports = ReactOwner;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
+
+/***/ },
+/* 96 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule keyMirror
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var invariant = __webpack_require__(65);
+
+	/**
+	 * Constructs an enumeration with keys equal to their value.
+	 *
+	 * For example:
+	 *
+	 *   var COLORS = keyMirror({blue: null, red: null});
+	 *   var myColor = COLORS.blue;
+	 *   var isColorValid = !!COLORS[myColor];
+	 *
+	 * The last line could not be performed if the values of the generated enum were
+	 * not equal to their keys.
+	 *
+	 *   Input:  {key1: val1, key2: val2}
+	 *   Output: {key1: key1, key2: key2}
+	 *
+	 * @param {object} obj
+	 * @return {object}
+	 */
+	var keyMirror = function(obj) {
+	  var ret = {};
+	  var key;
+	  ("production" !== process.env.NODE_ENV ? invariant(
+	    obj instanceof Object && !Array.isArray(obj),
+	    'keyMirror(...): Argument must be an object.'
+	  ) : invariant(obj instanceof Object && !Array.isArray(obj)));
+	  for (key in obj) {
+	    if (!obj.hasOwnProperty(key)) {
+	      continue;
+	    }
+	    ret[key] = key;
+	  }
+	  return ret;
+	};
+
+	module.exports = keyMirror;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
+
+/***/ },
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14299,11 +16118,11 @@
 
 	"use strict";
 
-	var ReactDescriptor = __webpack_require__(32);
-	var ReactPropTypeLocations = __webpack_require__(81);
-	var ReactCurrentOwner = __webpack_require__(31);
+	var ReactDescriptor = __webpack_require__(39);
+	var ReactPropTypeLocations = __webpack_require__(100);
+	var ReactCurrentOwner = __webpack_require__(38);
 
-	var monitorCodeUse = __webpack_require__(86);
+	var monitorCodeUse = __webpack_require__(104);
 
 	/**
 	 * Warn if there's no key explicitly set on dynamic arrays of children or
@@ -14558,7 +16377,7 @@
 
 
 /***/ },
-/* 78 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14581,7 +16400,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	var component;
 	// This registry keeps track of the React IDs of the components that rendered to
@@ -14640,10 +16459,10 @@
 
 	module.exports = ReactEmptyComponent;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 79 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14686,173 +16505,7 @@
 
 
 /***/ },
-/* 80 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule ReactOwner
-	 */
-
-	"use strict";
-
-	var emptyObject = __webpack_require__(153);
-	var invariant = __webpack_require__(63);
-
-	/**
-	 * ReactOwners are capable of storing references to owned components.
-	 *
-	 * All components are capable of //being// referenced by owner components, but
-	 * only ReactOwner components are capable of //referencing// owned components.
-	 * The named reference is known as a "ref".
-	 *
-	 * Refs are available when mounted and updated during reconciliation.
-	 *
-	 *   var MyComponent = React.createClass({
-	 *     render: function() {
-	 *       return (
-	 *         <div onClick={this.handleClick}>
-	 *           <CustomComponent ref="custom" />
-	 *         </div>
-	 *       );
-	 *     },
-	 *     handleClick: function() {
-	 *       this.refs.custom.handleClick();
-	 *     },
-	 *     componentDidMount: function() {
-	 *       this.refs.custom.initialize();
-	 *     }
-	 *   });
-	 *
-	 * Refs should rarely be used. When refs are used, they should only be done to
-	 * control data that is not handled by React's data flow.
-	 *
-	 * @class ReactOwner
-	 */
-	var ReactOwner = {
-
-	  /**
-	   * @param {?object} object
-	   * @return {boolean} True if `object` is a valid owner.
-	   * @final
-	   */
-	  isValidOwner: function(object) {
-	    return !!(
-	      object &&
-	      typeof object.attachRef === 'function' &&
-	      typeof object.detachRef === 'function'
-	    );
-	  },
-
-	  /**
-	   * Adds a component by ref to an owner component.
-	   *
-	   * @param {ReactComponent} component Component to reference.
-	   * @param {string} ref Name by which to refer to the component.
-	   * @param {ReactOwner} owner Component on which to record the ref.
-	   * @final
-	   * @internal
-	   */
-	  addComponentAsRefTo: function(component, ref, owner) {
-	    ("production" !== process.env.NODE_ENV ? invariant(
-	      ReactOwner.isValidOwner(owner),
-	      'addComponentAsRefTo(...): Only a ReactOwner can have refs. This ' +
-	      'usually means that you\'re trying to add a ref to a component that ' +
-	      'doesn\'t have an owner (that is, was not created inside of another ' +
-	      'component\'s `render` method). Try rendering this component inside of ' +
-	      'a new top-level component which will hold the ref.'
-	    ) : invariant(ReactOwner.isValidOwner(owner)));
-	    owner.attachRef(ref, component);
-	  },
-
-	  /**
-	   * Removes a component by ref from an owner component.
-	   *
-	   * @param {ReactComponent} component Component to dereference.
-	   * @param {string} ref Name of the ref to remove.
-	   * @param {ReactOwner} owner Component on which the ref is recorded.
-	   * @final
-	   * @internal
-	   */
-	  removeComponentAsRefFrom: function(component, ref, owner) {
-	    ("production" !== process.env.NODE_ENV ? invariant(
-	      ReactOwner.isValidOwner(owner),
-	      'removeComponentAsRefFrom(...): Only a ReactOwner can have refs. This ' +
-	      'usually means that you\'re trying to remove a ref to a component that ' +
-	      'doesn\'t have an owner (that is, was not created inside of another ' +
-	      'component\'s `render` method). Try rendering this component inside of ' +
-	      'a new top-level component which will hold the ref.'
-	    ) : invariant(ReactOwner.isValidOwner(owner)));
-	    // Check that `component` is still the current ref because we do not want to
-	    // detach the ref if another component stole it.
-	    if (owner.refs[ref] === component) {
-	      owner.detachRef(ref);
-	    }
-	  },
-
-	  /**
-	   * A ReactComponent must mix this in to have refs.
-	   *
-	   * @lends {ReactOwner.prototype}
-	   */
-	  Mixin: {
-
-	    construct: function() {
-	      this.refs = emptyObject;
-	    },
-
-	    /**
-	     * Lazily allocates the refs object and stores `component` as `ref`.
-	     *
-	     * @param {string} ref Reference name.
-	     * @param {component} component Component to store as `ref`.
-	     * @final
-	     * @private
-	     */
-	    attachRef: function(ref, component) {
-	      ("production" !== process.env.NODE_ENV ? invariant(
-	        component.isOwnedBy(this),
-	        'attachRef(%s, ...): Only a component\'s owner can store a ref to it.',
-	        ref
-	      ) : invariant(component.isOwnedBy(this)));
-	      var refs = this.refs === emptyObject ? (this.refs = {}) : this.refs;
-	      refs[ref] = component;
-	    },
-
-	    /**
-	     * Detaches a reference name.
-	     *
-	     * @param {string} ref Name to dereference.
-	     * @final
-	     * @private
-	     */
-	    detachRef: function(ref) {
-	      delete this.refs[ref];
-	    }
-
-	  }
-
-	};
-
-	module.exports = ReactOwner;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 81 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14875,7 +16528,7 @@
 
 	"use strict";
 
-	var keyMirror = __webpack_require__(84);
+	var keyMirror = __webpack_require__(96);
 
 	var ReactPropTypeLocations = keyMirror({
 	  prop: null,
@@ -14887,7 +16540,7 @@
 
 
 /***/ },
-/* 82 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14922,10 +16575,10 @@
 
 	module.exports = ReactPropTypeLocationNames;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 83 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14949,7 +16602,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * Validate a `componentDescriptor`. This should be exposed publicly in a follow
@@ -14991,75 +16644,10 @@
 
 	module.exports = instantiateReactComponent;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 84 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule keyMirror
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var invariant = __webpack_require__(63);
-
-	/**
-	 * Constructs an enumeration with keys equal to their value.
-	 *
-	 * For example:
-	 *
-	 *   var COLORS = keyMirror({blue: null, red: null});
-	 *   var myColor = COLORS.blue;
-	 *   var isColorValid = !!COLORS[myColor];
-	 *
-	 * The last line could not be performed if the values of the generated enum were
-	 * not equal to their keys.
-	 *
-	 *   Input:  {key1: val1, key2: val2}
-	 *   Output: {key1: key1, key2: key2}
-	 *
-	 * @param {object} obj
-	 * @return {object}
-	 */
-	var keyMirror = function(obj) {
-	  var ret = {};
-	  var key;
-	  ("production" !== process.env.NODE_ENV ? invariant(
-	    obj instanceof Object && !Array.isArray(obj),
-	    'keyMirror(...): Argument must be an object.'
-	  ) : invariant(obj instanceof Object && !Array.isArray(obj)));
-	  for (key in obj) {
-	    if (!obj.hasOwnProperty(key)) {
-	      continue;
-	    }
-	    ret[key] = key;
-	  }
-	  return ret;
-	};
-
-	module.exports = keyMirror;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 85 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15099,7 +16687,7 @@
 
 
 /***/ },
-/* 86 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -15122,7 +16710,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * Provides open-source compatible instrumentation for monitoring certain API
@@ -15140,10 +16728,10 @@
 
 	module.exports = monitorCodeUse;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 87 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15201,7 +16789,7 @@
 
 
 /***/ },
-/* 88 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15251,333 +16839,7 @@
 
 
 /***/ },
-/* 89 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule PooledClass
-	 */
-
-	"use strict";
-
-	var invariant = __webpack_require__(63);
-
-	/**
-	 * Static poolers. Several custom versions for each potential number of
-	 * arguments. A completely generic pooler is easy to implement, but would
-	 * require accessing the `arguments` object. In each of these, `this` refers to
-	 * the Class itself, not an instance. If any others are needed, simply add them
-	 * here, or in their own files.
-	 */
-	var oneArgumentPooler = function(copyFieldsFrom) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, copyFieldsFrom);
-	    return instance;
-	  } else {
-	    return new Klass(copyFieldsFrom);
-	  }
-	};
-
-	var twoArgumentPooler = function(a1, a2) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, a1, a2);
-	    return instance;
-	  } else {
-	    return new Klass(a1, a2);
-	  }
-	};
-
-	var threeArgumentPooler = function(a1, a2, a3) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, a1, a2, a3);
-	    return instance;
-	  } else {
-	    return new Klass(a1, a2, a3);
-	  }
-	};
-
-	var fiveArgumentPooler = function(a1, a2, a3, a4, a5) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, a1, a2, a3, a4, a5);
-	    return instance;
-	  } else {
-	    return new Klass(a1, a2, a3, a4, a5);
-	  }
-	};
-
-	var standardReleaser = function(instance) {
-	  var Klass = this;
-	  ("production" !== process.env.NODE_ENV ? invariant(
-	    instance instanceof Klass,
-	    'Trying to release an instance into a pool of a different type.'
-	  ) : invariant(instance instanceof Klass));
-	  if (instance.destructor) {
-	    instance.destructor();
-	  }
-	  if (Klass.instancePool.length < Klass.poolSize) {
-	    Klass.instancePool.push(instance);
-	  }
-	};
-
-	var DEFAULT_POOL_SIZE = 10;
-	var DEFAULT_POOLER = oneArgumentPooler;
-
-	/**
-	 * Augments `CopyConstructor` to be a poolable class, augmenting only the class
-	 * itself (statically) not adding any prototypical fields. Any CopyConstructor
-	 * you give this may have a `poolSize` property, and will look for a
-	 * prototypical `destructor` on instances (optional).
-	 *
-	 * @param {Function} CopyConstructor Constructor that can be used to reset.
-	 * @param {Function} pooler Customizable pooler.
-	 */
-	var addPoolingTo = function(CopyConstructor, pooler) {
-	  var NewKlass = CopyConstructor;
-	  NewKlass.instancePool = [];
-	  NewKlass.getPooled = pooler || DEFAULT_POOLER;
-	  if (!NewKlass.poolSize) {
-	    NewKlass.poolSize = DEFAULT_POOL_SIZE;
-	  }
-	  NewKlass.release = standardReleaser;
-	  return NewKlass;
-	};
-
-	var PooledClass = {
-	  addPoolingTo: addPoolingTo,
-	  oneArgumentPooler: oneArgumentPooler,
-	  twoArgumentPooler: twoArgumentPooler,
-	  threeArgumentPooler: threeArgumentPooler,
-	  fiveArgumentPooler: fiveArgumentPooler
-	};
-
-	module.exports = PooledClass;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 90 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule traverseAllChildren
-	 */
-
-	"use strict";
-
-	var ReactInstanceHandles = __webpack_require__(36);
-	var ReactTextComponent = __webpack_require__(42);
-
-	var invariant = __webpack_require__(63);
-
-	var SEPARATOR = ReactInstanceHandles.SEPARATOR;
-	var SUBSEPARATOR = ':';
-
-	/**
-	 * TODO: Test that:
-	 * 1. `mapChildren` transforms strings and numbers into `ReactTextComponent`.
-	 * 2. it('should fail when supplied duplicate key', function() {
-	 * 3. That a single child and an array with one item have the same key pattern.
-	 * });
-	 */
-
-	var userProvidedKeyEscaperLookup = {
-	  '=': '=0',
-	  '.': '=1',
-	  ':': '=2'
-	};
-
-	var userProvidedKeyEscapeRegex = /[=.:]/g;
-
-	function userProvidedKeyEscaper(match) {
-	  return userProvidedKeyEscaperLookup[match];
-	}
-
-	/**
-	 * Generate a key string that identifies a component within a set.
-	 *
-	 * @param {*} component A component that could contain a manual key.
-	 * @param {number} index Index that is used if a manual key is not provided.
-	 * @return {string}
-	 */
-	function getComponentKey(component, index) {
-	  if (component && component.props && component.props.key != null) {
-	    // Explicit key
-	    return wrapUserProvidedKey(component.props.key);
-	  }
-	  // Implicit key determined by the index in the set
-	  return index.toString(36);
-	}
-
-	/**
-	 * Escape a component key so that it is safe to use in a reactid.
-	 *
-	 * @param {*} key Component key to be escaped.
-	 * @return {string} An escaped string.
-	 */
-	function escapeUserProvidedKey(text) {
-	  return ('' + text).replace(
-	    userProvidedKeyEscapeRegex,
-	    userProvidedKeyEscaper
-	  );
-	}
-
-	/**
-	 * Wrap a `key` value explicitly provided by the user to distinguish it from
-	 * implicitly-generated keys generated by a component's index in its parent.
-	 *
-	 * @param {string} key Value of a user-provided `key` attribute
-	 * @return {string}
-	 */
-	function wrapUserProvidedKey(key) {
-	  return '$' + escapeUserProvidedKey(key);
-	}
-
-	/**
-	 * @param {?*} children Children tree container.
-	 * @param {!string} nameSoFar Name of the key path so far.
-	 * @param {!number} indexSoFar Number of children encountered until this point.
-	 * @param {!function} callback Callback to invoke with each child found.
-	 * @param {?*} traverseContext Used to pass information throughout the traversal
-	 * process.
-	 * @return {!number} The number of children in this subtree.
-	 */
-	var traverseAllChildrenImpl =
-	  function(children, nameSoFar, indexSoFar, callback, traverseContext) {
-	    var subtreeCount = 0;  // Count of children found in the current subtree.
-	    if (Array.isArray(children)) {
-	      for (var i = 0; i < children.length; i++) {
-	        var child = children[i];
-	        var nextName = (
-	          nameSoFar +
-	          (nameSoFar ? SUBSEPARATOR : SEPARATOR) +
-	          getComponentKey(child, i)
-	        );
-	        var nextIndex = indexSoFar + subtreeCount;
-	        subtreeCount += traverseAllChildrenImpl(
-	          child,
-	          nextName,
-	          nextIndex,
-	          callback,
-	          traverseContext
-	        );
-	      }
-	    } else {
-	      var type = typeof children;
-	      var isOnlyChild = nameSoFar === '';
-	      // If it's the only child, treat the name as if it was wrapped in an array
-	      // so that it's consistent if the number of children grows
-	      var storageName =
-	        isOnlyChild ? SEPARATOR + getComponentKey(children, 0) : nameSoFar;
-	      if (children == null || type === 'boolean') {
-	        // All of the above are perceived as null.
-	        callback(traverseContext, null, storageName, indexSoFar);
-	        subtreeCount = 1;
-	      } else if (children.type && children.type.prototype &&
-	                 children.type.prototype.mountComponentIntoNode) {
-	        callback(traverseContext, children, storageName, indexSoFar);
-	        subtreeCount = 1;
-	      } else {
-	        if (type === 'object') {
-	          ("production" !== process.env.NODE_ENV ? invariant(
-	            !children || children.nodeType !== 1,
-	            'traverseAllChildren(...): Encountered an invalid child; DOM ' +
-	            'elements are not valid children of React components.'
-	          ) : invariant(!children || children.nodeType !== 1));
-	          for (var key in children) {
-	            if (children.hasOwnProperty(key)) {
-	              subtreeCount += traverseAllChildrenImpl(
-	                children[key],
-	                (
-	                  nameSoFar + (nameSoFar ? SUBSEPARATOR : SEPARATOR) +
-	                  wrapUserProvidedKey(key) + SUBSEPARATOR +
-	                  getComponentKey(children[key], 0)
-	                ),
-	                indexSoFar + subtreeCount,
-	                callback,
-	                traverseContext
-	              );
-	            }
-	          }
-	        } else if (type === 'string') {
-	          var normalizedText = ReactTextComponent(children);
-	          callback(traverseContext, normalizedText, storageName, indexSoFar);
-	          subtreeCount += 1;
-	        } else if (type === 'number') {
-	          var normalizedNumber = ReactTextComponent('' + children);
-	          callback(traverseContext, normalizedNumber, storageName, indexSoFar);
-	          subtreeCount += 1;
-	        }
-	      }
-	    }
-	    return subtreeCount;
-	  };
-
-	/**
-	 * Traverses children that are typically specified as `props.children`, but
-	 * might also be specified through attributes:
-	 *
-	 * - `traverseAllChildren(this.props.children, ...)`
-	 * - `traverseAllChildren(this.props.leftPanelChildren, ...)`
-	 *
-	 * The `traverseContext` is an optional argument that is passed through the
-	 * entire traversal. It can be used to store accumulations or anything else that
-	 * the callback might find relevant.
-	 *
-	 * @param {?*} children Children tree object.
-	 * @param {!function} callback To invoke upon traversing each child.
-	 * @param {?*} traverseContext Context for traversal.
-	 * @return {!number} The number of children in this subtree.
-	 */
-	function traverseAllChildren(children, callback, traverseContext) {
-	  if (children == null) {
-	    return 0;
-	  }
-
-	  return traverseAllChildrenImpl(children, '', 0, callback, traverseContext);
-	}
-
-	module.exports = traverseAllChildren;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 91 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15601,11 +16863,11 @@
 
 	"use strict";
 
-	var CSSProperty = __webpack_require__(154);
+	var CSSProperty = __webpack_require__(157);
 
-	var dangerousStyleValue = __webpack_require__(155);
-	var hyphenateStyleName = __webpack_require__(156);
-	var memoizeStringOnly = __webpack_require__(76);
+	var dangerousStyleValue = __webpack_require__(158);
+	var hyphenateStyleName = __webpack_require__(159);
+	var memoizeStringOnly = __webpack_require__(92);
 
 	var processStyleName = memoizeStringOnly(function(styleName) {
 	  return hyphenateStyleName(styleName);
@@ -15680,7 +16942,7 @@
 
 
 /***/ },
-/* 92 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -15703,10 +16965,10 @@
 
 	"use strict";
 
-	var ReactEmptyComponent = __webpack_require__(78);
-	var ReactMount = __webpack_require__(37);
+	var ReactEmptyComponent = __webpack_require__(98);
+	var ReactMount = __webpack_require__(44);
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	var ReactBrowserComponentMixin = {
 	  /**
@@ -15730,10 +16992,10 @@
 
 	module.exports = ReactBrowserComponentMixin;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 93 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15759,10 +17021,10 @@
 
 	var EventConstants = __webpack_require__(69);
 	var EventPropagators = __webpack_require__(71);
-	var ExecutionEnvironment = __webpack_require__(44);
-	var SyntheticInputEvent = __webpack_require__(157);
+	var ExecutionEnvironment = __webpack_require__(52);
+	var SyntheticInputEvent = __webpack_require__(160);
 
-	var keyOf = __webpack_require__(60);
+	var keyOf = __webpack_require__(63);
 
 	var canUseTextInputEvent = (
 	  ExecutionEnvironment.canUseDOM &&
@@ -15961,7 +17223,7 @@
 
 
 /***/ },
-/* 94 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15987,13 +17249,13 @@
 	var EventConstants = __webpack_require__(69);
 	var EventPluginHub = __webpack_require__(70);
 	var EventPropagators = __webpack_require__(71);
-	var ExecutionEnvironment = __webpack_require__(44);
+	var ExecutionEnvironment = __webpack_require__(52);
 	var ReactUpdates = __webpack_require__(73);
 	var SyntheticEvent = __webpack_require__(74);
 
-	var isEventSupported = __webpack_require__(147);
-	var isTextInputElement = __webpack_require__(158);
-	var keyOf = __webpack_require__(60);
+	var isEventSupported = __webpack_require__(148);
+	var isTextInputElement = __webpack_require__(161);
+	var keyOf = __webpack_require__(63);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -16354,7 +17616,7 @@
 
 
 /***/ },
-/* 95 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16390,7 +17652,7 @@
 
 
 /***/ },
-/* 96 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16416,12 +17678,12 @@
 
 	var EventConstants = __webpack_require__(69);
 	var EventPropagators = __webpack_require__(71);
-	var ExecutionEnvironment = __webpack_require__(44);
-	var ReactInputSelection = __webpack_require__(159);
-	var SyntheticCompositionEvent = __webpack_require__(160);
+	var ExecutionEnvironment = __webpack_require__(52);
+	var ReactInputSelection = __webpack_require__(162);
+	var SyntheticCompositionEvent = __webpack_require__(163);
 
-	var getTextContentAccessor = __webpack_require__(161);
-	var keyOf = __webpack_require__(60);
+	var getTextContentAccessor = __webpack_require__(164);
+	var keyOf = __webpack_require__(63);
 
 	var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 	var START_KEYCODE = 229;
@@ -16660,7 +17922,7 @@
 
 
 /***/ },
-/* 97 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16683,7 +17945,7 @@
 
 	"use strict";
 
-	 var keyOf = __webpack_require__(60);
+	 var keyOf = __webpack_require__(63);
 
 	/**
 	 * Module that is injectable into `EventPluginHub`, that specifies a
@@ -16711,7 +17973,7 @@
 
 
 /***/ },
-/* 98 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16737,10 +17999,10 @@
 
 	var EventConstants = __webpack_require__(69);
 	var EventPropagators = __webpack_require__(71);
-	var SyntheticMouseEvent = __webpack_require__(162);
+	var SyntheticMouseEvent = __webpack_require__(165);
 
-	var ReactMount = __webpack_require__(37);
-	var keyOf = __webpack_require__(60);
+	var ReactMount = __webpack_require__(44);
+	var keyOf = __webpack_require__(63);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 	var getFirstReactDOM = ReactMount.getFirstReactDOM;
@@ -16862,7 +18124,7 @@
 
 
 /***/ },
-/* 99 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16888,7 +18150,7 @@
 	"use strict";
 
 	var DOMProperty = __webpack_require__(66);
-	var ExecutionEnvironment = __webpack_require__(44);
+	var ExecutionEnvironment = __webpack_require__(52);
 
 	var MUST_USE_ATTRIBUTE = DOMProperty.injection.MUST_USE_ATTRIBUTE;
 	var MUST_USE_PROPERTY = DOMProperty.injection.MUST_USE_PROPERTY;
@@ -16976,6 +18238,7 @@
 	    loop: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
 	    max: null,
 	    maxLength: MUST_USE_ATTRIBUTE,
+	    media: MUST_USE_ATTRIBUTE,
 	    mediaGroup: null,
 	    method: null,
 	    min: null,
@@ -16983,6 +18246,7 @@
 	    muted: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
 	    name: null,
 	    noValidate: HAS_BOOLEAN_VALUE,
+	    open: null,
 	    pattern: null,
 	    placeholder: null,
 	    poster: null,
@@ -17003,11 +18267,12 @@
 	    selected: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
 	    shape: null,
 	    size: MUST_USE_ATTRIBUTE | HAS_POSITIVE_NUMERIC_VALUE,
+	    sizes: MUST_USE_ATTRIBUTE,
 	    span: HAS_POSITIVE_NUMERIC_VALUE,
 	    spellCheck: null,
 	    src: null,
 	    srcDoc: MUST_USE_PROPERTY,
-	    srcSet: null,
+	    srcSet: MUST_USE_ATTRIBUTE,
 	    start: HAS_NUMERIC_VALUE,
 	    step: null,
 	    style: null,
@@ -17054,7 +18319,7 @@
 
 
 /***/ },
-/* 100 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17080,7 +18345,7 @@
 
 	var EventConstants = __webpack_require__(69);
 
-	var emptyFunction = __webpack_require__(65);
+	var emptyFunction = __webpack_require__(61);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -17123,7 +18388,7 @@
 
 
 /***/ },
-/* 101 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -17148,15 +18413,15 @@
 
 	"use strict";
 
-	var ReactDOMIDOperations = __webpack_require__(163);
-	var ReactMarkupChecksum = __webpack_require__(122);
-	var ReactMount = __webpack_require__(37);
-	var ReactPerf = __webpack_require__(39);
-	var ReactReconcileTransaction = __webpack_require__(164);
+	var ReactDOMIDOperations = __webpack_require__(166);
+	var ReactMarkupChecksum = __webpack_require__(138);
+	var ReactMount = __webpack_require__(44);
+	var ReactPerf = __webpack_require__(46);
+	var ReactReconcileTransaction = __webpack_require__(167);
 
-	var getReactRootElementInContainer = __webpack_require__(119);
-	var invariant = __webpack_require__(63);
-	var setInnerHTML = __webpack_require__(165);
+	var getReactRootElementInContainer = __webpack_require__(135);
+	var invariant = __webpack_require__(65);
+	var setInnerHTML = __webpack_require__(168);
 
 
 	var ELEMENT_NODE_TYPE = 1;
@@ -17252,10 +18517,10 @@
 
 	module.exports = ReactComponentBrowserEnvironment;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 102 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17281,8 +18546,8 @@
 	var ReactUpdates = __webpack_require__(73);
 	var Transaction = __webpack_require__(152);
 
-	var emptyFunction = __webpack_require__(65);
-	var mixInto = __webpack_require__(85);
+	var emptyFunction = __webpack_require__(61);
+	var mixInto = __webpack_require__(103);
 
 	var RESET_BATCHED_UPDATES = {
 	  initialize: emptyFunction,
@@ -17336,7 +18601,7 @@
 
 
 /***/ },
-/* 103 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17359,12 +18624,12 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(166);
-	var ReactBrowserComponentMixin = __webpack_require__(92);
-	var ReactCompositeComponent = __webpack_require__(29);
-	var ReactDOM = __webpack_require__(33);
+	var AutoFocusMixin = __webpack_require__(169);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
+	var ReactCompositeComponent = __webpack_require__(36);
+	var ReactDOM = __webpack_require__(40);
 
-	var keyMirror = __webpack_require__(84);
+	var keyMirror = __webpack_require__(96);
 
 	// Store a reference to the <button> `ReactDOMComponent`.
 	var button = ReactDOM.button;
@@ -17411,7 +18676,7 @@
 
 
 /***/ },
-/* 104 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17435,10 +18700,10 @@
 	"use strict";
 
 	var EventConstants = __webpack_require__(69);
-	var LocalEventTrapMixin = __webpack_require__(167);
-	var ReactBrowserComponentMixin = __webpack_require__(92);
-	var ReactCompositeComponent = __webpack_require__(29);
-	var ReactDOM = __webpack_require__(33);
+	var LocalEventTrapMixin = __webpack_require__(170);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
+	var ReactCompositeComponent = __webpack_require__(36);
+	var ReactDOM = __webpack_require__(40);
 
 	// Store a reference to the <form> `ReactDOMComponent`.
 	var form = ReactDOM.form;
@@ -17471,7 +18736,7 @@
 
 
 /***/ },
-/* 105 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17495,10 +18760,10 @@
 	"use strict";
 
 	var EventConstants = __webpack_require__(69);
-	var LocalEventTrapMixin = __webpack_require__(167);
-	var ReactBrowserComponentMixin = __webpack_require__(92);
-	var ReactCompositeComponent = __webpack_require__(29);
-	var ReactDOM = __webpack_require__(33);
+	var LocalEventTrapMixin = __webpack_require__(170);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
+	var ReactCompositeComponent = __webpack_require__(36);
+	var ReactDOM = __webpack_require__(40);
 
 	// Store a reference to the <img> `ReactDOMComponent`.
 	var img = ReactDOM.img;
@@ -17529,7 +18794,7 @@
 
 
 /***/ },
-/* 106 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -17552,15 +18817,15 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(166);
-	var DOMPropertyOperations = __webpack_require__(25);
-	var LinkedValueUtils = __webpack_require__(168);
-	var ReactBrowserComponentMixin = __webpack_require__(92);
-	var ReactCompositeComponent = __webpack_require__(29);
-	var ReactDOM = __webpack_require__(33);
-	var ReactMount = __webpack_require__(37);
+	var AutoFocusMixin = __webpack_require__(169);
+	var DOMPropertyOperations = __webpack_require__(32);
+	var LinkedValueUtils = __webpack_require__(171);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
+	var ReactCompositeComponent = __webpack_require__(36);
+	var ReactDOM = __webpack_require__(40);
+	var ReactMount = __webpack_require__(44);
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 	var merge = __webpack_require__(11);
 
 	// Store a reference to the <input> `ReactDOMComponent`.
@@ -17715,10 +18980,10 @@
 
 	module.exports = ReactDOMInput;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 107 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -17741,11 +19006,11 @@
 
 	"use strict";
 
-	var ReactBrowserComponentMixin = __webpack_require__(92);
-	var ReactCompositeComponent = __webpack_require__(29);
-	var ReactDOM = __webpack_require__(33);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
+	var ReactCompositeComponent = __webpack_require__(36);
+	var ReactDOM = __webpack_require__(40);
 
-	var warning = __webpack_require__(61);
+	var warning = __webpack_require__(51);
 
 	// Store a reference to the <option> `ReactDOMComponent`.
 	var option = ReactDOM.option;
@@ -17777,10 +19042,10 @@
 
 	module.exports = ReactDOMOption;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 108 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17803,11 +19068,11 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(166);
-	var LinkedValueUtils = __webpack_require__(168);
-	var ReactBrowserComponentMixin = __webpack_require__(92);
-	var ReactCompositeComponent = __webpack_require__(29);
-	var ReactDOM = __webpack_require__(33);
+	var AutoFocusMixin = __webpack_require__(169);
+	var LinkedValueUtils = __webpack_require__(171);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
+	var ReactCompositeComponent = __webpack_require__(36);
+	var ReactDOM = __webpack_require__(40);
 
 	var merge = __webpack_require__(11);
 
@@ -17967,7 +19232,7 @@
 
 
 /***/ },
-/* 109 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -17990,17 +19255,17 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(166);
-	var DOMPropertyOperations = __webpack_require__(25);
-	var LinkedValueUtils = __webpack_require__(168);
-	var ReactBrowserComponentMixin = __webpack_require__(92);
-	var ReactCompositeComponent = __webpack_require__(29);
-	var ReactDOM = __webpack_require__(33);
+	var AutoFocusMixin = __webpack_require__(169);
+	var DOMPropertyOperations = __webpack_require__(32);
+	var LinkedValueUtils = __webpack_require__(171);
+	var ReactBrowserComponentMixin = __webpack_require__(108);
+	var ReactCompositeComponent = __webpack_require__(36);
+	var ReactDOM = __webpack_require__(40);
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 	var merge = __webpack_require__(11);
 
-	var warning = __webpack_require__(61);
+	var warning = __webpack_require__(51);
 
 	// Store a reference to the <textarea> `ReactDOMComponent`.
 	var textarea = ReactDOM.textarea;
@@ -18113,10 +19378,10 @@
 
 	module.exports = ReactDOMTextarea;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 110 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18140,16 +19405,16 @@
 
 	"use strict";
 
-	var EventListener = __webpack_require__(169);
-	var ExecutionEnvironment = __webpack_require__(44);
-	var PooledClass = __webpack_require__(89);
-	var ReactInstanceHandles = __webpack_require__(36);
-	var ReactMount = __webpack_require__(37);
+	var EventListener = __webpack_require__(180);
+	var ExecutionEnvironment = __webpack_require__(52);
+	var PooledClass = __webpack_require__(93);
+	var ReactInstanceHandles = __webpack_require__(43);
+	var ReactMount = __webpack_require__(44);
 	var ReactUpdates = __webpack_require__(73);
 
-	var getEventTarget = __webpack_require__(150);
-	var getUnboundedScrollPosition = __webpack_require__(170);
-	var mixInto = __webpack_require__(85);
+	var getEventTarget = __webpack_require__(153);
+	var getUnboundedScrollPosition = __webpack_require__(181);
+	var mixInto = __webpack_require__(103);
 
 	/**
 	 * Finds the parent React component of `node`.
@@ -18311,7 +19576,7 @@
 
 
 /***/ },
-/* 111 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18336,13 +19601,13 @@
 
 	var DOMProperty = __webpack_require__(66);
 	var EventPluginHub = __webpack_require__(70);
-	var ReactComponent = __webpack_require__(28);
-	var ReactCompositeComponent = __webpack_require__(29);
-	var ReactDOM = __webpack_require__(33);
-	var ReactEmptyComponent = __webpack_require__(78);
+	var ReactComponent = __webpack_require__(35);
+	var ReactCompositeComponent = __webpack_require__(36);
+	var ReactDOM = __webpack_require__(40);
+	var ReactEmptyComponent = __webpack_require__(98);
 	var ReactBrowserEventEmitter = __webpack_require__(72);
-	var ReactPerf = __webpack_require__(39);
-	var ReactRootIndex = __webpack_require__(117);
+	var ReactPerf = __webpack_require__(46);
+	var ReactRootIndex = __webpack_require__(133);
 	var ReactUpdates = __webpack_require__(73);
 
 	var ReactInjection = {
@@ -18362,7 +19627,7 @@
 
 
 /***/ },
-/* 112 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18387,12 +19652,12 @@
 
 	var EventConstants = __webpack_require__(69);
 	var EventPropagators = __webpack_require__(71);
-	var ReactInputSelection = __webpack_require__(159);
+	var ReactInputSelection = __webpack_require__(162);
 	var SyntheticEvent = __webpack_require__(74);
 
-	var getActiveElement = __webpack_require__(171);
-	var isTextInputElement = __webpack_require__(158);
-	var keyOf = __webpack_require__(60);
+	var getActiveElement = __webpack_require__(172);
+	var isTextInputElement = __webpack_require__(161);
+	var keyOf = __webpack_require__(63);
 	var shallowEqual = __webpack_require__(58);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
@@ -18568,7 +19833,7 @@
 
 
 /***/ },
-/* 113 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18610,7 +19875,7 @@
 
 
 /***/ },
-/* 114 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -18634,20 +19899,20 @@
 	"use strict";
 
 	var EventConstants = __webpack_require__(69);
-	var EventPluginUtils = __webpack_require__(26);
+	var EventPluginUtils = __webpack_require__(33);
 	var EventPropagators = __webpack_require__(71);
-	var SyntheticClipboardEvent = __webpack_require__(172);
+	var SyntheticClipboardEvent = __webpack_require__(173);
 	var SyntheticEvent = __webpack_require__(74);
-	var SyntheticFocusEvent = __webpack_require__(173);
-	var SyntheticKeyboardEvent = __webpack_require__(174);
-	var SyntheticMouseEvent = __webpack_require__(162);
-	var SyntheticDragEvent = __webpack_require__(175);
-	var SyntheticTouchEvent = __webpack_require__(176);
-	var SyntheticUIEvent = __webpack_require__(177);
-	var SyntheticWheelEvent = __webpack_require__(178);
+	var SyntheticFocusEvent = __webpack_require__(174);
+	var SyntheticKeyboardEvent = __webpack_require__(175);
+	var SyntheticMouseEvent = __webpack_require__(165);
+	var SyntheticDragEvent = __webpack_require__(176);
+	var SyntheticTouchEvent = __webpack_require__(177);
+	var SyntheticUIEvent = __webpack_require__(178);
+	var SyntheticWheelEvent = __webpack_require__(179);
 
-	var invariant = __webpack_require__(63);
-	var keyOf = __webpack_require__(60);
+	var invariant = __webpack_require__(65);
+	var keyOf = __webpack_require__(63);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -19033,10 +20298,10 @@
 
 	module.exports = SimpleEventPlugin;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 115 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19139,7 +20404,7 @@
 
 
 /***/ },
-/* 116 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -19164,9 +20429,9 @@
 	"use strict";
 
 	// Defeat circular references by requiring this directly.
-	var ReactCompositeComponent = __webpack_require__(29);
+	var ReactCompositeComponent = __webpack_require__(36);
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * Create a component that will throw an exception when unmounted.
@@ -19206,10 +20471,10 @@
 
 	module.exports = createFullPageComponent;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 117 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19251,7 +20516,7 @@
 
 
 /***/ },
-/* 118 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19273,7 +20538,7 @@
 	 * @typechecks
 	 */
 
-	var isTextNode = __webpack_require__(179);
+	var isTextNode = __webpack_require__(182);
 
 	/*jslint bitwise:true */
 
@@ -19306,7 +20571,7 @@
 
 
 /***/ },
-/* 119 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19352,7 +20617,7 @@
 
 
 /***/ },
-/* 120 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19375,7 +20640,7 @@
 
 	"use strict";
 
-	var keyMirror = __webpack_require__(84);
+	var keyMirror = __webpack_require__(96);
 
 	/**
 	 * When a component's children are updated, a series of update configuration
@@ -19396,7 +20661,7 @@
 
 
 /***/ },
-/* 121 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -19419,8 +20684,8 @@
 
 	"use strict";
 
-	var traverseAllChildren = __webpack_require__(90);
-	var warning = __webpack_require__(61);
+	var traverseAllChildren = __webpack_require__(94);
+	var warning = __webpack_require__(51);
 
 	/**
 	 * @param {function} traverseContext Context passed through traversal.
@@ -19459,10 +20724,10 @@
 
 	module.exports = flattenChildren;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 122 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19485,7 +20750,7 @@
 
 	"use strict";
 
-	var adler32 = __webpack_require__(180);
+	var adler32 = __webpack_require__(183);
 
 	var ReactMarkupChecksum = {
 	  CHECKSUM_ATTR_NAME: 'data-react-checksum',
@@ -19521,7 +20786,7 @@
 
 
 /***/ },
-/* 123 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19545,13 +20810,13 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(89);
+	var PooledClass = __webpack_require__(93);
 	var CallbackQueue = __webpack_require__(151);
-	var ReactPutListenerQueue = __webpack_require__(181);
+	var ReactPutListenerQueue = __webpack_require__(184);
 	var Transaction = __webpack_require__(152);
 
-	var emptyFunction = __webpack_require__(65);
-	var mixInto = __webpack_require__(85);
+	var emptyFunction = __webpack_require__(61);
+	var mixInto = __webpack_require__(103);
 
 	/**
 	 * Provides a `CallbackQueue` queue for collecting `onDOMReady` callbacks
@@ -19642,1160 +20907,14 @@
 
 
 /***/ },
-/* 124 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - test utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/*!
-	 * Module dependancies
-	 */
-
-	var flag = __webpack_require__(130);
-
-	/**
-	 * # test(object, expression)
-	 *
-	 * Test and object for expression.
-	 *
-	 * @param {Object} object (constructed Assertion)
-	 * @param {Arguments} chai.Assertion.prototype.assert arguments
-	 */
-
-	module.exports = function (obj, args) {
-	  var negate = flag(obj, 'negate')
-	    , expr = args[0];
-	  return negate ? !expr : expr;
-	};
-
-
-/***/ },
-/* 125 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - type utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/*!
-	 * Detectable javascript natives
-	 */
-
-	var natives = {
-	    '[object Arguments]': 'arguments'
-	  , '[object Array]': 'array'
-	  , '[object Date]': 'date'
-	  , '[object Function]': 'function'
-	  , '[object Number]': 'number'
-	  , '[object RegExp]': 'regexp'
-	  , '[object String]': 'string'
-	};
-
-	/**
-	 * ### type(object)
-	 *
-	 * Better implementation of `typeof` detection that can
-	 * be used cross-browser. Handles the inconsistencies of
-	 * Array, `null`, and `undefined` detection.
-	 *
-	 *     utils.type({}) // 'object'
-	 *     utils.type(null) // `null'
-	 *     utils.type(undefined) // `undefined`
-	 *     utils.type([]) // `array`
-	 *
-	 * @param {Mixed} object to detect type of
-	 * @name type
-	 * @api private
-	 */
-
-	module.exports = function (obj) {
-	  var str = Object.prototype.toString.call(obj);
-	  if (natives[str]) return natives[str];
-	  if (obj === null) return 'null';
-	  if (obj === undefined) return 'undefined';
-	  if (obj === Object(obj)) return 'object';
-	  return typeof obj;
-	};
-
-
-/***/ },
-/* 126 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - message composition utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/*!
-	 * Module dependancies
-	 */
-
-	var flag = __webpack_require__(130)
-	  , getActual = __webpack_require__(127)
-	  , inspect = __webpack_require__(128)
-	  , objDisplay = __webpack_require__(129);
-
-	/**
-	 * ### .getMessage(object, message, negateMessage)
-	 *
-	 * Construct the error message based on flags
-	 * and template tags. Template tags will return
-	 * a stringified inspection of the object referenced.
-	 *
-	 * Message template tags:
-	 * - `#{this}` current asserted object
-	 * - `#{act}` actual value
-	 * - `#{exp}` expected value
-	 *
-	 * @param {Object} object (constructed Assertion)
-	 * @param {Arguments} chai.Assertion.prototype.assert arguments
-	 * @name getMessage
-	 * @api public
-	 */
-
-	module.exports = function (obj, args) {
-	  var negate = flag(obj, 'negate')
-	    , val = flag(obj, 'object')
-	    , expected = args[3]
-	    , actual = getActual(obj, args)
-	    , msg = negate ? args[2] : args[1]
-	    , flagMsg = flag(obj, 'message');
-
-	  msg = msg || '';
-	  msg = msg
-	    .replace(/#{this}/g, objDisplay(val))
-	    .replace(/#{act}/g, objDisplay(actual))
-	    .replace(/#{exp}/g, objDisplay(expected));
-
-	  return flagMsg ? flagMsg + ': ' + msg : msg;
-	};
-
-
-/***/ },
-/* 127 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - getActual utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * # getActual(object, [actual])
-	 *
-	 * Returns the `actual` value for an Assertion
-	 *
-	 * @param {Object} object (constructed Assertion)
-	 * @param {Arguments} chai.Assertion.prototype.assert arguments
-	 */
-
-	module.exports = function (obj, args) {
-	  return args.length > 4 ? args[4] : obj._obj;
-	};
-
-
-/***/ },
-/* 128 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// This is (almost) directly from Node.js utils
-	// https://github.com/joyent/node/blob/f8c335d0caf47f16d31413f89aa28eda3878e3aa/lib/util.js
-
-	var getName = __webpack_require__(133);
-	var getProperties = __webpack_require__(183);
-	var getEnumerableProperties = __webpack_require__(184);
-
-	module.exports = inspect;
-
-	/**
-	 * Echos the value of a value. Trys to print the value out
-	 * in the best way possible given the different types.
-	 *
-	 * @param {Object} obj The object to print out.
-	 * @param {Boolean} showHidden Flag that shows hidden (not enumerable)
-	 *    properties of objects.
-	 * @param {Number} depth Depth in which to descend in object. Default is 2.
-	 * @param {Boolean} colors Flag to turn on ANSI escape codes to color the
-	 *    output. Default is false (no coloring).
-	 */
-	function inspect(obj, showHidden, depth, colors) {
-	  var ctx = {
-	    showHidden: showHidden,
-	    seen: [],
-	    stylize: function (str) { return str; }
-	  };
-	  return formatValue(ctx, obj, (typeof depth === 'undefined' ? 2 : depth));
-	}
-
-	// https://gist.github.com/1044128/
-	var getOuterHTML = function(element) {
-	  if ('outerHTML' in element) return element.outerHTML;
-	  var ns = "http://www.w3.org/1999/xhtml";
-	  var container = document.createElementNS(ns, '_');
-	  var elemProto = (window.HTMLElement || window.Element).prototype;
-	  var xmlSerializer = new XMLSerializer();
-	  var html;
-	  if (document.xmlVersion) {
-	    return xmlSerializer.serializeToString(element);
-	  } else {
-	    container.appendChild(element.cloneNode(false));
-	    html = container.innerHTML.replace('><', '>' + element.innerHTML + '<');
-	    container.innerHTML = '';
-	    return html;
-	  }
-	};
-
-	// Returns true if object is a DOM element.
-	var isDOMElement = function (object) {
-	  if (typeof HTMLElement === 'object') {
-	    return object instanceof HTMLElement;
-	  } else {
-	    return object &&
-	      typeof object === 'object' &&
-	      object.nodeType === 1 &&
-	      typeof object.nodeName === 'string';
-	  }
-	};
-
-	function formatValue(ctx, value, recurseTimes) {
-	  // Provide a hook for user-specified inspect functions.
-	  // Check that value is an object with an inspect function on it
-	  if (value && typeof value.inspect === 'function' &&
-	      // Filter out the util module, it's inspect function is special
-	      value.inspect !== exports.inspect &&
-	      // Also filter out any prototype objects using the circular check.
-	      !(value.constructor && value.constructor.prototype === value)) {
-	    var ret = value.inspect(recurseTimes);
-	    if (typeof ret !== 'string') {
-	      ret = formatValue(ctx, ret, recurseTimes);
-	    }
-	    return ret;
-	  }
-
-	  // Primitive types cannot have properties
-	  var primitive = formatPrimitive(ctx, value);
-	  if (primitive) {
-	    return primitive;
-	  }
-
-	  // If it's DOM elem, get outer HTML.
-	  if (isDOMElement(value)) {
-	    return getOuterHTML(value);
-	  }
-
-	  // Look up the keys of the object.
-	  var visibleKeys = getEnumerableProperties(value);
-	  var keys = ctx.showHidden ? getProperties(value) : visibleKeys;
-
-	  // Some type of object without properties can be shortcutted.
-	  // In IE, errors have a single `stack` property, or if they are vanilla `Error`,
-	  // a `stack` plus `description` property; ignore those for consistency.
-	  if (keys.length === 0 || (isError(value) && (
-	      (keys.length === 1 && keys[0] === 'stack') ||
-	      (keys.length === 2 && keys[0] === 'description' && keys[1] === 'stack')
-	     ))) {
-	    if (typeof value === 'function') {
-	      var name = getName(value);
-	      var nameSuffix = name ? ': ' + name : '';
-	      return ctx.stylize('[Function' + nameSuffix + ']', 'special');
-	    }
-	    if (isRegExp(value)) {
-	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-	    }
-	    if (isDate(value)) {
-	      return ctx.stylize(Date.prototype.toUTCString.call(value), 'date');
-	    }
-	    if (isError(value)) {
-	      return formatError(value);
-	    }
-	  }
-
-	  var base = '', array = false, braces = ['{', '}'];
-
-	  // Make Array say that they are Array
-	  if (isArray(value)) {
-	    array = true;
-	    braces = ['[', ']'];
-	  }
-
-	  // Make functions say that they are functions
-	  if (typeof value === 'function') {
-	    var name = getName(value);
-	    var nameSuffix = name ? ': ' + name : '';
-	    base = ' [Function' + nameSuffix + ']';
-	  }
-
-	  // Make RegExps say that they are RegExps
-	  if (isRegExp(value)) {
-	    base = ' ' + RegExp.prototype.toString.call(value);
-	  }
-
-	  // Make dates with properties first say the date
-	  if (isDate(value)) {
-	    base = ' ' + Date.prototype.toUTCString.call(value);
-	  }
-
-	  // Make error with message first say the error
-	  if (isError(value)) {
-	    return formatError(value);
-	  }
-
-	  if (keys.length === 0 && (!array || value.length == 0)) {
-	    return braces[0] + base + braces[1];
-	  }
-
-	  if (recurseTimes < 0) {
-	    if (isRegExp(value)) {
-	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-	    } else {
-	      return ctx.stylize('[Object]', 'special');
-	    }
-	  }
-
-	  ctx.seen.push(value);
-
-	  var output;
-	  if (array) {
-	    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
-	  } else {
-	    output = keys.map(function(key) {
-	      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
-	    });
-	  }
-
-	  ctx.seen.pop();
-
-	  return reduceToSingleString(output, base, braces);
-	}
-
-
-	function formatPrimitive(ctx, value) {
-	  switch (typeof value) {
-	    case 'undefined':
-	      return ctx.stylize('undefined', 'undefined');
-
-	    case 'string':
-	      var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
-	                                               .replace(/'/g, "\\'")
-	                                               .replace(/\\"/g, '"') + '\'';
-	      return ctx.stylize(simple, 'string');
-
-	    case 'number':
-	      return ctx.stylize('' + value, 'number');
-
-	    case 'boolean':
-	      return ctx.stylize('' + value, 'boolean');
-	  }
-	  // For some reason typeof null is "object", so special case here.
-	  if (value === null) {
-	    return ctx.stylize('null', 'null');
-	  }
-	}
-
-
-	function formatError(value) {
-	  return '[' + Error.prototype.toString.call(value) + ']';
-	}
-
-
-	function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
-	  var output = [];
-	  for (var i = 0, l = value.length; i < l; ++i) {
-	    if (Object.prototype.hasOwnProperty.call(value, String(i))) {
-	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-	          String(i), true));
-	    } else {
-	      output.push('');
-	    }
-	  }
-	  keys.forEach(function(key) {
-	    if (!key.match(/^\d+$/)) {
-	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-	          key, true));
-	    }
-	  });
-	  return output;
-	}
-
-
-	function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
-	  var name, str;
-	  if (value.__lookupGetter__) {
-	    if (value.__lookupGetter__(key)) {
-	      if (value.__lookupSetter__(key)) {
-	        str = ctx.stylize('[Getter/Setter]', 'special');
-	      } else {
-	        str = ctx.stylize('[Getter]', 'special');
-	      }
-	    } else {
-	      if (value.__lookupSetter__(key)) {
-	        str = ctx.stylize('[Setter]', 'special');
-	      }
-	    }
-	  }
-	  if (visibleKeys.indexOf(key) < 0) {
-	    name = '[' + key + ']';
-	  }
-	  if (!str) {
-	    if (ctx.seen.indexOf(value[key]) < 0) {
-	      if (recurseTimes === null) {
-	        str = formatValue(ctx, value[key], null);
-	      } else {
-	        str = formatValue(ctx, value[key], recurseTimes - 1);
-	      }
-	      if (str.indexOf('\n') > -1) {
-	        if (array) {
-	          str = str.split('\n').map(function(line) {
-	            return '  ' + line;
-	          }).join('\n').substr(2);
-	        } else {
-	          str = '\n' + str.split('\n').map(function(line) {
-	            return '   ' + line;
-	          }).join('\n');
-	        }
-	      }
-	    } else {
-	      str = ctx.stylize('[Circular]', 'special');
-	    }
-	  }
-	  if (typeof name === 'undefined') {
-	    if (array && key.match(/^\d+$/)) {
-	      return str;
-	    }
-	    name = JSON.stringify('' + key);
-	    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
-	      name = name.substr(1, name.length - 2);
-	      name = ctx.stylize(name, 'name');
-	    } else {
-	      name = name.replace(/'/g, "\\'")
-	                 .replace(/\\"/g, '"')
-	                 .replace(/(^"|"$)/g, "'");
-	      name = ctx.stylize(name, 'string');
-	    }
-	  }
-
-	  return name + ': ' + str;
-	}
-
-
-	function reduceToSingleString(output, base, braces) {
-	  var numLinesEst = 0;
-	  var length = output.reduce(function(prev, cur) {
-	    numLinesEst++;
-	    if (cur.indexOf('\n') >= 0) numLinesEst++;
-	    return prev + cur.length + 1;
-	  }, 0);
-
-	  if (length > 60) {
-	    return braces[0] +
-	           (base === '' ? '' : base + '\n ') +
-	           ' ' +
-	           output.join(',\n  ') +
-	           ' ' +
-	           braces[1];
-	  }
-
-	  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
-	}
-
-	function isArray(ar) {
-	  return Array.isArray(ar) ||
-	         (typeof ar === 'object' && objectToString(ar) === '[object Array]');
-	}
-
-	function isRegExp(re) {
-	  return typeof re === 'object' && objectToString(re) === '[object RegExp]';
-	}
-
-	function isDate(d) {
-	  return typeof d === 'object' && objectToString(d) === '[object Date]';
-	}
-
-	function isError(e) {
-	  return typeof e === 'object' && objectToString(e) === '[object Error]';
-	}
-
-	function objectToString(o) {
-	  return Object.prototype.toString.call(o);
-	}
-
-
-/***/ },
-/* 129 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - flag utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/*!
-	 * Module dependancies
-	 */
-
-	var inspect = __webpack_require__(128);
-	var config = __webpack_require__(46);
-
-	/**
-	 * ### .objDisplay (object)
-	 *
-	 * Determines if an object or an array matches
-	 * criteria to be inspected in-line for error
-	 * messages or should be truncated.
-	 *
-	 * @param {Mixed} javascript object to inspect
-	 * @name objDisplay
-	 * @api public
-	 */
-
-	module.exports = function (obj) {
-	  var str = inspect(obj)
-	    , type = Object.prototype.toString.call(obj);
-
-	  if (config.truncateThreshold && str.length >= config.truncateThreshold) {
-	    if (type === '[object Function]') {
-	      return !obj.name || obj.name === ''
-	        ? '[Function]'
-	        : '[Function: ' + obj.name + ']';
-	    } else if (type === '[object Array]') {
-	      return '[ Array(' + obj.length + ') ]';
-	    } else if (type === '[object Object]') {
-	      var keys = Object.keys(obj)
-	        , kstr = keys.length > 2
-	          ? keys.splice(0, 2).join(', ') + ', ...'
-	          : keys.join(', ');
-	      return '{ Object (' + kstr + ') }';
-	    } else {
-	      return str;
-	    }
-	  } else {
-	    return str;
-	  }
-	};
-
-
-/***/ },
-/* 130 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - flag utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * ### flag(object ,key, [value])
-	 *
-	 * Get or set a flag value on an object. If a
-	 * value is provided it will be set, else it will
-	 * return the currently set value or `undefined` if
-	 * the value is not set.
-	 *
-	 *     utils.flag(this, 'foo', 'bar'); // setter
-	 *     utils.flag(this, 'foo'); // getter, returns `bar`
-	 *
-	 * @param {Object} object (constructed Assertion
-	 * @param {String} key
-	 * @param {Mixed} value (optional)
-	 * @name flag
-	 * @api private
-	 */
-
-	module.exports = function (obj, key, value) {
-	  var flags = obj.__flags || (obj.__flags = Object.create(null));
-	  if (arguments.length === 3) {
-	    flags[key] = value;
-	  } else {
-	    return flags[key];
-	  }
-	};
-
-
-/***/ },
-/* 131 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - transferFlags utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * ### transferFlags(assertion, object, includeAll = true)
-	 *
-	 * Transfer all the flags for `assertion` to `object`. If
-	 * `includeAll` is set to `false`, then the base Chai
-	 * assertion flags (namely `object`, `ssfi`, and `message`)
-	 * will not be transferred.
-	 *
-	 *
-	 *     var newAssertion = new Assertion();
-	 *     utils.transferFlags(assertion, newAssertion);
-	 *
-	 *     var anotherAsseriton = new Assertion(myObj);
-	 *     utils.transferFlags(assertion, anotherAssertion, false);
-	 *
-	 * @param {Assertion} assertion the assertion to transfer the flags from
-	 * @param {Object} object the object to transfer the flags too; usually a new assertion
-	 * @param {Boolean} includeAll
-	 * @name getAllFlags
-	 * @api private
-	 */
-
-	module.exports = function (assertion, object, includeAll) {
-	  var flags = assertion.__flags || (assertion.__flags = Object.create(null));
-
-	  if (!object.__flags) {
-	    object.__flags = Object.create(null);
-	  }
-
-	  includeAll = arguments.length === 3 ? includeAll : true;
-
-	  for (var flag in flags) {
-	    if (includeAll ||
-	        (flag !== 'object' && flag !== 'ssfi' && flag != 'message')) {
-	      object.__flags[flag] = flags[flag];
-	    }
-	  }
-	};
-
-
-/***/ },
-/* 132 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - getPathValue utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * @see https://github.com/logicalparadox/filtr
-	 * MIT Licensed
-	 */
-
-	/**
-	 * ### .getPathValue(path, object)
-	 *
-	 * This allows the retrieval of values in an
-	 * object given a string path.
-	 *
-	 *     var obj = {
-	 *         prop1: {
-	 *             arr: ['a', 'b', 'c']
-	 *           , str: 'Hello'
-	 *         }
-	 *       , prop2: {
-	 *             arr: [ { nested: 'Universe' } ]
-	 *           , str: 'Hello again!'
-	 *         }
-	 *     }
-	 *
-	 * The following would be the results.
-	 *
-	 *     getPathValue('prop1.str', obj); // Hello
-	 *     getPathValue('prop1.att[2]', obj); // b
-	 *     getPathValue('prop2.arr[0].nested', obj); // Universe
-	 *
-	 * @param {String} path
-	 * @param {Object} object
-	 * @returns {Object} value or `undefined`
-	 * @name getPathValue
-	 * @api public
-	 */
-
-	var getPathValue = module.exports = function (path, obj) {
-	  var parsed = parsePath(path);
-	  return _getPathValue(parsed, obj);
-	};
-
-	/*!
-	 * ## parsePath(path)
-	 *
-	 * Helper function used to parse string object
-	 * paths. Use in conjunction with `_getPathValue`.
-	 *
-	 *      var parsed = parsePath('myobject.property.subprop');
-	 *
-	 * ### Paths:
-	 *
-	 * * Can be as near infinitely deep and nested
-	 * * Arrays are also valid using the formal `myobject.document[3].property`.
-	 *
-	 * @param {String} path
-	 * @returns {Object} parsed
-	 * @api private
-	 */
-
-	function parsePath (path) {
-	  var str = path.replace(/\[/g, '.[')
-	    , parts = str.match(/(\\\.|[^.]+?)+/g);
-	  return parts.map(function (value) {
-	    var re = /\[(\d+)\]$/
-	      , mArr = re.exec(value)
-	    if (mArr) return { i: parseFloat(mArr[1]) };
-	    else return { p: value };
-	  });
-	};
-
-	/*!
-	 * ## _getPathValue(parsed, obj)
-	 *
-	 * Helper companion function for `.parsePath` that returns
-	 * the value located at the parsed address.
-	 *
-	 *      var value = getPathValue(parsed, obj);
-	 *
-	 * @param {Object} parsed definition from `parsePath`.
-	 * @param {Object} object to search against
-	 * @returns {Object|Undefined} value
-	 * @api private
-	 */
-
-	function _getPathValue (parsed, obj) {
-	  var tmp = obj
-	    , res;
-	  for (var i = 0, l = parsed.length; i < l; i++) {
-	    var part = parsed[i];
-	    if (tmp) {
-	      if ('undefined' !== typeof part.p)
-	        tmp = tmp[part.p];
-	      else if ('undefined' !== typeof part.i)
-	        tmp = tmp[part.i];
-	      if (i == (l - 1)) res = tmp;
-	    } else {
-	      res = undefined;
-	    }
-	  }
-	  return res;
-	};
-
-
-/***/ },
-/* 133 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - getName utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * # getName(func)
-	 *
-	 * Gets the name of a function, in a cross-browser way.
-	 *
-	 * @param {Function} a function (usually a constructor)
-	 */
-
-	module.exports = function (func) {
-	  if (func.name) return func.name;
-
-	  var match = /^\s?function ([^(]*)\(/.exec(func);
-	  return match && match[1] ? match[1] : "";
-	};
-
-
-/***/ },
-/* 134 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - addProperty utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * ### addProperty (ctx, name, getter)
-	 *
-	 * Adds a property to the prototype of an object.
-	 *
-	 *     utils.addProperty(chai.Assertion.prototype, 'foo', function () {
-	 *       var obj = utils.flag(this, 'object');
-	 *       new chai.Assertion(obj).to.be.instanceof(Foo);
-	 *     });
-	 *
-	 * Can also be accessed directly from `chai.Assertion`.
-	 *
-	 *     chai.Assertion.addProperty('foo', fn);
-	 *
-	 * Then can be used as any other assertion.
-	 *
-	 *     expect(myFoo).to.be.foo;
-	 *
-	 * @param {Object} ctx object to which the property is added
-	 * @param {String} name of property to add
-	 * @param {Function} getter function to be used for name
-	 * @name addProperty
-	 * @api public
-	 */
-
-	module.exports = function (ctx, name, getter) {
-	  Object.defineProperty(ctx, name,
-	    { get: function () {
-	        var result = getter.call(this);
-	        return result === undefined ? this : result;
-	      }
-	    , configurable: true
-	  });
-	};
-
-
-/***/ },
-/* 135 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - addMethod utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	var config = __webpack_require__(46);
-
-	/**
-	 * ### .addMethod (ctx, name, method)
-	 *
-	 * Adds a method to the prototype of an object.
-	 *
-	 *     utils.addMethod(chai.Assertion.prototype, 'foo', function (str) {
-	 *       var obj = utils.flag(this, 'object');
-	 *       new chai.Assertion(obj).to.be.equal(str);
-	 *     });
-	 *
-	 * Can also be accessed directly from `chai.Assertion`.
-	 *
-	 *     chai.Assertion.addMethod('foo', fn);
-	 *
-	 * Then can be used as any other assertion.
-	 *
-	 *     expect(fooStr).to.be.foo('bar');
-	 *
-	 * @param {Object} ctx object to which the method is added
-	 * @param {String} name of method to add
-	 * @param {Function} method function to be used for name
-	 * @name addMethod
-	 * @api public
-	 */
-	var flag = __webpack_require__(130);
-
-	module.exports = function (ctx, name, method) {
-	  ctx[name] = function () {
-	    var old_ssfi = flag(this, 'ssfi');
-	    if (old_ssfi && config.includeStack === false)
-	      flag(this, 'ssfi', ctx[name]);
-	    var result = method.apply(this, arguments);
-	    return result === undefined ? this : result;
-	  };
-	};
-
-
-/***/ },
-/* 136 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - overwriteProperty utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * ### overwriteProperty (ctx, name, fn)
-	 *
-	 * Overwites an already existing property getter and provides
-	 * access to previous value. Must return function to use as getter.
-	 *
-	 *     utils.overwriteProperty(chai.Assertion.prototype, 'ok', function (_super) {
-	 *       return function () {
-	 *         var obj = utils.flag(this, 'object');
-	 *         if (obj instanceof Foo) {
-	 *           new chai.Assertion(obj.name).to.equal('bar');
-	 *         } else {
-	 *           _super.call(this);
-	 *         }
-	 *       }
-	 *     });
-	 *
-	 *
-	 * Can also be accessed directly from `chai.Assertion`.
-	 *
-	 *     chai.Assertion.overwriteProperty('foo', fn);
-	 *
-	 * Then can be used as any other assertion.
-	 *
-	 *     expect(myFoo).to.be.ok;
-	 *
-	 * @param {Object} ctx object whose property is to be overwritten
-	 * @param {String} name of property to overwrite
-	 * @param {Function} getter function that returns a getter function to be used for name
-	 * @name overwriteProperty
-	 * @api public
-	 */
-
-	module.exports = function (ctx, name, getter) {
-	  var _get = Object.getOwnPropertyDescriptor(ctx, name)
-	    , _super = function () {};
-
-	  if (_get && 'function' === typeof _get.get)
-	    _super = _get.get
-
-	  Object.defineProperty(ctx, name,
-	    { get: function () {
-	        var result = getter(_super).call(this);
-	        return result === undefined ? this : result;
-	      }
-	    , configurable: true
-	  });
-	};
-
-
-/***/ },
-/* 137 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - overwriteMethod utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * ### overwriteMethod (ctx, name, fn)
-	 *
-	 * Overwites an already existing method and provides
-	 * access to previous function. Must return function
-	 * to be used for name.
-	 *
-	 *     utils.overwriteMethod(chai.Assertion.prototype, 'equal', function (_super) {
-	 *       return function (str) {
-	 *         var obj = utils.flag(this, 'object');
-	 *         if (obj instanceof Foo) {
-	 *           new chai.Assertion(obj.value).to.equal(str);
-	 *         } else {
-	 *           _super.apply(this, arguments);
-	 *         }
-	 *       }
-	 *     });
-	 *
-	 * Can also be accessed directly from `chai.Assertion`.
-	 *
-	 *     chai.Assertion.overwriteMethod('foo', fn);
-	 *
-	 * Then can be used as any other assertion.
-	 *
-	 *     expect(myFoo).to.equal('bar');
-	 *
-	 * @param {Object} ctx object whose method is to be overwritten
-	 * @param {String} name of method to overwrite
-	 * @param {Function} method function that returns a function to be used for name
-	 * @name overwriteMethod
-	 * @api public
-	 */
-
-	module.exports = function (ctx, name, method) {
-	  var _method = ctx[name]
-	    , _super = function () { return this; };
-
-	  if (_method && 'function' === typeof _method)
-	    _super = _method;
-
-	  ctx[name] = function () {
-	    var result = method(_super).apply(this, arguments);
-	    return result === undefined ? this : result;
-	  }
-	};
-
-
-/***/ },
-/* 138 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - addChainingMethod utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/*!
-	 * Module dependencies
-	 */
-
-	var transferFlags = __webpack_require__(131);
-	var flag = __webpack_require__(130);
-	var config = __webpack_require__(46);
-
-	/*!
-	 * Module variables
-	 */
-
-	// Check whether `__proto__` is supported
-	var hasProtoSupport = '__proto__' in Object;
-
-	// Without `__proto__` support, this module will need to add properties to a function.
-	// However, some Function.prototype methods cannot be overwritten,
-	// and there seems no easy cross-platform way to detect them (@see chaijs/chai/issues/69).
-	var excludeNames = /^(?:length|name|arguments|caller)$/;
-
-	// Cache `Function` properties
-	var call  = Function.prototype.call,
-	    apply = Function.prototype.apply;
-
-	/**
-	 * ### addChainableMethod (ctx, name, method, chainingBehavior)
-	 *
-	 * Adds a method to an object, such that the method can also be chained.
-	 *
-	 *     utils.addChainableMethod(chai.Assertion.prototype, 'foo', function (str) {
-	 *       var obj = utils.flag(this, 'object');
-	 *       new chai.Assertion(obj).to.be.equal(str);
-	 *     });
-	 *
-	 * Can also be accessed directly from `chai.Assertion`.
-	 *
-	 *     chai.Assertion.addChainableMethod('foo', fn, chainingBehavior);
-	 *
-	 * The result can then be used as both a method assertion, executing both `method` and
-	 * `chainingBehavior`, or as a language chain, which only executes `chainingBehavior`.
-	 *
-	 *     expect(fooStr).to.be.foo('bar');
-	 *     expect(fooStr).to.be.foo.equal('foo');
-	 *
-	 * @param {Object} ctx object to which the method is added
-	 * @param {String} name of method to add
-	 * @param {Function} method function to be used for `name`, when called
-	 * @param {Function} chainingBehavior function to be called every time the property is accessed
-	 * @name addChainableMethod
-	 * @api public
-	 */
-
-	module.exports = function (ctx, name, method, chainingBehavior) {
-	  if (typeof chainingBehavior !== 'function') {
-	    chainingBehavior = function () { };
-	  }
-
-	  var chainableBehavior = {
-	      method: method
-	    , chainingBehavior: chainingBehavior
-	  };
-
-	  // save the methods so we can overwrite them later, if we need to.
-	  if (!ctx.__methods) {
-	    ctx.__methods = {};
-	  }
-	  ctx.__methods[name] = chainableBehavior;
-
-	  Object.defineProperty(ctx, name,
-	    { get: function () {
-	        chainableBehavior.chainingBehavior.call(this);
-
-	        var assert = function assert() {
-	          var old_ssfi = flag(this, 'ssfi');
-	          if (old_ssfi && config.includeStack === false)
-	            flag(this, 'ssfi', assert);
-	          var result = chainableBehavior.method.apply(this, arguments);
-	          return result === undefined ? this : result;
-	        };
-
-	        // Use `__proto__` if available
-	        if (hasProtoSupport) {
-	          // Inherit all properties from the object by replacing the `Function` prototype
-	          var prototype = assert.__proto__ = Object.create(this);
-	          // Restore the `call` and `apply` methods from `Function`
-	          prototype.call = call;
-	          prototype.apply = apply;
-	        }
-	        // Otherwise, redefine all properties (slow!)
-	        else {
-	          var asserterNames = Object.getOwnPropertyNames(ctx);
-	          asserterNames.forEach(function (asserterName) {
-	            if (!excludeNames.test(asserterName)) {
-	              var pd = Object.getOwnPropertyDescriptor(ctx, asserterName);
-	              Object.defineProperty(assert, asserterName, pd);
-	            }
-	          });
-	        }
-
-	        transferFlags(this, assert);
-	        return assert;
-	      }
-	    , configurable: true
-	  });
-	};
-
-
-/***/ },
-/* 139 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - overwriteChainableMethod utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * ### overwriteChainableMethod (ctx, name, fn)
-	 *
-	 * Overwites an already existing chainable method
-	 * and provides access to the previous function or
-	 * property.  Must return functions to be used for
-	 * name.
-	 *
-	 *     utils.overwriteChainableMethod(chai.Assertion.prototype, 'length',
-	 *       function (_super) {
-	 *       }
-	 *     , function (_super) {
-	 *       }
-	 *     );
-	 *
-	 * Can also be accessed directly from `chai.Assertion`.
-	 *
-	 *     chai.Assertion.overwriteChainableMethod('foo', fn, fn);
-	 *
-	 * Then can be used as any other assertion.
-	 *
-	 *     expect(myFoo).to.have.length(3);
-	 *     expect(myFoo).to.have.length.above(3);
-	 *
-	 * @param {Object} ctx object whose method / property is to be overwritten
-	 * @param {String} name of method / property to overwrite
-	 * @param {Function} method function that returns a function to be used for name
-	 * @param {Function} chainingBehavior function that returns a function to be used for property
-	 * @name overwriteChainableMethod
-	 * @api public
-	 */
-
-	module.exports = function (ctx, name, method, chainingBehavior) {
-	  var chainableBehavior = ctx.__methods[name];
-
-	  var _chainingBehavior = chainableBehavior.chainingBehavior;
-	  chainableBehavior.chainingBehavior = function () {
-	    var result = chainingBehavior(_chainingBehavior).call(this);
-	    return result === undefined ? this : result;
-	  };
-
-	  var _method = chainableBehavior.method;
-	  chainableBehavior.method = function () {
-	    var result = method(_method).apply(this, arguments);
-	    return result === undefined ? this : result;
-	  };
-	};
-
-
-/***/ },
 /* 140 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(185);
+
+
+/***/ },
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20817,7 +20936,7 @@
 	 * @typechecks
 	 */
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * The CSSCore module specifies the API (and implements most of the methods)
@@ -20914,10 +21033,10 @@
 
 	module.exports = CSSCore;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20940,7 +21059,7 @@
 
 	"use strict";
 
-	var ExecutionEnvironment = __webpack_require__(44);
+	var ExecutionEnvironment = __webpack_require__(52);
 
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a
@@ -21039,7 +21158,7 @@
 
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21089,7 +21208,7 @@
 
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21113,7 +21232,7 @@
 
 	"use strict";
 
-	var ExecutionEnvironment = __webpack_require__(44);
+	var ExecutionEnvironment = __webpack_require__(52);
 
 	var performance;
 
@@ -21128,7 +21247,7 @@
 
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21152,7 +21271,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * Injectable ordering of event plugins.
@@ -21415,10 +21534,10 @@
 
 	module.exports = EventPluginRegistry;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21441,7 +21560,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * Accumulates items that must not be null or undefined.
@@ -21476,10 +21595,10 @@
 
 	module.exports = accumulate;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21521,7 +21640,7 @@
 
 
 /***/ },
-/* 147 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21544,7 +21663,7 @@
 
 	"use strict";
 
-	var ExecutionEnvironment = __webpack_require__(44);
+	var ExecutionEnvironment = __webpack_require__(52);
 
 	var useHasFeature;
 	if (ExecutionEnvironment.canUseDOM) {
@@ -21597,7 +21716,7 @@
 
 
 /***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21658,7 +21777,7 @@
 
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21681,7 +21800,7 @@
 
 	"use strict";
 
-	var getUnboundedScrollPosition = __webpack_require__(170);
+	var getUnboundedScrollPosition = __webpack_require__(181);
 
 	var ViewportMetrics = {
 
@@ -21698,48 +21817,6 @@
 	};
 
 	module.exports = ViewportMetrics;
-
-
-/***/ },
-/* 150 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule getEventTarget
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	/**
-	 * Gets the target node from a native browser event by accounting for
-	 * inconsistencies in browser DOM APIs.
-	 *
-	 * @param {object} nativeEvent Native browser event.
-	 * @return {DOMEventTarget} Target node.
-	 */
-	function getEventTarget(nativeEvent) {
-	  var target = nativeEvent.target || nativeEvent.srcElement || window;
-	  // Safari may fire events on text nodes (Node.TEXT_NODE is 3).
-	  // @see http://www.quirksmode.org/js/events_properties.html
-	  return target.nodeType === 3 ? target.parentNode : target;
-	}
-
-	module.exports = getEventTarget;
 
 
 /***/ },
@@ -21766,10 +21843,10 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(89);
+	var PooledClass = __webpack_require__(93);
 
-	var invariant = __webpack_require__(63);
-	var mixInto = __webpack_require__(85);
+	var invariant = __webpack_require__(65);
+	var mixInto = __webpack_require__(103);
 
 	/**
 	 * A specialized pseudo-event module to help keep track of components waiting to
@@ -21850,7 +21927,7 @@
 
 	module.exports = CallbackQueue;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
 /* 152 */
@@ -21876,7 +21953,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	/**
 	 * `Transaction` creates a black box that is able to wrap any method such that
@@ -22101,10 +22178,124 @@
 
 	module.exports = Transaction;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
 /* 153 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule getEventTarget
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	/**
+	 * Gets the target node from a native browser event by accounting for
+	 * inconsistencies in browser DOM APIs.
+	 *
+	 * @param {object} nativeEvent Native browser event.
+	 * @return {DOMEventTarget} Target node.
+	 */
+	function getEventTarget(nativeEvent) {
+	  var target = nativeEvent.target || nativeEvent.srcElement || window;
+	  // Safari may fire events on text nodes (Node.TEXT_NODE is 3).
+	  // @see http://www.quirksmode.org/js/events_properties.html
+	  return target.nodeType === 3 ? target.parentNode : target;
+	}
+
+	module.exports = getEventTarget;
+
+
+/***/ },
+/* 154 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - getProperties utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * ### .getProperties(object)
+	 *
+	 * This allows the retrieval of property names of an object, enumerable or not,
+	 * inherited or not.
+	 *
+	 * @param {Object} object
+	 * @returns {Array}
+	 * @name getProperties
+	 * @api public
+	 */
+
+	module.exports = function getProperties(object) {
+	  var result = Object.getOwnPropertyNames(subject);
+
+	  function addProperty(property) {
+	    if (result.indexOf(property) === -1) {
+	      result.push(property);
+	    }
+	  }
+
+	  var proto = Object.getPrototypeOf(subject);
+	  while (proto !== null) {
+	    Object.getOwnPropertyNames(proto).forEach(addProperty);
+	    proto = Object.getPrototypeOf(proto);
+	  }
+
+	  return result;
+	};
+
+
+/***/ },
+/* 155 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * Chai - getEnumerableProperties utility
+	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
+	 * MIT Licensed
+	 */
+
+	/**
+	 * ### .getEnumerableProperties(object)
+	 *
+	 * This allows the retrieval of enumerable property names of an object,
+	 * inherited or not.
+	 *
+	 * @param {Object} object
+	 * @returns {Array}
+	 * @name getEnumerableProperties
+	 * @api public
+	 */
+
+	module.exports = function getEnumerableProperties(object) {
+	  var result = [];
+	  for (var name in object) {
+	    result.push(name);
+	  }
+	  return result;
+	};
+
+
+/***/ },
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22135,10 +22326,10 @@
 
 	module.exports = emptyObject;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 154 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22265,7 +22456,7 @@
 
 
 /***/ },
-/* 155 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22289,7 +22480,7 @@
 
 	"use strict";
 
-	var CSSProperty = __webpack_require__(154);
+	var CSSProperty = __webpack_require__(157);
 
 	var isUnitlessNumber = CSSProperty.isUnitlessNumber;
 
@@ -22334,7 +22525,7 @@
 
 
 /***/ },
-/* 156 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22358,7 +22549,7 @@
 
 	"use strict";
 
-	var hyphenate = __webpack_require__(185);
+	var hyphenate = __webpack_require__(186);
 
 	var msPattern = /^ms-/;
 
@@ -22386,7 +22577,7 @@
 
 
 /***/ },
-/* 157 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22444,7 +22635,7 @@
 
 
 /***/ },
-/* 158 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22499,7 +22690,7 @@
 
 
 /***/ },
-/* 159 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22522,11 +22713,11 @@
 
 	"use strict";
 
-	var ReactDOMSelection = __webpack_require__(186);
+	var ReactDOMSelection = __webpack_require__(187);
 
-	var containsNode = __webpack_require__(118);
-	var focusNode = __webpack_require__(187);
-	var getActiveElement = __webpack_require__(171);
+	var containsNode = __webpack_require__(134);
+	var focusNode = __webpack_require__(188);
+	var getActiveElement = __webpack_require__(172);
 
 	function isInDocument(node) {
 	  return containsNode(document.documentElement, node);
@@ -22646,7 +22837,7 @@
 
 
 /***/ },
-/* 160 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22703,7 +22894,7 @@
 
 
 /***/ },
-/* 161 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22726,7 +22917,7 @@
 
 	"use strict";
 
-	var ExecutionEnvironment = __webpack_require__(44);
+	var ExecutionEnvironment = __webpack_require__(52);
 
 	var contentKey = null;
 
@@ -22751,7 +22942,7 @@
 
 
 /***/ },
-/* 162 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22775,10 +22966,10 @@
 
 	"use strict";
 
-	var SyntheticUIEvent = __webpack_require__(177);
-	var ViewportMetrics = __webpack_require__(149);
+	var SyntheticUIEvent = __webpack_require__(178);
+	var ViewportMetrics = __webpack_require__(150);
 
-	var getEventModifierState = __webpack_require__(188);
+	var getEventModifierState = __webpack_require__(189);
 
 	/**
 	 * @interface MouseEvent
@@ -22845,7 +23036,7 @@
 
 
 /***/ },
-/* 163 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22871,14 +23062,14 @@
 
 	"use strict";
 
-	var CSSPropertyOperations = __webpack_require__(91);
-	var DOMChildrenOperations = __webpack_require__(189);
-	var DOMPropertyOperations = __webpack_require__(25);
-	var ReactMount = __webpack_require__(37);
-	var ReactPerf = __webpack_require__(39);
+	var CSSPropertyOperations = __webpack_require__(107);
+	var DOMChildrenOperations = __webpack_require__(190);
+	var DOMPropertyOperations = __webpack_require__(32);
+	var ReactMount = __webpack_require__(44);
+	var ReactPerf = __webpack_require__(46);
 
-	var invariant = __webpack_require__(63);
-	var setInnerHTML = __webpack_require__(165);
+	var invariant = __webpack_require__(65);
+	var setInnerHTML = __webpack_require__(168);
 
 	/**
 	 * Errors for properties that should not be updated with `updatePropertyById()`.
@@ -23038,10 +23229,10 @@
 
 	module.exports = ReactDOMIDOperations;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 164 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23066,13 +23257,13 @@
 	"use strict";
 
 	var CallbackQueue = __webpack_require__(151);
-	var PooledClass = __webpack_require__(89);
+	var PooledClass = __webpack_require__(93);
 	var ReactBrowserEventEmitter = __webpack_require__(72);
-	var ReactInputSelection = __webpack_require__(159);
-	var ReactPutListenerQueue = __webpack_require__(181);
+	var ReactInputSelection = __webpack_require__(162);
+	var ReactPutListenerQueue = __webpack_require__(184);
 	var Transaction = __webpack_require__(152);
 
-	var mixInto = __webpack_require__(85);
+	var mixInto = __webpack_require__(103);
 
 	/**
 	 * Ensures that, when possible, the selection range (currently selected text
@@ -23229,7 +23420,7 @@
 
 
 /***/ },
-/* 165 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23252,7 +23443,7 @@
 
 	"use strict";
 
-	var ExecutionEnvironment = __webpack_require__(44);
+	var ExecutionEnvironment = __webpack_require__(52);
 
 	/**
 	 * Set the innerHTML property of a node, ensuring that whitespace is preserved
@@ -23320,7 +23511,7 @@
 
 
 /***/ },
-/* 166 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23344,7 +23535,7 @@
 
 	"use strict";
 
-	var focusNode = __webpack_require__(187);
+	var focusNode = __webpack_require__(188);
 
 	var AutoFocusMixin = {
 	  componentDidMount: function() {
@@ -23358,7 +23549,7 @@
 
 
 /***/ },
-/* 167 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23383,9 +23574,9 @@
 
 	var ReactBrowserEventEmitter = __webpack_require__(72);
 
-	var accumulate = __webpack_require__(145);
-	var forEachAccumulated = __webpack_require__(146);
-	var invariant = __webpack_require__(63);
+	var accumulate = __webpack_require__(146);
+	var forEachAccumulated = __webpack_require__(147);
+	var invariant = __webpack_require__(65);
 
 	function remove(event) {
 	  event.remove();
@@ -23414,10 +23605,10 @@
 
 	module.exports = LocalEventTrapMixin;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 168 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23441,9 +23632,9 @@
 
 	"use strict";
 
-	var ReactPropTypes = __webpack_require__(40);
+	var ReactPropTypes = __webpack_require__(47);
 
-	var invariant = __webpack_require__(63);
+	var invariant = __webpack_require__(65);
 
 	var hasReadOnlyValue = {
 	  'button': true,
@@ -23580,10 +23771,504 @@
 
 	module.exports = LinkedValueUtils;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 169 */
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule getActiveElement
+	 * @typechecks
+	 */
+
+	/**
+	 * Same as document.activeElement but wraps in a try-catch block. In IE it is
+	 * not safe to call document.activeElement if there is nothing focused.
+	 *
+	 * The activeElement will be null only if the document body is not yet defined.
+	 */
+	function getActiveElement() /*?DOMElement*/ {
+	  try {
+	    return document.activeElement || document.body;
+	  } catch (e) {
+	    return document.body;
+	  }
+	}
+
+	module.exports = getActiveElement;
+
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule SyntheticClipboardEvent
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var SyntheticEvent = __webpack_require__(74);
+
+	/**
+	 * @interface Event
+	 * @see http://www.w3.org/TR/clipboard-apis/
+	 */
+	var ClipboardEventInterface = {
+	  clipboardData: function(event) {
+	    return (
+	      'clipboardData' in event ?
+	        event.clipboardData :
+	        window.clipboardData
+	    );
+	  }
+	};
+
+	/**
+	 * @param {object} dispatchConfig Configuration used to dispatch this event.
+	 * @param {string} dispatchMarker Marker identifying the event target.
+	 * @param {object} nativeEvent Native browser event.
+	 * @extends {SyntheticUIEvent}
+	 */
+	function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent) {
+	  SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
+	}
+
+	SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
+
+	module.exports = SyntheticClipboardEvent;
+
+
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule SyntheticFocusEvent
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var SyntheticUIEvent = __webpack_require__(178);
+
+	/**
+	 * @interface FocusEvent
+	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
+	 */
+	var FocusEventInterface = {
+	  relatedTarget: null
+	};
+
+	/**
+	 * @param {object} dispatchConfig Configuration used to dispatch this event.
+	 * @param {string} dispatchMarker Marker identifying the event target.
+	 * @param {object} nativeEvent Native browser event.
+	 * @extends {SyntheticUIEvent}
+	 */
+	function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent) {
+	  SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
+	}
+
+	SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
+
+	module.exports = SyntheticFocusEvent;
+
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule SyntheticKeyboardEvent
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var SyntheticUIEvent = __webpack_require__(178);
+
+	var getEventKey = __webpack_require__(191);
+	var getEventModifierState = __webpack_require__(189);
+
+	/**
+	 * @interface KeyboardEvent
+	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
+	 */
+	var KeyboardEventInterface = {
+	  key: getEventKey,
+	  location: null,
+	  ctrlKey: null,
+	  shiftKey: null,
+	  altKey: null,
+	  metaKey: null,
+	  repeat: null,
+	  locale: null,
+	  getModifierState: getEventModifierState,
+	  // Legacy Interface
+	  charCode: function(event) {
+	    // `charCode` is the result of a KeyPress event and represents the value of
+	    // the actual printable character.
+
+	    // KeyPress is deprecated but its replacement is not yet final and not
+	    // implemented in any major browser.
+	    if (event.type === 'keypress') {
+	      // IE8 does not implement "charCode", but "keyCode" has the correct value.
+	      return 'charCode' in event ? event.charCode : event.keyCode;
+	    }
+	    return 0;
+	  },
+	  keyCode: function(event) {
+	    // `keyCode` is the result of a KeyDown/Up event and represents the value of
+	    // physical keyboard key.
+
+	    // The actual meaning of the value depends on the users' keyboard layout
+	    // which cannot be detected. Assuming that it is a US keyboard layout
+	    // provides a surprisingly accurate mapping for US and European users.
+	    // Due to this, it is left to the user to implement at this time.
+	    if (event.type === 'keydown' || event.type === 'keyup') {
+	      return event.keyCode;
+	    }
+	    return 0;
+	  },
+	  which: function(event) {
+	    // `which` is an alias for either `keyCode` or `charCode` depending on the
+	    // type of the event. There is no need to determine the type of the event
+	    // as `keyCode` and `charCode` are either aliased or default to zero.
+	    return event.keyCode || event.charCode;
+	  }
+	};
+
+	/**
+	 * @param {object} dispatchConfig Configuration used to dispatch this event.
+	 * @param {string} dispatchMarker Marker identifying the event target.
+	 * @param {object} nativeEvent Native browser event.
+	 * @extends {SyntheticUIEvent}
+	 */
+	function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent) {
+	  SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
+	}
+
+	SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
+
+	module.exports = SyntheticKeyboardEvent;
+
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule SyntheticDragEvent
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var SyntheticMouseEvent = __webpack_require__(165);
+
+	/**
+	 * @interface DragEvent
+	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
+	 */
+	var DragEventInterface = {
+	  dataTransfer: null
+	};
+
+	/**
+	 * @param {object} dispatchConfig Configuration used to dispatch this event.
+	 * @param {string} dispatchMarker Marker identifying the event target.
+	 * @param {object} nativeEvent Native browser event.
+	 * @extends {SyntheticUIEvent}
+	 */
+	function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent) {
+	  SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
+	}
+
+	SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
+
+	module.exports = SyntheticDragEvent;
+
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule SyntheticTouchEvent
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var SyntheticUIEvent = __webpack_require__(178);
+
+	var getEventModifierState = __webpack_require__(189);
+
+	/**
+	 * @interface TouchEvent
+	 * @see http://www.w3.org/TR/touch-events/
+	 */
+	var TouchEventInterface = {
+	  touches: null,
+	  targetTouches: null,
+	  changedTouches: null,
+	  altKey: null,
+	  metaKey: null,
+	  ctrlKey: null,
+	  shiftKey: null,
+	  getModifierState: getEventModifierState
+	};
+
+	/**
+	 * @param {object} dispatchConfig Configuration used to dispatch this event.
+	 * @param {string} dispatchMarker Marker identifying the event target.
+	 * @param {object} nativeEvent Native browser event.
+	 * @extends {SyntheticUIEvent}
+	 */
+	function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent) {
+	  SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
+	}
+
+	SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
+
+	module.exports = SyntheticTouchEvent;
+
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule SyntheticUIEvent
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var SyntheticEvent = __webpack_require__(74);
+
+	var getEventTarget = __webpack_require__(153);
+
+	/**
+	 * @interface UIEvent
+	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
+	 */
+	var UIEventInterface = {
+	  view: function(event) {
+	    if (event.view) {
+	      return event.view;
+	    }
+
+	    var target = getEventTarget(event);
+	    if (target != null && target.window === target) {
+	      // target is a window object
+	      return target;
+	    }
+
+	    var doc = target.ownerDocument;
+	    // TODO: Figure out why `ownerDocument` is sometimes undefined in IE8.
+	    if (doc) {
+	      return doc.defaultView || doc.parentWindow;
+	    } else {
+	      return window;
+	    }
+	  },
+	  detail: function(event) {
+	    return event.detail || 0;
+	  }
+	};
+
+	/**
+	 * @param {object} dispatchConfig Configuration used to dispatch this event.
+	 * @param {string} dispatchMarker Marker identifying the event target.
+	 * @param {object} nativeEvent Native browser event.
+	 * @extends {SyntheticEvent}
+	 */
+	function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent) {
+	  SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
+	}
+
+	SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
+
+	module.exports = SyntheticUIEvent;
+
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule SyntheticWheelEvent
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var SyntheticMouseEvent = __webpack_require__(165);
+
+	/**
+	 * @interface WheelEvent
+	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
+	 */
+	var WheelEventInterface = {
+	  deltaX: function(event) {
+	    return (
+	      'deltaX' in event ? event.deltaX :
+	      // Fallback to `wheelDeltaX` for Webkit and normalize (right is positive).
+	      'wheelDeltaX' in event ? -event.wheelDeltaX : 0
+	    );
+	  },
+	  deltaY: function(event) {
+	    return (
+	      'deltaY' in event ? event.deltaY :
+	      // Fallback to `wheelDeltaY` for Webkit and normalize (down is positive).
+	      'wheelDeltaY' in event ? -event.wheelDeltaY :
+	      // Fallback to `wheelDelta` for IE<9 and normalize (down is positive).
+	      'wheelDelta' in event ? -event.wheelDelta : 0
+	    );
+	  },
+	  deltaZ: null,
+
+	  // Browsers without "deltaMode" is reporting in raw wheel delta where one
+	  // notch on the scroll is always +/- 120, roughly equivalent to pixels.
+	  // A good approximation of DOM_DELTA_LINE (1) is 5% of viewport size or
+	  // ~40 pixels, for DOM_DELTA_SCREEN (2) it is 87.5% of viewport size.
+	  deltaMode: null
+	};
+
+	/**
+	 * @param {object} dispatchConfig Configuration used to dispatch this event.
+	 * @param {string} dispatchMarker Marker identifying the event target.
+	 * @param {object} nativeEvent Native browser event.
+	 * @extends {SyntheticMouseEvent}
+	 */
+	function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent) {
+	  SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
+	}
+
+	SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
+
+	module.exports = SyntheticWheelEvent;
+
+
+/***/ },
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23591,7 +24276,7 @@
 	 * @typechecks
 	 */
 
-	var emptyFunction = __webpack_require__(65);
+	var emptyFunction = __webpack_require__(61);
 
 	/**
 	 * Upstream version of event listener. Does not take into account specific
@@ -23659,10 +24344,10 @@
 
 	module.exports = EventListener;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 170 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23713,501 +24398,7 @@
 
 
 /***/ },
-/* 171 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule getActiveElement
-	 * @typechecks
-	 */
-
-	/**
-	 * Same as document.activeElement but wraps in a try-catch block. In IE it is
-	 * not safe to call document.activeElement if there is nothing focused.
-	 *
-	 * The activeElement will be null only if the document body is not yet defined.
-	 */
-	function getActiveElement() /*?DOMElement*/ {
-	  try {
-	    return document.activeElement || document.body;
-	  } catch (e) {
-	    return document.body;
-	  }
-	}
-
-	module.exports = getActiveElement;
-
-
-/***/ },
-/* 172 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule SyntheticClipboardEvent
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var SyntheticEvent = __webpack_require__(74);
-
-	/**
-	 * @interface Event
-	 * @see http://www.w3.org/TR/clipboard-apis/
-	 */
-	var ClipboardEventInterface = {
-	  clipboardData: function(event) {
-	    return (
-	      'clipboardData' in event ?
-	        event.clipboardData :
-	        window.clipboardData
-	    );
-	  }
-	};
-
-	/**
-	 * @param {object} dispatchConfig Configuration used to dispatch this event.
-	 * @param {string} dispatchMarker Marker identifying the event target.
-	 * @param {object} nativeEvent Native browser event.
-	 * @extends {SyntheticUIEvent}
-	 */
-	function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent) {
-	  SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
-	}
-
-	SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
-
-	module.exports = SyntheticClipboardEvent;
-
-
-
-/***/ },
-/* 173 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule SyntheticFocusEvent
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var SyntheticUIEvent = __webpack_require__(177);
-
-	/**
-	 * @interface FocusEvent
-	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
-	 */
-	var FocusEventInterface = {
-	  relatedTarget: null
-	};
-
-	/**
-	 * @param {object} dispatchConfig Configuration used to dispatch this event.
-	 * @param {string} dispatchMarker Marker identifying the event target.
-	 * @param {object} nativeEvent Native browser event.
-	 * @extends {SyntheticUIEvent}
-	 */
-	function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent) {
-	  SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
-	}
-
-	SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
-
-	module.exports = SyntheticFocusEvent;
-
-
-/***/ },
-/* 174 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule SyntheticKeyboardEvent
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var SyntheticUIEvent = __webpack_require__(177);
-
-	var getEventKey = __webpack_require__(190);
-	var getEventModifierState = __webpack_require__(188);
-
-	/**
-	 * @interface KeyboardEvent
-	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
-	 */
-	var KeyboardEventInterface = {
-	  key: getEventKey,
-	  location: null,
-	  ctrlKey: null,
-	  shiftKey: null,
-	  altKey: null,
-	  metaKey: null,
-	  repeat: null,
-	  locale: null,
-	  getModifierState: getEventModifierState,
-	  // Legacy Interface
-	  charCode: function(event) {
-	    // `charCode` is the result of a KeyPress event and represents the value of
-	    // the actual printable character.
-
-	    // KeyPress is deprecated but its replacement is not yet final and not
-	    // implemented in any major browser.
-	    if (event.type === 'keypress') {
-	      // IE8 does not implement "charCode", but "keyCode" has the correct value.
-	      return 'charCode' in event ? event.charCode : event.keyCode;
-	    }
-	    return 0;
-	  },
-	  keyCode: function(event) {
-	    // `keyCode` is the result of a KeyDown/Up event and represents the value of
-	    // physical keyboard key.
-
-	    // The actual meaning of the value depends on the users' keyboard layout
-	    // which cannot be detected. Assuming that it is a US keyboard layout
-	    // provides a surprisingly accurate mapping for US and European users.
-	    // Due to this, it is left to the user to implement at this time.
-	    if (event.type === 'keydown' || event.type === 'keyup') {
-	      return event.keyCode;
-	    }
-	    return 0;
-	  },
-	  which: function(event) {
-	    // `which` is an alias for either `keyCode` or `charCode` depending on the
-	    // type of the event. There is no need to determine the type of the event
-	    // as `keyCode` and `charCode` are either aliased or default to zero.
-	    return event.keyCode || event.charCode;
-	  }
-	};
-
-	/**
-	 * @param {object} dispatchConfig Configuration used to dispatch this event.
-	 * @param {string} dispatchMarker Marker identifying the event target.
-	 * @param {object} nativeEvent Native browser event.
-	 * @extends {SyntheticUIEvent}
-	 */
-	function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent) {
-	  SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
-	}
-
-	SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
-
-	module.exports = SyntheticKeyboardEvent;
-
-
-/***/ },
-/* 175 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule SyntheticDragEvent
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var SyntheticMouseEvent = __webpack_require__(162);
-
-	/**
-	 * @interface DragEvent
-	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
-	 */
-	var DragEventInterface = {
-	  dataTransfer: null
-	};
-
-	/**
-	 * @param {object} dispatchConfig Configuration used to dispatch this event.
-	 * @param {string} dispatchMarker Marker identifying the event target.
-	 * @param {object} nativeEvent Native browser event.
-	 * @extends {SyntheticUIEvent}
-	 */
-	function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent) {
-	  SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
-	}
-
-	SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
-
-	module.exports = SyntheticDragEvent;
-
-
-/***/ },
-/* 176 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule SyntheticTouchEvent
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var SyntheticUIEvent = __webpack_require__(177);
-
-	var getEventModifierState = __webpack_require__(188);
-
-	/**
-	 * @interface TouchEvent
-	 * @see http://www.w3.org/TR/touch-events/
-	 */
-	var TouchEventInterface = {
-	  touches: null,
-	  targetTouches: null,
-	  changedTouches: null,
-	  altKey: null,
-	  metaKey: null,
-	  ctrlKey: null,
-	  shiftKey: null,
-	  getModifierState: getEventModifierState
-	};
-
-	/**
-	 * @param {object} dispatchConfig Configuration used to dispatch this event.
-	 * @param {string} dispatchMarker Marker identifying the event target.
-	 * @param {object} nativeEvent Native browser event.
-	 * @extends {SyntheticUIEvent}
-	 */
-	function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent) {
-	  SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
-	}
-
-	SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
-
-	module.exports = SyntheticTouchEvent;
-
-
-/***/ },
-/* 177 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule SyntheticUIEvent
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var SyntheticEvent = __webpack_require__(74);
-
-	var getEventTarget = __webpack_require__(150);
-
-	/**
-	 * @interface UIEvent
-	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
-	 */
-	var UIEventInterface = {
-	  view: function(event) {
-	    if (event.view) {
-	      return event.view;
-	    }
-
-	    var target = getEventTarget(event);
-	    if (target != null && target.window === target) {
-	      // target is a window object
-	      return target;
-	    }
-
-	    var doc = target.ownerDocument;
-	    // TODO: Figure out why `ownerDocument` is sometimes undefined in IE8.
-	    if (doc) {
-	      return doc.defaultView || doc.parentWindow;
-	    } else {
-	      return window;
-	    }
-	  },
-	  detail: function(event) {
-	    return event.detail || 0;
-	  }
-	};
-
-	/**
-	 * @param {object} dispatchConfig Configuration used to dispatch this event.
-	 * @param {string} dispatchMarker Marker identifying the event target.
-	 * @param {object} nativeEvent Native browser event.
-	 * @extends {SyntheticEvent}
-	 */
-	function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent) {
-	  SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
-	}
-
-	SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
-
-	module.exports = SyntheticUIEvent;
-
-
-/***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule SyntheticWheelEvent
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var SyntheticMouseEvent = __webpack_require__(162);
-
-	/**
-	 * @interface WheelEvent
-	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
-	 */
-	var WheelEventInterface = {
-	  deltaX: function(event) {
-	    return (
-	      'deltaX' in event ? event.deltaX :
-	      // Fallback to `wheelDeltaX` for Webkit and normalize (right is positive).
-	      'wheelDeltaX' in event ? -event.wheelDeltaX : 0
-	    );
-	  },
-	  deltaY: function(event) {
-	    return (
-	      'deltaY' in event ? event.deltaY :
-	      // Fallback to `wheelDeltaY` for Webkit and normalize (down is positive).
-	      'wheelDeltaY' in event ? -event.wheelDeltaY :
-	      // Fallback to `wheelDelta` for IE<9 and normalize (down is positive).
-	      'wheelDelta' in event ? -event.wheelDelta : 0
-	    );
-	  },
-	  deltaZ: null,
-
-	  // Browsers without "deltaMode" is reporting in raw wheel delta where one
-	  // notch on the scroll is always +/- 120, roughly equivalent to pixels.
-	  // A good approximation of DOM_DELTA_LINE (1) is 5% of viewport size or
-	  // ~40 pixels, for DOM_DELTA_SCREEN (2) it is 87.5% of viewport size.
-	  deltaMode: null
-	};
-
-	/**
-	 * @param {object} dispatchConfig Configuration used to dispatch this event.
-	 * @param {string} dispatchMarker Marker identifying the event target.
-	 * @param {object} nativeEvent Native browser event.
-	 * @extends {SyntheticMouseEvent}
-	 */
-	function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent) {
-	  SyntheticMouseEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
-	}
-
-	SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
-
-	module.exports = SyntheticWheelEvent;
-
-
-/***/ },
-/* 179 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24229,7 +24420,7 @@
 	 * @typechecks
 	 */
 
-	var isNode = __webpack_require__(191);
+	var isNode = __webpack_require__(192);
 
 	/**
 	 * @param {*} object The object to check.
@@ -24243,7 +24434,7 @@
 
 
 /***/ },
-/* 180 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24288,7 +24479,7 @@
 
 
 /***/ },
-/* 181 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24311,10 +24502,10 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(89);
+	var PooledClass = __webpack_require__(93);
 	var ReactBrowserEventEmitter = __webpack_require__(72);
 
-	var mixInto = __webpack_require__(85);
+	var mixInto = __webpack_require__(103);
 
 	function ReactPutListenerQueue() {
 	  this.listenersToPut = [];
@@ -24355,793 +24546,7 @@
 
 
 /***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(192);
-
-
-/***/ },
-/* 183 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - getProperties utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * ### .getProperties(object)
-	 *
-	 * This allows the retrieval of property names of an object, enumerable or not,
-	 * inherited or not.
-	 *
-	 * @param {Object} object
-	 * @returns {Array}
-	 * @name getProperties
-	 * @api public
-	 */
-
-	module.exports = function getProperties(object) {
-	  var result = Object.getOwnPropertyNames(subject);
-
-	  function addProperty(property) {
-	    if (result.indexOf(property) === -1) {
-	      result.push(property);
-	    }
-	  }
-
-	  var proto = Object.getPrototypeOf(subject);
-	  while (proto !== null) {
-	    Object.getOwnPropertyNames(proto).forEach(addProperty);
-	    proto = Object.getPrototypeOf(proto);
-	  }
-
-	  return result;
-	};
-
-
-/***/ },
-/* 184 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*!
-	 * Chai - getEnumerableProperties utility
-	 * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>
-	 * MIT Licensed
-	 */
-
-	/**
-	 * ### .getEnumerableProperties(object)
-	 *
-	 * This allows the retrieval of enumerable property names of an object,
-	 * inherited or not.
-	 *
-	 * @param {Object} object
-	 * @returns {Array}
-	 * @name getEnumerableProperties
-	 * @api public
-	 */
-
-	module.exports = function getEnumerableProperties(object) {
-	  var result = [];
-	  for (var name in object) {
-	    result.push(name);
-	  }
-	  return result;
-	};
-
-
-/***/ },
 /* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule hyphenate
-	 * @typechecks
-	 */
-
-	var _uppercasePattern = /([A-Z])/g;
-
-	/**
-	 * Hyphenates a camelcased string, for example:
-	 *
-	 *   > hyphenate('backgroundColor')
-	 *   < "background-color"
-	 *
-	 * For CSS style names, use `hyphenateStyleName` instead which works properly
-	 * with all vendor prefixes, including `ms`.
-	 *
-	 * @param {string} string
-	 * @return {string}
-	 */
-	function hyphenate(string) {
-	  return string.replace(_uppercasePattern, '-$1').toLowerCase();
-	}
-
-	module.exports = hyphenate;
-
-
-/***/ },
-/* 186 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule ReactDOMSelection
-	 */
-
-	"use strict";
-
-	var ExecutionEnvironment = __webpack_require__(44);
-
-	var getNodeForCharacterOffset = __webpack_require__(193);
-	var getTextContentAccessor = __webpack_require__(161);
-
-	/**
-	 * While `isCollapsed` is available on the Selection object and `collapsed`
-	 * is available on the Range object, IE11 sometimes gets them wrong.
-	 * If the anchor/focus nodes and offsets are the same, the range is collapsed.
-	 */
-	function isCollapsed(anchorNode, anchorOffset, focusNode, focusOffset) {
-	  return anchorNode === focusNode && anchorOffset === focusOffset;
-	}
-
-	/**
-	 * Get the appropriate anchor and focus node/offset pairs for IE.
-	 *
-	 * The catch here is that IE's selection API doesn't provide information
-	 * about whether the selection is forward or backward, so we have to
-	 * behave as though it's always forward.
-	 *
-	 * IE text differs from modern selection in that it behaves as though
-	 * block elements end with a new line. This means character offsets will
-	 * differ between the two APIs.
-	 *
-	 * @param {DOMElement} node
-	 * @return {object}
-	 */
-	function getIEOffsets(node) {
-	  var selection = document.selection;
-	  var selectedRange = selection.createRange();
-	  var selectedLength = selectedRange.text.length;
-
-	  // Duplicate selection so we can move range without breaking user selection.
-	  var fromStart = selectedRange.duplicate();
-	  fromStart.moveToElementText(node);
-	  fromStart.setEndPoint('EndToStart', selectedRange);
-
-	  var startOffset = fromStart.text.length;
-	  var endOffset = startOffset + selectedLength;
-
-	  return {
-	    start: startOffset,
-	    end: endOffset
-	  };
-	}
-
-	/**
-	 * @param {DOMElement} node
-	 * @return {?object}
-	 */
-	function getModernOffsets(node) {
-	  var selection = window.getSelection();
-
-	  if (selection.rangeCount === 0) {
-	    return null;
-	  }
-
-	  var anchorNode = selection.anchorNode;
-	  var anchorOffset = selection.anchorOffset;
-	  var focusNode = selection.focusNode;
-	  var focusOffset = selection.focusOffset;
-
-	  var currentRange = selection.getRangeAt(0);
-
-	  // If the node and offset values are the same, the selection is collapsed.
-	  // `Selection.isCollapsed` is available natively, but IE sometimes gets
-	  // this value wrong.
-	  var isSelectionCollapsed = isCollapsed(
-	    selection.anchorNode,
-	    selection.anchorOffset,
-	    selection.focusNode,
-	    selection.focusOffset
-	  );
-
-	  var rangeLength = isSelectionCollapsed ? 0 : currentRange.toString().length;
-
-	  var tempRange = currentRange.cloneRange();
-	  tempRange.selectNodeContents(node);
-	  tempRange.setEnd(currentRange.startContainer, currentRange.startOffset);
-
-	  var isTempRangeCollapsed = isCollapsed(
-	    tempRange.startContainer,
-	    tempRange.startOffset,
-	    tempRange.endContainer,
-	    tempRange.endOffset
-	  );
-
-	  var start = isTempRangeCollapsed ? 0 : tempRange.toString().length;
-	  var end = start + rangeLength;
-
-	  // Detect whether the selection is backward.
-	  var detectionRange = document.createRange();
-	  detectionRange.setStart(anchorNode, anchorOffset);
-	  detectionRange.setEnd(focusNode, focusOffset);
-	  var isBackward = detectionRange.collapsed;
-	  detectionRange.detach();
-
-	  return {
-	    start: isBackward ? end : start,
-	    end: isBackward ? start : end
-	  };
-	}
-
-	/**
-	 * @param {DOMElement|DOMTextNode} node
-	 * @param {object} offsets
-	 */
-	function setIEOffsets(node, offsets) {
-	  var range = document.selection.createRange().duplicate();
-	  var start, end;
-
-	  if (typeof offsets.end === 'undefined') {
-	    start = offsets.start;
-	    end = start;
-	  } else if (offsets.start > offsets.end) {
-	    start = offsets.end;
-	    end = offsets.start;
-	  } else {
-	    start = offsets.start;
-	    end = offsets.end;
-	  }
-
-	  range.moveToElementText(node);
-	  range.moveStart('character', start);
-	  range.setEndPoint('EndToStart', range);
-	  range.moveEnd('character', end - start);
-	  range.select();
-	}
-
-	/**
-	 * In modern non-IE browsers, we can support both forward and backward
-	 * selections.
-	 *
-	 * Note: IE10+ supports the Selection object, but it does not support
-	 * the `extend` method, which means that even in modern IE, it's not possible
-	 * to programatically create a backward selection. Thus, for all IE
-	 * versions, we use the old IE API to create our selections.
-	 *
-	 * @param {DOMElement|DOMTextNode} node
-	 * @param {object} offsets
-	 */
-	function setModernOffsets(node, offsets) {
-	  var selection = window.getSelection();
-
-	  var length = node[getTextContentAccessor()].length;
-	  var start = Math.min(offsets.start, length);
-	  var end = typeof offsets.end === 'undefined' ?
-	            start : Math.min(offsets.end, length);
-
-	  // IE 11 uses modern selection, but doesn't support the extend method.
-	  // Flip backward selections, so we can set with a single range.
-	  if (!selection.extend && start > end) {
-	    var temp = end;
-	    end = start;
-	    start = temp;
-	  }
-
-	  var startMarker = getNodeForCharacterOffset(node, start);
-	  var endMarker = getNodeForCharacterOffset(node, end);
-
-	  if (startMarker && endMarker) {
-	    var range = document.createRange();
-	    range.setStart(startMarker.node, startMarker.offset);
-	    selection.removeAllRanges();
-
-	    if (start > end) {
-	      selection.addRange(range);
-	      selection.extend(endMarker.node, endMarker.offset);
-	    } else {
-	      range.setEnd(endMarker.node, endMarker.offset);
-	      selection.addRange(range);
-	    }
-
-	    range.detach();
-	  }
-	}
-
-	var useIEOffsets = ExecutionEnvironment.canUseDOM && document.selection;
-
-	var ReactDOMSelection = {
-	  /**
-	   * @param {DOMElement} node
-	   */
-	  getOffsets: useIEOffsets ? getIEOffsets : getModernOffsets,
-
-	  /**
-	   * @param {DOMElement|DOMTextNode} node
-	   * @param {object} offsets
-	   */
-	  setOffsets: useIEOffsets ? setIEOffsets : setModernOffsets
-	};
-
-	module.exports = ReactDOMSelection;
-
-
-/***/ },
-/* 187 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule focusNode
-	 */
-
-	"use strict";
-
-	/**
-	 * IE8 throws if an input/textarea is disabled and we try to focus it.
-	 * Focus only when necessary.
-	 *
-	 * @param {DOMElement} node input/textarea to focus
-	 */
-	function focusNode(node) {
-	  if (!node.disabled) {
-	    node.focus();
-	  }
-	}
-
-	module.exports = focusNode;
-
-
-/***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule getEventModifierState
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	/**
-	 * Translation from modifier key to the associated property in the event.
-	 * @see http://www.w3.org/TR/DOM-Level-3-Events/#keys-Modifiers
-	 */
-
-	var modifierKeyToProp = {
-	  'Alt': 'altKey',
-	  'Control': 'ctrlKey',
-	  'Meta': 'metaKey',
-	  'Shift': 'shiftKey'
-	};
-
-	// IE8 does not implement getModifierState so we simply map it to the only
-	// modifier keys exposed by the event itself, does not support Lock-keys.
-	// Currently, all major browsers except Chrome seems to support Lock-keys.
-	function modifierStateGetter(keyArg) {
-	  /*jshint validthis:true */
-	  var syntheticEvent = this;
-	  var nativeEvent = syntheticEvent.nativeEvent;
-	  if (nativeEvent.getModifierState) {
-	    return nativeEvent.getModifierState(keyArg);
-	  }
-	  var keyProp = modifierKeyToProp[keyArg];
-	  return keyProp ? !!nativeEvent[keyProp] : false;
-	}
-
-	function getEventModifierState(nativeEvent) {
-	  return modifierStateGetter;
-	}
-
-	module.exports = getEventModifierState;
-
-
-/***/ },
-/* 189 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule DOMChildrenOperations
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var Danger = __webpack_require__(194);
-	var ReactMultiChildUpdateTypes = __webpack_require__(120);
-
-	var getTextContentAccessor = __webpack_require__(161);
-	var invariant = __webpack_require__(63);
-
-	/**
-	 * The DOM property to use when setting text content.
-	 *
-	 * @type {string}
-	 * @private
-	 */
-	var textContentAccessor = getTextContentAccessor();
-
-	/**
-	 * Inserts `childNode` as a child of `parentNode` at the `index`.
-	 *
-	 * @param {DOMElement} parentNode Parent node in which to insert.
-	 * @param {DOMElement} childNode Child node to insert.
-	 * @param {number} index Index at which to insert the child.
-	 * @internal
-	 */
-	function insertChildAt(parentNode, childNode, index) {
-	  // By exploiting arrays returning `undefined` for an undefined index, we can
-	  // rely exclusively on `insertBefore(node, null)` instead of also using
-	  // `appendChild(node)`. However, using `undefined` is not allowed by all
-	  // browsers so we must replace it with `null`.
-	  parentNode.insertBefore(
-	    childNode,
-	    parentNode.childNodes[index] || null
-	  );
-	}
-
-	var updateTextContent;
-	if (textContentAccessor === 'textContent') {
-	  /**
-	   * Sets the text content of `node` to `text`.
-	   *
-	   * @param {DOMElement} node Node to change
-	   * @param {string} text New text content
-	   */
-	  updateTextContent = function(node, text) {
-	    node.textContent = text;
-	  };
-	} else {
-	  /**
-	   * Sets the text content of `node` to `text`.
-	   *
-	   * @param {DOMElement} node Node to change
-	   * @param {string} text New text content
-	   */
-	  updateTextContent = function(node, text) {
-	    // In order to preserve newlines correctly, we can't use .innerText to set
-	    // the contents (see #1080), so we empty the element then append a text node
-	    while (node.firstChild) {
-	      node.removeChild(node.firstChild);
-	    }
-	    if (text) {
-	      var doc = node.ownerDocument || document;
-	      node.appendChild(doc.createTextNode(text));
-	    }
-	  };
-	}
-
-	/**
-	 * Operations for updating with DOM children.
-	 */
-	var DOMChildrenOperations = {
-
-	  dangerouslyReplaceNodeWithMarkup: Danger.dangerouslyReplaceNodeWithMarkup,
-
-	  updateTextContent: updateTextContent,
-
-	  /**
-	   * Updates a component's children by processing a series of updates. The
-	   * update configurations are each expected to have a `parentNode` property.
-	   *
-	   * @param {array<object>} updates List of update configurations.
-	   * @param {array<string>} markupList List of markup strings.
-	   * @internal
-	   */
-	  processUpdates: function(updates, markupList) {
-	    var update;
-	    // Mapping from parent IDs to initial child orderings.
-	    var initialChildren = null;
-	    // List of children that will be moved or removed.
-	    var updatedChildren = null;
-
-	    for (var i = 0; update = updates[i]; i++) {
-	      if (update.type === ReactMultiChildUpdateTypes.MOVE_EXISTING ||
-	          update.type === ReactMultiChildUpdateTypes.REMOVE_NODE) {
-	        var updatedIndex = update.fromIndex;
-	        var updatedChild = update.parentNode.childNodes[updatedIndex];
-	        var parentID = update.parentID;
-
-	        ("production" !== process.env.NODE_ENV ? invariant(
-	          updatedChild,
-	          'processUpdates(): Unable to find child %s of element. This ' +
-	          'probably means the DOM was unexpectedly mutated (e.g., by the ' +
-	          'browser), usually due to forgetting a <tbody> when using tables, ' +
-	          'nesting <p> or <a> tags, or using non-SVG elements in an <svg> '+
-	          'parent. Try inspecting the child nodes of the element with React ' +
-	          'ID `%s`.',
-	          updatedIndex,
-	          parentID
-	        ) : invariant(updatedChild));
-
-	        initialChildren = initialChildren || {};
-	        initialChildren[parentID] = initialChildren[parentID] || [];
-	        initialChildren[parentID][updatedIndex] = updatedChild;
-
-	        updatedChildren = updatedChildren || [];
-	        updatedChildren.push(updatedChild);
-	      }
-	    }
-
-	    var renderedMarkup = Danger.dangerouslyRenderMarkup(markupList);
-
-	    // Remove updated children first so that `toIndex` is consistent.
-	    if (updatedChildren) {
-	      for (var j = 0; j < updatedChildren.length; j++) {
-	        updatedChildren[j].parentNode.removeChild(updatedChildren[j]);
-	      }
-	    }
-
-	    for (var k = 0; update = updates[k]; k++) {
-	      switch (update.type) {
-	        case ReactMultiChildUpdateTypes.INSERT_MARKUP:
-	          insertChildAt(
-	            update.parentNode,
-	            renderedMarkup[update.markupIndex],
-	            update.toIndex
-	          );
-	          break;
-	        case ReactMultiChildUpdateTypes.MOVE_EXISTING:
-	          insertChildAt(
-	            update.parentNode,
-	            initialChildren[update.parentID][update.fromIndex],
-	            update.toIndex
-	          );
-	          break;
-	        case ReactMultiChildUpdateTypes.TEXT_CONTENT:
-	          updateTextContent(
-	            update.parentNode,
-	            update.textContent
-	          );
-	          break;
-	        case ReactMultiChildUpdateTypes.REMOVE_NODE:
-	          // Already removed by the for-loop above.
-	          break;
-	      }
-	    }
-	  }
-
-	};
-
-	module.exports = DOMChildrenOperations;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 190 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule getEventKey
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var invariant = __webpack_require__(63);
-
-	/**
-	 * Normalization of deprecated HTML5 `key` values
-	 * @see https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#Key_names
-	 */
-	var normalizeKey = {
-	  'Esc': 'Escape',
-	  'Spacebar': ' ',
-	  'Left': 'ArrowLeft',
-	  'Up': 'ArrowUp',
-	  'Right': 'ArrowRight',
-	  'Down': 'ArrowDown',
-	  'Del': 'Delete',
-	  'Win': 'OS',
-	  'Menu': 'ContextMenu',
-	  'Apps': 'ContextMenu',
-	  'Scroll': 'ScrollLock',
-	  'MozPrintableKey': 'Unidentified'
-	};
-
-	/**
-	 * Translation from legacy `which`/`keyCode` to HTML5 `key`
-	 * Only special keys supported, all others depend on keyboard layout or browser
-	 * @see https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#Key_names
-	 */
-	var translateToKey = {
-	  8: 'Backspace',
-	  9: 'Tab',
-	  12: 'Clear',
-	  13: 'Enter',
-	  16: 'Shift',
-	  17: 'Control',
-	  18: 'Alt',
-	  19: 'Pause',
-	  20: 'CapsLock',
-	  27: 'Escape',
-	  32: ' ',
-	  33: 'PageUp',
-	  34: 'PageDown',
-	  35: 'End',
-	  36: 'Home',
-	  37: 'ArrowLeft',
-	  38: 'ArrowUp',
-	  39: 'ArrowRight',
-	  40: 'ArrowDown',
-	  45: 'Insert',
-	  46: 'Delete',
-	  112: 'F1', 113: 'F2', 114: 'F3', 115: 'F4', 116: 'F5', 117: 'F6',
-	  118: 'F7', 119: 'F8', 120: 'F9', 121: 'F10', 122: 'F11', 123: 'F12',
-	  144: 'NumLock',
-	  145: 'ScrollLock',
-	  224: 'Meta'
-	};
-
-	/**
-	 * @param {object} nativeEvent Native browser event.
-	 * @return {string} Normalized `key` property.
-	 */
-	function getEventKey(nativeEvent) {
-	  if (nativeEvent.key) {
-	    // Normalize inconsistent values reported by browsers due to
-	    // implementations of a working draft specification.
-
-	    // FireFox implements `key` but returns `MozPrintableKey` for all
-	    // printable characters (normalized to `Unidentified`), ignore it.
-	    var key = normalizeKey[nativeEvent.key] || nativeEvent.key;
-	    if (key !== 'Unidentified') {
-	      return key;
-	    }
-	  }
-
-	  // Browser does not implement `key`, polyfill as much of it as we can.
-	  if (nativeEvent.type === 'keypress') {
-	    // Create the character from the `charCode` ourselves and use as an almost
-	    // perfect replacement.
-	    var charCode = 'charCode' in nativeEvent ?
-	      nativeEvent.charCode :
-	      nativeEvent.keyCode;
-
-	    // The enter-key is technically both printable and non-printable and can
-	    // thus be captured by `keypress`, no other non-printable key should.
-	    return charCode === 13 ? 'Enter' : String.fromCharCode(charCode);
-	  }
-	  if (nativeEvent.type === 'keydown' || nativeEvent.type === 'keyup') {
-	    // While user keyboard layout determines the actual meaning of each
-	    // `keyCode` value, almost all function keys have a universal value.
-	    return translateToKey[nativeEvent.keyCode] || 'Unidentified';
-	  }
-
-	  ("production" !== process.env.NODE_ENV ? invariant(false, "Unexpected keyboard event type: %s", nativeEvent.type) : invariant(false));
-	}
-
-	module.exports = getEventKey;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 191 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule isNode
-	 * @typechecks
-	 */
-
-	/**
-	 * @param {*} object The object to check.
-	 * @return {boolean} Whether or not the object is a DOM node.
-	 */
-	function isNode(object) {
-	  return !!(object && (
-	    typeof Node === 'function' ? object instanceof Node :
-	      typeof object === 'object' &&
-	      typeof object.nodeType === 'number' &&
-	      typeof object.nodeName === 'string'
-	  ));
-	}
-
-	module.exports = isNode;
-
-
-/***/ },
-/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -25154,14 +24559,14 @@
 	 * Module dependencies
 	 */
 
-	var type = __webpack_require__(198);
+	var type = __webpack_require__(195);
 
 	/*!
 	 * Buffer.isBuffer browser shim
 	 */
 
 	var Buffer;
-	try { Buffer = __webpack_require__(197).Buffer; }
+	try { Buffer = __webpack_require__(196).Buffer; }
 	catch(ex) {
 	  Buffer = {};
 	  Buffer.isBuffer = function() { return false; }
@@ -25404,6 +24809,713 @@
 
 
 /***/ },
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule hyphenate
+	 * @typechecks
+	 */
+
+	var _uppercasePattern = /([A-Z])/g;
+
+	/**
+	 * Hyphenates a camelcased string, for example:
+	 *
+	 *   > hyphenate('backgroundColor')
+	 *   < "background-color"
+	 *
+	 * For CSS style names, use `hyphenateStyleName` instead which works properly
+	 * with all vendor prefixes, including `ms`.
+	 *
+	 * @param {string} string
+	 * @return {string}
+	 */
+	function hyphenate(string) {
+	  return string.replace(_uppercasePattern, '-$1').toLowerCase();
+	}
+
+	module.exports = hyphenate;
+
+
+/***/ },
+/* 187 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule ReactDOMSelection
+	 */
+
+	"use strict";
+
+	var ExecutionEnvironment = __webpack_require__(52);
+
+	var getNodeForCharacterOffset = __webpack_require__(193);
+	var getTextContentAccessor = __webpack_require__(164);
+
+	/**
+	 * While `isCollapsed` is available on the Selection object and `collapsed`
+	 * is available on the Range object, IE11 sometimes gets them wrong.
+	 * If the anchor/focus nodes and offsets are the same, the range is collapsed.
+	 */
+	function isCollapsed(anchorNode, anchorOffset, focusNode, focusOffset) {
+	  return anchorNode === focusNode && anchorOffset === focusOffset;
+	}
+
+	/**
+	 * Get the appropriate anchor and focus node/offset pairs for IE.
+	 *
+	 * The catch here is that IE's selection API doesn't provide information
+	 * about whether the selection is forward or backward, so we have to
+	 * behave as though it's always forward.
+	 *
+	 * IE text differs from modern selection in that it behaves as though
+	 * block elements end with a new line. This means character offsets will
+	 * differ between the two APIs.
+	 *
+	 * @param {DOMElement} node
+	 * @return {object}
+	 */
+	function getIEOffsets(node) {
+	  var selection = document.selection;
+	  var selectedRange = selection.createRange();
+	  var selectedLength = selectedRange.text.length;
+
+	  // Duplicate selection so we can move range without breaking user selection.
+	  var fromStart = selectedRange.duplicate();
+	  fromStart.moveToElementText(node);
+	  fromStart.setEndPoint('EndToStart', selectedRange);
+
+	  var startOffset = fromStart.text.length;
+	  var endOffset = startOffset + selectedLength;
+
+	  return {
+	    start: startOffset,
+	    end: endOffset
+	  };
+	}
+
+	/**
+	 * @param {DOMElement} node
+	 * @return {?object}
+	 */
+	function getModernOffsets(node) {
+	  var selection = window.getSelection();
+
+	  if (selection.rangeCount === 0) {
+	    return null;
+	  }
+
+	  var anchorNode = selection.anchorNode;
+	  var anchorOffset = selection.anchorOffset;
+	  var focusNode = selection.focusNode;
+	  var focusOffset = selection.focusOffset;
+
+	  var currentRange = selection.getRangeAt(0);
+
+	  // If the node and offset values are the same, the selection is collapsed.
+	  // `Selection.isCollapsed` is available natively, but IE sometimes gets
+	  // this value wrong.
+	  var isSelectionCollapsed = isCollapsed(
+	    selection.anchorNode,
+	    selection.anchorOffset,
+	    selection.focusNode,
+	    selection.focusOffset
+	  );
+
+	  var rangeLength = isSelectionCollapsed ? 0 : currentRange.toString().length;
+
+	  var tempRange = currentRange.cloneRange();
+	  tempRange.selectNodeContents(node);
+	  tempRange.setEnd(currentRange.startContainer, currentRange.startOffset);
+
+	  var isTempRangeCollapsed = isCollapsed(
+	    tempRange.startContainer,
+	    tempRange.startOffset,
+	    tempRange.endContainer,
+	    tempRange.endOffset
+	  );
+
+	  var start = isTempRangeCollapsed ? 0 : tempRange.toString().length;
+	  var end = start + rangeLength;
+
+	  // Detect whether the selection is backward.
+	  var detectionRange = document.createRange();
+	  detectionRange.setStart(anchorNode, anchorOffset);
+	  detectionRange.setEnd(focusNode, focusOffset);
+	  var isBackward = detectionRange.collapsed;
+	  detectionRange.detach();
+
+	  return {
+	    start: isBackward ? end : start,
+	    end: isBackward ? start : end
+	  };
+	}
+
+	/**
+	 * @param {DOMElement|DOMTextNode} node
+	 * @param {object} offsets
+	 */
+	function setIEOffsets(node, offsets) {
+	  var range = document.selection.createRange().duplicate();
+	  var start, end;
+
+	  if (typeof offsets.end === 'undefined') {
+	    start = offsets.start;
+	    end = start;
+	  } else if (offsets.start > offsets.end) {
+	    start = offsets.end;
+	    end = offsets.start;
+	  } else {
+	    start = offsets.start;
+	    end = offsets.end;
+	  }
+
+	  range.moveToElementText(node);
+	  range.moveStart('character', start);
+	  range.setEndPoint('EndToStart', range);
+	  range.moveEnd('character', end - start);
+	  range.select();
+	}
+
+	/**
+	 * In modern non-IE browsers, we can support both forward and backward
+	 * selections.
+	 *
+	 * Note: IE10+ supports the Selection object, but it does not support
+	 * the `extend` method, which means that even in modern IE, it's not possible
+	 * to programatically create a backward selection. Thus, for all IE
+	 * versions, we use the old IE API to create our selections.
+	 *
+	 * @param {DOMElement|DOMTextNode} node
+	 * @param {object} offsets
+	 */
+	function setModernOffsets(node, offsets) {
+	  var selection = window.getSelection();
+
+	  var length = node[getTextContentAccessor()].length;
+	  var start = Math.min(offsets.start, length);
+	  var end = typeof offsets.end === 'undefined' ?
+	            start : Math.min(offsets.end, length);
+
+	  // IE 11 uses modern selection, but doesn't support the extend method.
+	  // Flip backward selections, so we can set with a single range.
+	  if (!selection.extend && start > end) {
+	    var temp = end;
+	    end = start;
+	    start = temp;
+	  }
+
+	  var startMarker = getNodeForCharacterOffset(node, start);
+	  var endMarker = getNodeForCharacterOffset(node, end);
+
+	  if (startMarker && endMarker) {
+	    var range = document.createRange();
+	    range.setStart(startMarker.node, startMarker.offset);
+	    selection.removeAllRanges();
+
+	    if (start > end) {
+	      selection.addRange(range);
+	      selection.extend(endMarker.node, endMarker.offset);
+	    } else {
+	      range.setEnd(endMarker.node, endMarker.offset);
+	      selection.addRange(range);
+	    }
+
+	    range.detach();
+	  }
+	}
+
+	var useIEOffsets = ExecutionEnvironment.canUseDOM && document.selection;
+
+	var ReactDOMSelection = {
+	  /**
+	   * @param {DOMElement} node
+	   */
+	  getOffsets: useIEOffsets ? getIEOffsets : getModernOffsets,
+
+	  /**
+	   * @param {DOMElement|DOMTextNode} node
+	   * @param {object} offsets
+	   */
+	  setOffsets: useIEOffsets ? setIEOffsets : setModernOffsets
+	};
+
+	module.exports = ReactDOMSelection;
+
+
+/***/ },
+/* 188 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule focusNode
+	 */
+
+	"use strict";
+
+	/**
+	 * IE8 throws if an input/textarea is disabled and we try to focus it.
+	 * Focus only when necessary.
+	 *
+	 * @param {DOMElement} node input/textarea to focus
+	 */
+	function focusNode(node) {
+	  if (!node.disabled) {
+	    node.focus();
+	  }
+	}
+
+	module.exports = focusNode;
+
+
+/***/ },
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule getEventModifierState
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	/**
+	 * Translation from modifier key to the associated property in the event.
+	 * @see http://www.w3.org/TR/DOM-Level-3-Events/#keys-Modifiers
+	 */
+
+	var modifierKeyToProp = {
+	  'Alt': 'altKey',
+	  'Control': 'ctrlKey',
+	  'Meta': 'metaKey',
+	  'Shift': 'shiftKey'
+	};
+
+	// IE8 does not implement getModifierState so we simply map it to the only
+	// modifier keys exposed by the event itself, does not support Lock-keys.
+	// Currently, all major browsers except Chrome seems to support Lock-keys.
+	function modifierStateGetter(keyArg) {
+	  /*jshint validthis:true */
+	  var syntheticEvent = this;
+	  var nativeEvent = syntheticEvent.nativeEvent;
+	  if (nativeEvent.getModifierState) {
+	    return nativeEvent.getModifierState(keyArg);
+	  }
+	  var keyProp = modifierKeyToProp[keyArg];
+	  return keyProp ? !!nativeEvent[keyProp] : false;
+	}
+
+	function getEventModifierState(nativeEvent) {
+	  return modifierStateGetter;
+	}
+
+	module.exports = getEventModifierState;
+
+
+/***/ },
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule DOMChildrenOperations
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var Danger = __webpack_require__(194);
+	var ReactMultiChildUpdateTypes = __webpack_require__(136);
+
+	var getTextContentAccessor = __webpack_require__(164);
+	var invariant = __webpack_require__(65);
+
+	/**
+	 * The DOM property to use when setting text content.
+	 *
+	 * @type {string}
+	 * @private
+	 */
+	var textContentAccessor = getTextContentAccessor();
+
+	/**
+	 * Inserts `childNode` as a child of `parentNode` at the `index`.
+	 *
+	 * @param {DOMElement} parentNode Parent node in which to insert.
+	 * @param {DOMElement} childNode Child node to insert.
+	 * @param {number} index Index at which to insert the child.
+	 * @internal
+	 */
+	function insertChildAt(parentNode, childNode, index) {
+	  // By exploiting arrays returning `undefined` for an undefined index, we can
+	  // rely exclusively on `insertBefore(node, null)` instead of also using
+	  // `appendChild(node)`. However, using `undefined` is not allowed by all
+	  // browsers so we must replace it with `null`.
+	  parentNode.insertBefore(
+	    childNode,
+	    parentNode.childNodes[index] || null
+	  );
+	}
+
+	var updateTextContent;
+	if (textContentAccessor === 'textContent') {
+	  /**
+	   * Sets the text content of `node` to `text`.
+	   *
+	   * @param {DOMElement} node Node to change
+	   * @param {string} text New text content
+	   */
+	  updateTextContent = function(node, text) {
+	    node.textContent = text;
+	  };
+	} else {
+	  /**
+	   * Sets the text content of `node` to `text`.
+	   *
+	   * @param {DOMElement} node Node to change
+	   * @param {string} text New text content
+	   */
+	  updateTextContent = function(node, text) {
+	    // In order to preserve newlines correctly, we can't use .innerText to set
+	    // the contents (see #1080), so we empty the element then append a text node
+	    while (node.firstChild) {
+	      node.removeChild(node.firstChild);
+	    }
+	    if (text) {
+	      var doc = node.ownerDocument || document;
+	      node.appendChild(doc.createTextNode(text));
+	    }
+	  };
+	}
+
+	/**
+	 * Operations for updating with DOM children.
+	 */
+	var DOMChildrenOperations = {
+
+	  dangerouslyReplaceNodeWithMarkup: Danger.dangerouslyReplaceNodeWithMarkup,
+
+	  updateTextContent: updateTextContent,
+
+	  /**
+	   * Updates a component's children by processing a series of updates. The
+	   * update configurations are each expected to have a `parentNode` property.
+	   *
+	   * @param {array<object>} updates List of update configurations.
+	   * @param {array<string>} markupList List of markup strings.
+	   * @internal
+	   */
+	  processUpdates: function(updates, markupList) {
+	    var update;
+	    // Mapping from parent IDs to initial child orderings.
+	    var initialChildren = null;
+	    // List of children that will be moved or removed.
+	    var updatedChildren = null;
+
+	    for (var i = 0; update = updates[i]; i++) {
+	      if (update.type === ReactMultiChildUpdateTypes.MOVE_EXISTING ||
+	          update.type === ReactMultiChildUpdateTypes.REMOVE_NODE) {
+	        var updatedIndex = update.fromIndex;
+	        var updatedChild = update.parentNode.childNodes[updatedIndex];
+	        var parentID = update.parentID;
+
+	        ("production" !== process.env.NODE_ENV ? invariant(
+	          updatedChild,
+	          'processUpdates(): Unable to find child %s of element. This ' +
+	          'probably means the DOM was unexpectedly mutated (e.g., by the ' +
+	          'browser), usually due to forgetting a <tbody> when using tables, ' +
+	          'nesting <p> or <a> tags, or using non-SVG elements in an <svg> '+
+	          'parent. Try inspecting the child nodes of the element with React ' +
+	          'ID `%s`.',
+	          updatedIndex,
+	          parentID
+	        ) : invariant(updatedChild));
+
+	        initialChildren = initialChildren || {};
+	        initialChildren[parentID] = initialChildren[parentID] || [];
+	        initialChildren[parentID][updatedIndex] = updatedChild;
+
+	        updatedChildren = updatedChildren || [];
+	        updatedChildren.push(updatedChild);
+	      }
+	    }
+
+	    var renderedMarkup = Danger.dangerouslyRenderMarkup(markupList);
+
+	    // Remove updated children first so that `toIndex` is consistent.
+	    if (updatedChildren) {
+	      for (var j = 0; j < updatedChildren.length; j++) {
+	        updatedChildren[j].parentNode.removeChild(updatedChildren[j]);
+	      }
+	    }
+
+	    for (var k = 0; update = updates[k]; k++) {
+	      switch (update.type) {
+	        case ReactMultiChildUpdateTypes.INSERT_MARKUP:
+	          insertChildAt(
+	            update.parentNode,
+	            renderedMarkup[update.markupIndex],
+	            update.toIndex
+	          );
+	          break;
+	        case ReactMultiChildUpdateTypes.MOVE_EXISTING:
+	          insertChildAt(
+	            update.parentNode,
+	            initialChildren[update.parentID][update.fromIndex],
+	            update.toIndex
+	          );
+	          break;
+	        case ReactMultiChildUpdateTypes.TEXT_CONTENT:
+	          updateTextContent(
+	            update.parentNode,
+	            update.textContent
+	          );
+	          break;
+	        case ReactMultiChildUpdateTypes.REMOVE_NODE:
+	          // Already removed by the for-loop above.
+	          break;
+	      }
+	    }
+	  }
+
+	};
+
+	module.exports = DOMChildrenOperations;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
+
+/***/ },
+/* 191 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule getEventKey
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var invariant = __webpack_require__(65);
+
+	/**
+	 * Normalization of deprecated HTML5 `key` values
+	 * @see https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#Key_names
+	 */
+	var normalizeKey = {
+	  'Esc': 'Escape',
+	  'Spacebar': ' ',
+	  'Left': 'ArrowLeft',
+	  'Up': 'ArrowUp',
+	  'Right': 'ArrowRight',
+	  'Down': 'ArrowDown',
+	  'Del': 'Delete',
+	  'Win': 'OS',
+	  'Menu': 'ContextMenu',
+	  'Apps': 'ContextMenu',
+	  'Scroll': 'ScrollLock',
+	  'MozPrintableKey': 'Unidentified'
+	};
+
+	/**
+	 * Translation from legacy `which`/`keyCode` to HTML5 `key`
+	 * Only special keys supported, all others depend on keyboard layout or browser
+	 * @see https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#Key_names
+	 */
+	var translateToKey = {
+	  8: 'Backspace',
+	  9: 'Tab',
+	  12: 'Clear',
+	  13: 'Enter',
+	  16: 'Shift',
+	  17: 'Control',
+	  18: 'Alt',
+	  19: 'Pause',
+	  20: 'CapsLock',
+	  27: 'Escape',
+	  32: ' ',
+	  33: 'PageUp',
+	  34: 'PageDown',
+	  35: 'End',
+	  36: 'Home',
+	  37: 'ArrowLeft',
+	  38: 'ArrowUp',
+	  39: 'ArrowRight',
+	  40: 'ArrowDown',
+	  45: 'Insert',
+	  46: 'Delete',
+	  112: 'F1', 113: 'F2', 114: 'F3', 115: 'F4', 116: 'F5', 117: 'F6',
+	  118: 'F7', 119: 'F8', 120: 'F9', 121: 'F10', 122: 'F11', 123: 'F12',
+	  144: 'NumLock',
+	  145: 'ScrollLock',
+	  224: 'Meta'
+	};
+
+	/**
+	 * @param {object} nativeEvent Native browser event.
+	 * @return {string} Normalized `key` property.
+	 */
+	function getEventKey(nativeEvent) {
+	  if (nativeEvent.key) {
+	    // Normalize inconsistent values reported by browsers due to
+	    // implementations of a working draft specification.
+
+	    // FireFox implements `key` but returns `MozPrintableKey` for all
+	    // printable characters (normalized to `Unidentified`), ignore it.
+	    var key = normalizeKey[nativeEvent.key] || nativeEvent.key;
+	    if (key !== 'Unidentified') {
+	      return key;
+	    }
+	  }
+
+	  // Browser does not implement `key`, polyfill as much of it as we can.
+	  if (nativeEvent.type === 'keypress') {
+	    // Create the character from the `charCode` ourselves and use as an almost
+	    // perfect replacement.
+	    var charCode = 'charCode' in nativeEvent ?
+	      nativeEvent.charCode :
+	      nativeEvent.keyCode;
+
+	    // The enter-key is technically both printable and non-printable and can
+	    // thus be captured by `keypress`, no other non-printable key should.
+	    return charCode === 13 ? 'Enter' : String.fromCharCode(charCode);
+	  }
+	  if (nativeEvent.type === 'keydown' || nativeEvent.type === 'keyup') {
+	    // While user keyboard layout determines the actual meaning of each
+	    // `keyCode` value, almost all function keys have a universal value.
+	    return translateToKey[nativeEvent.keyCode] || 'Unidentified';
+	  }
+
+	  ("production" !== process.env.NODE_ENV ? invariant(false, "Unexpected keyboard event type: %s", nativeEvent.type) : invariant(false));
+	}
+
+	module.exports = getEventKey;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
+
+/***/ },
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule isNode
+	 * @typechecks
+	 */
+
+	/**
+	 * @param {*} object The object to check.
+	 * @return {boolean} Whether or not the object is a DOM node.
+	 */
+	function isNode(object) {
+	  return !!(object && (
+	    typeof Node === 'function' ? object instanceof Node :
+	      typeof object === 'object' &&
+	      typeof object.nodeType === 'number' &&
+	      typeof object.nodeName === 'string'
+	  ));
+	}
+
+	module.exports = isNode;
+
+
+/***/ },
 /* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -25516,12 +25628,12 @@
 
 	"use strict";
 
-	var ExecutionEnvironment = __webpack_require__(44);
+	var ExecutionEnvironment = __webpack_require__(52);
 
-	var createNodesFromMarkup = __webpack_require__(195);
-	var emptyFunction = __webpack_require__(65);
-	var getMarkupWrap = __webpack_require__(196);
-	var invariant = __webpack_require__(63);
+	var createNodesFromMarkup = __webpack_require__(197);
+	var emptyFunction = __webpack_require__(61);
+	var getMarkupWrap = __webpack_require__(198);
+	var invariant = __webpack_require__(65);
 
 	var OPEN_TAG_NAME_EXP = /^(<[^ \/>]+)/;
 	var RESULT_INDEX_ATTR = 'data-danger-index';
@@ -25681,237 +25793,17 @@
 
 	module.exports = Danger;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
 /* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule createNodesFromMarkup
-	 * @typechecks
-	 */
+	module.exports = __webpack_require__(199);
 
-	/*jslint evil: true, sub: true */
-
-	var ExecutionEnvironment = __webpack_require__(44);
-
-	var createArrayFrom = __webpack_require__(199);
-	var getMarkupWrap = __webpack_require__(196);
-	var invariant = __webpack_require__(63);
-
-	/**
-	 * Dummy container used to render all markup.
-	 */
-	var dummyNode =
-	  ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
-
-	/**
-	 * Pattern used by `getNodeName`.
-	 */
-	var nodeNamePattern = /^\s*<(\w+)/;
-
-	/**
-	 * Extracts the `nodeName` of the first element in a string of markup.
-	 *
-	 * @param {string} markup String of markup.
-	 * @return {?string} Node name of the supplied markup.
-	 */
-	function getNodeName(markup) {
-	  var nodeNameMatch = markup.match(nodeNamePattern);
-	  return nodeNameMatch && nodeNameMatch[1].toLowerCase();
-	}
-
-	/**
-	 * Creates an array containing the nodes rendered from the supplied markup. The
-	 * optionally supplied `handleScript` function will be invoked once for each
-	 * <script> element that is rendered. If no `handleScript` function is supplied,
-	 * an exception is thrown if any <script> elements are rendered.
-	 *
-	 * @param {string} markup A string of valid HTML markup.
-	 * @param {?function} handleScript Invoked once for each rendered <script>.
-	 * @return {array<DOMElement|DOMTextNode>} An array of rendered nodes.
-	 */
-	function createNodesFromMarkup(markup, handleScript) {
-	  var node = dummyNode;
-	  ("production" !== process.env.NODE_ENV ? invariant(!!dummyNode, 'createNodesFromMarkup dummy not initialized') : invariant(!!dummyNode));
-	  var nodeName = getNodeName(markup);
-
-	  var wrap = nodeName && getMarkupWrap(nodeName);
-	  if (wrap) {
-	    node.innerHTML = wrap[1] + markup + wrap[2];
-
-	    var wrapDepth = wrap[0];
-	    while (wrapDepth--) {
-	      node = node.lastChild;
-	    }
-	  } else {
-	    node.innerHTML = markup;
-	  }
-
-	  var scripts = node.getElementsByTagName('script');
-	  if (scripts.length) {
-	    ("production" !== process.env.NODE_ENV ? invariant(
-	      handleScript,
-	      'createNodesFromMarkup(...): Unexpected <script> element rendered.'
-	    ) : invariant(handleScript));
-	    createArrayFrom(scripts).forEach(handleScript);
-	  }
-
-	  var nodes = createArrayFrom(node.childNodes);
-	  while (node.lastChild) {
-	    node.removeChild(node.lastChild);
-	  }
-	  return nodes;
-	}
-
-	module.exports = createNodesFromMarkup;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
 
 /***/ },
 /* 196 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule getMarkupWrap
-	 */
-
-	var ExecutionEnvironment = __webpack_require__(44);
-
-	var invariant = __webpack_require__(63);
-
-	/**
-	 * Dummy container used to detect which wraps are necessary.
-	 */
-	var dummyNode =
-	  ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
-
-	/**
-	 * Some browsers cannot use `innerHTML` to render certain elements standalone,
-	 * so we wrap them, render the wrapped nodes, then extract the desired node.
-	 *
-	 * In IE8, certain elements cannot render alone, so wrap all elements ('*').
-	 */
-	var shouldWrap = {
-	  // Force wrapping for SVG elements because if they get created inside a <div>,
-	  // they will be initialized in the wrong namespace (and will not display).
-	  'circle': true,
-	  'defs': true,
-	  'ellipse': true,
-	  'g': true,
-	  'line': true,
-	  'linearGradient': true,
-	  'path': true,
-	  'polygon': true,
-	  'polyline': true,
-	  'radialGradient': true,
-	  'rect': true,
-	  'stop': true,
-	  'text': true
-	};
-
-	var selectWrap = [1, '<select multiple="true">', '</select>'];
-	var tableWrap = [1, '<table>', '</table>'];
-	var trWrap = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
-
-	var svgWrap = [1, '<svg>', '</svg>'];
-
-	var markupWrap = {
-	  '*': [1, '?<div>', '</div>'],
-
-	  'area': [1, '<map>', '</map>'],
-	  'col': [2, '<table><tbody></tbody><colgroup>', '</colgroup></table>'],
-	  'legend': [1, '<fieldset>', '</fieldset>'],
-	  'param': [1, '<object>', '</object>'],
-	  'tr': [2, '<table><tbody>', '</tbody></table>'],
-
-	  'optgroup': selectWrap,
-	  'option': selectWrap,
-
-	  'caption': tableWrap,
-	  'colgroup': tableWrap,
-	  'tbody': tableWrap,
-	  'tfoot': tableWrap,
-	  'thead': tableWrap,
-
-	  'td': trWrap,
-	  'th': trWrap,
-
-	  'circle': svgWrap,
-	  'defs': svgWrap,
-	  'ellipse': svgWrap,
-	  'g': svgWrap,
-	  'line': svgWrap,
-	  'linearGradient': svgWrap,
-	  'path': svgWrap,
-	  'polygon': svgWrap,
-	  'polyline': svgWrap,
-	  'radialGradient': svgWrap,
-	  'rect': svgWrap,
-	  'stop': svgWrap,
-	  'text': svgWrap
-	};
-
-	/**
-	 * Gets the markup wrap configuration for the supplied `nodeName`.
-	 *
-	 * NOTE: This lazily detects which wraps are necessary for the current browser.
-	 *
-	 * @param {string} nodeName Lowercase `nodeName`.
-	 * @return {?array} Markup wrap configuration, if applicable.
-	 */
-	function getMarkupWrap(nodeName) {
-	  ("production" !== process.env.NODE_ENV ? invariant(!!dummyNode, 'Markup wrapping node not initialized') : invariant(!!dummyNode));
-	  if (!markupWrap.hasOwnProperty(nodeName)) {
-	    nodeName = '*';
-	  }
-	  if (!shouldWrap.hasOwnProperty(nodeName)) {
-	    if (nodeName === '*') {
-	      dummyNode.innerHTML = '<link />';
-	    } else {
-	      dummyNode.innerHTML = '<' + nodeName + '></' + nodeName + '>';
-	    }
-	    shouldWrap[nodeName] = !dummyNode.firstChild;
-	  }
-	  return shouldWrap[nodeName] ? markupWrap[nodeName] : null;
-	}
-
-
-	module.exports = getMarkupWrap;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
-
-/***/ },
-/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {/*!
@@ -25921,9 +25813,9 @@
 	 * @license  MIT
 	 */
 
-	var base64 = __webpack_require__(204)
-	var ieee754 = __webpack_require__(202)
-	var isArray = __webpack_require__(203)
+	var base64 = __webpack_require__(203)
+	var ieee754 = __webpack_require__(200)
+	var isArray = __webpack_require__(201)
 
 	exports.Buffer = Buffer
 	exports.SlowBuffer = Buffer
@@ -26265,7 +26157,7 @@
 	}
 
 	function utf16leWrite (buf, string, offset, length) {
-	  var charsWritten = blitBuffer(utf16leToBytes(string), buf, offset, length)
+	  var charsWritten = blitBuffer(utf16leToBytes(string), buf, offset, length, 2)
 	  return charsWritten
 	}
 
@@ -26753,7 +26645,7 @@
 
 	  var len = end - start
 
-	  if (len < 100 || !Buffer.TYPED_ARRAY_SUPPORT) {
+	  if (len < 1000 || !Buffer.TYPED_ARRAY_SUPPORT) {
 	    for (var i = 0; i < len; i++) {
 	      target[i + target_start] = this[i + start]
 	    }
@@ -26822,6 +26714,7 @@
 	 * Augment a Uint8Array *instance* (not the Uint8Array class!) with Buffer methods
 	 */
 	Buffer._augment = function (arr) {
+	  arr.constructor = Buffer
 	  arr._isBuffer = true
 
 	  // save reference to original Uint8Array get/set methods before overwriting
@@ -26948,7 +26841,8 @@
 	  return base64.toByteArray(str)
 	}
 
-	function blitBuffer (src, dst, offset, length) {
+	function blitBuffer (src, dst, offset, length, unitSize) {
+	  if (unitSize) length -= length % unitSize;
 	  for (var i = 0; i < length; i++) {
 	    if ((i + offset >= dst.length) || (i >= src.length))
 	      break
@@ -26965,20 +26859,13 @@
 	  }
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(197).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(196).Buffer))
 
 /***/ },
-/* 198 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(201);
-
-
-/***/ },
-/* 199 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
+	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2014 Facebook, Inc.
 	 *
 	 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26993,90 +26880,93 @@
 	 * See the License for the specific language governing permissions and
 	 * limitations under the License.
 	 *
-	 * @providesModule createArrayFrom
+	 * @providesModule createNodesFromMarkup
 	 * @typechecks
 	 */
 
-	var toArray = __webpack_require__(200);
+	/*jslint evil: true, sub: true */
+
+	var ExecutionEnvironment = __webpack_require__(52);
+
+	var createArrayFrom = __webpack_require__(202);
+	var getMarkupWrap = __webpack_require__(198);
+	var invariant = __webpack_require__(65);
 
 	/**
-	 * Perform a heuristic test to determine if an object is "array-like".
-	 *
-	 *   A monk asked Joshu, a Zen master, "Has a dog Buddha nature?"
-	 *   Joshu replied: "Mu."
-	 *
-	 * This function determines if its argument has "array nature": it returns
-	 * true if the argument is an actual array, an `arguments' object, or an
-	 * HTMLCollection (e.g. node.childNodes or node.getElementsByTagName()).
-	 *
-	 * It will return false for other array-like objects like Filelist.
-	 *
-	 * @param {*} obj
-	 * @return {boolean}
+	 * Dummy container used to render all markup.
 	 */
-	function hasArrayNature(obj) {
-	  return (
-	    // not null/false
-	    !!obj &&
-	    // arrays are objects, NodeLists are functions in Safari
-	    (typeof obj == 'object' || typeof obj == 'function') &&
-	    // quacks like an array
-	    ('length' in obj) &&
-	    // not window
-	    !('setInterval' in obj) &&
-	    // no DOM node should be considered an array-like
-	    // a 'select' element has 'length' and 'item' properties on IE8
-	    (typeof obj.nodeType != 'number') &&
-	    (
-	      // a real array
-	      (// HTMLCollection/NodeList
-	      (Array.isArray(obj) ||
-	      // arguments
-	      ('callee' in obj) || 'item' in obj))
-	    )
-	  );
+	var dummyNode =
+	  ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
+
+	/**
+	 * Pattern used by `getNodeName`.
+	 */
+	var nodeNamePattern = /^\s*<(\w+)/;
+
+	/**
+	 * Extracts the `nodeName` of the first element in a string of markup.
+	 *
+	 * @param {string} markup String of markup.
+	 * @return {?string} Node name of the supplied markup.
+	 */
+	function getNodeName(markup) {
+	  var nodeNameMatch = markup.match(nodeNamePattern);
+	  return nodeNameMatch && nodeNameMatch[1].toLowerCase();
 	}
 
 	/**
-	 * Ensure that the argument is an array by wrapping it in an array if it is not.
-	 * Creates a copy of the argument if it is already an array.
+	 * Creates an array containing the nodes rendered from the supplied markup. The
+	 * optionally supplied `handleScript` function will be invoked once for each
+	 * <script> element that is rendered. If no `handleScript` function is supplied,
+	 * an exception is thrown if any <script> elements are rendered.
 	 *
-	 * This is mostly useful idiomatically:
-	 *
-	 *   var createArrayFrom = require('createArrayFrom');
-	 *
-	 *   function takesOneOrMoreThings(things) {
-	 *     things = createArrayFrom(things);
-	 *     ...
-	 *   }
-	 *
-	 * This allows you to treat `things' as an array, but accept scalars in the API.
-	 *
-	 * If you need to convert an array-like object, like `arguments`, into an array
-	 * use toArray instead.
-	 *
-	 * @param {*} obj
-	 * @return {array}
+	 * @param {string} markup A string of valid HTML markup.
+	 * @param {?function} handleScript Invoked once for each rendered <script>.
+	 * @return {array<DOMElement|DOMTextNode>} An array of rendered nodes.
 	 */
-	function createArrayFrom(obj) {
-	  if (!hasArrayNature(obj)) {
-	    return [obj];
-	  } else if (Array.isArray(obj)) {
-	    return obj.slice();
+	function createNodesFromMarkup(markup, handleScript) {
+	  var node = dummyNode;
+	  ("production" !== process.env.NODE_ENV ? invariant(!!dummyNode, 'createNodesFromMarkup dummy not initialized') : invariant(!!dummyNode));
+	  var nodeName = getNodeName(markup);
+
+	  var wrap = nodeName && getMarkupWrap(nodeName);
+	  if (wrap) {
+	    node.innerHTML = wrap[1] + markup + wrap[2];
+
+	    var wrapDepth = wrap[0];
+	    while (wrapDepth--) {
+	      node = node.lastChild;
+	    }
 	  } else {
-	    return toArray(obj);
+	    node.innerHTML = markup;
 	  }
+
+	  var scripts = node.getElementsByTagName('script');
+	  if (scripts.length) {
+	    ("production" !== process.env.NODE_ENV ? invariant(
+	      handleScript,
+	      'createNodesFromMarkup(...): Unexpected <script> element rendered.'
+	    ) : invariant(handleScript));
+	    createArrayFrom(scripts).forEach(handleScript);
+	  }
+
+	  var nodes = createArrayFrom(node.childNodes);
+	  while (node.lastChild) {
+	    node.removeChild(node.lastChild);
+	  }
+	  return nodes;
 	}
 
-	module.exports = createArrayFrom;
-
+	module.exports = createNodesFromMarkup;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 200 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2014 Facebook, Inc.
+	 * Copyright 2013-2014 Facebook, Inc.
 	 *
 	 * Licensed under the Apache License, Version 2.0 (the "License");
 	 * you may not use this file except in compliance with the License.
@@ -27090,71 +26980,116 @@
 	 * See the License for the specific language governing permissions and
 	 * limitations under the License.
 	 *
-	 * @providesModule toArray
-	 * @typechecks
+	 * @providesModule getMarkupWrap
 	 */
 
-	var invariant = __webpack_require__(63);
+	var ExecutionEnvironment = __webpack_require__(52);
+
+	var invariant = __webpack_require__(65);
 
 	/**
-	 * Convert array-like objects to arrays.
-	 *
-	 * This API assumes the caller knows the contents of the data type. For less
-	 * well defined inputs use createArrayFrom.
-	 *
-	 * @param {object|function|filelist} obj
-	 * @return {array}
+	 * Dummy container used to detect which wraps are necessary.
 	 */
-	function toArray(obj) {
-	  var length = obj.length;
+	var dummyNode =
+	  ExecutionEnvironment.canUseDOM ? document.createElement('div') : null;
 
-	  // Some browse builtin objects can report typeof 'function' (e.g. NodeList in
-	  // old versions of Safari).
-	  ("production" !== process.env.NODE_ENV ? invariant(
-	    !Array.isArray(obj) &&
-	    (typeof obj === 'object' || typeof obj === 'function'),
-	    'toArray: Array-like object expected'
-	  ) : invariant(!Array.isArray(obj) &&
-	  (typeof obj === 'object' || typeof obj === 'function')));
+	/**
+	 * Some browsers cannot use `innerHTML` to render certain elements standalone,
+	 * so we wrap them, render the wrapped nodes, then extract the desired node.
+	 *
+	 * In IE8, certain elements cannot render alone, so wrap all elements ('*').
+	 */
+	var shouldWrap = {
+	  // Force wrapping for SVG elements because if they get created inside a <div>,
+	  // they will be initialized in the wrong namespace (and will not display).
+	  'circle': true,
+	  'defs': true,
+	  'ellipse': true,
+	  'g': true,
+	  'line': true,
+	  'linearGradient': true,
+	  'path': true,
+	  'polygon': true,
+	  'polyline': true,
+	  'radialGradient': true,
+	  'rect': true,
+	  'stop': true,
+	  'text': true
+	};
 
-	  ("production" !== process.env.NODE_ENV ? invariant(
-	    typeof length === 'number',
-	    'toArray: Object needs a length property'
-	  ) : invariant(typeof length === 'number'));
+	var selectWrap = [1, '<select multiple="true">', '</select>'];
+	var tableWrap = [1, '<table>', '</table>'];
+	var trWrap = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
 
-	  ("production" !== process.env.NODE_ENV ? invariant(
-	    length === 0 ||
-	    (length - 1) in obj,
-	    'toArray: Object should have keys for indices'
-	  ) : invariant(length === 0 ||
-	  (length - 1) in obj));
+	var svgWrap = [1, '<svg>', '</svg>'];
 
-	  // Old IE doesn't give collections access to hasOwnProperty. Assume inputs
-	  // without method will throw during the slice call and skip straight to the
-	  // fallback.
-	  if (obj.hasOwnProperty) {
-	    try {
-	      return Array.prototype.slice.call(obj);
-	    } catch (e) {
-	      // IE < 9 does not support Array#slice on collections objects
+	var markupWrap = {
+	  '*': [1, '?<div>', '</div>'],
+
+	  'area': [1, '<map>', '</map>'],
+	  'col': [2, '<table><tbody></tbody><colgroup>', '</colgroup></table>'],
+	  'legend': [1, '<fieldset>', '</fieldset>'],
+	  'param': [1, '<object>', '</object>'],
+	  'tr': [2, '<table><tbody>', '</tbody></table>'],
+
+	  'optgroup': selectWrap,
+	  'option': selectWrap,
+
+	  'caption': tableWrap,
+	  'colgroup': tableWrap,
+	  'tbody': tableWrap,
+	  'tfoot': tableWrap,
+	  'thead': tableWrap,
+
+	  'td': trWrap,
+	  'th': trWrap,
+
+	  'circle': svgWrap,
+	  'defs': svgWrap,
+	  'ellipse': svgWrap,
+	  'g': svgWrap,
+	  'line': svgWrap,
+	  'linearGradient': svgWrap,
+	  'path': svgWrap,
+	  'polygon': svgWrap,
+	  'polyline': svgWrap,
+	  'radialGradient': svgWrap,
+	  'rect': svgWrap,
+	  'stop': svgWrap,
+	  'text': svgWrap
+	};
+
+	/**
+	 * Gets the markup wrap configuration for the supplied `nodeName`.
+	 *
+	 * NOTE: This lazily detects which wraps are necessary for the current browser.
+	 *
+	 * @param {string} nodeName Lowercase `nodeName`.
+	 * @return {?array} Markup wrap configuration, if applicable.
+	 */
+	function getMarkupWrap(nodeName) {
+	  ("production" !== process.env.NODE_ENV ? invariant(!!dummyNode, 'Markup wrapping node not initialized') : invariant(!!dummyNode));
+	  if (!markupWrap.hasOwnProperty(nodeName)) {
+	    nodeName = '*';
+	  }
+	  if (!shouldWrap.hasOwnProperty(nodeName)) {
+	    if (nodeName === '*') {
+	      dummyNode.innerHTML = '<link />';
+	    } else {
+	      dummyNode.innerHTML = '<' + nodeName + '></' + nodeName + '>';
 	    }
+	    shouldWrap[nodeName] = !dummyNode.firstChild;
 	  }
-
-	  // Fall back to copying key by key. This assumes all keys have a value,
-	  // so will not preserve sparsely populated inputs.
-	  var ret = Array(length);
-	  for (var ii = 0; ii < length; ii++) {
-	    ret[ii] = obj[ii];
-	  }
-	  return ret;
+	  return shouldWrap[nodeName] ? markupWrap[nodeName] : null;
 	}
 
-	module.exports = toArray;
+
+	module.exports = getMarkupWrap;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ },
-/* 201 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -27302,7 +27237,7 @@
 
 
 /***/ },
-/* 202 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.read = function(buffer, offset, isLE, mLen, nBytes) {
@@ -27392,7 +27327,7 @@
 
 
 /***/ },
-/* 203 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -27431,7 +27366,104 @@
 
 
 /***/ },
-/* 204 */
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule createArrayFrom
+	 * @typechecks
+	 */
+
+	var toArray = __webpack_require__(204);
+
+	/**
+	 * Perform a heuristic test to determine if an object is "array-like".
+	 *
+	 *   A monk asked Joshu, a Zen master, "Has a dog Buddha nature?"
+	 *   Joshu replied: "Mu."
+	 *
+	 * This function determines if its argument has "array nature": it returns
+	 * true if the argument is an actual array, an `arguments' object, or an
+	 * HTMLCollection (e.g. node.childNodes or node.getElementsByTagName()).
+	 *
+	 * It will return false for other array-like objects like Filelist.
+	 *
+	 * @param {*} obj
+	 * @return {boolean}
+	 */
+	function hasArrayNature(obj) {
+	  return (
+	    // not null/false
+	    !!obj &&
+	    // arrays are objects, NodeLists are functions in Safari
+	    (typeof obj == 'object' || typeof obj == 'function') &&
+	    // quacks like an array
+	    ('length' in obj) &&
+	    // not window
+	    !('setInterval' in obj) &&
+	    // no DOM node should be considered an array-like
+	    // a 'select' element has 'length' and 'item' properties on IE8
+	    (typeof obj.nodeType != 'number') &&
+	    (
+	      // a real array
+	      (// HTMLCollection/NodeList
+	      (Array.isArray(obj) ||
+	      // arguments
+	      ('callee' in obj) || 'item' in obj))
+	    )
+	  );
+	}
+
+	/**
+	 * Ensure that the argument is an array by wrapping it in an array if it is not.
+	 * Creates a copy of the argument if it is already an array.
+	 *
+	 * This is mostly useful idiomatically:
+	 *
+	 *   var createArrayFrom = require('createArrayFrom');
+	 *
+	 *   function takesOneOrMoreThings(things) {
+	 *     things = createArrayFrom(things);
+	 *     ...
+	 *   }
+	 *
+	 * This allows you to treat `things' as an array, but accept scalars in the API.
+	 *
+	 * If you need to convert an array-like object, like `arguments`, into an array
+	 * use toArray instead.
+	 *
+	 * @param {*} obj
+	 * @return {array}
+	 */
+	function createArrayFrom(obj) {
+	  if (!hasArrayNature(obj)) {
+	    return [obj];
+	  } else if (Array.isArray(obj)) {
+	    return obj.slice();
+	  } else {
+	    return toArray(obj);
+	  }
+	}
+
+	module.exports = createArrayFrom;
+
+
+/***/ },
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
@@ -27553,8 +27585,90 @@
 
 		exports.toByteArray = b64ToByteArray
 		exports.fromByteArray = uint8ToBase64
-	}(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
+	}(false ? (this.base64js = {}) : exports))
 
+
+/***/ },
+/* 204 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule toArray
+	 * @typechecks
+	 */
+
+	var invariant = __webpack_require__(65);
+
+	/**
+	 * Convert array-like objects to arrays.
+	 *
+	 * This API assumes the caller knows the contents of the data type. For less
+	 * well defined inputs use createArrayFrom.
+	 *
+	 * @param {object|function|filelist} obj
+	 * @return {array}
+	 */
+	function toArray(obj) {
+	  var length = obj.length;
+
+	  // Some browse builtin objects can report typeof 'function' (e.g. NodeList in
+	  // old versions of Safari).
+	  ("production" !== process.env.NODE_ENV ? invariant(
+	    !Array.isArray(obj) &&
+	    (typeof obj === 'object' || typeof obj === 'function'),
+	    'toArray: Array-like object expected'
+	  ) : invariant(!Array.isArray(obj) &&
+	  (typeof obj === 'object' || typeof obj === 'function')));
+
+	  ("production" !== process.env.NODE_ENV ? invariant(
+	    typeof length === 'number',
+	    'toArray: Object needs a length property'
+	  ) : invariant(typeof length === 'number'));
+
+	  ("production" !== process.env.NODE_ENV ? invariant(
+	    length === 0 ||
+	    (length - 1) in obj,
+	    'toArray: Object should have keys for indices'
+	  ) : invariant(length === 0 ||
+	  (length - 1) in obj));
+
+	  // Old IE doesn't give collections access to hasOwnProperty. Assume inputs
+	  // without method will throw during the slice call and skip straight to the
+	  // fallback.
+	  if (obj.hasOwnProperty) {
+	    try {
+	      return Array.prototype.slice.call(obj);
+	    } catch (e) {
+	      // IE < 9 does not support Array#slice on collections objects
+	    }
+	  }
+
+	  // Fall back to copying key by key. This assumes all keys have a value,
+	  // so will not preserve sparsely populated inputs.
+	  var ret = Array(length);
+	  for (var ii = 0; ii < length; ii++) {
+	    ret[ii] = obj[ii];
+	  }
+	  return ret;
+	}
+
+	module.exports = toArray;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
 
 /***/ }
 /******/ ])
