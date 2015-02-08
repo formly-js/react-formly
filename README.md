@@ -78,9 +78,17 @@ React.renderComponent(<App />, document.body);
 
 ### API
 
+#### onFormlyUpdate
+
+Called with the `model` anytime there's an update.
+
+#### model
+
+The model to represent with the form.
+
 #### config
 
-An object to configure formly. It is expected to have
+An object to configure formly. It is expected to have a `name` (string, optional) and `fields` (array of `field`). `fields` are expected to have a `key`, `type` / `component`, `hidden` (bool/func), `data`, (object), and `props` (object/func)
 
 ## FormlyConfig
 
