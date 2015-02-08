@@ -83,10 +83,10 @@ var App = React.createClass({
     return (
       <div className="container">
         <h1>
-          <a href="http://github.com/kentcdodds/react-formly">React-Formly</a>
+          <a href="http://github.com/formly-js/react-formly">React-Formly</a>
           <small>JSON powered forms for <a href="http://facebook.github.io/react/">React</a></small>
         </h1>
-        <BuildBadge owner="kentcdodds" repo="react-formly" />
+        <BuildBadge owner="formly-js" repo="react-formly" />
 
         <h2>Form</h2>
         <Formly config={this.formlyConfig} model={this.state.model} onFormlyUpdate={this.onFormlyUpdate} />
