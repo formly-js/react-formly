@@ -1,6 +1,6 @@
 {
   "name": "react-formly",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JSON powered forms for react - Currently in alpha state, API subject to change...",
   "scripts": {
     "test": "gulp ci --travis",
