@@ -4,7 +4,12 @@
   "description": "JSON powered forms for react - Currently in alpha state, API subject to change...",
   "scripts": {
     "test": "gulp ci --travis",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "deploy": "gulp deploy",
+    "release": "npm run build && with-package git commit -am pkg.version && with-package git tag pkg.version && git push && npm publish && git push --tags",
+    "release:beta": "npm run release && npm run tag:beta",
+    "tag:beta": "with-package npm dist-tag add pkg.name@pkg.version beta"
   },
   "repository": {
     "type": "git",
@@ -49,6 +54,7 @@
     "rimraf": "^2.2.8",
     "serve-static": "^1.6.1",
     "webpack": "^1.3.2-beta9",
+    "with-package": "0.2.0",
     "yargs": "^1.3.1"
   },
   "dependencies": {
