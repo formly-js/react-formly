@@ -1,8 +1,7 @@
 /** @jsx React.DOM */
 'use strict';
 
-var React = require('react/addons');
-var merge = require('react/lib/merge');
+var React = require('react');
 var FormlyConfig = require('./../modules/FormlyConfig');
 
 function typeOrComponent(props, propName, componentName) {
@@ -70,13 +69,16 @@ function generateFieldTag(field, model, onValueUpdate) {
 }
 
 function getComponent(fieldComponent, field, model, onValueUpdate) {
-  var component = <fieldComponent model={model} config={field} onValueUpdate={onValueUpdate} key={field.key} />;
+
+  var componentProps;
   if (field.props) {
-    var props = typeof field.props === 'function' ? field.props(model, field) : field.props;
-    component = React.addons.cloneWithProps(component, merge(props, {
-      key: component.props.key
-    }));
+    componentProps = typeof field.props === 'function' ? field.props(model, field) : field.props;
   }
+
+  //assign to variable to allow JSX compiler to pick up as a prop instead of string
+  var FieldComponent = fieldComponent;
+  var component = <FieldComponent {...componentProps} model={model} config={field} onValueUpdate={onValueUpdate} key={field.key} />;
+
   return component;
 }
 

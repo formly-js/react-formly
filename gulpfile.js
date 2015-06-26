@@ -175,8 +175,7 @@ function getBuildWebpack(once) {
     },
 
     externals: {
-      'react/addons': 'React',
-      'react/lib/merge': 'React'
+      'react': 'React'
     },
 
     debug: false,

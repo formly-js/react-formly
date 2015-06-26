@@ -11,7 +11,7 @@ var TextField = React.createClass({
   },
   render: function() {
     var model = this.props.model || {};
-    var key = this.props.key || '';
+    var key = this.props.config.key || '';
     var value = '';
     if (key) {
       value = model[key];
@@ -32,7 +32,7 @@ var NumberField = React.createClass({
   render: function() {
     var model = this.props.model || {};
     var config = this.props.config;
-    var key = this.props.key || '';
+    var key = this.props.config.key || '';
     var value = '';
     if (key) {
       value = model[key];

@@ -8,7 +8,7 @@ var Radio = React.createClass({
   render: function() {
     var model = this.props.model;
     var config = this.props.config;
-    var key = this.props.key;
+    var key = config.key;
 //    var options = config.options.map(function(option) {
 //      return (
 //        <div className="radio">
