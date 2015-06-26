@@ -175,7 +175,7 @@ function getBuildWebpack(once) {
     },
 
     externals: {
-      'react': 'React'
+      'react': 'react'
     },
 
     debug: false,
